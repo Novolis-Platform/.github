@@ -1,17 +1,17 @@
 {
-  "overall_iou": 0.9137,
+  "overall_iou": 0.9284,
   "path_count": 6,
   "elements": [
     {
       "path_index": 0,
       "label": "swirl_upper",
-      "iou": 0.8588,
-      "bbox_iou": 0.7825,
-      "centroid_delta": 3.069,
+      "iou": 0.9032,
+      "bbox_iou": 0.8449,
+      "centroid_delta": 4.227,
       "bbox": {
-        "x0": 27.34375,
-        "y0": 2.734375,
-        "x1": 69.140625,
+        "x0": 27.734375,
+        "y0": 3.125,
+        "x1": 71.09375,
         "y1": 16.796875
       },
       "ref_bbox": {
@@ -28,13 +28,13 @@
     {
       "path_index": 1,
       "label": "swirl_lower",
-      "iou": 0.7838,
-      "bbox_iou": 0.9142,
-      "centroid_delta": 2.974,
+      "iou": 0.8419,
+      "bbox_iou": 0.9376,
+      "centroid_delta": 3.16,
       "bbox": {
-        "x0": 39.84375,
+        "x0": 39.0625,
         "y0": 63.671875,
-        "x1": 68.359375,
+        "x1": 68.75,
         "y1": 71.875
       },
       "ref_bbox": {
@@ -51,7 +51,7 @@
     {
       "path_index": 2,
       "label": "n_right_stem",
-      "iou": 0.9202,
+      "iou": 0.924,
       "bbox_iou": 0.9552,
       "centroid_delta": 1.334,
       "bbox": {
@@ -74,12 +74,12 @@
     {
       "path_index": 3,
       "label": "n_left_stem",
-      "iou": 0.9584,
-      "bbox_iou": 0.9282,
-      "centroid_delta": 1.364,
+      "iou": 0.9335,
+      "bbox_iou": 0.9553,
+      "centroid_delta": 1.23,
       "bbox": {
-        "x0": 33.59375,
-        "y0": 31.640625,
+        "x0": 33.984375,
+        "y0": 32.03125,
         "x1": 41.015625,
         "y1": 59.765625
       },
@@ -97,12 +97,12 @@
     {
       "path_index": 4,
       "label": "n_diagonal",
-      "iou": 0.9256,
-      "bbox_iou": 0.9471,
-      "centroid_delta": 3.367,
+      "iou": 0.9394,
+      "bbox_iou": 0.9608,
+      "centroid_delta": 3.642,
       "bbox": {
-        "x0": 21.484375,
-        "y0": 17.96875,
+        "x0": 21.875,
+        "y0": 18.359375,
         "x1": 77.34375,
         "y1": 67.96875
       },
@@ -120,14 +120,14 @@
     {
       "path_index": 5,
       "label": "star",
-      "iou": 0.8333,
-      "bbox_iou": 0.8383,
-      "centroid_delta": 0.117,
+      "iou": 0.9338,
+      "bbox_iou": 0.8047,
+      "centroid_delta": 0.115,
       "bbox": {
         "x0": 70.703125,
         "y0": 8.203125,
         "x1": 79.296875,
-        "y1": 17.96875
+        "y1": 17.578125
       },
       "ref_bbox": {
         "x0": 70.58222676200204,

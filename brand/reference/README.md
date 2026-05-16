@@ -23,9 +23,9 @@ From `brand/scripts/`:
 python reference_mask.py extract
 python reference_mask.py visualize
 
-# 2. Generate logo-mark.svg (traces reference masks → SVG paths)
+# 2. Generate logo-mark.svg (traces reference masks → SVG paths, 5× spline resolution)
 pip install -r ../requirements-dev.txt
-python build_logo_mark.py
+python build_logo_mark.py   # SPLINE_SCALE=5 in build_logo_mark.py
 python sync_mark.py
 
 # 3. Compare candidate SVG (diagnostic JSON)

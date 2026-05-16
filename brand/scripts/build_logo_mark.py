@@ -25,8 +25,11 @@ PATH_ORDER = [
     "n_diagonal",
     "star",
 ]
-RENDER = 512
-SIMPLIFY_EPS = 0.35
+# 5× spline resolution vs original trace (512px canvas, eps 0.35, 64² masks)
+SPLINE_SCALE = 5
+RENDER = 512 * SPLINE_SCALE  # 2560 — contour sampling density
+SIMPLIFY_EPS = 0.35 / SPLINE_SCALE  # 0.07 — retain ~5× more vertices
+MASK_UPSCALE = SPLINE_SCALE  # 64² reference masks → 320² before trace
 
 
 def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, float]]:
@@ -66,14 +69,28 @@ def _pts_to_path(pts: list[tuple[float, float]]) -> str:
     if len(pts) < 3:
         return ""
     x0, y0 = pts[0]
-    parts = [f"M{x0:.2f},{y0:.2f}"]
-    parts.extend(f"L{x:.2f},{y:.2f}" for x, y in pts[1:])
+    parts = [f"M{x0:.3f},{y0:.3f}"]
+    parts.extend(f"L{x:.3f},{y:.3f}" for x, y in pts[1:])
     return "".join(parts) + "Z"
+
+
+def _upscale_mask(mask: np.ndarray) -> np.ndarray:
+    """Upscale compact reference mask to MASK_UPSCALE × grid for smoother contours."""
+    h, w = mask.shape
+    target = max(h * MASK_UPSCALE, w * MASK_UPSCALE, 64 * MASK_UPSCALE)
+    scale = target / max(h, w)
+    tw, th = max(1, int(round(w * scale))), max(1, int(round(h * scale)))
+    return (
+        np.array(
+            Image.fromarray((mask.astype(np.uint8) * 255)).resize((tw, th), Image.Resampling.LANCZOS)
+        )
+        > 127
+    )
 
 
 def element_to_path(elem: dict, res: int = RENDER) -> str:
     """Trace reference mask64 into a viewBox 0–100 SVG path."""
-    mask = np.array(elem["mask64"], dtype=np.uint8) > 0
+    mask = _upscale_mask(np.array(elem["mask64"], dtype=np.uint8) > 0)
     b = elem["bbox"]
     x0 = int(b["x0"] / 100 * res)
     y0 = int(b["y0"] / 100 * res)
@@ -134,7 +151,7 @@ def main() -> None:
     if not REF.exists():
         raise SystemExit(f"Run reference_mask.py extract first (missing {REF})")
     OUT.write_text(build(), encoding="utf-8", newline="\n")
-    print(f"Wrote {OUT} (traced from {REF.name})")
+    print(f"Wrote {OUT} (traced from {REF.name}, {RENDER}px, {SPLINE_SCALE}x splines)")
 
 
 if __name__ == "__main__":
