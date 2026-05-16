@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-mark.svg" width="96" height="96" alt="Novolis"/>
+</p>
+
 # Novolis 👋
 
 Modern .NET ecosystem tooling for realtime systems, graphics, runtime infrastructure, experimentation, and whatever else seems like a good idea at 02:00.

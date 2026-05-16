@@ -186,7 +186,6 @@ Initial structure:
 docs/
 src/
 tests/
-eng/
 
 .editorconfig
 .gitattributes
