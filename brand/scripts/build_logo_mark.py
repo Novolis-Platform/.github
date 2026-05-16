@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate logo-mark.svg by tracing reference/elements.json masks."""
+"""Generate logo-mark.svg as smooth cubic Bézier splines fitted to reference masks."""
 from __future__ import annotations
 
 import json
@@ -17,6 +17,8 @@ except ImportError:
 BRAND = Path(__file__).resolve().parent.parent
 OUT = BRAND / "logo-mark.svg"
 REF = BRAND / "reference" / "elements.json"
+
+# Path order matches reference/path-index-map.json
 PATH_ORDER = [
     "swirl_upper",
     "swirl_lower",
@@ -25,11 +27,19 @@ PATH_ORDER = [
     "n_diagonal",
     "star",
 ]
-# 5× spline resolution vs original trace (512px canvas, eps 0.35, 64² masks)
-SPLINE_SCALE = 5
-RENDER = 512 * SPLINE_SCALE  # 2560 — contour sampling density
-SIMPLIFY_EPS = 0.35 / SPLINE_SCALE  # 0.07 — retain ~5× more vertices
-MASK_UPSCALE = SPLINE_SCALE  # 64² reference masks → 320² before trace
+
+# Target corner count per element (sparse polygon → smooth spline)
+CORNER_BUDGET: dict[str, int] = {
+    "swirl_upper": 6,
+    "swirl_lower": 6,
+    "n_right_stem": 5,
+    "n_left_stem": 5,
+    "n_diagonal": 8,
+    "star": 4,
+}
+
+RENDER = 1024
+TENSION = 0.38  # Catmull–Rom → Bézier corner smoothness
 
 
 def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, float]]:
@@ -41,11 +51,14 @@ def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, flo
         bx, by = b
         if ax == bx and ay == by:
             return math.hypot(p[0] - ax, p[1] - ay)
-        t = max(0, min(1, ((p[0] - ax) * (bx - ax) + (p[1] - ay) * (by - ay)) / ((bx - ax) ** 2 + (by - ay) ** 2)))
+        t = max(
+            0,
+            min(1, ((p[0] - ax) * (bx - ax) + (p[1] - ay) * (by - ay)) / ((bx - ax) ** 2 + (by - ay) ** 2)),
+        )
         px, py = ax + t * (bx - ax), ay + t * (by - ay)
         return math.hypot(p[0] - px, p[1] - py)
 
-    def rdp_rec(pts: list[tuple[float, float]]) -> list[tuple[float, float]]:
+    def rec(pts: list[tuple[float, float]]) -> list[tuple[float, float]]:
         if len(pts) < 3:
             return pts
         a, b = pts[0], pts[-1]
@@ -55,67 +68,108 @@ def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, flo
             if d > dmax:
                 idx, dmax = i, d
         if dmax > eps:
-            left = rdp_rec(pts[: idx + 1])
-            right = rdp_rec(pts[idx:])
-            return left[:-1] + right
+            return rec(pts[: idx + 1])[:-1] + rec(pts[idx:])
         return [a, b]
 
-    closed = points[:-1] if points[0] == points[-1] else points
-    simplified = rdp_rec(closed + [closed[0]])
-    return simplified
+    closed = points if points[0] == points[-1] else points + [points[0]]
+    return rec(closed)
 
 
-def _pts_to_path(pts: list[tuple[float, float]]) -> str:
-    if len(pts) < 3:
-        return ""
-    x0, y0 = pts[0]
-    parts = [f"M{x0:.3f},{y0:.3f}"]
-    parts.extend(f"L{x:.3f},{y:.3f}" for x, y in pts[1:])
-    return "".join(parts) + "Z"
 
 
-def _upscale_mask(mask: np.ndarray) -> np.ndarray:
-    """Upscale compact reference mask to MASK_UPSCALE × grid for smoother contours."""
-    h, w = mask.shape
-    target = max(h * MASK_UPSCALE, w * MASK_UPSCALE, 64 * MASK_UPSCALE)
-    scale = target / max(h, w)
-    tw, th = max(1, int(round(w * scale))), max(1, int(round(h * scale)))
-    return (
-        np.array(
-            Image.fromarray((mask.astype(np.uint8) * 255)).resize((tw, th), Image.Resampling.LANCZOS)
-        )
-        > 127
-    )
+def _rdp_to_budget(points: list[tuple[float, float]], budget: int) -> list[tuple[float, float]]:
+    """Reduce contour to ~budget corners via iterative RDP."""
+    if len(points) <= budget + 1:
+        return points[:-1] if points and points[0] == points[-1] else points
+    lo, hi = 0.05, max(2.0, len(points) * 0.5)
+    best = points
+    for _ in range(24):
+        mid = (lo + hi) / 2
+        simplified = _rdp(points, mid)
+        n = len(simplified) - (1 if simplified and simplified[0] == simplified[-1] else 0)
+        if n > budget:
+            lo = mid
+        else:
+            hi = mid
+            best = simplified
+    out = best[:-1] if best and best[0] == best[-1] else best
+    if len(out) > budget:
+        step = max(1, len(out) // budget)
+        out = out[::step][:budget]
+    return out
 
 
-def element_to_path(elem: dict, res: int = RENDER) -> str:
-    """Trace reference mask64 into a viewBox 0–100 SVG path."""
-    mask = _upscale_mask(np.array(elem["mask64"], dtype=np.uint8) > 0)
+def _mask_contour(elem: dict, res: int = RENDER) -> list[tuple[float, float]]:
+    mask = np.array(elem["mask64"], dtype=np.uint8) > 0
     b = elem["bbox"]
     x0 = int(b["x0"] / 100 * res)
     y0 = int(b["y0"] / 100 * res)
     x1 = max(x0 + 2, int(math.ceil(b["x1"] / 100 * res)))
     y1 = max(y0 + 2, int(math.ceil(b["y1"] / 100 * res)))
-    pw, ph = x1 - x0, y1 - y0
     patch = np.array(
-        Image.fromarray((mask.astype(np.uint8) * 255)).resize((pw, ph), Image.Resampling.LANCZOS)
+        Image.fromarray((mask.astype(np.uint8) * 255)).resize((x1 - x0, y1 - y0), Image.Resampling.LANCZOS)
     ) > 127
-
     canvas = np.zeros((res, res), dtype=np.float64)
     canvas[y0:y1, x0:x1] = patch.astype(np.float64)
-
-    if find_contours is None:
-        raise RuntimeError("scikit-image required: pip install scikit-image")
-
     contours = find_contours(canvas, 0.5)
     if not contours:
-        return ""
-    contour = max(contours, key=len)
-    pts = [(float(col) / res * 100, float(row) / res * 100) for row, col in contour]
-    pts = _rdp(pts, SIMPLIFY_EPS)
-    if pts and pts[0] != pts[-1]:
+        return []
+    c = max(contours, key=len)
+    pts = [(float(col) / res * 100, float(row) / res * 100) for row, col in c]
+    if pts[0] != pts[-1]:
         pts.append(pts[0])
-    return _pts_to_path(pts)
+    return pts
+
+
+def _catmull_rom_closed(points: list[tuple[float, float]], tension: float = TENSION) -> str:
+    """Closed cubic Bézier spline through sparse corners."""
+    n = len(points)
+    if n < 3:
+        return ""
+    parts = [f"M{points[0][0]:.2f},{points[0][1]:.2f}"]
+    for i in range(n):
+        p0 = points[(i - 1) % n]
+        p1 = points[i]
+        p2 = points[(i + 1) % n]
+        p3 = points[(i + 2) % n]
+        c1x = p1[0] + (p2[0] - p0[0]) * tension
+        c1y = p1[1] + (p2[1] - p0[1]) * tension
+        c2x = p2[0] - (p3[0] - p1[0]) * tension
+        c2y = p2[1] - (p3[1] - p1[1]) * tension
+        parts.append(f"C{c1x:.2f},{c1y:.2f} {c2x:.2f},{c2y:.2f} {p2[0]:.2f},{p2[1]:.2f}")
+    parts.append("Z")
+    return "".join(parts)
+
+
+def _star_path(elem: dict) -> str:
+    """Four-point concave star — quadratic beziers (smooth sparkle)."""
+    b = elem["bbox"]
+    cx = (b["x0"] + b["x1"]) / 2
+    cy = (b["y0"] + b["y1"]) / 2
+    r = min(b["x1"] - b["x0"], b["y1"] - b["y0"]) / 2 * 0.92
+    pinch = 0.34
+    tips = [(cx, cy - r), (cx + r, cy), (cx, cy + r), (cx - r, cy)]
+    d = [f"M{tips[0][0]:.2f},{tips[0][1]:.2f}"]
+    for i in range(4):
+        x0, y0 = tips[i]
+        x1, y1 = tips[(i + 1) % 4]
+        mx, my = (x0 + x1) / 2, (y0 + y1) / 2
+        qx = cx + (mx - cx) * pinch
+        qy = cy + (my - cy) * pinch
+        d.append(f"Q{qx:.2f},{qy:.2f} {x1:.2f},{y1:.2f}")
+    return "".join(d) + "Z"
+
+
+def element_to_smooth_path(elem: dict) -> str:
+    label = elem["label"]
+    if label == "star":
+        return _star_path(elem)
+    contour = _mask_contour(elem)
+    if not contour:
+        return ""
+    budget = CORNER_BUDGET.get(label, 8)
+    corners = _rdp_to_budget(contour, budget)
+    return _catmull_rom_closed(corners)
 
 
 def build() -> str:
@@ -126,7 +180,7 @@ def build() -> str:
         elem = by_label.get(label)
         if not elem:
             raise KeyError(f"missing reference element {label}")
-        d = element_to_path(elem)
+        d = element_to_smooth_path(elem)
         if not d:
             raise ValueError(f"empty path for {label}")
         paths.append(d)
@@ -151,7 +205,7 @@ def main() -> None:
     if not REF.exists():
         raise SystemExit(f"Run reference_mask.py extract first (missing {REF})")
     OUT.write_text(build(), encoding="utf-8", newline="\n")
-    print(f"Wrote {OUT} (traced from {REF.name}, {RENDER}px, {SPLINE_SCALE}x splines)")
+    print(f"Wrote {OUT} (smooth cubic splines, 8-point N)")
 
 
 if __name__ == "__main__":
