@@ -97,3 +97,16 @@ No “you must do things our way” energy.
 Novolis is built openly, iteratively, and experimentally.
 
 Ideas, feedback, prototypes, discussions, and weird experiments are welcome.
+
+---
+
+## Policies & docs 📚
+
+| Resource | Link |
+|----------|------|
+| Contribution policy | [novolis-governance](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/contribution-policy.md) |
+| Security policy | [SECURITY.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/SECURITY.md) |
+| Package registry | [novolis-registry](https://github.com/Novolis-Platform/novolis-registry) |
+| Roadmap | [roadmap.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/roadmap.md) |
+| Governance | [novolis-governance](https://github.com/Novolis-Platform/novolis-governance) |
+| .NET repo template | [novolis-template-dotnet](https://github.com/Novolis-Platform/novolis-template-dotnet) |
