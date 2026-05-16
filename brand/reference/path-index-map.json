@@ -1,0 +1,11 @@
+{
+  "description": "Expected path order in logo-mark.svg (index 0 = first <path> in file)",
+  "logo-mark.svg": {
+    "0": "swirl_upper",
+    "1": "swirl_lower",
+    "2": "n_right_stem",
+    "3": "n_left_stem",
+    "4": "n_diagonal",
+    "5": "star"
+  }
+}

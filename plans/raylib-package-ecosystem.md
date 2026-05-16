@@ -234,5 +234,6 @@ Novolis.Raylib.Testing
 
 ## Related docs
 
+* [raylib/raylib-ecosystem-specs.md](raylib/raylib-ecosystem-specs.md) — detailed API, archetypes, loops, rules
 * [bootstrapping-organization.md](bootstrapping-organization.md)
 * [profile/README.md](../profile/README.md)
