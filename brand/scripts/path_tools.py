@@ -392,6 +392,20 @@ def load_path_index_map(path: Path, svg_name: str = "logo-mark.svg") -> dict[str
     return {str(k): v for k, v in raw.items()}
 
 
+def embed_labels_union(
+    ref_by_label: dict[str, ElementMap],
+    labels: list[str],
+    shape: tuple[int, int],
+) -> np.ndarray:
+    full = np.zeros(shape, dtype=bool)
+    for label in labels:
+        elem = ref_by_label.get(label)
+        if elem is None:
+            continue
+        full |= embed_element_mask(elem, shape)
+    return full
+
+
 def compare_by_path_map(
     candidate_svg: Path | str,
     reference_json: Path | str,
@@ -403,7 +417,10 @@ def compare_by_path_map(
     """Compare each SVG path index to the reference element with the mapped label."""
     reference = load_reference_elements(Path(reference_json))
     ref_by_label = {e.label: e for e in reference}
+    map_data = json.loads(Path(path_index_json).read_text(encoding="utf-8"))
     index_map = load_path_index_map(Path(path_index_json), svg_name)
+    compare_union: dict[str, list[str]] = map_data.get("compare_as_union", {})
+    mapped_labels = set(index_map.values())
 
     svg_text = Path(candidate_svg).read_text(encoding="utf-8") if isinstance(candidate_svg, Path) else candidate_svg
     paths = parse_paths(svg_text)
@@ -416,6 +433,10 @@ def compare_by_path_map(
     full_mask = render_svg_to_mask(full_svg, size=render_size)
     ref_union = np.zeros(shape, dtype=bool)
     for e in reference:
+        if e.label not in mapped_labels and e.label not in map_data.get("reference_only", {}):
+            continue
+        if e.label in map_data.get("reference_only", {}):
+            continue
         ref_union |= embed_element_mask(e, shape)
 
     rows: list[dict[str, Any]] = []
@@ -428,7 +449,12 @@ def compare_by_path_map(
         if pi >= len(path_masks):
             rows.append({"path_index": pi, "label": label, "ok": False, "error": "path_index_out_of_range"})
             continue
-        ref_m = embed_element_mask(elem, shape)
+        union_labels = compare_union.get(label, [label])
+        ref_m = (
+            embed_labels_union(ref_by_label, union_labels, shape)
+            if len(union_labels) > 1
+            else embed_element_mask(elem, shape)
+        )
         pm = path_masks[pi]
         eiou = iou(ref_m, pm)
         cb = mask_to_viewbox_bbox(pm)

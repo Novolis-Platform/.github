@@ -252,6 +252,14 @@ def extract_reference(
         lines.append("")
     (out_dir / "COORDINATE_MAP.md").write_text("\n".join(lines), encoding="utf-8")
 
+    try:
+        from shape_points import render_points_overlay, write_shape_points
+
+        sp = write_shape_points(out_dir / "shape-points.json")
+        render_points_overlay(sp, base_image=out_dir / "icon-crop.png", out_path=out_dir / "mask-points.png")
+    except Exception as exc:  # noqa: BLE001
+        print(f"Note: shape-points not generated ({exc})")
+
     return meta
 
 

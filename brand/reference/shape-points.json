@@ -1,0 +1,290 @@
+{
+  "viewBox": [
+    0,
+    0,
+    100,
+    100
+  ],
+  "guide": "Per-shape mask crops in reference/shapes/; swirls=3 corners + apex, stem=4, n_main=8.",
+  "point_budget": {
+    "swirl_upper": 3,
+    "swirl_lower": 3,
+    "n_left_stem": 4,
+    "n_right_stem": 4,
+    "n_diagonal": 8,
+    "n_main": 8,
+    "star": 4
+  },
+  "shapes": [
+    {
+      "label": "swirl_upper",
+      "point_count": 3,
+      "source": "per-shape mask crop (shapes/swirl_upper.png)",
+      "path": "swirl_crescent",
+      "points": [
+        {
+          "id": "P1",
+          "role": "left_outer",
+          "x": 27.89,
+          "y": 15.77
+        },
+        {
+          "id": "P2",
+          "role": "left_inner",
+          "x": 31.36,
+          "y": 16.51
+        },
+        {
+          "id": "P3",
+          "role": "right_tip",
+          "x": 70.33,
+          "y": 16.26
+        }
+      ],
+      "apex": {
+        "x": 47.37,
+        "y": 3.16
+      }
+    },
+    {
+      "label": "swirl_lower",
+      "point_count": 3,
+      "source": "per-shape mask crop (shapes/swirl_lower.png)",
+      "path": "swirl_crescent",
+      "points": [
+        {
+          "id": "P1",
+          "role": "left_outer",
+          "x": 38.82,
+          "y": 66.96
+        },
+        {
+          "id": "P2",
+          "role": "left_inner",
+          "x": 41.6,
+          "y": 68.48
+        },
+        {
+          "id": "P3",
+          "role": "right_tip",
+          "x": 68.07,
+          "y": 64.05
+        }
+      ],
+      "apex": {
+        "x": 49.96,
+        "y": 71.77
+      }
+    },
+    {
+      "label": "n_left_stem",
+      "point_count": 4,
+      "source": "per-shape mask crop (shapes/n_left_stem.png)",
+      "path": "polygon",
+      "points": [
+        {
+          "id": "P1",
+          "role": "top_outer",
+          "x": 34.13,
+          "y": 31.77
+        },
+        {
+          "id": "P2",
+          "role": "top_inner",
+          "x": 37.17,
+          "y": 35.28
+        },
+        {
+          "id": "P3",
+          "role": "bottom_inner",
+          "x": 39.88,
+          "y": 55.92
+        },
+        {
+          "id": "P4",
+          "role": "bottom_outer",
+          "x": 33.91,
+          "y": 56.36
+        }
+      ]
+    },
+    {
+      "label": "n_right_stem",
+      "point_count": 4,
+      "source": "per-shape mask crop (shapes/n_right_stem.png)",
+      "path": "polygon",
+      "points": [
+        {
+          "id": "P1",
+          "role": "top_outer",
+          "x": 67.61,
+          "y": 18.98
+        },
+        {
+          "id": "P2",
+          "role": "top_inner",
+          "x": 61.22,
+          "y": 22.48
+        },
+        {
+          "id": "P3",
+          "role": "bottom_inner",
+          "x": 64.09,
+          "y": 46.0
+        },
+        {
+          "id": "P4",
+          "role": "bottom_outer",
+          "x": 67.5,
+          "y": 46.0
+        }
+      ]
+    },
+    {
+      "label": "n_diagonal",
+      "point_count": 8,
+      "source": "per-shape mask crop (shapes/n_diagonal.png)",
+      "path": "catmull",
+      "points": [
+        {
+          "id": "P1",
+          "role": "top_left",
+          "x": 77.32,
+          "y": 45.6
+        },
+        {
+          "id": "P2",
+          "role": "top_right",
+          "x": 71.32,
+          "y": 61.53
+        },
+        {
+          "id": "P3",
+          "role": "upper_inner_right",
+          "x": 60.13,
+          "y": 61.58
+        },
+        {
+          "id": "P4",
+          "role": "lower_inner_right",
+          "x": 29.85,
+          "y": 24.82
+        },
+        {
+          "id": "P5",
+          "role": "bottom_right",
+          "x": 26.33,
+          "y": 33.66
+        },
+        {
+          "id": "P6",
+          "role": "bottom_left",
+          "x": 26.33,
+          "y": 48.75
+        },
+        {
+          "id": "P7",
+          "role": "lower_inner_left",
+          "x": 33.31,
+          "y": 65.58
+        },
+        {
+          "id": "P8",
+          "role": "upper_inner_left",
+          "x": 22.06,
+          "y": 44.0
+        }
+      ]
+    },
+    {
+      "label": "star",
+      "point_count": 4,
+      "source": "analytic 4-tip star",
+      "path": "star",
+      "concavity": 0.248,
+      "points": [
+        {
+          "id": "P1",
+          "role": "tip_n",
+          "x": 74.94,
+          "y": 7.69
+        },
+        {
+          "id": "P2",
+          "role": "tip_e",
+          "x": 79.11,
+          "y": 12.99
+        },
+        {
+          "id": "P3",
+          "role": "tip_s",
+          "x": 74.94,
+          "y": 18.28
+        },
+        {
+          "id": "P4",
+          "role": "tip_w",
+          "x": 70.76,
+          "y": 12.99
+        }
+      ]
+    },
+    {
+      "label": "n_main",
+      "point_count": 8,
+      "source": "merged n_diagonal + n_right_stem mask (8-point RDP)",
+      "path": "catmull",
+      "points": [
+        {
+          "id": "P1",
+          "role": "top_left",
+          "x": 23.63,
+          "y": 24.22
+        },
+        {
+          "id": "P2",
+          "role": "top_right",
+          "x": 43.75,
+          "y": 23.83
+        },
+        {
+          "id": "P3",
+          "role": "upper_inner_right",
+          "x": 76.76,
+          "y": 31.84
+        },
+        {
+          "id": "P4",
+          "role": "lower_inner_right",
+          "x": 77.34,
+          "y": 45.51
+        },
+        {
+          "id": "P5",
+          "role": "bottom_right",
+          "x": 60.35,
+          "y": 61.52
+        },
+        {
+          "id": "P6",
+          "role": "bottom_left",
+          "x": 35.94,
+          "y": 67.97
+        },
+        {
+          "id": "P7",
+          "role": "lower_inner_left",
+          "x": 21.88,
+          "y": 43.95
+        },
+        {
+          "id": "P8",
+          "role": "upper_inner_left",
+          "x": 21.88,
+          "y": 31.25
+        }
+      ],
+      "tension": 0.2
+    }
+  ]
+}

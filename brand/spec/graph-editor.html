@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Novolis logo-graph editor</title>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --panel: #141a22;
+      --border: #2a3544;
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --accent: #45d4ff;
+      --accent2: #a855f7;
+      --warn: #f59e0b;
+      --ok: #34d399;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+    aside {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 14px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    h1 { font-size: 15px; margin: 0; font-weight: 600; }
+    .hint { font-size: 12px; color: var(--muted); line-height: 1.45; }
+    kbd {
+      background: #1e2836;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 11px;
+    }
+    .layers { list-style: none; margin: 0; padding: 0; }
+    .layers li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      border: 1px solid transparent;
+    }
+    .layers li:hover { background: #1a2330; }
+    .layers li.active {
+      border-color: var(--accent);
+      background: #152433;
+    }
+    .layers li.done .dot { background: var(--ok); }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .layers li.active .dot { background: var(--accent); }
+    .status {
+      font-size: 12px;
+      padding: 10px;
+      background: #101820;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .status strong { color: var(--accent); }
+    .node-list { font-size: 11px; color: var(--muted); margin-top: 6px; }
+    .node-list span { display: block; padding: 2px 0; }
+    .node-list span.next { color: var(--warn); font-weight: 600; }
+    .node-list span.placed { color: var(--ok); }
+    main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .toolbar label { color: var(--muted); }
+    .toolbar input[type="range"] { width: 100px; }
+    button {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button.secondary {
+      background: #243044;
+      border: 1px solid var(--border);
+    }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .canvas-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: hidden;
+    }
+    #stage {
+      position: relative;
+      width: min(92vmin, 820px);
+      height: min(92vmin, 820px);
+      background: #080a0e;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      touch-action: none;
+      overflow: hidden;
+    }
+    #refImg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #svgHost {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    #svgHost svg { width: 100%; height: 100%; display: block; }
+    .status.error {
+      border-color: #ef4444;
+      color: #fca5a5;
+    }
+    .banner-warn {
+      font-size: 11px;
+      padding: 8px 10px;
+      background: #2a2010;
+      border: 1px solid var(--warn);
+      border-radius: 8px;
+      color: #fcd34d;
+      display: none;
+    }
+    .banner-warn.show { display: block; }
+    .toast {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: #1a2838;
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .toast.show { opacity: 1; }
+    .saved { color: var(--ok); }
+  </style>
+</head>
+<body>
+  <aside>
+    <h1>logo-graph editor</h1>
+    <p class="hint">
+      Click to place nodes in order.<br/>
+      <kbd>Enter</kbd> confirm shape · <kbd>Backspace</kbd> reset shape<br/>
+      <kbd>Z</kbd> undo last click · click layer to switch
+    </p>
+    <div class="banner-warn" id="fileBanner">
+      <p style="margin:0 0 6px">Load files manually (or run the Python server):</p>
+      <label class="hint">logo-graph.json <input type="file" id="pickGraph" accept=".json,application/json"/></label>
+      <label class="hint">reference PNG <input type="file" id="pickRef" accept="image/png,image/*"/></label>
+    </div>
+    <ul class="layers" id="layerList"><li class="hint" style="padding:8px">Loading…</li></ul>
+    <div class="status" id="status">Loading logo-graph…</div>
+    <div class="node-list" id="nodeList"></div>
+    <button type="button" id="saveBtn">Save logo-graph.json</button>
+    <p class="hint" id="serverHint"></p>
+  </aside>
+  <main>
+    <div class="toolbar">
+      <label>Ref opacity <input type="range" id="refOpacity" min="0" max="100" value="55"/></label>
+      <label><input type="checkbox" id="showGrid" checked/> grid</label>
+      <label><input type="checkbox" id="showPaths" checked/> paths</label>
+      <button type="button" class="secondary" id="reloadBtn">Reload JSON</button>
+    </div>
+    <div class="canvas-wrap">
+      <div id="stage">
+        <img id="refImg" alt="reference" hidden/>
+        <div id="svgHost"></div>
+      </div>
+    </div>
+  </main>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const STAR_CONCAVITY = 0.248;
+    const GRAPH_URL = "./logo-graph.json";
+    const REF_URL = "/reference/icon-crop.png";
+
+    /** @type {object} */
+    let graph = null;
+    /** layerId -> { nodes: [{id,x,y}], apex?: {x,y} } */
+    let placements = {};
+    let shapeIndex = 0;
+    let draft = [];
+    let refOpacity = 0.55;
+    let serverSave = false;
+
+    const stage = document.getElementById("stage");
+    const svgHost = document.getElementById("svgHost");
+    const refImg = document.getElementById("refImg");
+    const layerList = document.getElementById("layerList");
+    const statusEl = document.getElementById("status");
+    const nodeListEl = document.getElementById("nodeList");
+    const toastEl = document.getElementById("toast");
+    const serverHint = document.getElementById("serverHint");
+    const fileBanner = document.getElementById("fileBanner");
+
+    function setRefImage(url) {
+      refImg.src = url;
+      refImg.hidden = false;
+      refImg.style.opacity = String(refOpacity);
+    }
+
+    function setLoadError(msg) {
+      statusEl.textContent = msg;
+      statusEl.classList.add("error");
+      layerList.innerHTML = `<li class="hint" style="padding:8px;color:#fca5a5">${msg}</li>`;
+    }
+
+    function clearLoadError() {
+      statusEl.classList.remove("error");
+    }
+
+    function layerById(id) {
+      return graph.layers.find((l) => l.id === id);
+    }
+
+    function buildOrder() {
+      return graph.build_order || graph.layers.map((l) => l.id);
+    }
+
+    function clickTargets(layer) {
+      const out = layer.nodes.map((n) => ({ kind: "node", id: n.id }));
+      if (layer.topology === "swirl_crescent") {
+        out.push({ kind: "apex", id: "apex" });
+      }
+      return out;
+    }
+
+    function targetsForIndex(i) {
+      const id = buildOrder()[i];
+      return clickTargets(layerById(id));
+    }
+
+    function initPlacementsFromGraph() {
+      placements = {};
+      for (const layer of graph.layers) {
+        placements[layer.id] = {
+          nodes: layer.nodes.map((n) => ({ id: n.id, x: n.x, y: n.y })),
+        };
+        if (layer.apex) placements[layer.id].apex = { ...layer.apex };
+      }
+    }
+
+    function draftFromPlacement(layerId) {
+      const p = placements[layerId];
+      if (!p) return [];
+      const layer = layerById(layerId);
+      const targets = clickTargets(layer);
+      const out = [];
+      for (const t of targets) {
+        if (t.kind === "node") {
+          const n = p.nodes.find((x) => x.id === t.id);
+          if (n) out.push({ ...t, x: n.x, y: n.y });
+        } else if (t.kind === "apex" && p.apex) {
+          out.push({ ...t, x: p.apex.x, y: p.apex.y });
+        }
+      }
+      return out;
+    }
+
+    function syncDraft() {
+      const id = buildOrder()[shapeIndex];
+      draft = draftFromPlacement(id);
+    }
+
+    function currentLayerId() {
+      return buildOrder()[shapeIndex];
+    }
+
+    function isShapeComplete(layerId) {
+      const targets = clickTargets(layerById(layerId));
+      if (layerId === currentLayerId()) {
+        return draft.length === targets.length;
+      }
+      return draftFromPlacement(layerId).length === targets.length;
+    }
+
+    function swirlPath(lo, li, rt, ap, params) {
+      const outer_pull = params?.outer_pull ?? 0.88;
+      const inner_pull = params?.inner_pull ?? 0.55;
+      const c1x = lo[0] + (ap[0] - lo[0]) * outer_pull;
+      const c1y = lo[1] + (ap[1] - lo[1]) * outer_pull;
+      const c2x = rt[0] + (ap[0] - rt[0]) * outer_pull;
+      const c2y = rt[1] + (ap[1] - rt[1]) * outer_pull;
+      const cx = (lo[0] + li[0] + rt[0]) / 3;
+      const cy = (lo[1] + li[1] + rt[1]) / 3;
+      const mx = (rt[0] + li[0]) / 2;
+      const my = (rt[1] + li[1]) / 2;
+      const qx = cx + (mx - cx) * inner_pull;
+      const qy = cy + (my - cy) * inner_pull;
+      return `M${lo[0].toFixed(2)},${lo[1].toFixed(2)}C${c1x.toFixed(2)},${c1y.toFixed(2)} ${c2x.toFixed(2)},${c2y.toFixed(2)} ${rt[0].toFixed(2)},${rt[1].toFixed(2)}Q${qx.toFixed(2)},${qy.toFixed(2)} ${li[0].toFixed(2)},${li[1].toFixed(2)}Z`;
+    }
+
+    function catmullClosed(points, tension) {
+      const n = points.length;
+      if (n < 3) return "";
+      let s = `M${points[0][0].toFixed(2)},${points[0][1].toFixed(2)}`;
+      for (let i = 0; i < n; i++) {
+        const p0 = points[(i - 1 + n) % n];
+        const p1 = points[i];
+        const p2 = points[(i + 1) % n];
+        const p3 = points[(i + 2) % n];
+        const c1x = p1[0] + (p2[0] - p0[0]) * tension;
+        const c1y = p1[1] + (p2[1] - p0[1]) * tension;
+        const c2x = p2[0] - (p3[0] - p1[0]) * tension;
+        const c2y = p2[1] - (p3[1] - p1[1]) * tension;
+        s += `C${c1x.toFixed(2)},${c1y.toFixed(2)} ${c2x.toFixed(2)},${c2y.toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`;
+      }
+      return s + "Z";
+    }
+
+    function polygonPath(points) {
+      if (!points.length) return "";
+      let s = `M${points[0][0].toFixed(2)},${points[0][1].toFixed(2)}`;
+      for (let i = 1; i < points.length; i++) {
+        s += `L${points[i][0].toFixed(2)},${points[i][1].toFixed(2)}`;
+      }
+      return s + "Z";
+    }
+
+    function starPath(tips, k) {
+      const cx = tips.reduce((a, p) => a + p[0], 0) / 4;
+      const cy = tips.reduce((a, p) => a + p[1], 0) / 4;
+      let s = `M${tips[0][0].toFixed(2)},${tips[0][1].toFixed(2)}`;
+      for (let i = 0; i < 4; i++) {
+        const [x0, y0] = tips[i];
+        const [x1, y1] = tips[(i + 1) % 4];
+        const mx = (x0 + x1) / 2;
+        const my = (y0 + y1) / 2;
+        const qx = cx + (mx - cx) * k;
+        const qy = cy + (my - cy) * k;
+        s += `Q${qx.toFixed(2)},${qy.toFixed(2)} ${x1.toFixed(2)},${y1.toFixed(2)}`;
+      }
+      return s + "Z";
+    }
+
+    function pathForLayer(layerId) {
+      const layer = layerById(layerId);
+      const p = placements[layerId];
+      if (!p || !p.nodes.length) return "";
+      const pts = p.nodes.map((n) => [n.x, n.y]);
+      const topo = layer.topology;
+      const params = layer.params || {};
+      if (topo === "swirl_crescent" && p.apex) {
+        return swirlPath(pts[0], pts[1], pts[2], [p.apex.x, p.apex.y], params);
+      }
+      if (topo === "polygon") return polygonPath(pts);
+      if (topo === "catmull_closed") return catmullClosed(pts, params.tension ?? 0.18);
+      if (topo === "star_quadratic") {
+        return starPath(pts, params.concavity ?? STAR_CONCAVITY);
+      }
+      return "";
+    }
+
+    function pathForDraft() {
+      const layer = layerById(currentLayerId());
+      if (!draft.length) return "";
+      const nodes = draft.filter((d) => d.kind === "node");
+      const ap = draft.find((d) => d.kind === "apex");
+      const pts = nodes.map((n) => [n.x, n.y]);
+      const topo = layer.topology;
+      const params = layer.params || {};
+      if (topo === "swirl_crescent") {
+        if (pts.length < 3 || !ap) return pts.length ? polygonPath(pts) : "";
+        return swirlPath(pts[0], pts[1], pts[2], [ap.x, ap.y], params);
+      }
+      if (topo === "polygon" && pts.length >= 2) return polygonPath(pts);
+      if (topo === "catmull_closed" && pts.length >= 2) return catmullClosed(pts, params.tension ?? 0.18);
+      if (topo === "star_quadratic" && pts.length >= 2) {
+        if (pts.length < 4) return polygonPath(pts);
+        return starPath(pts, params.concavity ?? STAR_CONCAVITY);
+      }
+      return "";
+    }
+
+    function commitDraft() {
+      const id = currentLayerId();
+      const layer = layerById(id);
+      const nodes = [];
+      for (const t of clickTargets(layer)) {
+        const hit = draft.find((d) => d.kind === t.kind && d.id === t.id);
+        if (!hit) return false;
+        if (t.kind === "node") nodes.push({ id: t.id, x: round2(hit.x), y: round2(hit.y) });
+      }
+      placements[id] = { nodes };
+      const ap = draft.find((d) => d.kind === "apex");
+      if (ap) placements[id].apex = { x: round2(ap.x), y: round2(ap.y) };
+      return true;
+    }
+
+    function round2(v) {
+      return Math.round(v * 100) / 100;
+    }
+
+    function resetDraft() {
+      const id = currentLayerId();
+      draft = [];
+      placements[id] = { nodes: [] };
+      delete placements[id].apex;
+      showToast(`Reset: ${id}`);
+      render();
+    }
+
+    function undoClick() {
+      if (draft.length) {
+        draft.pop();
+        render();
+      }
+    }
+
+    function confirmShape() {
+      const id = currentLayerId();
+      if (!isShapeComplete(id) && draft.length < clickTargets(layerById(id)).length) {
+        showToast("Place all nodes first", true);
+        return;
+      }
+      if (!commitDraft()) {
+        showToast("Incomplete — place all nodes", true);
+        return;
+      }
+      showToast(`Confirmed: ${id}`);
+      if (shapeIndex < buildOrder().length - 1) {
+        shapeIndex++;
+        syncDraft();
+      }
+      render();
+    }
+
+    function applyPlacementsToGraph() {
+      for (const layer of graph.layers) {
+        const p = placements[layer.id];
+        if (!p) continue;
+        layer.nodes = p.nodes.map((n) => ({ id: n.id, x: n.x, y: n.y }));
+        if (p.apex) layer.apex = { x: p.apex.x, y: p.apex.y };
+        else if (layer.topology !== "swirl_crescent") delete layer.apex;
+      }
+    }
+
+    async function saveGraph() {
+      applyPlacementsToGraph();
+      const body = JSON.stringify(graph, null, 2);
+      try {
+        const res = await fetch("/api/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+        });
+        if (res.ok) {
+          showToast("Saved logo-graph.json", false, true);
+          return;
+        }
+      } catch (_) { /* standalone */ }
+      const blob = new Blob([body], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "logo-graph.json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      showToast("Downloaded logo-graph.json (run graph_editor.py to save in repo)");
+    }
+
+    function showToast(msg, warn, saved) {
+      toastEl.textContent = msg;
+      toastEl.className = "toast show" + (saved ? " saved" : "");
+      if (warn) toastEl.style.borderColor = "var(--warn)";
+      else toastEl.style.borderColor = "";
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => toastEl.classList.remove("show"), 2200);
+    }
+
+    function renderLayerList() {
+      layerList.innerHTML = "";
+      buildOrder().forEach((id, i) => {
+        const li = document.createElement("li");
+        li.dataset.index = String(i);
+        const done = isShapeComplete(id);
+        if (done) li.classList.add("done");
+        if (i === shapeIndex) li.classList.add("active");
+        li.innerHTML = `<span class="dot"></span><span>${id}</span>`;
+        li.addEventListener("click", () => {
+          if (isShapeComplete(currentLayerId())) {
+            commitDraft();
+          }
+          shapeIndex = i;
+          syncDraft();
+          render();
+        });
+        layerList.appendChild(li);
+      });
+    }
+
+    function renderStatus() {
+      const id = currentLayerId();
+      const layer = layerById(id);
+      const targets = clickTargets(layer);
+      const n = draft.length;
+      const total = targets.length;
+      statusEl.innerHTML = `
+        <div><strong>${id}</strong> · ${layer.topology}</div>
+        <div>${n} / ${total} clicks · shape ${shapeIndex + 1} of ${buildOrder().length}</div>
+      `;
+      nodeListEl.innerHTML = "";
+      targets.forEach((t, i) => {
+        const span = document.createElement("span");
+        const placed = draft[i];
+        span.textContent = (t.kind === "apex" ? "apex" : t.id) + (placed ? ` (${placed.x.toFixed(1)}, ${placed.y.toFixed(1)})` : "");
+        if (i === n) span.className = "next";
+        else if (i < n) span.className = "placed";
+        nodeListEl.appendChild(span);
+      });
+    }
+
+    let svgRoot = null;
+
+    function clientToViewBox(evt) {
+      const svg = svgRoot;
+      const pt = svg.createSVGPoint();
+      pt.x = evt.clientX;
+      pt.y = evt.clientY;
+      const ctm = svg.getScreenCTM().inverse();
+      const p = pt.matrixTransform(ctm);
+      return [p.x, p.y];
+    }
+
+    function onCanvasClick(evt) {
+      if (evt.target.closest("button")) return;
+      const id = currentLayerId();
+      const targets = clickTargets(layerById(id));
+      if (draft.length >= targets.length) return;
+      const [x, y] = clientToViewBox(evt);
+      const t = targets[draft.length];
+      draft.push({ ...t, x, y });
+      render();
+    }
+
+    function renderSvg() {
+      const showGrid = document.getElementById("showGrid").checked;
+      const showPaths = document.getElementById("showPaths").checked;
+
+      if (!graph) {
+        const gridOnly = showGrid
+          ? Array.from({ length: 11 }, (_, i) => {
+              const v = i * 10;
+              return `<line x1="${v}" y1="0" x2="${v}" y2="100" stroke="#3d4f66" stroke-width="0.12"/>
+                      <line x1="0" y1="${v}" x2="100" y2="${v}" stroke="#3d4f66" stroke-width="0.12"/>`;
+            }).join("")
+          : "";
+        svgHost.innerHTML = `<svg id="svgRoot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">${gridOnly}</svg>`;
+        return;
+      }
+
+      const g = graph.gradient;
+      const order = buildOrder();
+      const cur = currentLayerId();
+
+      let pathsHtml = "";
+      if (showPaths) {
+        for (const lid of order) {
+          const d = lid === cur ? pathForDraft() : pathForLayer(lid);
+          if (!d) continue;
+          const active = lid === cur;
+          pathsHtml += `<path d="${d}" fill="url(#g)" fill-opacity="${active ? 0.55 : 0.35}" stroke="${active ? "#45d4ff" : "#8ba3c7"}" stroke-width="${active ? 0.4 : 0.25}"/>`;
+        }
+      }
+
+      let markers = "";
+      for (const lid of order) {
+        const pts = lid === cur ? draft : draftFromPlacement(lid);
+        const isCur = lid === cur;
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          const fill = isCur && i === draft.length - 1 ? "#f59e0b" : isCur ? "#45d4ff" : "#34d399";
+          markers += `<circle cx="${p.x}" cy="${p.y}" r="1.1" fill="${fill}" stroke="#fff" stroke-width="0.2"/>`;
+          markers += `<text x="${p.x + 1.4}" y="${p.y - 0.6}" font-size="3.2" fill="#fff" font-weight="600">${p.id}</text>`;
+        }
+      }
+
+      const grid = showGrid
+        ? Array.from({ length: 11 }, (_, i) => {
+            const v = i * 10;
+            return `<line x1="${v}" y1="0" x2="${v}" y2="100" stroke="#3d4f66" stroke-width="0.12"/>
+                    <line x1="0" y1="${v}" x2="100" y2="${v}" stroke="#3d4f66" stroke-width="0.12"/>`;
+          }).join("")
+        : "";
+
+      svgHost.innerHTML = `
+        <svg id="svgRoot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g" x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}" gradientUnits="userSpaceOnUse">
+              ${g.stops.map((s) => `<stop offset="${s.offset}" stop-color="${s.color}"/>`).join("")}
+            </linearGradient>
+          </defs>
+          ${grid}
+          ${pathsHtml}
+          ${markers}
+        </svg>`;
+      svgRoot = document.getElementById("svgRoot");
+      svgRoot.addEventListener("click", onCanvasClick);
+    }
+
+    function render() {
+      renderLayerList();
+      renderStatus();
+      renderSvg();
+    }
+
+    function applyGraph(data) {
+      graph = data;
+      initPlacementsFromGraph();
+      shapeIndex = 0;
+      syncDraft();
+      clearLoadError();
+      render();
+    }
+
+    async function loadGraph() {
+      clearLoadError();
+      statusEl.textContent = "Loading logo-graph…";
+      try {
+        const boot = await fetch("/api/bootstrap?t=" + Date.now());
+        if (boot.ok) {
+          const payload = await boot.json();
+          serverSave = true;
+          setRefImage(payload.reference);
+          applyGraph(payload.graph);
+          serverHint.textContent = "Server save: POST → spec/logo-graph.json";
+          return;
+        }
+      } catch (_) { /* fall through */ }
+
+      const res = await fetch(GRAPH_URL + "?t=" + Date.now());
+      if (!res.ok) throw new Error("Could not load " + GRAPH_URL + " (" + res.status + ")");
+      applyGraph(await res.json());
+
+      try {
+        const imgRes = await fetch(REF_URL + "?t=" + Date.now());
+        if (imgRes.ok) {
+          const blob = await imgRes.blob();
+          setRefImage(URL.createObjectURL(blob));
+        }
+      } catch (_) {
+        showToast("Reference image not loaded", true);
+      }
+    }
+
+    document.getElementById("refOpacity").addEventListener("input", (e) => {
+      refOpacity = Number(e.target.value) / 100;
+      refImg.style.opacity = String(refOpacity);
+    });
+    document.getElementById("showGrid").addEventListener("change", renderSvg);
+    document.getElementById("showPaths").addEventListener("change", renderSvg);
+    document.getElementById("saveBtn").addEventListener("click", saveGraph);
+    document.getElementById("reloadBtn").addEventListener("click", () => loadGraph().catch((e) => showToast(e.message, true));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.target.matches("input, textarea")) return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        confirmShape();
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        resetDraft();
+      } else if (e.key === "z" || e.key === "Z") {
+        undoClick();
+      } else if (e.key === "s" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        saveGraph();
+      }
+    });
+
+    document.getElementById("pickGraph").addEventListener("change", async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      try {
+        applyGraph(JSON.parse(await file.text()));
+        showToast("Loaded " + file.name);
+      } catch (err) {
+        setLoadError("Invalid JSON: " + err.message);
+      }
+    });
+    document.getElementById("pickRef").addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      setRefImage(URL.createObjectURL(file));
+      showToast("Reference image loaded");
+    });
+
+    if (location.protocol === "file:") {
+      fileBanner.classList.add("show");
+    }
+
+    renderSvg();
+    loadGraph().catch((e) => {
+      fileBanner.classList.add("show");
+      setLoadError("Load failed: " + e.message);
+      serverHint.textContent = "Run: python brand/scripts/graph_editor.py";
+      showToast(e.message, true);
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate logo-mark.svg as smooth cubic Bézier splines fitted to reference masks."""
+"""Generate logo-mark.svg: mask contour → sparse corners → smooth cubic splines (6 layers)."""
 from __future__ import annotations
 
 import json
@@ -18,7 +18,6 @@ BRAND = Path(__file__).resolve().parent.parent
 OUT = BRAND / "logo-mark.svg"
 REF = BRAND / "reference" / "elements.json"
 
-# Path order matches reference/path-index-map.json
 PATH_ORDER = [
     "swirl_upper",
     "swirl_lower",
@@ -28,18 +27,17 @@ PATH_ORDER = [
     "star",
 ]
 
-# Target corner count per element (sparse polygon → smooth spline)
 CORNER_BUDGET: dict[str, int] = {
-    "swirl_upper": 6,
-    "swirl_lower": 6,
-    "n_right_stem": 5,
-    "n_left_stem": 5,
-    "n_diagonal": 8,
-    "star": 4,
+    "swirl_upper": 10,
+    "swirl_lower": 8,
+    "n_right_stem": 6,
+    "n_left_stem": 6,
+    "n_diagonal": 12,
 }
 
-RENDER = 1024
-TENSION = 0.38  # Catmull–Rom → Bézier corner smoothness
+RENDER = 2048
+TENSION = 0.34
+STAR_CONCAVITY = 0.248
 
 
 def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, float]]:
@@ -75,10 +73,7 @@ def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, flo
     return rec(closed)
 
 
-
-
 def _rdp_to_budget(points: list[tuple[float, float]], budget: int) -> list[tuple[float, float]]:
-    """Reduce contour to ~budget corners via iterative RDP."""
     if len(points) <= budget + 1:
         return points[:-1] if points and points[0] == points[-1] else points
     lo, hi = 0.05, max(2.0, len(points) * 0.5)
@@ -122,7 +117,6 @@ def _mask_contour(elem: dict, res: int = RENDER) -> list[tuple[float, float]]:
 
 
 def _catmull_rom_closed(points: list[tuple[float, float]], tension: float = TENSION) -> str:
-    """Closed cubic Bézier spline through sparse corners."""
     n = len(points)
     if n < 3:
         return ""
@@ -142,22 +136,21 @@ def _catmull_rom_closed(points: list[tuple[float, float]], tension: float = TENS
 
 
 def _star_path(elem: dict) -> str:
-    """Four-point concave star — quadratic beziers (smooth sparkle)."""
     b = elem["bbox"]
-    cx = (b["x0"] + b["x1"]) / 2
-    cy = (b["y0"] + b["y1"]) / 2
-    r = min(b["x1"] - b["x0"], b["y1"] - b["y0"]) / 2 * 0.92
-    pinch = 0.34
-    tips = [(cx, cy - r), (cx + r, cy), (cx, cy + r), (cx - r, cy)]
-    d = [f"M{tips[0][0]:.2f},{tips[0][1]:.2f}"]
+    c = elem["centroid"]
+    cx, cy = c["x"], c["y"]
+    rx = (b["x1"] - b["x0"]) / 2 * 0.94
+    ry = (b["y1"] - b["y0"]) / 2 * 0.94
+    tips = [(cx, cy - ry), (cx + rx, cy), (cx, cy + ry), (cx - rx, cy)]
+    parts = [f"M{tips[0][0]:.2f},{tips[0][1]:.2f}"]
     for i in range(4):
         x0, y0 = tips[i]
         x1, y1 = tips[(i + 1) % 4]
         mx, my = (x0 + x1) / 2, (y0 + y1) / 2
-        qx = cx + (mx - cx) * pinch
-        qy = cy + (my - cy) * pinch
-        d.append(f"Q{qx:.2f},{qy:.2f} {x1:.2f},{y1:.2f}")
-    return "".join(d) + "Z"
+        qx = cx + (mx - cx) * STAR_CONCAVITY
+        qy = cy + (my - cy) * STAR_CONCAVITY
+        parts.append(f"Q{qx:.2f},{qy:.2f} {x1:.2f},{y1:.2f}")
+    return "".join(parts) + "Z"
 
 
 def element_to_smooth_path(elem: dict) -> str:
@@ -169,7 +162,8 @@ def element_to_smooth_path(elem: dict) -> str:
         return ""
     budget = CORNER_BUDGET.get(label, 8)
     corners = _rdp_to_budget(contour, budget)
-    return _catmull_rom_closed(corners)
+    tension = 0.26 if label == "n_diagonal" else TENSION
+    return _catmull_rom_closed(corners, tension)
 
 
 def build() -> str:
@@ -205,7 +199,7 @@ def main() -> None:
     if not REF.exists():
         raise SystemExit(f"Run reference_mask.py extract first (missing {REF})")
     OUT.write_text(build(), encoding="utf-8", newline="\n")
-    print(f"Wrote {OUT} (smooth cubic splines, 8-point N)")
+    print(f"Wrote {OUT} (6 mask-fitted smooth paths)")
 
 
 if __name__ == "__main__":
