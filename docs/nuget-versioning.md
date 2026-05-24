@@ -137,7 +137,7 @@ Recommended standard:
   Directory.Build.props
   Directory.Build.targets
   Directory.Packages.props
-  eng/
+  build/
     version.json
     release-notes.md
   src/
@@ -148,7 +148,9 @@ Recommended standard:
       release.yml
 ```
 
-## `eng/version.json`
+## `build/version.json`
+
+> **Novolis:** Version intent lives under repo-root `build/` (not `eng/`, which is ambiguous). Reusable workflows: `Novolis-Platform/novolis-workflows`. Stable release trigger: GitHub Release published (`v2026.1.0`).
 
 ```json
 {
@@ -183,7 +185,7 @@ jobs:
     uses: frankhaugen/shared-workflows/.github/workflows/dotnet-nuget-ci.yml@main
     with:
       solution: RoboSharp.slnx
-      version-file: eng/version.json
+      version-file: build/version.json
       publish-internal-packages: ${{ github.ref == 'refs/heads/main' }}
     secrets: inherit
 ```
@@ -215,7 +217,7 @@ jobs:
     uses: frankhaugen/shared-workflows/.github/workflows/dotnet-nuget-release.yml@main
     with:
       solution: RoboSharp.slnx
-      version-file: eng/version.json
+      version-file: build/version.json
       release-kind: ${{ inputs.release_kind }}
       publish-nuget-org: true
       create-github-release: true
@@ -231,7 +233,7 @@ Use `workflow_dispatch` for intentional releases; GitHub supports manual workflo
 Does:
 
 ```text
-read eng/version.json
+read build/version.json
 calculate stableVersion = SDKYEAR.APIBREAK.FEATURE
 calculate ciVersion = SDKYEAR.APIBREAK.FEATURE-ci.GITHUB_RUN_NUMBER
 restore
@@ -247,7 +249,7 @@ upload artifacts
 Does:
 
 ```text
-read eng/version.json
+read build/version.json
 validate main branch
 calculate stableVersion
 restore
@@ -257,7 +259,7 @@ pack with PackageVersion=stableVersion
 publish to NuGet.org
 create git tag v{stableVersion}
 create GitHub Release
-optionally bump eng/version.json by release_kind
+optionally bump build/version.json by release_kind
 open PR or commit bump
 ```
 
