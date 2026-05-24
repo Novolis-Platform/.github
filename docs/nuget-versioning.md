@@ -1,64 +1,45 @@
 # NuGet versioning policy
 
-## Spec: `SDKYEAR.APIBREAK.FEATURE.BUILD`
+## Spec: `YEAR.MAJOR.MINOR.BUILD`
 
 Example:
 
 ```text
-2026.1.14.382
+2026.1.1.351
 ```
 
-| Segment    | Rule                                                                                         |
-| ---------- | -------------------------------------------------------------------------------------------- |
-| `SDKYEAR`  | Runtime baseline year. `2026` means “.NET 10 is the settled baseline.”                       |
-| `APIBREAK` | Breaking public API generation. Usually `1`. Increment only for deliberate package breakage. |
-| `FEATURE`  | Public release counter. Increment when publishing stable NuGet packages.                     |
-| `BUILD`    | CI build/run number. Always increments for internal GitHub package builds.                   |
+Every GitHub Package and nuget.org package uses this **four-part numeric** version. No prerelease labels (`-ci`), no `+metadata` text.
 
-NuGet supports a fourth numeric revision segment, but SemVer tooling expectations are strongest around `Major.Minor.Patch[-prerelease][+metadata]`; NuGet also normalizes versions and omits fourth-segment zeroes. So use the four-part version for assemblies/files/internal packages, but prefer three-part stable NuGet.org versions. ([Microsoft Learn][1])
+| Segment | JSON field | Rule |
+| ------- | ---------- | ---- |
+| `YEAR` | `year` | Platform generation year (e.g. `2026` = .NET 10 baseline) |
+| `MAJOR` | `major` | Breaking public API generation; bump only for deliberate breakage |
+| `MINOR` | `minor` | Release line; bump manually before an intentional release |
+| `BUILD` | *(CI only)* | `github.run_number`; never committed |
+
+Legacy JSON names (`sdkYear`, `apiBreak`, `feature`) are still read by CI scripts during migration.
 
 ## Package version policy
 
-### Internal GitHub Packages
+### GitHub Packages and nuget.org
 
-Every successful `main` build may publish:
-
-```text
-2026.1.14-ci.382
-```
-
-or, if you accept NuGet fourth-segment versions internally:
+Same version everywhere:
 
 ```text
-2026.1.14.382
+2026.1.1.351
+2026.1.1.366
 ```
 
-Recommended:
-
-```text
-2026.1.14-ci.382
-```
-
-Reason: impossible to confuse with a stable public release.
-
-### NuGet.org stable
-
-Only intentional releases publish:
-
-```text
-2026.1.14
-```
-
-No build number.
+`BUILD` distinguishes every CI run on the same `YEAR.MAJOR.MINOR` line.
 
 ### Assembly metadata
 
 ```xml
-<Version>2026.1.14</Version>
-<PackageVersion>2026.1.14</PackageVersion>
+<Version>2026.1.1.351</Version>
+<PackageVersion>2026.1.1.351</PackageVersion>
 <AssemblyVersion>2026.1.0.0</AssemblyVersion>
-<FileVersion>2026.1.14.$(BuildNumber)</FileVersion>
-<InformationalVersion>2026.1.14+build.$(BuildNumber).sha.$(GitSha)</InformationalVersion>
+<FileVersion>2026.1.1.351</FileVersion>
+<InformationalVersion>2026.1.1.351</InformationalVersion>
 ```
 
 ## Version bump heuristics
@@ -73,7 +54,7 @@ github.run_number
 
 Use it only for internal packages, file versions, and diagnostics.
 
-### Increment `FEATURE`
+### Increment `MINOR`
 
 When one of these is true:
 
@@ -91,7 +72,7 @@ Do not increment for:
 * formatting
 * test-only changes
 
-### Increment `APIBREAK`
+### Increment `MAJOR`
 
 When one of these is true:
 
@@ -102,7 +83,7 @@ When one of these is true:
 * target framework baseline changes incompatibly
 * package split/rename/namespace breakage
 
-Reset `FEATURE` to `0` after this.
+Reset `MINOR` to `0` after this.
 
 Example:
 
@@ -112,7 +93,7 @@ Example:
 2026.2.0
 ```
 
-### Increment `SDKYEAR`
+### Increment `YEAR`
 
 When the project intentionally moves to the next settled .NET baseline.
 
@@ -154,9 +135,9 @@ Recommended standard:
 
 ```json
 {
-  "sdkYear": 2026,
-  "apiBreak": 1,
-  "feature": 14,
+  "year": 2026,
+  "major": 1,
+  "minor": 1,
   "dotnetBaseline": "net10.0",
   "publicPackage": true
 }
@@ -234,12 +215,12 @@ Does:
 
 ```text
 read build/version.json
-calculate stableVersion = SDKYEAR.APIBREAK.FEATURE
-calculate ciVersion = SDKYEAR.APIBREAK.FEATURE-ci.GITHUB_RUN_NUMBER
+read build/version.json (year, major, minor)
+calculate packageVersion = YEAR.MAJOR.MINOR.GITHUB_RUN_NUMBER
 restore
 build
 test
-pack with PackageVersion=ciVersion
+pack with PackageVersion=packageVersion
 publish to GitHub Packages on main
 upload artifacts
 ```
@@ -251,13 +232,13 @@ Does:
 ```text
 read build/version.json
 validate main branch
-calculate stableVersion
+calculate packageVersion = YEAR.MAJOR.MINOR.GITHUB_RUN_NUMBER
 restore
 build
 test
-pack with PackageVersion=stableVersion
+pack with PackageVersion=packageVersion
 publish to NuGet.org
-create git tag v{stableVersion}
+create git tag v{YEAR.MAJOR.MINOR} or v{packageVersion}
 create GitHub Release
 optionally bump build/version.json by release_kind
 open PR or commit bump
@@ -294,9 +275,9 @@ dotnet pack "$SOLUTION" \
   -c Release \
   -p:Version="$PACKAGE_VERSION" \
   -p:PackageVersion="$PACKAGE_VERSION" \
-  -p:AssemblyVersion="$SDKYEAR.$APIBREAK.0.0" \
-  -p:FileVersion="$SDKYEAR.$APIBREAK.$FEATURE.$GITHUB_RUN_NUMBER" \
-  -p:InformationalVersion="$STABLE_VERSION+build.$GITHUB_RUN_NUMBER.sha.$GITHUB_SHA"
+  -p:AssemblyVersion="$YEAR.$MAJOR.0.0" \
+  -p:FileVersion="$YEAR.$MAJOR.$MINOR.$GITHUB_RUN_NUMBER" \
+  -p:InformationalVersion="$YEAR.$MAJOR.$MINOR.$GITHUB_RUN_NUMBER"
 ```
 
 ## Release behavior examples
@@ -305,45 +286,43 @@ Current:
 
 ```json
 {
-  "sdkYear": 2026,
-  "apiBreak": 1,
-  "feature": 14
+  "year": 2026,
+  "major": 1,
+  "minor": 1
 }
 ```
 
-CI build `382`:
+CI build `351`:
 
 ```text
-GitHub Packages: 2026.1.14-ci.382
-FileVersion:     2026.1.14.382
-InfoVersion:     2026.1.14+build.382.sha.abcd123
+GitHub Packages / nuget.org: 2026.1.1.351
+AssemblyVersion:             2026.1.0.0
+FileVersion:                 2026.1.1.351
 ```
 
-Stable release:
+CI build `366` (same MINOR line):
 
 ```text
-NuGet.org:       2026.1.14
-Git tag:         v2026.1.14
-GitHub Release:  2026.1.14
+Package version: 2026.1.1.366
 ```
 
-Next feature release bumps to:
+Next minor release bumps to:
 
 ```json
 {
-  "sdkYear": 2026,
-  "apiBreak": 1,
-  "feature": 15
+  "year": 2026,
+  "major": 1,
+  "minor": 2
 }
 ```
 
-Breaking release bumps to:
+Breaking major release bumps to:
 
 ```json
 {
-  "sdkYear": 2026,
-  "apiBreak": 2,
-  "feature": 0
+  "year": 2026,
+  "major": 2,
+  "minor": 0
 }
 ```
 
@@ -383,23 +362,15 @@ Put approval only on `nuget-org`.
 
 ## The core rule
 
-Internal builds are cheap and infinite:
+Every publish uses the same numeric shape:
 
 ```text
-2026.1.14-ci.382
-2026.1.14-ci.383
-2026.1.14-ci.384
+2026.1.1.351
+2026.1.1.352
+2026.1.1.366
 ```
 
-Public releases are intentional and clean:
-
-```text
-2026.1.14
-2026.1.15
-2026.2.0
-```
-
-That gives you CalVer/platform signaling, SemVer-like breakage signaling, CI traceability, and NuGet-compatible release hygiene.
+`BUILD` is always `github.run_number`. Bump `minor` or `major` in `build/version.json` only when you intend a new release line.
 
 [1]: https://learn.microsoft.com/nuget/create-packages/dependency-versions "NuGet Package Version Reference | Microsoft Learn"
 [2]: https://github.com/frankhaugen/RoboSharp "GitHub - frankhaugen/RoboSharp: A small C#-inspired programming language that teaches how programming and compilers actually work by controlling a robot on a grid. Higly inspired by Karel and SmallBasic but with a modern .net flair · GitHub"
