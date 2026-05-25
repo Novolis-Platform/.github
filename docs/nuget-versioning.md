@@ -85,13 +85,15 @@ When one of these is true:
 
 Reset `MINOR` to `0` after this.
 
-Example:
+Example (deliberate breaking-API generation only — **do not** bump `major` to `2` on the live platform without governance approval):
 
 ```text
 2026.1.14
 2026.1.15
-2026.2.0
+2026.2.0   ← only after setting "major": 2 in build/version.json (forbidden for routine releases)
 ```
+
+Until that approval exists, every `novolis-*` package repo must keep `"major": 1` and `"minor": 1` (platform line **`2026.1.1`**, packages **`2026.1.1.{run}`**). A mistaken `major: 2` publishes **`2026.2.*`**, which is not the current platform line.
 
 ### Increment `YEAR`
 
