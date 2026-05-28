@@ -4,6 +4,8 @@ Organization profile and community defaults for [Novolis-Platform](https://githu
 
 The organization README is in [`profile/README.md`](profile/README.md) and appears on the org home page.
 
+Brand assets live in [`brand/`](brand/), with [`brand/logo-brand-transparent.svg`](brand/logo-brand-transparent.svg) as the primary vector logo.
+
 ## Repositories
 
 | Repository | Purpose |

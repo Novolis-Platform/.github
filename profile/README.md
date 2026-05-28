@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-mark.svg" width="96" height="96" alt="Novolis"/>
+  <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-brand-transparent.svg" width="420" alt="Novolis"/>
 </p>
 
 # Novolis 👋
@@ -93,6 +93,14 @@ No forced mega-engine architecture.
 No mandatory ECS religion.
 
 No “you must do things our way” energy.
+
+---
+
+## Brand
+
+The Novolis logo is kept as a transparent, resolution-independent SVG in [`brand/logo-brand-transparent.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-brand-transparent.svg).
+
+The mark is built from locked vector points, straight-line `N` geometry, and circular arc-sector swirls. The generator lives in [`brand/generate-pixel-outlines.cs`](https://github.com/Novolis-Platform/.github/blob/main/brand/generate-pixel-outlines.cs) so the logo can be regenerated from the same coordinate source instead of being edited as opaque SVG path text.
 
 ---
 
