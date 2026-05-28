@@ -12,10 +12,14 @@
   </defs>
   <rect width="512" height="640" fill="#0b1220"/>
   <g transform="translate(46 36) scale(4.2)">
-    <path fill="url(#g)" d="M23.00,31.00C43.50,14.19 52.59,13.20 73.50,25.50Q53.03,28.72 29.00,32.50Z"/>
-      <path fill="url(#g)" d="M30.00,73.00C47.63,79.56 55.28,78.03 72.50,64.50Q56.17,67.26 37.00,70.50Z"/>
-      <path fill="url(#g)" d="M25.00,32.00L35.50,32.00L35.50,61.00L25.00,67.50Z"/>
-      <path fill="url(#g)" d="M32.00,27.00L43.50,27.00L66.50,56.50L66.50,34.00L76.00,26.50L76.00,59.50L65.00,71.00L36.50,40.00Z"/>
+    <path fill="url(#g)" d="M25.50,29.00C43.95,15.47 52.23,15.20 71.50,27.50L68.50,30.50C53.74,21.50 42.96,22.20 30.00,33.00Z"/>
+      <path fill="url(#g)" d="M25.50,31.00C15.66,49.04 16.74,56.60 31.50,73.00L35.00,68.00C25.64,56.48 24.24,47.52 30.00,36.00Z"/>
+      <path fill="url(#g)" d="M30.50,72.00C47.31,80.20 54.87,78.76 72.50,64.00L67.50,62.50C55.62,72.58 46.80,74.26 36.00,68.50Z"/>
+      <path fill="url(#g)" d="M76.00,28.00C84.20,43.17 83.57,49.65 72.50,64.00L68.00,62.50C75.92,51.34 77.18,43.08 72.50,33.00Z"/>
+      <path fill="url(#g)" d="M34.00,40.00L41.50,47.50L41.50,63.50L34.00,67.50Z"/>
+      <path fill="url(#g)" d="M30.50,31.00L42.50,31.00L70.00,66.00L62.00,72.00Z"/>
+      <path fill="url(#g)" d="M66.00,34.00L75.50,28.00L75.50,60.50L68.00,68.50Z"/>
+      <path fill="url(#g)" d="M79.00,10.00Q79.55,15.34 84.00,16.00Q79.55,16.66 79.00,22.00Q78.45,16.66 74.00,16.00Q78.45,15.34 79.00,10.00Z"/>
   </g>
   <text x="256" y="548" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="44" font-weight="700" letter-spacing="0.14em">NOVOLIS</text>
   <text x="256" y="602" text-anchor="middle" fill="url(#novolis-tagline)" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="13.5" font-weight="600" letter-spacing="0.28em">BUILD · CREATE · EXPLORE</text>

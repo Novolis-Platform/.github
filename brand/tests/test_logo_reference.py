@@ -54,14 +54,14 @@ def test_reference_has_core_labels() -> None:
 def test_path_index_map_has_expected_paths() -> None:
     data = json.loads((REFERENCE_DIR / "path-index-map.json").read_text(encoding="utf-8"))
     m = data["logo-mark.svg"]
-    assert len(m) == 4
+    assert len(m) == 6
     assert m["0"] == "swirl_upper"
-    assert m["3"] == "n_diagonal"
+    assert m["5"] == "star"
 
 
 def test_parse_logo_mark_paths(path_tools, logo_mark_svg: Path) -> None:
     paths = path_tools.parse_paths(logo_mark_svg.read_text(encoding="utf-8"))
-    assert len(paths) == 4
+    assert len(paths) == 6
 
 
 def test_compare_by_path_map_runs(path_tools, logo_mark_svg: Path, reference_json: Path) -> None:
@@ -70,8 +70,8 @@ def test_compare_by_path_map_runs(path_tools, logo_mark_svg: Path, reference_jso
         reference_json,
         REFERENCE_DIR / "path-index-map.json",
     )
-    assert report["path_count"] == 4
-    assert len(report["elements"]) == 4
+    assert report["path_count"] == 6
+    assert len(report["elements"]) == 6
     assert "overall_iou" in report
 
 
@@ -82,6 +82,8 @@ def test_compare_by_path_map_runs(path_tools, logo_mark_svg: Path, reference_jso
         (1, "swirl_lower", 0.30, 8.0),
         (2, "n_left_stem", 0.55, 6.0),
         (3, "n_diagonal", 0.45, 8.0),
+        (4, "n_right_stem", 0.55, 6.0),
+        (5, "star", 0.70, 3.0),
     ],
 )
 def test_element_match_by_path_index(
