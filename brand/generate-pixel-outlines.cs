@@ -157,7 +157,7 @@ static class CleanOutliner
 
             new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
                 Path(lowerLeftOuter)
-                    .ArcTo(300, 300, largeArc: false, sweep: false, lowerRightOuter)
+                    .ArcTo(290, 290, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
                     .ArcTo(228, 228, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
