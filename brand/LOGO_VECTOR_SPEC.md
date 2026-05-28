@@ -29,13 +29,16 @@ Bottom → top in `logo-mark.svg`:
 
 | Z | Layer ID | Topology | Node count | Notes |
 |---|----------|----------|------------|-------|
-| 0 | `swirl_upper` | `swirl_crescent` | 3 + apex | Orbital arc, top |
-| 1 | `swirl_lower` | `swirl_crescent` | 3 + apex | Orbital arc, bottom |
-| 2 | `n_left_stem` | `polygon` | 4 | Chamfered trapezoid; outer edge on left |
-| 3 | `n_main` | `catmull_closed` | 8 | Diagonal bar ∪ right stem silhouette |
-| 4 | `star` | `star_quadratic` | 4 tips | Analytic concave sparkle |
+| 0 | `swirl_upper` | `arc_crescent` | 4 + 2 apexes | Orbital arc, top |
+| 1 | `swirl_left` | `arc_crescent` | 4 + 2 apexes | Orbital arc, left side |
+| 2 | `swirl_lower` | `arc_crescent` | 4 + 2 apexes | Orbital arc, bottom |
+| 3 | `swirl_right` | `arc_crescent` | 4 + 2 apexes | Orbital arc, right side |
+| 4 | `n_left_stem` | `polygon` | 4 | Inner left stem |
+| 5 | `n_diagonal` | `polygon` | 4 | Main diagonal bar |
+| 6 | `n_right_stem` | `polygon` | 4 | Chamfered right stem |
+| 7 | `star` | `star_quadratic` | 4 tips | Analytic concave sparkle |
 
-Reference-only (not painted separately): `n_right_stem`, `n_diagonal` — geometry merged into `n_main`.
+The current mark paints `n_diagonal` and `n_right_stem` separately so the reference image's split-stem geometry remains editable.
 
 Shared fill: `url(#g)` on every path.
 
