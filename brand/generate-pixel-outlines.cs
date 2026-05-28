@@ -89,14 +89,14 @@ static class CleanOutliner
         var upperRightTip = P(850, 332);
 
         var leftTopOuter = P(399, 326);
-        var leftBottomOuter = P(430, 639);
-        var leftBottomInner = P(407, 639);
+        var leftBottomOuter = P(430, 654);
+        var leftBottomInner = P(407, 654);
 
         var rightTopOuter = P(871, 368);
         var rightBottomOuter = P(854, 640);
         var rightBottomInner = P(824, 674);
 
-        var lowerLeftOuter = P(526, 714);
+        var lowerLeftOuter = P(466, 700);
         var lowerRightOuter = P(812, 687);
         var lowerRightInner = P(771, 687);
         var lowerLeftInner = P(539, 720);
@@ -138,7 +138,7 @@ static class CleanOutliner
                     .HorizontalTo(upperLeftCorner.X)
                     .ArcTo(255, 255, largeArc: false, sweep: true, upperRightInner)
                     .LineTo(upperRightTip)
-                    .ArcTo(304, 304, largeArc: false, sweep: false, upperLeftInner)
+                    .ArcTo(265, 265, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
             new("shape-swirl-left", "arc-sector", "swirl_left", "url(#mark-left)",
@@ -157,7 +157,7 @@ static class CleanOutliner
 
             new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
                 Path(lowerLeftOuter)
-                    .ArcTo(268, 268, largeArc: false, sweep: false, lowerRightOuter)
+                    .ArcTo(300, 300, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
                     .ArcTo(228, 228, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
