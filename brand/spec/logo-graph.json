@@ -58,13 +58,13 @@
       "id": "swirl_right",
       "topology": "arc_crescent",
       "nodes": [
-        { "id": "left_outer", "x": 76.0, "y": 28.0 },
-        { "id": "right_outer", "x": 72.5, "y": 64.0 },
-        { "id": "right_inner", "x": 68.0, "y": 62.5 },
-        { "id": "left_inner", "x": 72.5, "y": 33.0 }
+        { "id": "left_outer", "x": 78.0, "y": 31.0 },
+        { "id": "right_outer", "x": 74.5, "y": 64.0 },
+        { "id": "right_inner", "x": 71.5, "y": 62.5 },
+        { "id": "left_inner", "x": 75.0, "y": 35.0 }
       ],
-      "apex": { "x": 86.0, "y": 46.5 },
-      "inner_apex": { "x": 79.0, "y": 47.0 },
+      "apex": { "x": 83.5, "y": 47.0 },
+      "inner_apex": { "x": 80.0, "y": 47.0 },
       "params": { "outer_pull": 0.82, "inner_pull": 0.72 }
     },
     {
