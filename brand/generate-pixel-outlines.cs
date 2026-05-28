@@ -81,6 +81,9 @@ sealed class VectorPath
 
 static class CleanOutliner
 {
+    private const int CanonicalSwirlInnerRadius = 255;
+    private const int CanonicalSwirlOuterRadius = 265;
+
     public static List<SvgOutline> Trace()
     {
         var upperLeftInner = P(413, 313);
@@ -136,30 +139,30 @@ static class CleanOutliner
             new("shape-swirl-upper", "arc-sector", "swirl_upper", "url(#mark-cyan)",
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
-                    .ArcTo(255, 255, largeArc: false, sweep: true, upperRightInner)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, upperRightInner)
                     .LineTo(upperRightTip)
-                    .ArcTo(265, 265, largeArc: false, sweep: false, upperLeftInner)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
             new("shape-swirl-left", "arc-sector", "swirl_left", "url(#mark-left)",
                 Path(leftTopOuter)
-                    .ArcTo(288, 288, largeArc: false, sweep: false, leftBottomOuter)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, leftBottomOuter)
                     .LineTo(leftBottomInner)
-                    .ArcTo(318, 318, largeArc: false, sweep: true, leftTopOuter)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, leftTopOuter)
                     .Close()),
 
             new("shape-swirl-right", "arc-sector", "swirl_right", "url(#mark-right)",
                 Path(rightTopOuter)
-                    .ArcTo(302, 302, largeArc: false, sweep: true, rightBottomOuter)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, rightBottomOuter)
                     .LineTo(rightBottomInner)
-                    .ArcTo(330, 330, largeArc: false, sweep: false, rightTopOuter)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, rightTopOuter)
                     .Close()),
 
             new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
                 Path(lowerLeftOuter)
-                    .ArcTo(290, 290, largeArc: false, sweep: false, lowerRightOuter)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
-                    .ArcTo(228, 228, largeArc: false, sweep: true, lowerLeftInner)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
 
             new("shape-diagonal", "straight", "n_diagonal", "url(#mark-diagonal)",
