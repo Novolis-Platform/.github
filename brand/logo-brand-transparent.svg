@@ -53,8 +53,8 @@
     <path id="shape-right-stem" data-kind="straight" data-label="n_right_stem" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
     <path id="shape-star" data-kind="straight" data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
   </g>
-  <g id="vector-wordmark" font-family="Consolas, 'Cascadia Mono', 'Courier New', monospace" text-anchor="start">
-    <text x="161" y="912" font-size="133" font-weight="700" fill="#f7fbff" textLength="936" lengthAdjust="spacingAndGlyphs" filter="url(#wordmark-glow)">NOVOLIS</text>
+  <g id="vector-wordmark" font-family="'Cascadia Code', Consolas, 'Courier New', monospace" text-anchor="start">
+    <text x="161" y="912" font-size="133" font-weight="545" fill="#f7fbff" textLength="936" lengthAdjust="spacingAndGlyphs" filter="url(#wordmark-glow)">NOVOLIS</text>
     <text x="203" y="999" font-size="35" font-weight="700" fill="url(#tagline-gradient)" textLength="848" lengthAdjust="spacingAndGlyphs">BUILD • CREATE • EXPLORE</text>
   </g>
 </svg>
