@@ -48,7 +48,7 @@
     <path id="shape-swirl-left" data-kind="arc-sector" data-label="swirl_left" fill="url(#mark-left)" d="M399 326 A288 288 0 0 0 430 654 L407 654 A318 318 0 0 1 399 326 Z"/>
     <path id="shape-swirl-right" data-kind="arc-sector" data-label="swirl_right" fill="url(#mark-right)" d="M871 368 A302 302 0 0 1 854 640 L824 674 A330 330 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower" data-kind="arc-sector" data-label="swirl_lower" fill="url(#mark-lower)" d="M466 700 A300 300 0 0 0 812 687 L771 687 A228 228 0 0 1 539 720 Z"/>
-    <path id="shape-diagonal" data-kind="straight" data-label="n_diagonal" fill="url(#mark-diagonal)" d="M405 327 H529 L823 619 H854 V640 L837 671 H734 L398 333 Z"/>
+    <path id="shape-diagonal" data-kind="straight" data-label="n_diagonal" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 H854 V640 L837 671 H731 L391 333 Z"/>
     <path id="shape-left-stem" data-kind="straight" data-label="n_left_stem" fill="url(#mark-left-stem)" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path id="shape-right-stem" data-kind="straight" data-label="n_right_stem" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
     <path id="shape-star" data-kind="straight" data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>

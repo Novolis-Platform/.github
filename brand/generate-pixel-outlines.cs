@@ -101,14 +101,14 @@ static class CleanOutliner
         var lowerRightInner = P(771, 687);
         var lowerLeftInner = P(539, 720);
 
-        var diagonalTopLeft = P(405, 327);
-        var diagonalTopRight = P(529, 327);
-        var diagonalShoulder = P(823, 619);
+        var diagonalTopLeft = P(398, 326);
+        var diagonalTopRight = P(531, 326);
+        var diagonalShoulder = P(824, 619);
         var diagonalRightFlat = P(854, 619);
         var diagonalRightDrop = P(854, 640);
         var diagonalBottomRight = P(837, 671);
-        var diagonalBottomLeft = P(734, 671);
-        var diagonalLeftReturn = P(398, 333);
+        var diagonalBottomLeft = P(731, 671);
+        var diagonalLeftReturn = P(391, 333);
 
         var leftStemTop = P(472, 433);
         var leftStemShoulder = P(540, 496);
