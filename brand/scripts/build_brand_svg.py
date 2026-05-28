@@ -1,4 +1,4 @@
-"""Regenerate logo-lockup-horizontal.svg from logo-mark.svg + outlined NOVOLIS."""
+"""Regenerate logo-lockup-horizontal.svg from logo-mark.svg + outlined wordmark."""
 from __future__ import annotations
 
 import re
@@ -31,10 +31,9 @@ def outline_text(font: TTFont, text: str, size: float, x: float, y: float) -> tu
     for ch in text:
         name = cmap[ord(ch)]
         pen = SVGPathPen(glyph_set)
-        TransformPen(pen, Transform().scale(scale, -scale).translate(x + pen_x, y)).moveTo = None
         tpen = TransformPen(
             pen,
-            Transform().scale(scale, -scale).translate(x + pen_x, y),
+            Transform(scale, 0, 0, -scale, x + pen_x, y),
         )
         glyph_set[name].draw(tpen)
         parts.append(pen.getCommands())
@@ -51,12 +50,14 @@ def extract_icon(svg: str) -> tuple[str, str]:
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    _, icon_body = extract_icon((root / "logo-mark.svg").read_text(encoding="utf-8"))
+    icon_defs, icon_body = extract_icon((root / "logo-mark.svg").read_text(encoding="utf-8"))
     font = fetch_bold(root / ".cache" / "Inter-Bold.ttf")
-    word, ww = outline_text(font, "NOVOLIS", 26, 0, 0)
-    word, _ = outline_text(font, "NOVOLIS", 26, 96, 68)
+    word, ww = outline_text(font, "Novolis", 26, 0, 0)
+    word, _ = outline_text(font, "Novolis", 26, 96, 68)
     w = int(96 + ww + 16)
+    defs = f"  <defs>\n    {icon_defs}\n  </defs>\n" if icon_defs else ""
     lock = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 100" role="img" aria-label="Novolis">
+{defs.rstrip()}
   <g transform="translate(6 8) scale(0.84)">
     {icon_body}
   </g>

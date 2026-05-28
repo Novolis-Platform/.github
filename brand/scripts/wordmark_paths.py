@@ -44,7 +44,7 @@ def build_wordmark(font_path: Path) -> dict:
         pen = SVGPathPen(glyph_set)
         tpen = TransformPen(
             pen,
-            Transform().scale(scale, -scale).translate(MARK_WIDTH + GAP + x, y_offset),
+            Transform(scale, 0, 0, -scale, MARK_WIDTH + GAP + x, y_offset),
         )
         glyph_set[glyph_name].draw(tpen)
         paths.append(pen.getCommands())

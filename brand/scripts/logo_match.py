@@ -58,7 +58,7 @@ def main() -> int:
             max_centroid_delta=args.max_centroid_delta,
             min_overall_iou=args.min_overall_iou,
         )
-    text = json.dumps(report, indent=2)
+    text = json.dumps(report, indent=2) + "\n"
     if args.report:
         args.report.write_text(text, encoding="utf-8")
         print(f"Wrote {args.report}")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate logo-mark.svg: mask contour → sparse corners → smooth cubic splines (6 layers)."""
+"""Generate logo-mark.svg from reference masks with restrained smoothing."""
 from __future__ import annotations
 
 import json
@@ -36,7 +36,9 @@ CORNER_BUDGET: dict[str, int] = {
 }
 
 RENDER = 2048
-TENSION = 0.34
+# Keep splines close to the extracted contour. Higher Catmull tension visibly
+# balloons the N and stems away from the reference silhouette.
+TENSION = 0.06
 STAR_CONCAVITY = 0.248
 
 
@@ -162,8 +164,7 @@ def element_to_smooth_path(elem: dict) -> str:
         return ""
     budget = CORNER_BUDGET.get(label, 8)
     corners = _rdp_to_budget(contour, budget)
-    tension = 0.26 if label == "n_diagonal" else TENSION
-    return _catmull_rom_closed(corners, tension)
+    return _catmull_rom_closed(corners, TENSION)
 
 
 def build() -> str:
@@ -199,7 +200,7 @@ def main() -> None:
     if not REF.exists():
         raise SystemExit(f"Run reference_mask.py extract first (missing {REF})")
     OUT.write_text(build(), encoding="utf-8", newline="\n")
-    print(f"Wrote {OUT} (6 mask-fitted smooth paths)")
+    print(f"Wrote {OUT} (6 low-tension mask-fitted paths)")
 
 
 if __name__ == "__main__":
