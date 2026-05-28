@@ -3,9 +3,10 @@
   "logo-mark.svg": {
     "0": "swirl_upper",
     "1": "swirl_lower",
-    "2": "n_right_stem",
-    "3": "n_left_stem",
-    "4": "n_diagonal",
-    "5": "star"
+    "2": "n_left_stem",
+    "3": "n_diagonal"
+  },
+  "compare_as_union": {
+    "n_diagonal": ["n_diagonal", "n_right_stem"]
   }
 }

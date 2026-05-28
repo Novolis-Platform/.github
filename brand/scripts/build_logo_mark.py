@@ -1,124 +1,16 @@
 #!/usr/bin/env python3
-"""Generate logo-mark.svg from reference masks with restrained smoothing."""
+"""Generate logo-mark.svg from the deterministic logo graph."""
 from __future__ import annotations
 
 import json
-import math
 from pathlib import Path
-
-import numpy as np
-from PIL import Image
-
-try:
-    from skimage.measure import find_contours
-except ImportError:
-    find_contours = None  # type: ignore
 
 BRAND = Path(__file__).resolve().parent.parent
 OUT = BRAND / "logo-mark.svg"
-REF = BRAND / "reference" / "elements.json"
-
-PATH_ORDER = [
-    "swirl_upper",
-    "swirl_lower",
-    "n_right_stem",
-    "n_left_stem",
-    "n_diagonal",
-    "star",
-]
-
-CORNER_BUDGET: dict[str, int] = {
-    "swirl_upper": 10,
-    "swirl_lower": 8,
-    "n_right_stem": 6,
-    "n_left_stem": 6,
-    "n_diagonal": 12,
-}
-
-RENDER = 2048
-# Keep splines close to the extracted contour. Higher Catmull tension visibly
-# balloons the N and stems away from the reference silhouette.
-TENSION = 0.06
-STAR_CONCAVITY = 0.248
+GRAPH = BRAND / "spec" / "logo-graph.json"
 
 
-def _rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, float]]:
-    if len(points) < 3:
-        return points
-
-    def perp_dist(p, a, b):
-        ax, ay = a
-        bx, by = b
-        if ax == bx and ay == by:
-            return math.hypot(p[0] - ax, p[1] - ay)
-        t = max(
-            0,
-            min(1, ((p[0] - ax) * (bx - ax) + (p[1] - ay) * (by - ay)) / ((bx - ax) ** 2 + (by - ay) ** 2)),
-        )
-        px, py = ax + t * (bx - ax), ay + t * (by - ay)
-        return math.hypot(p[0] - px, p[1] - py)
-
-    def rec(pts: list[tuple[float, float]]) -> list[tuple[float, float]]:
-        if len(pts) < 3:
-            return pts
-        a, b = pts[0], pts[-1]
-        idx, dmax = 0, -1.0
-        for i in range(1, len(pts) - 1):
-            d = perp_dist(pts[i], a, b)
-            if d > dmax:
-                idx, dmax = i, d
-        if dmax > eps:
-            return rec(pts[: idx + 1])[:-1] + rec(pts[idx:])
-        return [a, b]
-
-    closed = points if points[0] == points[-1] else points + [points[0]]
-    return rec(closed)
-
-
-def _rdp_to_budget(points: list[tuple[float, float]], budget: int) -> list[tuple[float, float]]:
-    if len(points) <= budget + 1:
-        return points[:-1] if points and points[0] == points[-1] else points
-    lo, hi = 0.05, max(2.0, len(points) * 0.5)
-    best = points
-    for _ in range(24):
-        mid = (lo + hi) / 2
-        simplified = _rdp(points, mid)
-        n = len(simplified) - (1 if simplified and simplified[0] == simplified[-1] else 0)
-        if n > budget:
-            lo = mid
-        else:
-            hi = mid
-            best = simplified
-    out = best[:-1] if best and best[0] == best[-1] else best
-    if len(out) > budget:
-        step = max(1, len(out) // budget)
-        out = out[::step][:budget]
-    return out
-
-
-def _mask_contour(elem: dict, res: int = RENDER) -> list[tuple[float, float]]:
-    mask = np.array(elem["mask64"], dtype=np.uint8) > 0
-    b = elem["bbox"]
-    x0 = int(b["x0"] / 100 * res)
-    y0 = int(b["y0"] / 100 * res)
-    x1 = max(x0 + 2, int(math.ceil(b["x1"] / 100 * res)))
-    y1 = max(y0 + 2, int(math.ceil(b["y1"] / 100 * res)))
-    patch = np.array(
-        Image.fromarray((mask.astype(np.uint8) * 255)).resize((x1 - x0, y1 - y0), Image.Resampling.LANCZOS)
-    ) > 127
-    canvas = np.zeros((res, res), dtype=np.float64)
-    canvas[y0:y1, x0:x1] = patch.astype(np.float64)
-    contours = find_contours(canvas, 0.5)
-    if not contours:
-        return []
-    c = max(contours, key=len)
-    pts = [(float(col) / res * 100, float(row) / res * 100) for row, col in c]
-    if pts[0] != pts[-1]:
-        pts.append(pts[0])
-    return pts
-
-
-def _catmull_rom_closed(points: list[tuple[float, float]], tension: float = TENSION) -> str:
+def _catmull_rom_closed(points: list[tuple[float, float]], tension: float) -> str:
     n = len(points)
     if n < 3:
         return ""
@@ -137,56 +29,116 @@ def _catmull_rom_closed(points: list[tuple[float, float]], tension: float = TENS
     return "".join(parts)
 
 
-def _star_path(elem: dict) -> str:
-    b = elem["bbox"]
-    c = elem["centroid"]
-    cx, cy = c["x"], c["y"]
-    rx = (b["x1"] - b["x0"]) / 2 * 0.94
-    ry = (b["y1"] - b["y0"]) / 2 * 0.94
-    tips = [(cx, cy - ry), (cx + rx, cy), (cx, cy + ry), (cx - rx, cy)]
+def _node_xy(node: dict) -> tuple[float, float]:
+    return (float(node["x"]), float(node["y"]))
+
+
+def _format_path(points: list[tuple[float, float]]) -> str:
+    parts = [f"M{points[0][0]:.2f},{points[0][1]:.2f}"]
+    for x, y in points[1:]:
+        parts.append(f"L{x:.2f},{y:.2f}")
+    return "".join(parts) + "Z"
+
+
+def _swirl_crescent(layer: dict) -> str:
+    nodes = {_["id"]: _node_xy(_) for _ in layer["nodes"]}
+    lo = nodes["left_outer"]
+    li = nodes["left_inner"]
+    rt = nodes["right_tip"]
+    ap = _node_xy(layer["apex"])
+    params = layer.get("params", {})
+    outer_pull = float(params.get("outer_pull", 0.74))
+    inner_pull = float(params.get("inner_pull", 0.58))
+
+    c1x = lo[0] + (ap[0] - lo[0]) * outer_pull
+    c1y = lo[1] + (ap[1] - lo[1]) * outer_pull
+    c2x = rt[0] + (ap[0] - rt[0]) * outer_pull
+    c2y = rt[1] + (ap[1] - rt[1]) * outer_pull
+    qx = rt[0] + (li[0] - rt[0]) * inner_pull
+    qy = rt[1] + (li[1] - rt[1]) * inner_pull
+    return (
+        f"M{lo[0]:.2f},{lo[1]:.2f}"
+        f"C{c1x:.2f},{c1y:.2f} {c2x:.2f},{c2y:.2f} {rt[0]:.2f},{rt[1]:.2f}"
+        f"Q{qx:.2f},{qy:.2f} {li[0]:.2f},{li[1]:.2f}Z"
+    )
+
+
+def _arc_crescent(layer: dict) -> str:
+    nodes = {_["id"]: _node_xy(_) for _ in layer["nodes"]}
+    lo = nodes["left_outer"]
+    ro = nodes["right_outer"]
+    ri = nodes["right_inner"]
+    li = nodes["left_inner"]
+    ap = _node_xy(layer["apex"])
+    inner_ap = _node_xy(layer["inner_apex"])
+    params = layer.get("params", {})
+    outer_pull = float(params.get("outer_pull", 0.82))
+    inner_pull = float(params.get("inner_pull", 0.72))
+
+    oc1x = lo[0] + (ap[0] - lo[0]) * outer_pull
+    oc1y = lo[1] + (ap[1] - lo[1]) * outer_pull
+    oc2x = ro[0] + (ap[0] - ro[0]) * outer_pull
+    oc2y = ro[1] + (ap[1] - ro[1]) * outer_pull
+    ic1x = ri[0] + (inner_ap[0] - ri[0]) * inner_pull
+    ic1y = ri[1] + (inner_ap[1] - ri[1]) * inner_pull
+    ic2x = li[0] + (inner_ap[0] - li[0]) * inner_pull
+    ic2y = li[1] + (inner_ap[1] - li[1]) * inner_pull
+    return (
+        f"M{lo[0]:.2f},{lo[1]:.2f}"
+        f"C{oc1x:.2f},{oc1y:.2f} {oc2x:.2f},{oc2y:.2f} {ro[0]:.2f},{ro[1]:.2f}"
+        f"L{ri[0]:.2f},{ri[1]:.2f}"
+        f"C{ic1x:.2f},{ic1y:.2f} {ic2x:.2f},{ic2y:.2f} {li[0]:.2f},{li[1]:.2f}Z"
+    )
+
+
+def _star_path(layer: dict) -> str:
+    tips = [_node_xy(n) for n in layer["nodes"]]
+    params = layer.get("params", {})
+    concavity = float(params.get("concavity", 0.248))
+    cx = sum(p[0] for p in tips) / len(tips)
+    cy = sum(p[1] for p in tips) / len(tips)
     parts = [f"M{tips[0][0]:.2f},{tips[0][1]:.2f}"]
     for i in range(4):
         x0, y0 = tips[i]
         x1, y1 = tips[(i + 1) % 4]
         mx, my = (x0 + x1) / 2, (y0 + y1) / 2
-        qx = cx + (mx - cx) * STAR_CONCAVITY
-        qy = cy + (my - cy) * STAR_CONCAVITY
+        qx = cx + (mx - cx) * concavity
+        qy = cy + (my - cy) * concavity
         parts.append(f"Q{qx:.2f},{qy:.2f} {x1:.2f},{y1:.2f}")
     return "".join(parts) + "Z"
 
 
-def element_to_smooth_path(elem: dict) -> str:
-    label = elem["label"]
-    if label == "star":
-        return _star_path(elem)
-    contour = _mask_contour(elem)
-    if not contour:
-        return ""
-    budget = CORNER_BUDGET.get(label, 8)
-    corners = _rdp_to_budget(contour, budget)
-    return _catmull_rom_closed(corners, TENSION)
+def path_for_layer(layer: dict) -> str:
+    topology = layer["topology"]
+    if topology == "arc_crescent":
+        return _arc_crescent(layer)
+    if topology == "swirl_crescent":
+        return _swirl_crescent(layer)
+    if topology == "polygon":
+        return _format_path([_node_xy(n) for n in layer["nodes"]])
+    if topology == "catmull_closed":
+        points = [_node_xy(n) for n in layer["nodes"]]
+        return _catmull_rom_closed(points, float(layer.get("params", {}).get("tension", 0.04)))
+    if topology == "star_quadratic":
+        return _star_path(layer)
+    raise ValueError(f"unknown topology {topology!r}")
 
 
 def build() -> str:
-    data = json.loads(REF.read_text(encoding="utf-8"))
-    by_label = {e["label"]: e for e in data["elements"]}
-    paths: list[str] = []
-    for label in PATH_ORDER:
-        elem = by_label.get(label)
-        if not elem:
-            raise KeyError(f"missing reference element {label}")
-        d = element_to_smooth_path(elem)
-        if not d:
-            raise ValueError(f"empty path for {label}")
-        paths.append(d)
+    graph = json.loads(GRAPH.read_text(encoding="utf-8"))
+    by_id = {layer["id"]: layer for layer in graph["layers"]}
+    paths = [path_for_layer(by_id[layer_id]) for layer_id in graph["build_order"]]
+    gradient = graph["gradient"]
+    stops = "\n".join(
+        f'      <stop offset="{stop["offset"]}" stop-color="{stop["color"]}"/>'
+        for stop in gradient["stops"]
+    )
 
     body = "\n".join(f'  <path fill="url(#g)" d="{d}"/>' for d in paths)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Novolis">
   <defs>
-    <linearGradient id="g" x1="14" y1="10" x2="86" y2="90" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#45d4ff"/>
-      <stop offset="0.42" stop-color="#3b82f6"/>
-      <stop offset="1" stop-color="#a855f7"/>
+    <linearGradient id="{gradient["id"]}" x1="{gradient["x1"]}" y1="{gradient["y1"]}" x2="{gradient["x2"]}" y2="{gradient["y2"]}" gradientUnits="userSpaceOnUse">
+{stops}
     </linearGradient>
   </defs>
 {body}
@@ -195,12 +147,10 @@ def build() -> str:
 
 
 def main() -> None:
-    if find_contours is None:
-        raise SystemExit("Install scikit-image: pip install scikit-image")
-    if not REF.exists():
-        raise SystemExit(f"Run reference_mask.py extract first (missing {REF})")
+    if not GRAPH.exists():
+        raise SystemExit(f"Missing logo graph: {GRAPH}")
     OUT.write_text(build(), encoding="utf-8", newline="\n")
-    print(f"Wrote {OUT} (6 low-tension mask-fitted paths)")
+    print(f"Wrote {OUT} ({GRAPH.relative_to(BRAND)} -> {OUT.name})")
 
 
 if __name__ == "__main__":

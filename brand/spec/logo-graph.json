@@ -13,65 +13,74 @@
       { "offset": 1, "color": "#a855f7" }
     ]
   },
-  "build_order": ["swirl_upper", "swirl_lower", "n_left_stem", "n_main", "star"],
+  "build_order": ["swirl_upper", "swirl_lower", "n_left_stem", "n_diagonal", "n_right_stem"],
   "layers": [
     {
       "id": "swirl_upper",
-      "topology": "swirl_crescent",
+      "topology": "arc_crescent",
       "nodes": [
-        { "id": "left_outer", "x": 27.89, "y": 15.77 },
-        { "id": "left_inner", "x": 39.0, "y": 7.8 },
-        { "id": "right_tip", "x": 70.33, "y": 15.77 }
+        { "id": "left_outer", "x": 20.5, "y": 30.0 },
+        { "id": "right_outer", "x": 74.5, "y": 27.0 },
+        { "id": "right_inner", "x": 70.5, "y": 31.5 },
+        { "id": "left_inner", "x": 27.0, "y": 35.0 }
       ],
-      "apex": { "x": 47.37, "y": 3.16 },
-      "params": { "outer_pull": 0.88, "inner_pull": 0.55 }
+      "apex": { "x": 47.5, "y": 10.0 },
+      "inner_apex": { "x": 47.5, "y": 18.0 },
+      "params": { "outer_pull": 0.82, "inner_pull": 0.72 }
     },
     {
       "id": "swirl_lower",
-      "topology": "swirl_crescent",
+      "topology": "arc_crescent",
       "nodes": [
-        { "id": "left_outer", "x": 38.82, "y": 66.96 },
-        { "id": "left_inner", "x": 50.2, "y": 70.4 },
-        { "id": "right_tip", "x": 68.07, "y": 64.05 }
+        { "id": "left_outer", "x": 28.0, "y": 72.5 },
+        { "id": "right_outer", "x": 75.0, "y": 62.5 },
+        { "id": "right_inner", "x": 68.5, "y": 61.5 },
+        { "id": "left_inner", "x": 34.5, "y": 68.0 }
       ],
-      "apex": { "x": 49.96, "y": 71.77 },
-      "params": { "outer_pull": 0.88, "inner_pull": 0.55 }
+      "apex": { "x": 51.0, "y": 84.0 },
+      "inner_apex": { "x": 51.0, "y": 76.5 },
+      "params": { "outer_pull": 0.82, "inner_pull": 0.72 }
     },
     {
       "id": "n_left_stem",
       "topology": "polygon",
       "nodes": [
-        { "id": "top_outer", "x": 34.13, "y": 31.77 },
-        { "id": "top_inner", "x": 37.17, "y": 35.28 },
-        { "id": "bottom_inner", "x": 39.88, "y": 55.92 },
-        { "id": "bottom_outer", "x": 33.91, "y": 56.36 }
+        { "id": "top_outer", "x": 25.0, "y": 32.0 },
+        { "id": "top_inner", "x": 35.5, "y": 32.0 },
+        { "id": "bottom_inner", "x": 35.5, "y": 61.0 },
+        { "id": "bottom_outer", "x": 25.0, "y": 67.5 }
       ]
     },
     {
-      "id": "n_main",
-      "topology": "catmull_closed",
+      "id": "n_diagonal",
+      "topology": "polygon",
       "nodes": [
-        { "id": "top_left", "x": 26.0, "y": 18.5 },
-        { "id": "top_right", "x": 44.5, "y": 18.5 },
-        { "id": "upper_inner_right", "x": 67.5, "y": 20.5 },
-        { "id": "lower_inner_right", "x": 67.5, "y": 49.0 },
-        { "id": "bottom_right", "x": 58.0, "y": 62.0 },
-        { "id": "bottom_left", "x": 30.0, "y": 68.0 },
-        { "id": "lower_inner_left", "x": 22.5, "y": 48.0 },
-        { "id": "upper_inner_left", "x": 24.0, "y": 32.0 }
-      ],
-      "params": { "tension": 0.18 }
+        { "id": "top_left", "x": 33.0, "y": 29.0 },
+        { "id": "top_right", "x": 44.0, "y": 29.0 },
+        { "id": "bottom_right", "x": 66.0, "y": 61.5 },
+        { "id": "bottom_left", "x": 56.0, "y": 68.5 }
+      ]
+    },
+    {
+      "id": "n_right_stem",
+      "topology": "polygon",
+      "nodes": [
+        { "id": "top_inner", "x": 65.0, "y": 35.0 },
+        { "id": "top_outer", "x": 76.0, "y": 27.0 },
+        { "id": "bottom_outer", "x": 76.0, "y": 61.0 },
+        { "id": "bottom_inner", "x": 65.0, "y": 72.0 }
+      ]
     },
     {
       "id": "star",
       "topology": "star_quadratic",
       "nodes": [
-        { "id": "tip_n", "x": 74.94, "y": 7.69 },
-        { "id": "tip_e", "x": 79.11, "y": 12.99 },
-        { "id": "tip_s", "x": 74.94, "y": 18.28 },
-        { "id": "tip_w", "x": 70.76, "y": 12.99 }
+        { "id": "tip_n", "x": 78.0, "y": 10.5 },
+        { "id": "tip_e", "x": 82.5, "y": 16.0 },
+        { "id": "tip_s", "x": 78.0, "y": 21.5 },
+        { "id": "tip_w", "x": 73.5, "y": 16.0 }
       ],
-      "params": { "concavity": 0.248 }
+      "params": { "concavity": 0.22 }
     }
   ],
   "reference_only": {
