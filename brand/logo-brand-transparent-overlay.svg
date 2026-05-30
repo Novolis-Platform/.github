@@ -11,43 +11,26 @@
     <path id="shape-swirl-left-fill" data-label="swirl_left" fill="url(#mark-left)" d="M399 326 A255 255 0 0 0 526 732 L520 711 A265 265 0 0 1 433 372 Z"/>
     <path id="shape-swirl-right-fill" data-label="swirl_right" fill="url(#mark-right)" d="M871 368 A255 255 0 0 1 827 671 L820 621 A265 265 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower-fill" data-label="swirl_lower" fill="url(#mark-lower)" d="M520 711 L526 732 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
-    <path id="shape-diagonal-fill" data-label="n_diagonal" fill="url(#mark-diagonal)" d="M399 326 H531 L824 619 H854 V640 L837 671 H731 L391 333 Z"/>
+    <path id="shape-diagonal-fill" data-label="n_diagonal" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 H854 V640 L837 671 H731 L398 326 Z"/>
     <path id="shape-star-fill" data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
   </g>
   <g id="shape-outlines">
     <path id="shape-swirl-left-outline" class="shape-outline" data-label="swirl_left" d="M399 326 A255 255 0 0 0 526 732 L520 711 A265 265 0 0 1 433 372 Z"/>
     <path id="shape-swirl-right-outline" class="shape-outline" data-label="swirl_right" d="M871 368 A255 255 0 0 1 827 671 L820 621 A265 265 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower-outline" class="shape-outline" data-label="swirl_lower" d="M520 711 L526 732 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
-    <path id="shape-diagonal-outline" class="shape-outline" data-label="n_diagonal" d="M399 326 H531 L824 619 H854 V640 L837 671 H731 L391 333 Z"/>
+    <path id="shape-diagonal-outline" class="shape-outline" data-label="n_diagonal" d="M398 326 H531 L824 619 H854 V640 L837 671 H731 L398 326 Z"/>
     <path id="shape-star-outline" class="shape-outline" data-label="star" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
   </g>
   <g id="control-points">
-    <circle id="shape-swirl-left-p1" class="point" data-label="swirl_left:1" cx="391" cy="333" r="6"/>
-    <!-- <text class="point-label" x="408" y="317">swirl_left:1</text> -->
+    <circle id="shape-swirl-left-p1" class="point" data-label="swirl_left:1" cx="399" cy="326" r="6"/>
+    <text class="point-label" x="408" y="317">swirl_left:1</text>
     <circle id="shape-swirl-left-p2" class="point" data-label="swirl_left:2" cx="526" cy="732" r="6"/>
-    <!-- <text class="point-label" x="535" y="723">swirl_left:2</text> -->
+    <text class="point-label" x="535" y="723">swirl_left:2</text>
     <circle id="shape-swirl-left-p3" class="point" data-label="swirl_left:3" cx="520" cy="711" r="6"/>
-    <!-- <text class="point-label" x="529" y="702">swirl_left:3</text> -->
+    <text class="point-label" x="529" y="702">swirl_left:3</text>
     <circle id="shape-swirl-left-p4" class="point" data-label="swirl_left:4" cx="433" cy="372" r="6"/>
-    <!-- <text class="point-label" x="442" y="363">swirl_left:4</text> -->
+    <text class="point-label" x="442" y="363">swirl_left:4</text>
     <text class="shape-label" x="417" y="351">swirl_left</text>
-    <circle id="shape-diagonal-p1" class="point" data-label="n_diagonal:1" cx="398" cy="326" r="6"/>
-    <text class="point-label" x="407" y="317">n_diagonal:1</text>
-    <circle id="shape-diagonal-p2" class="point" data-label="n_diagonal:2" cx="531" cy="326" r="6"/>
-    <text class="point-label" x="540" y="317">n_diagonal:2</text>
-    <circle id="shape-diagonal-p3" class="point" data-label="n_diagonal:3" cx="824" cy="619" r="6"/>
-    <text class="point-label" x="833" y="610">n_diagonal:3</text>
-    <circle id="shape-diagonal-p4" class="point" data-label="n_diagonal:4" cx="854" cy="619" r="6"/>
-    <text class="point-label" x="863" y="610">n_diagonal:4</text>
-    <circle id="shape-diagonal-p5" class="point" data-label="n_diagonal:5" cx="854" cy="640" r="6"/>
-    <text class="point-label" x="863" y="631">n_diagonal:5</text>
-    <circle id="shape-diagonal-p6" class="point" data-label="n_diagonal:6" cx="837" cy="671" r="6"/>
-    <text class="point-label" x="846" y="662">n_diagonal:6</text>
-    <circle id="shape-diagonal-p7" class="point" data-label="n_diagonal:7" cx="731" cy="671" r="6"/>
-    <text class="point-label" x="740" y="662">n_diagonal:7</text>
-    <circle id="shape-diagonal-p8" class="point" data-label="n_diagonal:8" cx="391" cy="333" r="6"/>
-    <text class="point-label" x="400" y="324">n_diagonal:8</text>
-    <!-- <text class="shape-label" x="416" y="351">n_diagonal</text> -->
     <circle id="shape-swirl-right-p1" class="point" data-label="swirl_right:1" cx="871" cy="368" r="6"/>
     <text class="point-label" x="880" y="359">swirl_right:1</text>
     <circle id="shape-swirl-right-p2" class="point" data-label="swirl_right:2" cx="827" cy="671" r="6"/>
@@ -68,6 +51,23 @@
     <circle id="shape-swirl-lower-p5" class="point" data-label="swirl_lower:5" cx="520" cy="711" r="6"/>
     <text class="point-label" x="529" y="702">swirl_lower:5</text>
     <text class="shape-label" x="538" y="736">swirl_lower</text>
+    <circle id="shape-diagonal-p1" class="point" data-label="n_diagonal:1" cx="398" cy="326" r="6"/>
+    <text class="point-label" x="407" y="317">n_diagonal:1</text>
+    <circle id="shape-diagonal-p2" class="point" data-label="n_diagonal:2" cx="531" cy="326" r="6"/>
+    <text class="point-label" x="540" y="317">n_diagonal:2</text>
+    <circle id="shape-diagonal-p3" class="point" data-label="n_diagonal:3" cx="824" cy="619" r="6"/>
+    <text class="point-label" x="833" y="610">n_diagonal:3</text>
+    <circle id="shape-diagonal-p4" class="point" data-label="n_diagonal:4" cx="854" cy="619" r="6"/>
+    <text class="point-label" x="863" y="610">n_diagonal:4</text>
+    <circle id="shape-diagonal-p5" class="point" data-label="n_diagonal:5" cx="854" cy="640" r="6"/>
+    <text class="point-label" x="863" y="631">n_diagonal:5</text>
+    <circle id="shape-diagonal-p6" class="point" data-label="n_diagonal:6" cx="837" cy="671" r="6"/>
+    <text class="point-label" x="846" y="662">n_diagonal:6</text>
+    <circle id="shape-diagonal-p7" class="point" data-label="n_diagonal:7" cx="731" cy="671" r="6"/>
+    <text class="point-label" x="740" y="662">n_diagonal:7</text>
+    <circle id="shape-diagonal-p8" class="point" data-label="n_diagonal:8" cx="398" cy="326" r="6"/>
+    <text class="point-label" x="407" y="317">n_diagonal:8</text>
+    <text class="shape-label" x="416" y="351">n_diagonal</text>
     <circle id="shape-star-p1" class="point" data-label="star:1" cx="874" cy="241" r="6"/>
     <text class="point-label" x="883" y="232">star:1</text>
     <circle id="shape-star-p2" class="point" data-label="star:2" cx="884" cy="273" r="6"/>
