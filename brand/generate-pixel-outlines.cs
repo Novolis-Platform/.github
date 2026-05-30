@@ -180,10 +180,10 @@ static class CleanOutliner
                     .Close()),
 
             new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
-                Path(lowerLeftOuter)
+                Path(lowerLeftInner)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftOuter)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
 
             new("shape-diagonal", "straight", "n_diagonal", "url(#mark-diagonal)",
