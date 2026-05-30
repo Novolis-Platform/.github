@@ -1,47 +1,19 @@
-using System.Buffers.Binary;
-using System.IO.Compression;
+using System.Diagnostics;
 using System.Text;
 
-const int DefaultAlphaThreshold = 16;
+// =============================================================================
+// App — CLI entry point (thin; delegates to library sections below)
+// =============================================================================
 
-var inputPng = args.Length > 0 ? args[0] : "logo-brand-transparent.png";
-var outputSvg = args.Length > 1 ? args[1] : "logo-brand-transparent.svg";
-var alphaThreshold = args.Length > 2 && int.TryParse(args[2], out var parsedThreshold)
-    ? parsedThreshold
-    : DefaultAlphaThreshold;
+return BrandLogoApp.Run(args);
 
-var png = PngRgba.Read(inputPng);
-var outlines = CleanOutliner.Trace();
-var svg = SvgWriter.Write(outputSvg, inputPng, png.Width, png.Height, outlines, alphaThreshold);
-File.WriteAllText(outputSvg, svg, Encoding.UTF8);
-
-var overlaySvg = Path.Combine(
-    Path.GetDirectoryName(Path.GetFullPath(outputSvg)) ?? Environment.CurrentDirectory,
-    $"{Path.GetFileNameWithoutExtension(outputSvg)}-overlay.svg");
-File.WriteAllText(
-    overlaySvg,
-    SvgWriter.WriteOverlay(overlaySvg, inputPng, png.Width, png.Height, outlines, alphaThreshold),
-    Encoding.UTF8);
-
-Console.WriteLine($"Wrote {outputSvg}");
-Console.WriteLine($"Wrote {overlaySvg}");
-Console.WriteLine($"Source: {inputPng}");
-Console.WriteLine($"Size: {png.Width}x{png.Height}");
-Console.WriteLine($"Alpha threshold: > {alphaThreshold} (raster reference only)");
-Console.WriteLine($"Outline paths: {outlines.Count}");
-
-readonly record struct PixelPoint(int X, int Y);
-
-readonly record struct PixelEdge(PixelPoint From, PixelPoint To);
+// =============================================================================
+// Library: SVG core — geometry, paths, document builder, XML helpers
+// =============================================================================
 
 readonly record struct Vec(int X, int Y)
 {
     public string ToPathPoint() => $"{X} {Y}";
-}
-
-readonly record struct SvgOutline(string Id, string Kind, string DataLabel, string Fill, VectorPath Path)
-{
-    public string PathData => Path.ToPathData();
 }
 
 sealed class VectorPath
@@ -102,26 +74,183 @@ sealed class VectorPath
     public IReadOnlyList<Vec> Points => _points;
 }
 
-static class CleanOutliner
+readonly record struct SvgShape(string Id, string Kind, string Label, string Fill, VectorPath Path)
 {
-    private const int CanonicalSwirlInnerRadius = 255;
-    private const int CanonicalSwirlOuterRadius = 265;
+    public string PathData => Path.ToPathData();
+}
 
-    public static List<SvgOutline> Trace()
+sealed class SvgDocument
+{
+    private readonly StringBuilder _sb = new();
+    private readonly int _width;
+    private readonly int _height;
+    private readonly string _viewBox;
+    private readonly string _ariaLabel;
+    private readonly string _title;
+
+    public SvgDocument(int width, int height, string ariaLabel, string title, string? viewBox = null)
+    {
+        _width = width;
+        _height = height;
+        _viewBox = viewBox ?? $"0 0 {width} {height}";
+        _ariaLabel = ariaLabel;
+        _title = title;
+    }
+
+    public void Begin()
+    {
+        _sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{_viewBox}" width="{_width}" height="{_height}" role="img" aria-label="{SvgXml.EscapeAttr(_ariaLabel)}">""");
+        _sb.AppendLine($"  <title>{SvgXml.EscapeText(_title)}</title>");
+    }
+
+    public void AppendRaw(string line) => _sb.AppendLine(line);
+
+    public void AppendDefs(Action<StringBuilder> writeDefs)
+    {
+        _sb.AppendLine("  <defs>");
+        writeDefs(_sb);
+        _sb.AppendLine("  </defs>");
+    }
+
+    public void BeginGroup(string id, string? extraAttributes = null)
+    {
+        _sb.AppendLine(extraAttributes is null
+            ? $"""  <g id="{SvgXml.EscapeAttr(id)}">"""
+            : $"""  <g id="{SvgXml.EscapeAttr(id)}" {extraAttributes}>""");
+    }
+
+    public void EndGroup() => _sb.AppendLine("  </g>");
+
+    public void AppendShape(SvgShape shape, bool includeIds = true)
+    {
+        if (includeIds)
+        {
+            _sb.AppendLine(
+                $"""    <path id="{SvgXml.EscapeAttr(shape.Id)}" data-kind="{SvgXml.EscapeAttr(shape.Kind)}" data-label="{SvgXml.EscapeAttr(shape.Label)}" fill="{SvgXml.EscapeAttr(shape.Fill)}" d="{shape.PathData}"/>""");
+        }
+        else
+        {
+            _sb.AppendLine(
+                $"""    <path data-label="{SvgXml.EscapeAttr(shape.Label)}" fill="{SvgXml.EscapeAttr(shape.Fill)}" d="{shape.PathData}"/>""");
+        }
+    }
+
+    public void AppendPath(string d, string? cssClass = null, string? dataLabel = null, string? fill = null)
+    {
+        var attrs = new List<string>();
+        if (cssClass is not null) attrs.Add($"class=\"{SvgXml.EscapeAttr(cssClass)}\"");
+        if (dataLabel is not null) attrs.Add($"data-label=\"{SvgXml.EscapeAttr(dataLabel)}\"");
+        if (fill is not null) attrs.Add($"fill=\"{SvgXml.EscapeAttr(fill)}\"");
+        attrs.Add($"d=\"{d}\"");
+        _sb.AppendLine($"    <path {string.Join(' ', attrs)}/>");
+    }
+
+    public void AppendText(string content, int x, int y, string attributes)
+    {
+        _sb.AppendLine($"    <text x=\"{x}\" y=\"{y}\" {attributes}>{SvgXml.EscapeText(content)}</text>");
+    }
+
+    public void AppendCircle(int cx, int cy, int r, string cssClass, string dataLabel)
+    {
+        _sb.AppendLine(
+            $"""    <circle class="{SvgXml.EscapeAttr(cssClass)}" data-label="{SvgXml.EscapeAttr(dataLabel)}" cx="{cx}" cy="{cy}" r="{r}"/>""");
+    }
+
+    public void AppendImage(string href, int width, int height, double opacity)
+    {
+        _sb.AppendLine(
+            $"""    <image id="raster-reference" width="{width}" height="{height}" href="{SvgXml.EscapeAttr(href)}" opacity="{opacity.ToString(System.Globalization.CultureInfo.InvariantCulture)}"/>""");
+    }
+
+    public string Finish()
+    {
+        _sb.AppendLine("</svg>");
+        return _sb.ToString();
+    }
+}
+
+static class SvgXml
+{
+    public static string EscapeText(string value) =>
+        value
+            .Replace("&", "&amp;", StringComparison.Ordinal)
+            .Replace("<", "&lt;", StringComparison.Ordinal)
+            .Replace(">", "&gt;", StringComparison.Ordinal);
+
+    public static string EscapeAttr(string value) =>
+        EscapeText(value).Replace("\"", "&quot;", StringComparison.Ordinal);
+
+    public static void WriteLinearGradient(StringBuilder sb, string id, int x1, int y1, int x2, int y2, params (double offset, string color)[] stops)
+    {
+        sb.AppendLine($"""    <linearGradient id="{id}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" gradientUnits="userSpaceOnUse">""");
+        foreach (var (offset, color) in stops)
+        {
+            sb.AppendLine($"""      <stop offset="{offset.ToString(System.Globalization.CultureInfo.InvariantCulture)}" stop-color="{color}"/>""");
+        }
+        sb.AppendLine("    </linearGradient>");
+    }
+}
+
+static class SvgOverlay
+{
+    public const string StyleBlock = """
+      <style>
+        .shape-outline { fill: none; stroke: #ff2bd6; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+        .point { fill: #ffe66d; stroke: #101522; stroke-width: 2; vector-effect: non-scaling-stroke; }
+        .point-label { fill: #fff9d6; font: 18px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 4; stroke-linejoin: round; }
+        .shape-label { fill: #ffffff; font: 22px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 5; stroke-linejoin: round; }
+      </style>
+""";
+
+    public static IEnumerable<Vec> ControlPoints(VectorPath path)
+    {
+        var points = path.Points.ToList();
+        if (points.Count > 1 && points[^1] == points[0])
+        {
+            points.RemoveAt(points.Count - 1);
+        }
+
+        return points;
+    }
+
+    public static string PointLabel(string shapeLabel, int pointIndex) => $"{shapeLabel}:{pointIndex + 1}";
+}
+
+// =============================================================================
+// Library: Brand model — Novolis mark geometry (six canonical shapes)
+// =============================================================================
+
+static class NovolisBrandCanvas
+{
+    public const int Width = 1254;
+    public const int Height = 1254;
+    public const int AlphaThreshold = 16;
+
+    // Mark bounding box for icon/social cropping (approximate, includes star).
+    public const int MarkMinX = 350;
+    public const int MarkMinY = 200;
+    public const int MarkWidth = 580;
+    public const int MarkHeight = 560;
+}
+
+static class NovolisLogoMark
+{
+    private const int SwirlInnerRadius = 255;
+    private const int SwirlOuterRadius = 265;
+    private const int StarArcRadius = 44;
+
+    public static IReadOnlyList<SvgShape> BuildShapes()
     {
         var upperLeftInner = P(413, 313);
         var upperLeftCorner = P(456, 313);
         var upperRightTip = P(850, 332);
 
-        var leftTopOuter = P(399, 326);
         var leftTopInner = P(428, 357);
         var leftBottomOuter = P(526, 732);
 
         var rightTopOuter = P(871, 368);
         var rightBottomOuter = P(827, 671);
-        var rightBottomInner = P(820, 621);
 
-        var lowerLeftOuter = P(526, 732);
         var lowerRightOuter = P(810, 688);
         var lowerRightInner = P(768, 688);
         var lowerLeftInner = P(520, 711);
@@ -129,9 +258,6 @@ static class CleanOutliner
         var diagonalTopLeft = P(398, 326);
         var diagonalTopRight = P(531, 326);
         var diagonalShoulder = P(824, 619);
-        var diagonalRightFlat = P(854, 619);
-        var diagonalRightDrop = P(854, 640);
-        var diagonalBottomRight = P(837, 671);
         var diagonalBottomLeft = P(731, 671);
         var diagonalLeftReturn = leftTopInner;
 
@@ -155,30 +281,29 @@ static class CleanOutliner
         return
         [
             new("upper", "arc-sector", "upper", "url(#mark-cyan)",
-                // Locked: confirmed perfect. Do not split or add intermediate arc points.
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, upperRightTip)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
+                    .ArcTo(SwirlInnerRadius, SwirlInnerRadius, largeArc: false, sweep: true, upperRightTip)
+                    .ArcTo(SwirlOuterRadius, SwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
             new("lower", "arc-sector", "lower", "url(#mark-lower)",
                 Path(lowerLeftInner)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
+                    .ArcTo(SwirlInnerRadius, SwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
+                    .ArcTo(SwirlOuterRadius, SwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
 
             new("n", "line-arc", "n", "url(#mark-diagonal)",
                 Path(diagonalTopLeft)
                     .HorizontalTo(diagonalTopRight.X)
                     .LineTo(diagonalShoulder)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, rightTopOuter)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, rightBottomOuter)
+                    .ArcTo(SwirlOuterRadius, SwirlOuterRadius, largeArc: false, sweep: false, rightTopOuter)
+                    .ArcTo(SwirlInnerRadius, SwirlInnerRadius, largeArc: false, sweep: true, rightBottomOuter)
                     .HorizontalTo(diagonalBottomLeft.X)
                     .LineTo(diagonalLeftReturn)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, leftBottomOuter)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, diagonalTopLeft)
+                    .ArcTo(SwirlOuterRadius, SwirlOuterRadius, largeArc: false, sweep: false, leftBottomOuter)
+                    .ArcTo(SwirlInnerRadius, SwirlInnerRadius, largeArc: false, sweep: true, diagonalTopLeft)
                     .Close()),
 
             new("n_left", "straight", "n_left", "url(#mark-left-stem)",
@@ -199,10 +324,10 @@ static class CleanOutliner
 
             new("star", "four-arc", "star", "url(#star-gradient)",
                 Path(starTop)
-                    .ArcTo(44, 44, largeArc: false, sweep: false, starRight)
-                    .ArcTo(44, 44, largeArc: false, sweep: false, starBottom)
-                    .ArcTo(44, 44, largeArc: false, sweep: false, starLeft)
-                    .ArcTo(44, 44, largeArc: false, sweep: false, starTop)
+                    .ArcTo(StarArcRadius, StarArcRadius, largeArc: false, sweep: false, starRight)
+                    .ArcTo(StarArcRadius, StarArcRadius, largeArc: false, sweep: false, starBottom)
+                    .ArcTo(StarArcRadius, StarArcRadius, largeArc: false, sweep: false, starLeft)
+                    .ArcTo(StarArcRadius, StarArcRadius, largeArc: false, sweep: false, starTop)
                     .Close()),
         ];
     }
@@ -212,535 +337,519 @@ static class CleanOutliner
     private static VectorPath Path(Vec start) => VectorPath.Start(start);
 }
 
-static class PixelOutliner
+static class NovolisBrandGradients
 {
-    public static List<List<PixelPoint>> Trace(bool[,] mask)
+    public static void WriteMarkGradients(StringBuilder sb)
     {
-        var height = mask.GetLength(0);
-        var width = mask.GetLength(1);
-        var edges = new HashSet<PixelEdge>();
-
-        for (var y = 0; y < height; y++)
-        {
-            for (var x = 0; x < width; x++)
-            {
-                if (!mask[y, x])
-                {
-                    continue;
-                }
-
-                if (y == 0 || !mask[y - 1, x])
-                {
-                    edges.Add(new PixelEdge(new PixelPoint(x, y), new PixelPoint(x + 1, y)));
-                }
-
-                if (x == width - 1 || !mask[y, x + 1])
-                {
-                    edges.Add(new PixelEdge(new PixelPoint(x + 1, y), new PixelPoint(x + 1, y + 1)));
-                }
-
-                if (y == height - 1 || !mask[y + 1, x])
-                {
-                    edges.Add(new PixelEdge(new PixelPoint(x + 1, y + 1), new PixelPoint(x, y + 1)));
-                }
-
-                if (x == 0 || !mask[y, x - 1])
-                {
-                    edges.Add(new PixelEdge(new PixelPoint(x, y + 1), new PixelPoint(x, y)));
-                }
-            }
-        }
-
-        var byStart = edges
-            .GroupBy(edge => edge.From)
-            .ToDictionary(
-                group => group.Key,
-                group => group.Select(edge => edge.To).OrderBy(point => point.Y).ThenBy(point => point.X).ToList());
-
-        var remaining = new HashSet<PixelEdge>(edges);
-        var outlines = new List<List<PixelPoint>>();
-
-        while (remaining.Count > 0)
-        {
-            var first = remaining.OrderBy(edge => edge.From.Y).ThenBy(edge => edge.From.X).ThenBy(edge => edge.To.Y).ThenBy(edge => edge.To.X).First();
-            var path = new List<PixelPoint> { first.From };
-            var current = first;
-            var previousDirection = Direction(first);
-
-            while (true)
-            {
-                remaining.Remove(current);
-                RemoveFromStartMap(byStart, current);
-                path.Add(current.To);
-
-                if (current.To == first.From)
-                {
-                    break;
-                }
-
-                if (!byStart.TryGetValue(current.To, out var candidates) || candidates.Count == 0)
-                {
-                    break;
-                }
-
-                var nextPoint = ChooseNext(current.To, candidates, previousDirection);
-                var next = new PixelEdge(current.To, nextPoint);
-                if (!remaining.Contains(next))
-                {
-                    break;
-                }
-
-                previousDirection = Direction(next);
-                current = next;
-            }
-
-            var simplified = SimplifyCollinear(path);
-            if (simplified.Count >= 4)
-            {
-                outlines.Add(simplified);
-            }
-        }
-
-        return outlines
-            .OrderByDescending(PolygonAreaAbs)
-            .ToList();
+        SvgXml.WriteLinearGradient(sb, "mark-cyan", 412, 206, 850, 332, (0, "#2fdfff"), (1, "#0997ff"));
+        SvgXml.WriteLinearGradient(sb, "mark-left", 314, 326, 430, 639, (0, "#12c7ff"), (1, "#237cff"));
+        SvgXml.WriteLinearGradient(sb, "mark-right", 871, 368, 824, 674, (0, "#2f8cff"), (1, "#8f37ff"));
+        SvgXml.WriteLinearGradient(sb, "mark-lower", 526, 714, 812, 687, (0, "#7a42ff"), (1, "#b246ff"));
+        SvgXml.WriteLinearGradient(sb, "mark-diagonal", 405, 327, 854, 671, (0, "#16cfff"), (0.52, "#4d86ff"), (1, "#9c42ff"));
+        SvgXml.WriteLinearGradient(sb, "mark-left-stem", 472, 433, 540, 656, (0, "#0ba8ff"), (1, "#0677d9"));
+        SvgXml.WriteLinearGradient(sb, "mark-right-stem", 734, 325, 804, 581, (0, "#2aa5ff"), (1, "#6138d9"));
+        SvgXml.WriteLinearGradient(sb, "star-gradient", 831, 241, 918, 329, (0, "#35d8ff"), (1, "#9b60ff"));
     }
 
-    private static void RemoveFromStartMap(Dictionary<PixelPoint, List<PixelPoint>> byStart, PixelEdge edge)
+    public static void WriteLockupGradients(StringBuilder sb)
     {
-        if (!byStart.TryGetValue(edge.From, out var list))
-        {
-            return;
-        }
-
-        list.Remove(edge.To);
-        if (list.Count == 0)
-        {
-            byStart.Remove(edge.From);
-        }
-    }
-
-    private static PixelPoint ChooseNext(PixelPoint start, List<PixelPoint> candidates, PixelPoint previousDirection)
-    {
-        var straight = candidates.FirstOrDefault(candidate => Direction(start, candidate) == previousDirection);
-        if (straight != default)
-        {
-            return straight;
-        }
-
-        return candidates[0];
-    }
-
-    private static PixelPoint Direction(PixelEdge edge) => Direction(edge.From, edge.To);
-
-    private static PixelPoint Direction(PixelPoint from, PixelPoint to)
-    {
-        return new PixelPoint(Math.Sign(to.X - from.X), Math.Sign(to.Y - from.Y));
-    }
-
-    private static List<PixelPoint> SimplifyCollinear(List<PixelPoint> points)
-    {
-        if (points.Count <= 3)
-        {
-            return points;
-        }
-
-        if (points[0] == points[^1])
-        {
-            points = points[..^1];
-        }
-
-        var simplified = new List<PixelPoint>();
-        for (var i = 0; i < points.Count; i++)
-        {
-            var previous = points[(i - 1 + points.Count) % points.Count];
-            var current = points[i];
-            var next = points[(i + 1) % points.Count];
-
-            if ((previous.X == current.X && current.X == next.X) ||
-                (previous.Y == current.Y && current.Y == next.Y))
-            {
-                continue;
-            }
-
-            simplified.Add(current);
-        }
-
-        return simplified;
-    }
-
-    private static double PolygonAreaAbs(List<PixelPoint> points)
-    {
-        long area2 = 0;
-        for (var i = 0; i < points.Count; i++)
-        {
-            var a = points[i];
-            var b = points[(i + 1) % points.Count];
-            area2 += (long)a.X * b.Y - (long)b.X * a.Y;
-        }
-
-        return Math.Abs(area2) / 2.0;
-    }
-}
-
-static class SvgWriter
-{
-    public static string Write(
-        string outputSvg,
-        string inputPng,
-        int width,
-        int height,
-        IReadOnlyList<SvgOutline> outlines,
-        int alphaThreshold)
-    {
-        _ = outputSvg;
-        _ = inputPng;
-
-        var sb = new StringBuilder();
-        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" role="img" aria-label="Novolis">""");
-        sb.AppendLine("  <title>Novolis vector logo</title>");
-        sb.AppendLine("  <defs>");
-        sb.AppendLine("""    <linearGradient id="mark-cyan" x1="412" y1="206" x2="850" y2="332" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#2fdfff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#0997ff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-left" x1="314" y1="326" x2="430" y2="639" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#12c7ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#237cff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-right" x1="871" y1="368" x2="824" y2="674" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#2f8cff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#8f37ff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-lower" x1="526" y1="714" x2="812" y2="687" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#7a42ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#b246ff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-diagonal" x1="405" y1="327" x2="854" y2="671" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#16cfff"/>""");
-        sb.AppendLine("""      <stop offset="0.52" stop-color="#4d86ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#9c42ff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-left-stem" x1="472" y1="433" x2="540" y2="656" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#0ba8ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#0677d9"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="mark-right-stem" x1="734" y1="325" x2="804" y2="581" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#2aa5ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#6138d9"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="star-gradient" x1="831" y1="241" x2="918" y2="329" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#35d8ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#9b60ff"/>""");
-        sb.AppendLine("    </linearGradient>");
-        sb.AppendLine("""    <linearGradient id="tagline-gradient" x1="203" y1="967" x2="1051" y2="999" gradientUnits="userSpaceOnUse">""");
-        sb.AppendLine("""      <stop offset="0" stop-color="#08bfff"/>""");
-        sb.AppendLine("""      <stop offset="0.52" stop-color="#7547ff"/>""");
-        sb.AppendLine("""      <stop offset="1" stop-color="#1a8dff"/>""");
-        sb.AppendLine("    </linearGradient>");
+        WriteMarkGradients(sb);
+        SvgXml.WriteLinearGradient(sb, "tagline-gradient", 203, 967, 1051, 999, (0, "#08bfff"), (0.52, "#7547ff"), (1, "#1a8dff"));
         sb.AppendLine("""    <filter id="wordmark-glow" x="-5%" y="-20%" width="110%" height="150%">""");
         sb.AppendLine("""      <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#2f8cff" flood-opacity="0.45"/>""");
         sb.AppendLine("    </filter>");
-        sb.AppendLine("  </defs>");
-        sb.AppendLine($"""  <g id="vector-mark" data-alpha-threshold="{alphaThreshold}">""");
+    }
+}
 
-        foreach (var outline in outlines)
+static class NovolisBrandTypography
+{
+    public const string WordmarkFont =
+        "Consolas, 'Cascadia Mono', 'Courier New', monospace";
+
+    public static void AppendWordmark(SvgDocument doc)
+    {
+        doc.BeginGroup("vector-wordmark", $"font-family=\"{WordmarkFont}\" text-anchor=\"start\"");
+        doc.AppendText(
+            "NOVOLIS",
+            161,
+            912,
+            "font-size=\"133\" font-weight=\"700\" fill=\"#f7fbff\" textLength=\"936\" lengthAdjust=\"spacingAndGlyphs\" filter=\"url(#wordmark-glow)\"");
+        doc.AppendText(
+            "BUILD • CREATE • EXPLORE",
+            203,
+            999,
+            "font-size=\"35\" font-weight=\"700\" fill=\"url(#tagline-gradient)\" textLength=\"848\" lengthAdjust=\"spacingAndGlyphs\"");
+        doc.EndGroup();
+    }
+}
+
+// =============================================================================
+// Library: Asset recipes — compose documents from the brand model
+// =============================================================================
+
+static class BrandAssetRecipes
+{
+    public static string FullLockup(IReadOnlyList<SvgShape> shapes, int alphaThreshold)
+    {
+        var doc = new SvgDocument(
+            NovolisBrandCanvas.Width,
+            NovolisBrandCanvas.Height,
+            "Novolis",
+            "Novolis vector logo");
+        doc.Begin();
+        doc.AppendDefs(NovolisBrandGradients.WriteLockupGradients);
+        doc.BeginGroup("vector-mark", $"data-alpha-threshold=\"{alphaThreshold}\"");
+        foreach (var shape in shapes)
         {
-            sb.AppendLine($"""    <path id="{outline.Id}" data-kind="{outline.Kind}" data-label="{outline.DataLabel}" fill="{outline.Fill}" d="{outline.PathData}"/>""");
+            doc.AppendShape(shape);
         }
 
-        sb.AppendLine("  </g>");
-        sb.AppendLine("""  <g id="vector-wordmark" font-family="Consolas, 'Cascadia Mono', 'Courier New', monospace" text-anchor="start">""");
-        sb.AppendLine("""    <text x="161" y="912" font-size="133" font-weight="700" fill="#f7fbff" textLength="936" lengthAdjust="spacingAndGlyphs" filter="url(#wordmark-glow)">NOVOLIS</text>""");
-        sb.AppendLine("""    <text x="203" y="999" font-size="35" font-weight="700" fill="url(#tagline-gradient)" textLength="848" lengthAdjust="spacingAndGlyphs">BUILD • CREATE • EXPLORE</text>""");
-        sb.AppendLine("  </g>");
-        sb.AppendLine("</svg>");
-        return sb.ToString();
+        doc.EndGroup();
+        NovolisBrandTypography.AppendWordmark(doc);
+        return doc.Finish();
     }
 
-    public static string WriteOverlay(
-        string outputSvg,
-        string inputPng,
-        int width,
-        int height,
-        IReadOnlyList<SvgOutline> outlines,
+    public static string MarkOnly(IReadOnlyList<SvgShape> shapes)
+    {
+        var doc = new SvgDocument(
+            NovolisBrandCanvas.Width,
+            NovolisBrandCanvas.Height,
+            "Novolis mark",
+            "Novolis mark");
+        doc.Begin();
+        doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
+        doc.BeginGroup("vector-mark");
+        foreach (var shape in shapes)
+        {
+            doc.AppendShape(shape);
+        }
+
+        doc.EndGroup();
+        return doc.Finish();
+    }
+
+    public static string SingleShape(SvgShape shape)
+    {
+        var doc = new SvgDocument(
+            NovolisBrandCanvas.Width,
+            NovolisBrandCanvas.Height,
+            $"Novolis {shape.Label}",
+            $"Novolis shape {shape.Label}");
+        doc.Begin();
+        doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
+        doc.BeginGroup("vector-mark");
+        doc.AppendShape(shape);
+        doc.EndGroup();
+        return doc.Finish();
+    }
+
+    public static string Overlay(
+        IReadOnlyList<SvgShape> shapes,
+        string rasterReferenceHref,
         int alphaThreshold)
     {
-        var href = Path.GetRelativePath(
-                Path.GetDirectoryName(Path.GetFullPath(outputSvg)) ?? Environment.CurrentDirectory,
-                Path.GetFullPath(inputPng))
-            .Replace('\\', '/');
-
-        var sb = new StringBuilder();
-        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" role="img" aria-label="Novolis logo construction overlay">""");
-        sb.AppendLine("  <title>Novolis logo construction overlay</title>");
-        sb.AppendLine("  <style>");
-        sb.AppendLine("    .shape-outline { fill: none; stroke: #ff2bd6; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }");
-        sb.AppendLine("    .point { fill: #ffe66d; stroke: #101522; stroke-width: 2; vector-effect: non-scaling-stroke; }");
-        sb.AppendLine("    .point-label { fill: #fff9d6; font: 18px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 4; stroke-linejoin: round; }");
-        sb.AppendLine("    .shape-label { fill: #ffffff; font: 22px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 5; stroke-linejoin: round; }");
-        sb.AppendLine("  </style>");
-        sb.AppendLine($"""  <image id="raster-reference" width="{width}" height="{height}" href="{EscapeXml(href)}" opacity="0.42"/>""");
-        sb.AppendLine($"""  <g id="vector-shapes" data-alpha-threshold="{alphaThreshold}" opacity="0.55">""");
-
-        foreach (var outline in OverlayOutlines(outlines))
+        var doc = new SvgDocument(
+            NovolisBrandCanvas.Width,
+            NovolisBrandCanvas.Height,
+            "Novolis logo construction overlay",
+            "Novolis logo construction overlay");
+        doc.Begin();
+        doc.AppendRaw(SvgOverlay.StyleBlock);
+        doc.AppendImage(rasterReferenceHref, NovolisBrandCanvas.Width, NovolisBrandCanvas.Height, 0.42);
+        doc.BeginGroup("vector-shapes", $"data-alpha-threshold=\"{alphaThreshold}\" opacity=\"0.55\"");
+        foreach (var shape in shapes)
         {
-            sb.AppendLine($"""    <path data-label="{outline.DataLabel}" fill="{outline.Fill}" d="{outline.PathData}"/>""");
+            doc.AppendShape(shape, includeIds: false);
         }
 
-        sb.AppendLine("  </g>");
-        sb.AppendLine("""  <g id="shape-outlines">""");
-
-        foreach (var outline in OverlayOutlines(outlines))
+        doc.EndGroup();
+        doc.BeginGroup("shape-outlines");
+        foreach (var shape in shapes)
         {
-            sb.AppendLine($"""    <path class="shape-outline" data-label="{outline.DataLabel}" d="{outline.PathData}"/>""");
+            doc.AppendPath(shape.PathData, cssClass: "shape-outline", dataLabel: shape.Label);
         }
 
-        sb.AppendLine("  </g>");
-        sb.AppendLine("""  <g id="control-points">""");
-
-        foreach (var outline in OverlayOutlines(outlines))
+        doc.EndGroup();
+        doc.BeginGroup("control-points");
+        foreach (var shape in shapes)
         {
-            var points = outline.Path.Points.ToList();
-            if (points.Count > 1 && points[^1] == points[0])
-            {
-                points.RemoveAt(points.Count - 1);
-            }
-
+            var points = SvgOverlay.ControlPoints(shape.Path).ToList();
             for (var i = 0; i < points.Count; i++)
             {
                 var point = points[i];
-                var label = PointLabel(outline.DataLabel, i);
-                sb.AppendLine($"""    <circle class="point" data-label="{EscapeXml(label)}" cx="{point.X}" cy="{point.Y}" r="6"/>""");
-                sb.AppendLine($"""    <text class="point-label" x="{point.X + 9}" y="{point.Y - 9}">{EscapeXml(label)}</text>""");
+                var label = SvgOverlay.PointLabel(shape.Label, i);
+                doc.AppendCircle(point.X, point.Y, 6, "point", label);
+                doc.AppendText(label, point.X + 9, point.Y - 9, "class=\"point-label\"");
             }
 
             if (points.Count > 0)
             {
                 var anchor = points[0];
-                sb.AppendLine($"""    <text class="shape-label" x="{anchor.X + 18}" y="{anchor.Y + 25}">{EscapeXml(outline.DataLabel)}</text>""");
+                doc.AppendText(shape.Label, anchor.X + 18, anchor.Y + 25, "class=\"shape-label\"");
             }
         }
 
-        sb.AppendLine("  </g>");
-        sb.AppendLine("</svg>");
-        return sb.ToString();
+        doc.EndGroup();
+        return doc.Finish();
     }
 
-    private static IEnumerable<SvgOutline> OverlayOutlines(IEnumerable<SvgOutline> outlines)
+    public static string IconMark(IReadOnlyList<SvgShape> shapes, int size = 512)
     {
-        return outlines;
-    }
-
-    private static string PointLabel(string shapeLabel, int pointIndex)
-    {
-        return $"{shapeLabel}:{pointIndex + 1}";
-    }
-
-    private static string PathData(IReadOnlyList<PixelPoint> points)
-    {
-        var sb = new StringBuilder();
-        sb.Append('M').Append(points[0].X).Append(' ').Append(points[0].Y);
-
-        for (var i = 1; i < points.Count; i++)
+        var viewBox = $"{NovolisBrandCanvas.MarkMinX} {NovolisBrandCanvas.MarkMinY} {NovolisBrandCanvas.MarkWidth} {NovolisBrandCanvas.MarkHeight}";
+        var doc = new SvgDocument(size, size, "Novolis icon", "Novolis icon mark", viewBox);
+        doc.Begin();
+        doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
+        doc.BeginGroup("vector-mark");
+        foreach (var shape in shapes)
         {
-            var previous = points[i - 1];
-            var current = points[i];
-            if (current.Y == previous.Y)
-            {
-                sb.Append('H').Append(current.X);
-            }
-            else if (current.X == previous.X)
-            {
-                sb.Append('V').Append(current.Y);
-            }
-            else
-            {
-                sb.Append('L').Append(current.X).Append(' ').Append(current.Y);
-            }
+            doc.AppendShape(shape);
         }
 
-        sb.Append('Z');
-        return sb.ToString();
+        doc.EndGroup();
+        return doc.Finish();
     }
 
-    private static string EscapeXml(string value)
+    public static string SocialCard(IReadOnlyList<SvgShape> shapes, int width = 1200, int height = 630)
     {
-        return value
-            .Replace("&", "&amp;", StringComparison.Ordinal)
-            .Replace("\"", "&quot;", StringComparison.Ordinal)
-            .Replace("<", "&lt;", StringComparison.Ordinal)
-            .Replace(">", "&gt;", StringComparison.Ordinal);
+        var doc = new SvgDocument(width, height, "Novolis social card", "Novolis social card");
+        doc.Begin();
+        doc.AppendRaw("  <rect width=\"100%\" height=\"100%\" fill=\"#05070d\"/>");
+        doc.AppendDefs(NovolisBrandGradients.WriteLockupGradients);
+        var markScale = 0.62;
+        var markOffsetX = 80;
+        var markOffsetY = 20;
+        doc.BeginGroup(
+            "vector-mark",
+            $"transform=\"translate({markOffsetX} {markOffsetY}) scale({markScale.ToString(System.Globalization.CultureInfo.InvariantCulture)})\"");
+        foreach (var shape in shapes)
+        {
+            doc.AppendShape(shape);
+        }
+
+        doc.EndGroup();
+        doc.BeginGroup(
+            "vector-wordmark",
+            $"font-family=\"{NovolisBrandTypography.WordmarkFont}\" transform=\"translate(720 250) scale(0.55)\"");
+        doc.AppendText(
+            "NOVOLIS",
+            0,
+            0,
+            "font-size=\"133\" font-weight=\"700\" fill=\"#f7fbff\" filter=\"url(#wordmark-glow)\"");
+        doc.AppendText(
+            "BUILD • CREATE • EXPLORE",
+            42,
+            87,
+            "font-size=\"35\" font-weight=\"700\" fill=\"url(#tagline-gradient)\"");
+        doc.EndGroup();
+        return doc.Finish();
     }
 }
 
-sealed class PngRgba
+// =============================================================================
+// Library: Image bridge — SVG to PNG via external renderer (adapter boundary)
+// =============================================================================
+
+static class SvgRasterBridge
 {
-    private static readonly byte[] PngSignature = [137, 80, 78, 71, 13, 10, 26, 10];
-
-    public required int Width { get; init; }
-
-    public required int Height { get; init; }
-
-    public required byte[] Alpha { get; init; }
-
-    public static PngRgba Read(string path)
+    public static int RenderToPng(string svgPath, string pngPath, int? fitWidth = null, int? fitHeight = null)
     {
-        using var stream = File.OpenRead(path);
-        Span<byte> signature = stackalloc byte[8];
-        stream.ReadExactly(signature);
-        if (!signature.SequenceEqual(PngSignature))
+        var args = new List<string> { svgPath, pngPath };
+        if (fitWidth is not null)
         {
-            throw new InvalidDataException("Input is not a PNG file.");
+            args.Add("--fit-width");
+            args.Add(fitWidth.Value.ToString());
         }
 
-        var idat = new MemoryStream();
-        int? width = null;
-        int? height = null;
-        byte bitDepth = 0;
-        byte colorType = 0;
-
-        while (stream.Position < stream.Length)
+        if (fitHeight is not null)
         {
-            var length = ReadUInt32(stream);
-            var typeBytes = new byte[4];
-            stream.ReadExactly(typeBytes);
-            var type = Encoding.ASCII.GetString(typeBytes);
-            var data = new byte[length];
-            stream.ReadExactly(data);
-            _ = ReadUInt32(stream); // CRC
+            args.Add("--fit-height");
+            args.Add(fitHeight.Value.ToString());
+        }
 
-            switch (type)
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "npx",
+            Arguments = "--yes @resvg/resvg-js-cli " + string.Join(' ', args.Select(a => $"\"{a}\"")),
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+        };
+
+        using var process = Process.Start(startInfo)
+            ?? throw new InvalidOperationException("Failed to start npx resvg renderer.");
+        process.WaitForExit();
+        if (process.ExitCode != 0)
+        {
+            var err = process.StandardError.ReadToEnd();
+            throw new InvalidOperationException($"SVG render failed ({process.ExitCode}): {err}");
+        }
+
+        return process.ExitCode;
+    }
+}
+
+// =============================================================================
+// App — command dispatch, output paths, verification
+// =============================================================================
+
+static class BrandLogoApp
+{
+    private static readonly string[] CanonicalShapeNames =
+        ["upper", "lower", "n", "n_left", "n_right", "star"];
+
+    public static int Run(string[] args)
+    {
+        var command = ResolveCommand(args, out var outputDir, out var rasterPng, out var alphaThreshold);
+        var shapes = NovolisLogoMark.BuildShapes();
+        Directory.CreateDirectory(outputDir);
+        Directory.CreateDirectory(Path.Combine(outputDir, "generated", "shapes"));
+
+        var written = new List<string>();
+
+        switch (command)
+        {
+            case "full":
+                written.Add(WriteFull(outputDir, shapes, alphaThreshold));
+                written.Add(WriteOverlay(outputDir, shapes, rasterPng, alphaThreshold));
+                break;
+            case "overlay":
+                written.Add(WriteOverlay(outputDir, shapes, rasterPng, alphaThreshold));
+                break;
+            case "mark":
+                written.Add(WriteMark(outputDir, shapes));
+                break;
+            case "shapes":
+                written.AddRange(WritePerShape(outputDir, shapes));
+                break;
+            case "icon":
+                written.Add(WriteIcon(outputDir, shapes));
+                break;
+            case "social":
+                written.Add(WriteSocial(outputDir, shapes));
+                break;
+            case "png":
+                written.AddRange(WriteAllSvgVariants(outputDir, shapes, rasterPng, alphaThreshold));
+                RenderPngOutputs(outputDir);
+                break;
+            case "verify":
+                written.AddRange(WriteAllSvgVariants(outputDir, shapes, rasterPng, alphaThreshold));
+                return BrandAssetVerifier.Verify(outputDir, shapes) ? 0 : 1;
+            case "all":
+            default:
+                written.AddRange(WriteAllSvgVariants(outputDir, shapes, rasterPng, alphaThreshold));
+                break;
+        }
+
+        foreach (var path in written)
+        {
+            Console.WriteLine($"Wrote {path}");
+        }
+
+        Console.WriteLine($"Shapes: {shapes.Count}");
+        Console.WriteLine($"Command: {command}");
+        return 0;
+    }
+
+    private static string ResolveCommand(string[] args, out string outputDir, out string rasterPng, out int alphaThreshold)
+    {
+        outputDir = Directory.GetCurrentDirectory();
+        rasterPng = "logo-brand-transparent.png";
+        alphaThreshold = NovolisBrandCanvas.AlphaThreshold;
+
+        if (args.Length == 0)
+        {
+            return "all";
+        }
+
+        if (args[0].Equals("verify", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("all", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("full", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("overlay", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("mark", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("shapes", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("icon", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("social", StringComparison.OrdinalIgnoreCase) ||
+            args[0].Equals("png", StringComparison.OrdinalIgnoreCase))
+        {
+            return args[0].ToLowerInvariant();
+        }
+
+        // Legacy positional: [png] [output.svg] [threshold]
+        if (args.Length >= 2 && args[1].EndsWith(".svg", StringComparison.OrdinalIgnoreCase))
+        {
+            rasterPng = args[0];
+            outputDir = Path.GetDirectoryName(Path.GetFullPath(args[1])) ?? outputDir;
+            if (args.Length >= 3 && int.TryParse(args[2], out var parsed))
             {
-                case "IHDR":
-                    width = BinaryPrimitives.ReadInt32BigEndian(data.AsSpan(0, 4));
-                    height = BinaryPrimitives.ReadInt32BigEndian(data.AsSpan(4, 4));
-                    bitDepth = data[8];
-                    colorType = data[9];
-                    break;
-                case "IDAT":
-                    idat.Write(data);
-                    break;
-                case "IEND":
-                    return Decode(width, height, bitDepth, colorType, idat.ToArray());
+                alphaThreshold = parsed;
+            }
+
+            return "full";
+        }
+
+        return args[0].ToLowerInvariant();
+    }
+
+    private static IEnumerable<string> WriteAllSvgVariants(
+        string outputDir,
+        IReadOnlyList<SvgShape> shapes,
+        string rasterPng,
+        int alphaThreshold)
+    {
+        yield return WriteFull(outputDir, shapes, alphaThreshold);
+        yield return WriteOverlay(outputDir, shapes, rasterPng, alphaThreshold);
+        yield return WriteMark(outputDir, shapes);
+        foreach (var path in WritePerShape(outputDir, shapes))
+        {
+            yield return path;
+        }
+
+        yield return WriteIcon(outputDir, shapes);
+        yield return WriteSocial(outputDir, shapes);
+    }
+
+    private static string WriteFull(string outputDir, IReadOnlyList<SvgShape> shapes, int alphaThreshold)
+    {
+        var path = Path.Combine(outputDir, "logo-brand-transparent.svg");
+        File.WriteAllText(path, BrandAssetRecipes.FullLockup(shapes, alphaThreshold), Encoding.UTF8);
+        return path;
+    }
+
+    private static string WriteOverlay(
+        string outputDir,
+        IReadOnlyList<SvgShape> shapes,
+        string rasterPng,
+        int alphaThreshold)
+    {
+        var path = Path.Combine(outputDir, "logo-brand-transparent-overlay.svg");
+        var href = Path.GetRelativePath(outputDir, Path.GetFullPath(rasterPng)).Replace('\\', '/');
+        File.WriteAllText(path, BrandAssetRecipes.Overlay(shapes, href, alphaThreshold), Encoding.UTF8);
+        return path;
+    }
+
+    private static string WriteMark(string outputDir, IReadOnlyList<SvgShape> shapes)
+    {
+        var path = Path.Combine(outputDir, "generated", "logo-mark.svg");
+        File.WriteAllText(path, BrandAssetRecipes.MarkOnly(shapes), Encoding.UTF8);
+        return path;
+    }
+
+    private static IEnumerable<string> WritePerShape(string outputDir, IReadOnlyList<SvgShape> shapes)
+    {
+        foreach (var shape in shapes)
+        {
+            var path = Path.Combine(outputDir, "generated", "shapes", $"{shape.Label}.svg");
+            File.WriteAllText(path, BrandAssetRecipes.SingleShape(shape), Encoding.UTF8);
+            yield return path;
+        }
+    }
+
+    private static string WriteIcon(string outputDir, IReadOnlyList<SvgShape> shapes)
+    {
+        var path = Path.Combine(outputDir, "generated", "logo-icon.svg");
+        File.WriteAllText(path, BrandAssetRecipes.IconMark(shapes), Encoding.UTF8);
+        return path;
+    }
+
+    private static string WriteSocial(string outputDir, IReadOnlyList<SvgShape> shapes)
+    {
+        var path = Path.Combine(outputDir, "generated", "logo-social.svg");
+        File.WriteAllText(path, BrandAssetRecipes.SocialCard(shapes), Encoding.UTF8);
+        return path;
+    }
+
+    private static void RenderPngOutputs(string outputDir)
+    {
+        var pngTargets = new (string Svg, string Png, int? W, int? H)[]
+        {
+            (Path.Combine(outputDir, "logo-brand-transparent.svg"), Path.Combine(outputDir, "generated", "logo-brand-transparent.png"), NovolisBrandCanvas.Width, NovolisBrandCanvas.Height),
+            (Path.Combine(outputDir, "generated", "logo-mark.svg"), Path.Combine(outputDir, "generated", "logo-mark.png"), NovolisBrandCanvas.Width, NovolisBrandCanvas.Height),
+            (Path.Combine(outputDir, "generated", "logo-icon.svg"), Path.Combine(outputDir, "generated", "logo-icon.png"), 512, 512),
+            (Path.Combine(outputDir, "generated", "logo-social.svg"), Path.Combine(outputDir, "generated", "logo-social.png"), 1200, 630),
+        };
+
+        Directory.CreateDirectory(Path.Combine(outputDir, "generated"));
+        foreach (var (svg, png, w, h) in pngTargets)
+        {
+            if (!File.Exists(svg))
+            {
+                continue;
+            }
+
+            SvgRasterBridge.RenderToPng(svg, png, w, h);
+            Console.WriteLine($"Rendered {png}");
+        }
+    }
+}
+
+static class BrandAssetVerifier
+{
+    public static bool Verify(string outputDir, IReadOnlyList<SvgShape> shapes)
+    {
+        var ok = true;
+        ok &= CheckFileContainsAll(
+            Path.Combine(outputDir, "logo-brand-transparent.svg"),
+            shapes.Select(s => $"data-label=\"{s.Label}\"").Append("NOVOLIS"));
+        ok &= CheckFileContainsAll(
+            Path.Combine(outputDir, "logo-brand-transparent-overlay.svg"),
+            ["n:1", "star:4", "upper:1", "lower:1"]);
+        ok &= CheckFileContainsAll(
+            Path.Combine(outputDir, "generated", "logo-mark.svg"),
+            shapes.Select(s => $"data-label=\"{s.Label}\""));
+        ok &= CheckFileMissing(
+            Path.Combine(outputDir, "generated", "logo-mark.svg"),
+            ["NOVOLIS", "BUILD • CREATE • EXPLORE"]);
+
+        foreach (var shape in shapes)
+        {
+            var shapePath = Path.Combine(outputDir, "generated", "shapes", $"{shape.Label}.svg");
+            ok &= File.Exists(shapePath);
+            ok &= CheckFileContainsAll(shapePath, [$"data-label=\"{shape.Label}\""]);
+        }
+
+        Console.WriteLine(ok ? "verify: OK" : "verify: FAILED");
+        return ok;
+    }
+
+    private static bool CheckFileContainsAll(string path, IEnumerable<string> needles)
+    {
+        if (!File.Exists(path))
+        {
+            Console.Error.WriteLine($"Missing file: {path}");
+            return false;
+        }
+
+        var text = File.ReadAllText(path);
+        foreach (var needle in needles)
+        {
+            if (!text.Contains(needle, StringComparison.Ordinal))
+            {
+                Console.Error.WriteLine($"Expected '{needle}' in {path}");
+                return false;
             }
         }
 
-        throw new InvalidDataException("PNG ended before IEND.");
+        return true;
     }
 
-    private static PngRgba Decode(int? width, int? height, byte bitDepth, byte colorType, byte[] compressed)
+    private static bool CheckFileMissing(string path, IEnumerable<string> needles)
     {
-        if (width is null || height is null)
+        if (!File.Exists(path))
         {
-            throw new InvalidDataException("PNG is missing IHDR.");
+            Console.Error.WriteLine($"Missing file: {path}");
+            return false;
         }
 
-        if (bitDepth != 8)
+        var text = File.ReadAllText(path);
+        foreach (var needle in needles)
         {
-            throw new NotSupportedException($"Only 8-bit PNGs are supported; got bit depth {bitDepth}.");
-        }
-
-        var bytesPerPixel = colorType switch
-        {
-            6 => 4, // RGBA
-            4 => 2, // grayscale + alpha
-            2 => 3, // RGB, no alpha
-            0 => 1, // grayscale, no alpha
-            _ => throw new NotSupportedException($"PNG color type {colorType} is not supported by this outline script.")
-        };
-
-        using var compressedStream = new MemoryStream(compressed);
-        using var zlib = new ZLibStream(compressedStream, CompressionMode.Decompress);
-        using var raw = new MemoryStream();
-        zlib.CopyTo(raw);
-
-        var decompressed = raw.ToArray();
-        var stride = width.Value * bytesPerPixel;
-        var expected = (stride + 1) * height.Value;
-        if (decompressed.Length < expected)
-        {
-            throw new InvalidDataException($"PNG data is shorter than expected ({decompressed.Length} < {expected}).");
-        }
-
-        var pixels = new byte[stride * height.Value];
-        var previous = new byte[stride];
-        var sourceOffset = 0;
-        var targetOffset = 0;
-
-        for (var y = 0; y < height.Value; y++)
-        {
-            var filter = decompressed[sourceOffset++];
-            var row = decompressed.AsSpan(sourceOffset, stride).ToArray();
-            sourceOffset += stride;
-            Unfilter(row, previous, bytesPerPixel, filter);
-            row.CopyTo(pixels, targetOffset);
-            row.CopyTo(previous, 0);
-            targetOffset += stride;
-        }
-
-        var alpha = new byte[width.Value * height.Value];
-        for (var y = 0; y < height.Value; y++)
-        {
-            for (var x = 0; x < width.Value; x++)
+            if (text.Contains(needle, StringComparison.Ordinal))
             {
-                var pixelOffset = y * stride + x * bytesPerPixel;
-                alpha[y * width.Value + x] = colorType switch
-                {
-                    6 => pixels[pixelOffset + 3],
-                    4 => pixels[pixelOffset + 1],
-                    _ => byte.MaxValue
-                };
+                Console.Error.WriteLine($"Did not expect '{needle}' in {path}");
+                return false;
             }
         }
 
-        return new PngRgba
-        {
-            Width = width.Value,
-            Height = height.Value,
-            Alpha = alpha
-        };
-    }
-
-    private static void Unfilter(byte[] row, byte[] previous, int bytesPerPixel, byte filter)
-    {
-        for (var i = 0; i < row.Length; i++)
-        {
-            var left = i >= bytesPerPixel ? row[i - bytesPerPixel] : 0;
-            var up = previous[i];
-            var upLeft = i >= bytesPerPixel ? previous[i - bytesPerPixel] : 0;
-
-            row[i] = filter switch
-            {
-                0 => row[i],
-                1 => unchecked((byte)(row[i] + left)),
-                2 => unchecked((byte)(row[i] + up)),
-                3 => unchecked((byte)(row[i] + ((left + up) / 2))),
-                4 => unchecked((byte)(row[i] + Paeth(left, up, upLeft))),
-                _ => throw new InvalidDataException($"Unknown PNG filter {filter}.")
-            };
-        }
-    }
-
-    private static byte Paeth(int left, int up, int upLeft)
-    {
-        var p = left + up - upLeft;
-        var pa = Math.Abs(p - left);
-        var pb = Math.Abs(p - up);
-        var pc = Math.Abs(p - upLeft);
-
-        if (pa <= pb && pa <= pc)
-        {
-            return (byte)left;
-        }
-
-        return pb <= pc ? (byte)up : (byte)upLeft;
-    }
-
-    private static uint ReadUInt32(Stream stream)
-    {
-        Span<byte> buffer = stackalloc byte[4];
-        stream.ReadExactly(buffer);
-        return BinaryPrimitives.ReadUInt32BigEndian(buffer);
+        return true;
     }
 }
