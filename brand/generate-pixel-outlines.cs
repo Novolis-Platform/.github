@@ -111,7 +111,6 @@ static class CleanOutliner
     {
         var upperLeftInner = P(413, 313);
         var upperLeftCorner = P(456, 313);
-        var upperRightInner = P(810, 292);
         var upperRightTip = P(850, 332);
 
         var leftTopOuter = P(399, 326);
@@ -163,8 +162,7 @@ static class CleanOutliner
             new("shape-swirl-upper", "arc-sector", "swirl_upper", "url(#mark-cyan)",
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, upperRightInner)
-                    .LineTo(upperRightTip)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, upperRightTip)
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
@@ -528,7 +526,7 @@ static class SvgWriter
             for (var i = 0; i < points.Count; i++)
             {
                 var point = points[i];
-                var label = $"{outline.DataLabel}:{i + 1}";
+                var label = PointLabel(outline.DataLabel, i);
                 sb.AppendLine($"""    <circle id="{outline.Id}-p{i + 1}" class="point" data-label="{EscapeXml(label)}" cx="{point.X}" cy="{point.Y}" r="6"/>""");
                 sb.AppendLine($"""    <text class="point-label" x="{point.X + 9}" y="{point.Y - 9}">{EscapeXml(label)}</text>""");
             }
@@ -549,6 +547,22 @@ static class SvgWriter
     {
         return outlines.Where(outline =>
             outline.DataLabel is not "n_left_stem" and not "n_right_stem");
+    }
+
+    private static string PointLabel(string shapeLabel, int pointIndex)
+    {
+        return shapeLabel switch
+        {
+            "swirl_upper" => pointIndex switch
+            {
+                0 => "swirl_upper:start",
+                1 => "swirl_upper:corner",
+                2 => "swirl_upper:tip",
+                3 => "swirl_upper:close",
+                _ => $"{shapeLabel}:{pointIndex + 1}"
+            },
+            _ => $"{shapeLabel}:{pointIndex + 1}"
+        };
     }
 
     private static string PathData(IReadOnlyList<PixelPoint> points)

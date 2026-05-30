@@ -8,7 +8,7 @@
   </style>
   <image id="raster-reference" width="1254" height="1254" href="logo-brand-transparent.png" opacity="0.42"/>
   <g id="vector-shapes" data-alpha-threshold="16" opacity="0.55">
-    <path id="shape-swirl-upper-fill" data-label="swirl_upper" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 810 292 L850 332 A265 265 0 0 0 413 313 Z"/>
+    <path id="shape-swirl-upper-fill" data-label="swirl_upper" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
     <path id="shape-swirl-left-fill" data-label="swirl_left" fill="url(#mark-left)" d="M399 326 A255 255 0 0 0 526 732 L520 711 A265 265 0 0 1 433 372 Z"/>
     <path id="shape-swirl-right-fill" data-label="swirl_right" fill="url(#mark-right)" d="M871 368 A255 255 0 0 1 827 671 L820 621 A265 265 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower-fill" data-label="swirl_lower" fill="url(#mark-lower)" d="M520 711 L526 732 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
@@ -16,7 +16,7 @@
     <path id="shape-star-fill" data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
   </g>
   <g id="shape-outlines">
-    <path id="shape-swirl-upper-outline" class="shape-outline" data-label="swirl_upper" d="M413 313 H456 A255 255 0 0 1 810 292 L850 332 A265 265 0 0 0 413 313 Z"/>
+    <path id="shape-swirl-upper-outline" class="shape-outline" data-label="swirl_upper" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
     <path id="shape-swirl-left-outline" class="shape-outline" data-label="swirl_left" d="M399 326 A255 255 0 0 0 526 732 L520 711 A265 265 0 0 1 433 372 Z"/>
     <path id="shape-swirl-right-outline" class="shape-outline" data-label="swirl_right" d="M871 368 A255 255 0 0 1 827 671 L820 621 A265 265 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower-outline" class="shape-outline" data-label="swirl_lower" d="M520 711 L526 732 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
@@ -24,16 +24,14 @@
     <path id="shape-star-outline" class="shape-outline" data-label="star" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
   </g>
   <g id="control-points">
-    <circle id="shape-swirl-upper-p1" class="point" data-label="swirl_upper:1" cx="413" cy="313" r="6"/>
-    <text class="point-label" x="422" y="304">swirl_upper:1</text>
-    <circle id="shape-swirl-upper-p2" class="point" data-label="swirl_upper:2" cx="456" cy="313" r="6"/>
-    <text class="point-label" x="465" y="304">swirl_upper:2</text>
-    <circle id="shape-swirl-upper-p3" class="point" data-label="swirl_upper:3" cx="810" cy="292" r="6"/>
-    <text class="point-label" x="819" y="283">swirl_upper:3</text>
-    <circle id="shape-swirl-upper-p4" class="point" data-label="swirl_upper:4" cx="850" cy="332" r="6"/>
-    <text class="point-label" x="859" y="323">swirl_upper:4</text>
-    <circle id="shape-swirl-upper-p5" class="point" data-label="swirl_upper:5" cx="413" cy="313" r="6"/>
-    <text class="point-label" x="422" y="304">swirl_upper:5</text>
+    <circle id="shape-swirl-upper-p1" class="point" data-label="swirl_upper:start" cx="413" cy="313" r="6"/>
+    <text class="point-label" x="422" y="304">swirl_upper:start</text>
+    <circle id="shape-swirl-upper-p2" class="point" data-label="swirl_upper:corner" cx="456" cy="313" r="6"/>
+    <text class="point-label" x="465" y="304">swirl_upper:corner</text>
+    <circle id="shape-swirl-upper-p3" class="point" data-label="swirl_upper:tip" cx="850" cy="332" r="6"/>
+    <text class="point-label" x="859" y="323">swirl_upper:tip</text>
+    <circle id="shape-swirl-upper-p4" class="point" data-label="swirl_upper:close" cx="413" cy="313" r="6"/>
+    <text class="point-label" x="422" y="304">swirl_upper:close</text>
     <text class="shape-label" x="431" y="338">swirl_upper</text>
     <circle id="shape-swirl-left-p1" class="point" data-label="swirl_left:1" cx="399" cy="326" r="6"/>
     <text class="point-label" x="408" y="317">swirl_left:1</text>
