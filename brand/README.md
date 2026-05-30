@@ -72,14 +72,14 @@ dotnet run generate-pixel-outlines.cs -- logo-brand-transparent.png logo-brand-t
 | --- | --- |
 | [`logo-brand-transparent.svg`](logo-brand-transparent.svg) | Full lockup: mark + NOVOLIS wordmark + tagline |
 | [`logo-brand-transparent-overlay.svg`](logo-brand-transparent-overlay.svg) | Feedback overlay with raster underlay, magenta outlines, numbered control points |
-| [`generated/logo-mark.svg`](generated/logo-mark.svg) | Mark only (no wordmark/tagline) |
+| [`generated/logo-mark.svg`](generated/logo-mark.svg) | Mark only, auto-cropped viewBox (no wordmark/tagline) |
 | [`generated/shapes/upper.svg`](generated/shapes/upper.svg) | Single-shape export |
 | [`generated/shapes/lower.svg`](generated/shapes/lower.svg) | Single-shape export |
 | [`generated/shapes/n.svg`](generated/shapes/n.svg) | Single-shape export |
 | [`generated/shapes/n_left.svg`](generated/shapes/n_left.svg) | Single-shape export |
 | [`generated/shapes/n_right.svg`](generated/shapes/n_right.svg) | Single-shape export |
 | [`generated/shapes/star.svg`](generated/shapes/star.svg) | Single-shape export |
-| [`generated/logo-icon.svg`](generated/logo-icon.svg) | Square icon template (512×512, cropped mark viewBox) |
+| [`generated/logo-icon.svg`](generated/logo-icon.svg) | Square icon (512×512); viewBox from path bounds + arc margin |
 | [`generated/logo-social.svg`](generated/logo-social.svg) | Social card template (1200×630) |
 
 PNG renders (when using the `png` command) are written alongside under `generated/`.

@@ -74,6 +74,248 @@ sealed class VectorPath
     public IReadOnlyList<Vec> Points => _points;
 }
 
+/// <summary>Conservative axis-aligned bounds for SVG path data (includes arc sweep margin).</summary>
+static class SvgPathBounds
+{
+    public readonly record struct Box(double MinX, double MinY, double MaxX, double MaxY)
+    {
+        public static Box Empty => new(double.PositiveInfinity, double.PositiveInfinity, double.NegativeInfinity, double.NegativeInfinity);
+
+        public bool IsValid => MinX <= MaxX && MinY <= MaxY;
+
+        public double Width => MaxX - MinX;
+
+        public double Height => MaxY - MinY;
+
+        public Box Union(double x, double y) =>
+            new(Math.Min(MinX, x), Math.Min(MinY, y), Math.Max(MaxX, x), Math.Max(MaxY, y));
+
+        public Box Union(Box other) =>
+            new(Math.Min(MinX, other.MinX), Math.Min(MinY, other.MinY), Math.Max(MaxX, other.MaxX), Math.Max(MaxY, other.MaxY));
+
+        public Box UnionArc(double x0, double y0, double x1, double y1, double rx, double ry)
+        {
+            var box = Union(x0, y0).Union(x1, y1);
+            var r = Math.Max(rx, ry);
+            var dx = x1 - x0;
+            var dy = y1 - y1;
+            var chord = Math.Sqrt(dx * dx + dy * dy);
+            var bulge = r;
+            if (chord > 0 && chord < 2 * r)
+            {
+                var half = chord * 0.5;
+                bulge = r - Math.Sqrt(Math.Max(0, r * r - half * half));
+            }
+
+            // Perpendicular sagitta margin (both sides of the chord — conservative).
+            bulge = Math.Max(bulge, 2) + 2;
+            return box
+                .Union(Math.Min(x0, x1) - bulge, Math.Min(y0, y1) - bulge)
+                .Union(Math.Max(x0, x1) + bulge, Math.Max(y0, y1) + bulge);
+        }
+    }
+
+    public static Box FromPath(VectorPath path) => FromPathData(path.ToPathData());
+
+    public static Box FromShapes(IEnumerable<SvgShape> shapes)
+    {
+        var box = Box.Empty;
+        foreach (var shape in shapes)
+        {
+            box = box.Union(FromPath(shape.Path));
+        }
+
+        return box;
+    }
+
+    public static Box FromPathData(string pathData)
+    {
+        var box = Box.Empty;
+        double cx = 0;
+        double cy = 0;
+        double subX = 0;
+        double subY = 0;
+        var i = 0;
+
+        while (i < pathData.Length)
+        {
+            while (i < pathData.Length && pathData[i] == ' ')
+            {
+                i++;
+            }
+
+            if (i >= pathData.Length)
+            {
+                break;
+            }
+
+            var cmd = pathData[i++];
+            if (cmd is 'Z' or 'z')
+            {
+                cx = subX;
+                cy = subY;
+                continue;
+            }
+
+            if (cmd is 'M' or 'm' or 'L' or 'l')
+            {
+                var x = ReadNumber(pathData, ref i);
+                var y = ReadNumber(pathData, ref i);
+                if (cmd is 'm' or 'l')
+                {
+                    x += cx;
+                    y += cy;
+                }
+
+                if (cmd is 'M' or 'm')
+                {
+                    subX = x;
+                    subY = y;
+                }
+
+                cx = x;
+                cy = y;
+                box = box.Union(cx, cy);
+                continue;
+            }
+
+            if (cmd is 'H' or 'h')
+            {
+                var x = ReadNumber(pathData, ref i);
+                if (cmd is 'h')
+                {
+                    x += cx;
+                }
+
+                cx = x;
+                box = box.Union(cx, cy);
+                continue;
+            }
+
+            if (cmd is 'V' or 'v')
+            {
+                var y = ReadNumber(pathData, ref i);
+                if (cmd is 'v')
+                {
+                    y += cy;
+                }
+
+                cy = y;
+                box = box.Union(cx, cy);
+                continue;
+            }
+
+            if (cmd is 'A' or 'a')
+            {
+                var rx = ReadNumber(pathData, ref i);
+                var ry = ReadNumber(pathData, ref i);
+                _ = ReadNumber(pathData, ref i);
+                _ = ReadNumber(pathData, ref i);
+                _ = ReadNumber(pathData, ref i);
+                var x = ReadNumber(pathData, ref i);
+                var y = ReadNumber(pathData, ref i);
+                if (cmd is 'a')
+                {
+                    x += cx;
+                    y += cy;
+                }
+
+                box = box.UnionArc(cx, cy, x, y, rx, ry);
+                cx = x;
+                cy = y;
+                continue;
+            }
+
+            throw new InvalidOperationException($"Unsupported path command '{cmd}' in bounds calculation.");
+        }
+
+        return box;
+    }
+
+    private static double ReadNumber(string text, ref int index)
+    {
+        while (index < text.Length && text[index] == ' ')
+        {
+            index++;
+        }
+
+        var start = index;
+        if (index < text.Length && (text[index] == '-' || text[index] == '+'))
+        {
+            index++;
+        }
+
+        while (index < text.Length && (char.IsDigit(text[index]) || text[index] == '.'))
+        {
+            index++;
+        }
+
+        return double.Parse(text[start..index], System.Globalization.CultureInfo.InvariantCulture);
+    }
+}
+
+static class NovolisMarkFraming
+{
+    public readonly record struct CropOptions(double PaddingRatio, int MinPaddingPx, bool Square);
+
+    /// <summary>Square icon: tight crop after arc-safe bounds, small padding so the mark fills the tile.</summary>
+    public static readonly CropOptions Icon = new(0.028, 18, Square: true);
+
+    /// <summary>Mark-only export: minimal margin around computed geometry.</summary>
+    public static readonly CropOptions Mark = new(0.018, 10, Square: false);
+
+    /// <summary>Single-shape exports: slightly more air so isolated arcs do not clip.</summary>
+    public static readonly CropOptions SingleShape = new(0.06, 14, Square: false);
+
+    public static (int X, int Y, int Width, int Height) ToViewBox(IReadOnlyList<SvgShape> shapes, CropOptions options)
+    {
+        var raw = SvgPathBounds.FromShapes(shapes);
+        if (!raw.IsValid)
+        {
+            throw new InvalidOperationException("Could not compute mark bounds from shapes.");
+        }
+
+        var span = Math.Max(raw.Width, raw.Height);
+        var pad = Math.Max(options.MinPaddingPx, span * options.PaddingRatio);
+        var paddedW = raw.Width + pad * 2;
+        var paddedH = raw.Height + pad * 2;
+        var cx = (raw.MinX + raw.MaxX) * 0.5;
+        var cy = (raw.MinY + raw.MaxY) * 0.5;
+
+        double minX;
+        double minY;
+        double width;
+        double height;
+        if (options.Square)
+        {
+            var side = Math.Max(paddedW, paddedH);
+            minX = cx - side * 0.5;
+            minY = cy - side * 0.5;
+            width = side;
+            height = side;
+        }
+        else
+        {
+            minX = raw.MinX - pad;
+            minY = raw.MinY - pad;
+            width = paddedW;
+            height = paddedH;
+        }
+
+        var ix = (int)Math.Floor(minX);
+        var iy = (int)Math.Floor(minY);
+        var iw = Math.Max(1, (int)Math.Ceiling(minX + width) - ix);
+        var ih = Math.Max(1, (int)Math.Ceiling(minY + height) - iy);
+        return (ix, iy, iw, ih);
+    }
+
+    public static string FormatViewBox(IReadOnlyList<SvgShape> shapes, CropOptions options)
+    {
+        var (x, y, w, h) = ToViewBox(shapes, options);
+        return $"{x} {y} {w} {h}";
+    }
+}
+
 readonly record struct SvgShape(string Id, string Kind, string Label, string Fill, VectorPath Path)
 {
     public string PathData => Path.ToPathData();
@@ -226,11 +468,6 @@ static class NovolisBrandCanvas
     public const int Height = 1254;
     public const int AlphaThreshold = 16;
 
-    // Mark bounding box for icon/social cropping (approximate, includes star).
-    public const int MarkMinX = 350;
-    public const int MarkMinY = 200;
-    public const int MarkWidth = 580;
-    public const int MarkHeight = 560;
 }
 
 static class NovolisLogoMark
@@ -411,11 +648,13 @@ static class BrandAssetRecipes
 
     public static string MarkOnly(IReadOnlyList<SvgShape> shapes)
     {
+        var (vx, vy, vw, vh) = NovolisMarkFraming.ToViewBox(shapes, NovolisMarkFraming.Mark);
         var doc = new SvgDocument(
-            NovolisBrandCanvas.Width,
-            NovolisBrandCanvas.Height,
+            vw,
+            vh,
             "Novolis mark",
-            "Novolis mark");
+            "Novolis mark",
+            $"{vx} {vy} {vw} {vh}");
         doc.Begin();
         doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
         doc.BeginGroup("vector-mark");
@@ -430,11 +669,13 @@ static class BrandAssetRecipes
 
     public static string SingleShape(SvgShape shape)
     {
+        var (vx, vy, vw, vh) = NovolisMarkFraming.ToViewBox([shape], NovolisMarkFraming.SingleShape);
         var doc = new SvgDocument(
-            NovolisBrandCanvas.Width,
-            NovolisBrandCanvas.Height,
+            vw,
+            vh,
             $"Novolis {shape.Label}",
-            $"Novolis shape {shape.Label}");
+            $"Novolis shape {shape.Label}",
+            $"{vx} {vy} {vw} {vh}");
         doc.Begin();
         doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
         doc.BeginGroup("vector-mark");
@@ -495,7 +736,7 @@ static class BrandAssetRecipes
 
     public static string IconMark(IReadOnlyList<SvgShape> shapes, int size = 512)
     {
-        var viewBox = $"{NovolisBrandCanvas.MarkMinX} {NovolisBrandCanvas.MarkMinY} {NovolisBrandCanvas.MarkWidth} {NovolisBrandCanvas.MarkHeight}";
+        var viewBox = NovolisMarkFraming.FormatViewBox(shapes, NovolisMarkFraming.Icon);
         var doc = new SvgDocument(size, size, "Novolis icon", "Novolis icon mark", viewBox);
         doc.Begin();
         doc.AppendDefs(NovolisBrandGradients.WriteMarkGradients);
@@ -551,6 +792,23 @@ static class BrandAssetRecipes
 
 static class SvgRasterBridge
 {
+    private static string ResolveNpxExecutable()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            var programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            var npxCmd = Path.Combine(programFiles, "nodejs", "npx.cmd");
+            if (File.Exists(npxCmd))
+            {
+                return npxCmd;
+            }
+
+            return "npx.cmd";
+        }
+
+        return "npx";
+    }
+
     public static int RenderToPng(string svgPath, string pngPath, int? fitWidth = null, int? fitHeight = null)
     {
         var args = new List<string> { svgPath, pngPath };
@@ -568,7 +826,7 @@ static class SvgRasterBridge
 
         var startInfo = new ProcessStartInfo
         {
-            FileName = "npx",
+            FileName = ResolveNpxExecutable(),
             Arguments = "--yes @resvg/resvg-js-cli " + string.Join(' ', args.Select(a => $"\"{a}\"")),
             RedirectStandardOutput = true,
             RedirectStandardError = true,
