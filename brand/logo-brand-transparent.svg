@@ -49,7 +49,7 @@
     <path id="n" data-kind="line-arc" data-label="n" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L428 357 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path id="n_left" data-kind="straight" data-label="n_left" fill="url(#mark-left-stem)" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path id="n_right" data-kind="straight" data-label="n_right" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
-    <path id="star" data-kind="straight" data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
+    <path id="star" data-kind="four-arc" data-label="star" fill="url(#star-gradient)" d="M874 241 A44 44 0 0 0 918 285 A44 44 0 0 0 874 329 A44 44 0 0 0 831 285 A44 44 0 0 0 874 241 Z"/>
   </g>
   <g id="vector-wordmark" font-family="Consolas, 'Cascadia Mono', 'Courier New', monospace" text-anchor="start">
     <text x="161" y="912" font-size="133" font-weight="700" fill="#f7fbff" textLength="936" lengthAdjust="spacingAndGlyphs" filter="url(#wordmark-glow)">NOVOLIS</text>

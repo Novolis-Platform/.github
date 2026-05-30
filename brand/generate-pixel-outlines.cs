@@ -148,13 +148,9 @@ static class CleanOutliner
         var rightStemBottomLeft = P(734, 513);
 
         var starTop = P(874, 241);
-        var starUpperInner = P(884, 273);
         var starRight = P(918, 285);
-        var starLowerInner = P(884, 298);
         var starBottom = P(874, 329);
-        var starLowerLeftInner = P(866, 300);
         var starLeft = P(831, 285);
-        var starUpperLeftInner = P(865, 273);
 
         return
         [
@@ -201,15 +197,12 @@ static class CleanOutliner
                     .LineTo(rightStemBottomLeft)
                     .Close()),
 
-            new("star", "straight", "star", "url(#star-gradient)",
+            new("star", "four-arc", "star", "url(#star-gradient)",
                 Path(starTop)
-                    .LineTo(starUpperInner)
-                    .LineTo(starRight)
-                    .LineTo(starLowerInner)
-                    .LineTo(starBottom)
-                    .LineTo(starLowerLeftInner)
-                    .LineTo(starLeft)
-                    .LineTo(starUpperLeftInner)
+                    .ArcTo(44, 44, largeArc: false, sweep: false, starRight)
+                    .ArcTo(44, 44, largeArc: false, sweep: false, starBottom)
+                    .ArcTo(44, 44, largeArc: false, sweep: false, starLeft)
+                    .ArcTo(44, 44, largeArc: false, sweep: false, starTop)
                     .Close()),
         ];
     }

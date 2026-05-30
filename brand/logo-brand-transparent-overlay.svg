@@ -13,7 +13,7 @@
     <path data-label="n" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L428 357 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path data-label="n_left" fill="url(#mark-left-stem)" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path data-label="n_right" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
-    <path data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
+    <path data-label="star" fill="url(#star-gradient)" d="M874 241 A44 44 0 0 0 918 285 A44 44 0 0 0 874 329 A44 44 0 0 0 831 285 A44 44 0 0 0 874 241 Z"/>
   </g>
   <g id="shape-outlines">
     <path class="shape-outline" data-label="upper" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
@@ -21,7 +21,7 @@
     <path class="shape-outline" data-label="n" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L428 357 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path class="shape-outline" data-label="n_left" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path class="shape-outline" data-label="n_right" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
-    <path class="shape-outline" data-label="star" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
+    <path class="shape-outline" data-label="star" d="M874 241 A44 44 0 0 0 918 285 A44 44 0 0 0 874 329 A44 44 0 0 0 831 285 A44 44 0 0 0 874 241 Z"/>
   </g>
   <g id="control-points">
     <circle class="point" data-label="upper:1" cx="413" cy="313" r="6"/>
@@ -79,20 +79,12 @@
     <text class="shape-label" x="752" y="392">n_right</text>
     <circle class="point" data-label="star:1" cx="874" cy="241" r="6"/>
     <text class="point-label" x="883" y="232">star:1</text>
-    <circle class="point" data-label="star:2" cx="884" cy="273" r="6"/>
-    <text class="point-label" x="893" y="264">star:2</text>
-    <circle class="point" data-label="star:3" cx="918" cy="285" r="6"/>
-    <text class="point-label" x="927" y="276">star:3</text>
-    <circle class="point" data-label="star:4" cx="884" cy="298" r="6"/>
-    <text class="point-label" x="893" y="289">star:4</text>
-    <circle class="point" data-label="star:5" cx="874" cy="329" r="6"/>
-    <text class="point-label" x="883" y="320">star:5</text>
-    <circle class="point" data-label="star:6" cx="866" cy="300" r="6"/>
-    <text class="point-label" x="875" y="291">star:6</text>
-    <circle class="point" data-label="star:7" cx="831" cy="285" r="6"/>
-    <text class="point-label" x="840" y="276">star:7</text>
-    <circle class="point" data-label="star:8" cx="865" cy="273" r="6"/>
-    <text class="point-label" x="874" y="264">star:8</text>
+    <circle class="point" data-label="star:2" cx="918" cy="285" r="6"/>
+    <text class="point-label" x="927" y="276">star:2</text>
+    <circle class="point" data-label="star:3" cx="874" cy="329" r="6"/>
+    <text class="point-label" x="883" y="320">star:3</text>
+    <circle class="point" data-label="star:4" cx="831" cy="285" r="6"/>
+    <text class="point-label" x="840" y="276">star:4</text>
     <text class="shape-label" x="892" y="266">star</text>
   </g>
 </svg>
