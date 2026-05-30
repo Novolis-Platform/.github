@@ -30,7 +30,7 @@
     <text class="point-label" x="529" y="702">swirl_left:3</text>
     <circle id="shape-swirl-left-p4" class="point" data-label="swirl_left:4" cx="433" cy="362" r="6"/>
     <text class="point-label" x="442" y="353">swirl_left:4</text>
-    <text class="shape-label" x="417" y="351">swirl_left</text>
+    <!-- <text class="shape-label" x="417" y="351">swirl_left</text> -->
     <circle id="shape-swirl-right-p1" class="point" data-label="swirl_right:1" cx="871" cy="368" r="6"/>
     <text class="point-label" x="880" y="359">swirl_right:1</text>
     <circle id="shape-swirl-right-p2" class="point" data-label="swirl_right:2" cx="827" cy="671" r="6"/>
@@ -41,16 +41,16 @@
     <text class="point-label" x="880" y="359">swirl_right:4</text>
     <text class="shape-label" x="889" y="393">swirl_right</text>
     <circle id="shape-swirl-lower-p1" class="point" data-label="swirl_lower:1" cx="520" cy="711" r="6"/>
-    <text class="point-label" x="529" y="702">swirl_lower:1</text>
+    <!-- <text class="point-label" x="529" y="702">swirl_lower:1</text> -->
     <circle id="shape-swirl-lower-p2" class="point" data-label="swirl_lower:2" cx="526" cy="732" r="6"/>
-    <text class="point-label" x="535" y="723">swirl_lower:2</text>
+    <!-- <text class="point-label" x="535" y="723">swirl_lower:2</text> -->
     <circle id="shape-swirl-lower-p3" class="point" data-label="swirl_lower:3" cx="810" cy="688" r="6"/>
     <text class="point-label" x="819" y="679">swirl_lower:3</text>
     <circle id="shape-swirl-lower-p4" class="point" data-label="swirl_lower:4" cx="768" cy="688" r="6"/>
     <text class="point-label" x="777" y="679">swirl_lower:4</text>
     <circle id="shape-swirl-lower-p5" class="point" data-label="swirl_lower:5" cx="520" cy="711" r="6"/>
-    <text class="point-label" x="529" y="702">swirl_lower:5</text>
-    <text class="shape-label" x="538" y="736">swirl_lower</text>
+    <!-- <text class="point-label" x="529" y="702">swirl_lower:5</text> -->
+    <!-- <text class="shape-label" x="538" y="736">swirl_lower</text> -->
     <circle id="shape-diagonal-p1" class="point" data-label="n_diagonal:1" cx="398" cy="326" r="6"/>
     <text class="point-label" x="407" y="317">n_diagonal:1</text>
     <circle id="shape-diagonal-p2" class="point" data-label="n_diagonal:2" cx="531" cy="326" r="6"/>
