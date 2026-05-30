@@ -180,11 +180,10 @@ static class CleanOutliner
                     .Close()),
 
             new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
-                Path(lowerLeftInner)
-                    .LineTo(lowerLeftOuter)
+                Path(lowerLeftOuter)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftOuter)
                     .Close()),
 
             new("shape-diagonal", "straight", "n_diagonal", "url(#mark-diagonal)",
@@ -521,7 +520,12 @@ static class SvgWriter
 
         foreach (var outline in OverlayOutlines(outlines))
         {
-            var points = outline.Path.Points;
+            var points = outline.Path.Points.ToList();
+            if (points.Count > 1 && points[^1] == points[0])
+            {
+                points.RemoveAt(points.Count - 1);
+            }
+
             for (var i = 0; i < points.Count; i++)
             {
                 var point = points[i];
