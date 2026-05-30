@@ -14,8 +14,11 @@ dotnet run generate-pixel-outlines.cs -- logo-brand-transparent.png logo-brand-t
 
 The generator keeps the logo geometry as named vector points and emits SVG path data from those points. The upper swirl and three `N` shapes are treated as locked geometry; the remaining swirl segments reuse the same canonical arc radii so the taper stays consistent.
 
+The generator also writes [`logo-brand-transparent-overlay.svg`](logo-brand-transparent-overlay.svg). Use that overlay for feedback: it places the raster reference underneath the vector shapes and labels every control point as `<shape>:<point-number>`.
+
 ## Files
 
 - [`logo-brand-transparent.svg`](logo-brand-transparent.svg): primary transparent vector logo.
+- [`logo-brand-transparent-overlay.svg`](logo-brand-transparent-overlay.svg): feedback overlay with outlines, shape labels, and control-point labels.
 - [`logo-brand-transparent.png`](logo-brand-transparent.png): raster reference used for visual checking.
 - [`generate-pixel-outlines.cs`](generate-pixel-outlines.cs): source for regenerating the SVG from vector points.

@@ -15,7 +15,16 @@ var outlines = CleanOutliner.Trace();
 var svg = SvgWriter.Write(outputSvg, inputPng, png.Width, png.Height, outlines, alphaThreshold);
 File.WriteAllText(outputSvg, svg, Encoding.UTF8);
 
+var overlaySvg = Path.Combine(
+    Path.GetDirectoryName(Path.GetFullPath(outputSvg)) ?? Environment.CurrentDirectory,
+    $"{Path.GetFileNameWithoutExtension(outputSvg)}-overlay.svg");
+File.WriteAllText(
+    overlaySvg,
+    SvgWriter.WriteOverlay(overlaySvg, inputPng, png.Width, png.Height, outlines, alphaThreshold),
+    Encoding.UTF8);
+
 Console.WriteLine($"Wrote {outputSvg}");
+Console.WriteLine($"Wrote {overlaySvg}");
 Console.WriteLine($"Source: {inputPng}");
 Console.WriteLine($"Size: {png.Width}x{png.Height}");
 Console.WriteLine($"Alpha threshold: > {alphaThreshold} (raster reference only)");
@@ -38,10 +47,14 @@ readonly record struct SvgOutline(string Id, string Kind, string DataLabel, stri
 sealed class VectorPath
 {
     private readonly List<string> _commands = [];
+    private readonly List<Vec> _points = [];
+    private Vec _current;
 
     private VectorPath(Vec start)
     {
         _commands.Add($"M{start.ToPathPoint()}");
+        _points.Add(start);
+        _current = start;
     }
 
     public static VectorPath Start(Vec point) => new(point);
@@ -49,24 +62,32 @@ sealed class VectorPath
     public VectorPath LineTo(Vec point)
     {
         _commands.Add($"L{point.ToPathPoint()}");
+        _points.Add(point);
+        _current = point;
         return this;
     }
 
     public VectorPath HorizontalTo(int x)
     {
         _commands.Add($"H{x}");
+        _current = _current with { X = x };
+        _points.Add(_current);
         return this;
     }
 
     public VectorPath VerticalTo(int y)
     {
         _commands.Add($"V{y}");
+        _current = _current with { Y = y };
+        _points.Add(_current);
         return this;
     }
 
     public VectorPath ArcTo(int radiusX, int radiusY, bool largeArc, bool sweep, Vec point)
     {
         _commands.Add($"A{radiusX} {radiusY} 0 {(largeArc ? 1 : 0)} {(sweep ? 1 : 0)} {point.ToPathPoint()}");
+        _points.Add(point);
+        _current = point;
         return this;
     }
 
@@ -77,6 +98,8 @@ sealed class VectorPath
     }
 
     public string ToPathData() => string.Join(' ', _commands);
+
+    public IReadOnlyList<Vec> Points => _points;
 }
 
 static class CleanOutliner
@@ -456,6 +479,76 @@ static class SvgWriter
         sb.AppendLine("  </g>");
         sb.AppendLine("</svg>");
         return sb.ToString();
+    }
+
+    public static string WriteOverlay(
+        string outputSvg,
+        string inputPng,
+        int width,
+        int height,
+        IReadOnlyList<SvgOutline> outlines,
+        int alphaThreshold)
+    {
+        var href = Path.GetRelativePath(
+                Path.GetDirectoryName(Path.GetFullPath(outputSvg)) ?? Environment.CurrentDirectory,
+                Path.GetFullPath(inputPng))
+            .Replace('\\', '/');
+
+        var sb = new StringBuilder();
+        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" role="img" aria-label="Novolis logo construction overlay">""");
+        sb.AppendLine("  <title>Novolis logo construction overlay</title>");
+        sb.AppendLine("  <style>");
+        sb.AppendLine("    .shape-outline { fill: none; stroke: #ff2bd6; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }");
+        sb.AppendLine("    .point { fill: #ffe66d; stroke: #101522; stroke-width: 2; vector-effect: non-scaling-stroke; }");
+        sb.AppendLine("    .point-label { fill: #fff9d6; font: 18px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 4; stroke-linejoin: round; }");
+        sb.AppendLine("    .shape-label { fill: #ffffff; font: 22px Consolas, 'Cascadia Mono', monospace; paint-order: stroke; stroke: #101522; stroke-width: 5; stroke-linejoin: round; }");
+        sb.AppendLine("  </style>");
+        sb.AppendLine($"""  <image id="raster-reference" width="{width}" height="{height}" href="{EscapeXml(href)}" opacity="0.42"/>""");
+        sb.AppendLine($"""  <g id="vector-shapes" data-alpha-threshold="{alphaThreshold}" opacity="0.55">""");
+
+        foreach (var outline in OverlayOutlines(outlines))
+        {
+            sb.AppendLine($"""    <path id="{outline.Id}-fill" data-label="{outline.DataLabel}" fill="{outline.Fill}" d="{outline.PathData}"/>""");
+        }
+
+        sb.AppendLine("  </g>");
+        sb.AppendLine("""  <g id="shape-outlines">""");
+
+        foreach (var outline in OverlayOutlines(outlines))
+        {
+            sb.AppendLine($"""    <path id="{outline.Id}-outline" class="shape-outline" data-label="{outline.DataLabel}" d="{outline.PathData}"/>""");
+        }
+
+        sb.AppendLine("  </g>");
+        sb.AppendLine("""  <g id="control-points">""");
+
+        foreach (var outline in OverlayOutlines(outlines))
+        {
+            var points = outline.Path.Points;
+            for (var i = 0; i < points.Count; i++)
+            {
+                var point = points[i];
+                var label = $"{outline.DataLabel}:{i + 1}";
+                sb.AppendLine($"""    <circle id="{outline.Id}-p{i + 1}" class="point" data-label="{EscapeXml(label)}" cx="{point.X}" cy="{point.Y}" r="6"/>""");
+                sb.AppendLine($"""    <text class="point-label" x="{point.X + 9}" y="{point.Y - 9}">{EscapeXml(label)}</text>""");
+            }
+
+            if (points.Count > 0)
+            {
+                var anchor = points[0];
+                sb.AppendLine($"""    <text class="shape-label" x="{anchor.X + 18}" y="{anchor.Y + 25}">{EscapeXml(outline.DataLabel)}</text>""");
+            }
+        }
+
+        sb.AppendLine("  </g>");
+        sb.AppendLine("</svg>");
+        return sb.ToString();
+    }
+
+    private static IEnumerable<SvgOutline> OverlayOutlines(IEnumerable<SvgOutline> outlines)
+    {
+        return outlines.Where(outline =>
+            outline.DataLabel is not "n_left_stem" and not "n_right_stem");
     }
 
     private static string PathData(IReadOnlyList<PixelPoint> points)
