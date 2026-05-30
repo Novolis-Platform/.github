@@ -10,7 +10,7 @@
   <g id="vector-shapes" data-alpha-threshold="16" opacity="0.55">
     <path data-label="upper" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
     <path data-label="lower" fill="url(#mark-lower)" d="M520 711 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
-    <path data-label="n" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L433 362 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
+    <path data-label="n" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L428 357 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path data-label="n_left" fill="url(#mark-left-stem)" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path data-label="n_right" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
     <path data-label="star" fill="url(#star-gradient)" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
@@ -18,7 +18,7 @@
   <g id="shape-outlines">
     <path class="shape-outline" data-label="upper" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
     <path class="shape-outline" data-label="lower" d="M520 711 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
-    <path class="shape-outline" data-label="n" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L433 362 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
+    <path class="shape-outline" data-label="n" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L428 357 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path class="shape-outline" data-label="n_left" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path class="shape-outline" data-label="n_right" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
     <path class="shape-outline" data-label="star" d="M874 241 L884 273 L918 285 L884 298 L874 329 L866 300 L831 285 L865 273 Z"/>
@@ -50,8 +50,8 @@
     <text class="point-label" x="836" y="662">n:5</text>
     <circle class="point" data-label="n:6" cx="731" cy="671" r="6"/>
     <text class="point-label" x="740" y="662">n:6</text>
-    <circle class="point" data-label="n:7" cx="433" cy="362" r="6"/>
-    <text class="point-label" x="442" y="353">n:7</text>
+    <circle class="point" data-label="n:7" cx="428" cy="357" r="6"/>
+    <text class="point-label" x="437" y="348">n:7</text>
     <circle class="point" data-label="n:8" cx="526" cy="732" r="6"/>
     <text class="point-label" x="535" y="723">n:8</text>
     <text class="shape-label" x="416" y="351">n</text>
