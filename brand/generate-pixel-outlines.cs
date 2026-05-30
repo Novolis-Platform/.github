@@ -158,7 +158,7 @@ static class CleanOutliner
 
         return
         [
-            new("shape-higher", "arc-sector", "higher", "url(#mark-cyan)",
+            new("upper", "arc-sector", "upper", "url(#mark-cyan)",
                 // Locked: confirmed perfect. Do not split or add intermediate arc points.
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
@@ -166,14 +166,14 @@ static class CleanOutliner
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
-            new("shape-lower", "arc-sector", "lower", "url(#mark-lower)",
+            new("lower", "arc-sector", "lower", "url(#mark-lower)",
                 Path(lowerLeftInner)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
 
-            new("shape-n", "line-arc", "n", "url(#mark-diagonal)",
+            new("n", "line-arc", "n", "url(#mark-diagonal)",
                 Path(diagonalTopLeft)
                     .HorizontalTo(diagonalTopRight.X)
                     .LineTo(diagonalShoulder)
@@ -185,7 +185,7 @@ static class CleanOutliner
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, diagonalTopLeft)
                     .Close()),
 
-            new("shape-left-stem", "straight", "n_left_stem", "url(#mark-left-stem)",
+            new("n_left", "straight", "n_left", "url(#mark-left-stem)",
                 Path(leftStemTop)
                     .LineTo(leftStemShoulder)
                     .VerticalTo(leftStemLowerRight.Y)
@@ -193,7 +193,7 @@ static class CleanOutliner
                     .HorizontalTo(leftStemLowerLeft.X)
                     .Close()),
 
-            new("shape-right-stem", "straight", "n_right_stem", "url(#mark-right-stem)",
+            new("n_right", "straight", "n_right", "url(#mark-right-stem)",
                 Path(rightStemTopLeft)
                     .LineTo(rightStemCap)
                     .HorizontalTo(rightStemTopRight.X)
@@ -201,7 +201,7 @@ static class CleanOutliner
                     .LineTo(rightStemBottomLeft)
                     .Close()),
 
-            new("shape-star", "straight", "star", "url(#star-gradient)",
+            new("star", "straight", "star", "url(#star-gradient)",
                 Path(starTop)
                     .LineTo(starUpperInner)
                     .LineTo(starRight)
@@ -492,7 +492,7 @@ static class SvgWriter
 
         foreach (var outline in OverlayOutlines(outlines))
         {
-            sb.AppendLine($"""    <path id="{outline.Id}-fill" data-label="{outline.DataLabel}" fill="{outline.Fill}" d="{outline.PathData}"/>""");
+            sb.AppendLine($"""    <path data-label="{outline.DataLabel}" fill="{outline.Fill}" d="{outline.PathData}"/>""");
         }
 
         sb.AppendLine("  </g>");
@@ -500,7 +500,7 @@ static class SvgWriter
 
         foreach (var outline in OverlayOutlines(outlines))
         {
-            sb.AppendLine($"""    <path id="{outline.Id}-outline" class="shape-outline" data-label="{outline.DataLabel}" d="{outline.PathData}"/>""");
+            sb.AppendLine($"""    <path class="shape-outline" data-label="{outline.DataLabel}" d="{outline.PathData}"/>""");
         }
 
         sb.AppendLine("  </g>");
@@ -518,7 +518,7 @@ static class SvgWriter
             {
                 var point = points[i];
                 var label = PointLabel(outline.DataLabel, i);
-                sb.AppendLine($"""    <circle id="{outline.Id}-p{i + 1}" class="point" data-label="{EscapeXml(label)}" cx="{point.X}" cy="{point.Y}" r="6"/>""");
+                sb.AppendLine($"""    <circle class="point" data-label="{EscapeXml(label)}" cx="{point.X}" cy="{point.Y}" r="6"/>""");
                 sb.AppendLine($"""    <text class="point-label" x="{point.X + 9}" y="{point.Y - 9}">{EscapeXml(label)}</text>""");
             }
 
@@ -541,18 +541,7 @@ static class SvgWriter
 
     private static string PointLabel(string shapeLabel, int pointIndex)
     {
-        return shapeLabel switch
-        {
-            "higher" => pointIndex switch
-            {
-                0 => "higher:start",
-                1 => "higher:corner",
-                2 => "higher:tip",
-                3 => "higher:close",
-                _ => $"{shapeLabel}:{pointIndex + 1}"
-            },
-            _ => $"{shapeLabel}:{pointIndex + 1}"
-        };
+        return $"{shapeLabel}:{pointIndex + 1}";
     }
 
     private static string PathData(IReadOnlyList<PixelPoint> points)
