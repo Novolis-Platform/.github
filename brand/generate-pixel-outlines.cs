@@ -158,7 +158,7 @@ static class CleanOutliner
 
         return
         [
-            new("shape-swirl-upper", "arc-sector", "swirl_upper", "url(#mark-cyan)",
+            new("shape-higher", "arc-sector", "higher", "url(#mark-cyan)",
                 // Locked: confirmed perfect. Do not split or add intermediate arc points.
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
@@ -166,7 +166,7 @@ static class CleanOutliner
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
-            new("shape-swirl-lower", "arc-sector", "swirl_lower", "url(#mark-lower)",
+            new("shape-lower", "arc-sector", "lower", "url(#mark-lower)",
                 Path(lowerLeftInner)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, lowerRightOuter)
                     .LineTo(lowerRightInner)
@@ -536,20 +536,19 @@ static class SvgWriter
 
     private static IEnumerable<SvgOutline> OverlayOutlines(IEnumerable<SvgOutline> outlines)
     {
-        return outlines.Where(outline =>
-            outline.DataLabel is not "swirl_upper" and not "n_left_stem" and not "n_right_stem");
+        return outlines;
     }
 
     private static string PointLabel(string shapeLabel, int pointIndex)
     {
         return shapeLabel switch
         {
-            "swirl_upper" => pointIndex switch
+            "higher" => pointIndex switch
             {
-                0 => "swirl_upper:start",
-                1 => "swirl_upper:corner",
-                2 => "swirl_upper:tip",
-                3 => "swirl_upper:close",
+                0 => "higher:start",
+                1 => "higher:corner",
+                2 => "higher:tip",
+                3 => "higher:close",
                 _ => $"{shapeLabel}:{pointIndex + 1}"
             },
             _ => $"{shapeLabel}:{pointIndex + 1}"

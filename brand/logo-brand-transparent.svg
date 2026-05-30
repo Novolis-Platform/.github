@@ -44,8 +44,8 @@
     </filter>
   </defs>
   <g id="vector-mark" data-alpha-threshold="16">
-    <path id="shape-swirl-upper" data-kind="arc-sector" data-label="swirl_upper" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
-    <path id="shape-swirl-lower" data-kind="arc-sector" data-label="swirl_lower" fill="url(#mark-lower)" d="M520 711 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
+    <path id="shape-higher" data-kind="arc-sector" data-label="higher" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
+    <path id="shape-lower" data-kind="arc-sector" data-label="lower" fill="url(#mark-lower)" d="M520 711 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
     <path id="shape-n" data-kind="line-arc" data-label="n" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 A265 265 0 0 0 871 368 A255 255 0 0 1 827 671 H731 L433 362 A265 265 0 0 0 526 732 A255 255 0 0 1 398 326 Z"/>
     <path id="shape-left-stem" data-kind="straight" data-label="n_left_stem" fill="url(#mark-left-stem)" d="M472 433 L540 496 V616 L504 655 H472 Z"/>
     <path id="shape-right-stem" data-kind="straight" data-label="n_right_stem" fill="url(#mark-right-stem)" d="M734 367 L771 328 H804 V581 L734 513 Z"/>
