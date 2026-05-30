@@ -45,7 +45,7 @@
   </defs>
   <g id="vector-mark" data-alpha-threshold="16">
     <path id="shape-swirl-upper" data-kind="arc-sector" data-label="swirl_upper" fill="url(#mark-cyan)" d="M413 313 H456 A255 255 0 0 1 850 332 A265 265 0 0 0 413 313 Z"/>
-    <path id="shape-swirl-left" data-kind="arc-sector" data-label="swirl_left" fill="url(#mark-left)" d="M399 326 A255 255 0 0 0 526 732 L520 711 A265 265 0 0 1 433 362 Z"/>
+    <path id="shape-swirl-left" data-kind="arc-sector" data-label="swirl_left" fill="url(#mark-left)" d="M399 326 A255 255 0 0 0 526 732 A265 265 0 0 1 433 362 Z"/>
     <path id="shape-swirl-right" data-kind="arc-sector" data-label="swirl_right" fill="url(#mark-right)" d="M871 368 A255 255 0 0 1 827 671 L820 621 A265 265 0 0 0 871 368 Z"/>
     <path id="shape-swirl-lower" data-kind="arc-sector" data-label="swirl_lower" fill="url(#mark-lower)" d="M520 711 L526 732 A255 255 0 0 0 810 688 L768 688 A265 265 0 0 1 520 711 Z"/>
     <path id="shape-diagonal" data-kind="straight" data-label="n_diagonal" fill="url(#mark-diagonal)" d="M398 326 H531 L824 619 H854 V640 L837 671 H731 L398 326 Z"/>
