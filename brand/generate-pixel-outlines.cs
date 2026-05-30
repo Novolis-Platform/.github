@@ -114,7 +114,7 @@ static class CleanOutliner
         var upperRightTip = P(850, 332);
 
         var leftTopOuter = P(399, 326);
-        var leftTopInner = P(433, 372);
+        var leftTopInner = P(433, 362);
         var leftBottomOuter = P(526, 732);
         var leftBottomInner = P(520, 711);
 
