@@ -133,7 +133,7 @@ static class CleanOutliner
         var diagonalRightDrop = P(854, 640);
         var diagonalBottomRight = P(837, 671);
         var diagonalBottomLeft = P(731, 671);
-        var diagonalLeftReturn = P(398, 326);
+        var diagonalLeftReturn = leftTopInner;
 
         var leftStemTop = P(472, 433);
         var leftStemShoulder = P(540, 496);
@@ -166,12 +166,6 @@ static class CleanOutliner
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, upperLeftInner)
                     .Close()),
 
-            new("shape-swirl-left", "arc-sector", "swirl_left", "url(#mark-left)",
-                Path(leftTopOuter)
-                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: false, leftBottomOuter)
-                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, leftTopInner)
-                    .Close()),
-
             new("shape-swirl-right", "arc-sector", "swirl_right", "url(#mark-right)",
                 Path(rightTopOuter)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, rightBottomOuter)
@@ -186,7 +180,7 @@ static class CleanOutliner
                     .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: true, lowerLeftInner)
                     .Close()),
 
-            new("shape-diagonal", "straight", "n_diagonal", "url(#mark-diagonal)",
+            new("shape-diagonal", "line-arc", "n_diagonal", "url(#mark-diagonal)",
                 Path(diagonalTopLeft)
                     .HorizontalTo(diagonalTopRight.X)
                     .LineTo(diagonalShoulder)
@@ -195,6 +189,8 @@ static class CleanOutliner
                     .LineTo(diagonalBottomRight)
                     .HorizontalTo(diagonalBottomLeft.X)
                     .LineTo(diagonalLeftReturn)
+                    .ArcTo(CanonicalSwirlOuterRadius, CanonicalSwirlOuterRadius, largeArc: false, sweep: false, leftBottomOuter)
+                    .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, leftTopOuter)
                     .Close()),
 
             new("shape-left-stem", "straight", "n_left_stem", "url(#mark-left-stem)",
