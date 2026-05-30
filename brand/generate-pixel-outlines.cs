@@ -160,6 +160,7 @@ static class CleanOutliner
         return
         [
             new("shape-swirl-upper", "arc-sector", "swirl_upper", "url(#mark-cyan)",
+                // Locked: confirmed perfect. Do not split or add intermediate arc points.
                 Path(upperLeftInner)
                     .HorizontalTo(upperLeftCorner.X)
                     .ArcTo(CanonicalSwirlInnerRadius, CanonicalSwirlInnerRadius, largeArc: false, sweep: true, upperRightTip)
@@ -546,7 +547,7 @@ static class SvgWriter
     private static IEnumerable<SvgOutline> OverlayOutlines(IEnumerable<SvgOutline> outlines)
     {
         return outlines.Where(outline =>
-            outline.DataLabel is not "n_left_stem" and not "n_right_stem");
+            outline.DataLabel is not "swirl_upper" and not "n_left_stem" and not "n_right_stem");
     }
 
     private static string PointLabel(string shapeLabel, int pointIndex)
