@@ -292,9 +292,10 @@ foreach ($p in $packages) {
 }
 
 function Format-PackageCell {
-    param([System.Collections.IEnumerable] $Pkgs)
+    param([AllowNull()][object] $Pkgs)
+    $list = @($Pkgs | Where-Object { $null -ne $_ })
     $lines = [System.Collections.Generic.List[string]]::new()
-    foreach ($p in ($Pkgs | Sort-Object name)) {
+    foreach ($p in ($list | Sort-Object name)) {
         $pkgName = [string]$p.name
         $gprVer = if ($versionMap.ContainsKey($pkgName)) { $versionMap[$pkgName] } else { '' }
         $pkgUrl = if ($p.html_url) { [string]$p.html_url } else { "https://github.com/orgs/$Org/packages/nuget/package/$pkgName" }
@@ -339,7 +340,7 @@ foreach ($job in $repoJobs) {
         Get-StatusShield -Repo $name -WorkflowFile $job.Release -Label 'release' -Conclusion $releaseConc
     } else { '—' }
 
-    $pkgs = if ($packagesByRepo.ContainsKey($name)) { $packagesByRepo[$name] } else { @() }
+    $pkgs = if ($packagesByRepo.ContainsKey($name)) { @($packagesByRepo[$name]) } else { @() }
     $pkgCell = Format-PackageCell -Pkgs $pkgs
 
     [void]$sb.AppendLine("| $repoLink | $prBadge | $mergeBadge | $releaseBadge | $pkgCell |")
