@@ -1,0 +1,44 @@
+name: Refresh org landing status
+
+on:
+  schedule:
+    # Mondays 06:15 UTC
+    - cron: '15 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: read
+
+concurrency:
+  group: refresh-org-landing
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate status matrix
+        env:
+          # Prefer org PAT with read:packages across repos when set.
+          GH_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+        run: pwsh -File scripts/Update-OrgLandingStatus.ps1
+
+      - name: Open PR if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet -- profile/README.md; then
+            echo 'No landing-page changes.'
+            exit 0
+          fi
+          branch="chore/org-landing-refresh-$(date -u +%Y%m%d)"
+          git checkout -b "$branch"
+          git add profile/README.md
+          git commit -m "chore: refresh org landing CI and package matrix"
+          git push -u origin "$branch"
+          gh pr create --title "chore: refresh org landing status matrix" --body "Weekly regeneration of CI badges and package versions on the org profile README." --base main || true

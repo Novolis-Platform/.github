@@ -23,7 +23,8 @@
 param(
     [string] $Org = 'Novolis-Platform',
     [string] $ProfileReadme = '',
-    [int] $ThrottleLimit = 16
+    [int] $ThrottleLimit = 16,
+    [int] $MaxPackagesPerRepo = 3
 )
 
 $ErrorActionPreference = 'Stop'
@@ -292,10 +293,31 @@ foreach ($p in $packages) {
 }
 
 function Format-PackageCell {
-    param([AllowNull()][object] $Pkgs)
+    param(
+        [AllowNull()][object] $Pkgs,
+        [string] $RepoName = ''
+    )
     $list = @($Pkgs | Where-Object { $null -ne $_ })
+    if ($list.Count -eq 0) { return '—' }
+
+    # Prefer aggregate / short flagship IDs (e.g. Novolis.Raylib for novolis-raylib).
+    $expected = if ($RepoName -match '^novolis-(.+)$') {
+        'Novolis.' + (($Matches[1] -split '-' | ForEach-Object {
+                    if ($_.Length -eq 0) { return $_ }
+                    $_.Substring(0, 1).ToUpperInvariant() + $_.Substring(1)
+                }) -join '.')
+    } else { '' }
+
+    $sorted = $list | Sort-Object @(
+        @{ Expression = { if ($expected -and $_.name -eq $expected) { 0 } else { 1 } } }
+        @{ Expression = { ($_.name -split '\.').Count } }
+        @{ Expression = { $_.name } }
+    )
+
+    $total = $sorted.Count
+    $shown = @($sorted | Select-Object -First $MaxPackagesPerRepo)
     $lines = [System.Collections.Generic.List[string]]::new()
-    foreach ($p in ($list | Sort-Object name)) {
+    foreach ($p in $shown) {
         $pkgName = [string]$p.name
         $gprVer = if ($versionMap.ContainsKey($pkgName)) { $versionMap[$pkgName] } else { '' }
         $pkgUrl = if ($p.html_url) { [string]$p.html_url } else { "https://github.com/orgs/$Org/packages/nuget/package/$pkgName" }
@@ -306,8 +328,10 @@ function Format-PackageCell {
         } else { '' }
         $lines.Add("``$pkgName`` $shield$nugetPart")
     }
-    if ($lines.Count -eq 0) { return '—' }
-    # GitHub table cells need <br> for multi-line (pipe rows stay one physical line).
+    $more = $total - $shown.Count
+    if ($more -gt 0) {
+        $lines.Add("_+$more more_ → [packages](https://github.com/orgs/$Org/packages?repo_name=$RepoName)")
+    }
     return ($lines -join '<br>')
 }
 
@@ -318,7 +342,7 @@ $sb = [System.Text.StringBuilder]::new()
 [void]$sb.AppendLine()
 [void]$sb.AppendLine('### Repos, CI & packages')
 [void]$sb.AppendLine()
-[void]$sb.AppendLine("One row per repo. Merge successes: **$successMerges** / $($repoJobs.Count). Packages: **$($packages.Count)** on [GitHub Packages](https://github.com/orgs/$Org/packages) · [novolis-registry](https://github.com/$Org/novolis-registry).")
+[void]$sb.AppendLine("One row per repo (top **$MaxPackagesPerRepo** packages + count). Merge successes: **$successMerges** / $($repoJobs.Count). Packages: **$($packages.Count)** on [GitHub Packages](https://github.com/orgs/$Org/packages) · [novolis-registry](https://github.com/$Org/novolis-registry).")
 [void]$sb.AppendLine()
 [void]$sb.AppendLine('| Repository | PR | Merge | Release | Packages |')
 [void]$sb.AppendLine('|------------|----|-------|---------|----------|')
@@ -341,13 +365,13 @@ foreach ($job in $repoJobs) {
     } else { '—' }
 
     $pkgs = if ($packagesByRepo.ContainsKey($name)) { @($packagesByRepo[$name]) } else { @() }
-    $pkgCell = Format-PackageCell -Pkgs $pkgs
+    $pkgCell = Format-PackageCell -Pkgs $pkgs -RepoName $name
 
     [void]$sb.AppendLine("| $repoLink | $prBadge | $mergeBadge | $releaseBadge | $pkgCell |")
 }
 
 if ($orphanPackages.Count -gt 0) {
-    $pkgCell = Format-PackageCell -Pkgs $orphanPackages
+    $pkgCell = Format-PackageCell -Pkgs $orphanPackages -RepoName ''
     [void]$sb.AppendLine("| *(unlinked packages)* | — | — | — | $pkgCell |")
 }
 
