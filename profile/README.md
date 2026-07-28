@@ -96,6 +96,20 @@ No “you must do things our way” energy.
 
 ---
 
+## Build, package & release 📦
+
+Package libraries use a three-stage pipeline:
+
+| Stage | Trigger | What happens |
+|-------|---------|--------------|
+| Build | PR to `main` (`pull-request.yml`) | Restore, build, test — no publish |
+| Package | Push to `main` (`merge.yml`) | Pack `YEAR.MAJOR.MINOR.{run}` → [GitHub Packages](https://github.com/orgs/Novolis-Platform/packages) |
+| Release | GitHub Release published (`release.yml`) | Same version shape → [nuget.org](https://www.nuget.org/) + release assets |
+
+Versions are four-part numeric only (`2026.1.1.351`) — see [nuget-versioning.md](https://github.com/Novolis-Platform/.github/blob/main/docs/nuget-versioning.md). Desktop apps (`novolis-apps`) ship zip/installers via GitHub Releases instead of nuget.org.
+
+---
+
 ## Brand
 
 The Novolis logo is kept as a transparent, resolution-independent SVG in [`brand/logo-brand-transparent.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-brand-transparent.svg).
@@ -118,6 +132,9 @@ Ideas, feedback, prototypes, discussions, and weird experiments are welcome.
 |----------|------|
 | Contribution policy | [novolis-governance](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/contribution-policy.md) |
 | Security policy | [SECURITY.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/SECURITY.md) |
+| CI & package publishing | [nuget-setup.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/nuget-setup.md) |
+| Release & versioning | [release-policy.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/release-policy.md) |
+| Reusable workflows | [novolis-workflows](https://github.com/Novolis-Platform/novolis-workflows) |
 | Package registry | [novolis-registry](https://github.com/Novolis-Platform/novolis-registry) |
 | Roadmap | [roadmap.md](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/roadmap.md) |
 | Governance | [novolis-governance](https://github.com/Novolis-Platform/novolis-governance) |
