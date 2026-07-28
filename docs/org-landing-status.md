@@ -21,9 +21,7 @@ Do **not** hand-edit content between:
 
 1. Lists public non-archived org repos and their `.github/workflows/*`
 2. Queries latest completed workflow conclusions for `pull-request.yml` / `merge.yml` / `release.yml` / `ci.yml`
-3. Emits **shields.io** status badges (`brightgreen` when conclusion is `success`)
-4. Lists all org NuGet packages on GitHub Packages with latest version as green **GPR** shields
-5. Adds nuget.org version shields when the package exists there
-6. Replaces the marked block in `profile/README.md`
+3. Emits **one table** (repo | PR | Merge | Release | Packages); packages stacked with `<br>` and green GPR version shields
+4. Replaces the marked block in `profile/README.md`
 
 Cursor agents: see workspace skill `novolis-org-landing`.
