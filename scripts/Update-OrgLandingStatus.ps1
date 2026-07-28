@@ -367,7 +367,7 @@ function Get-RepoBadges {
 $enriched = foreach ($job in $repoJobs) { Get-RepoBadges -Job $job }
 
 $packageRepos = @($enriched | Where-Object { $_.HasPackages } | Sort-Object Name)
-$releaseRepos = @($enriched | Where-Object { $_.HasReleaseWf } | Sort-Object Name)
+$releaseRepos = @($enriched | Where-Object { -not $_.HasPackages -and $_.HasReleaseWf } | Sort-Object Name)
 $otherRepos = @($enriched | Where-Object { -not $_.HasPackages -and -not $_.HasReleaseWf } | Sort-Object Name)
 
 $sb = [System.Text.StringBuilder]::new()
@@ -421,7 +421,7 @@ else {
 # --- 3. Releases only ---
 [void]$sb.AppendLine('### Releases')
 [void]$sb.AppendLine()
-[void]$sb.AppendLine('Repos with `release.yml` (nuget.org / GitHub Release publish).')
+[void]$sb.AppendLine('Repos with `release.yml` that do **not** publish NuGet packages (apps / installers).')
 [void]$sb.AppendLine()
 [void]$sb.AppendLine('| Repository | Release |')
 [void]$sb.AppendLine('|------------|---------|')
