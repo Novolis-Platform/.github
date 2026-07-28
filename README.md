@@ -6,6 +6,16 @@ The organization README is in [`profile/README.md`](profile/README.md) and appea
 
 Brand assets live in [`brand/`](brand/), with [`brand/logo-brand-transparent.svg`](brand/logo-brand-transparent.svg) as the primary vector logo.
 
+## Org landing status matrices
+
+CI badges and package versions on the org profile are generated — do not hand-edit the marked block in `profile/README.md`.
+
+```powershell
+pwsh -File scripts/Update-OrgLandingStatus.ps1
+```
+
+Requires `gh` authenticated to the org.
+
 ## Repositories
 
 | Repository | Purpose |
