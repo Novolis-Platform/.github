@@ -81,8 +81,20 @@ dotnet run generate-pixel-outlines.cs -- logo-brand-transparent.png logo-brand-t
 | [`generated/shapes/star.svg`](generated/shapes/star.svg) | Single-shape export |
 | [`generated/logo-icon.svg`](generated/logo-icon.svg) | Square icon (512×512); viewBox from path bounds + arc margin |
 | [`generated/logo-social.svg`](generated/logo-social.svg) | Social card template (1200×630) |
+| [`logo-icon.svg`](logo-icon.svg) / [`favicon.svg`](favicon.svg) | Stable copies of the iconographic mark (synced from generated) |
+| [`logo-icon.png`](logo-icon.png) / [`logo-icon.ico`](logo-icon.ico) | Raster / Windows icon for NuGet + apps |
 
-PNG renders (when using the `png` command) are written alongside under `generated/`.
+### Distributing to packages and apps
+
+NuGet `PackageIcon` and Windows `ApplicationIcon` are wired centrally via `novolis-governance/build/Novolis.PackageIcon.props` (imported from `Novolis.GitHubPackages.props`). Each repo expects root-level `icon.png` and `icon.ico`.
+
+From the `.github` repo:
+
+```powershell
+pwsh -File scripts/Sync-BrandIcons.ps1
+```
+
+That copies `generated/logo-icon.{png,ico,svg}` into every sibling `novolis-*` checkout (and promotes stable paths under `brand/`).
 
 ## Reference files
 

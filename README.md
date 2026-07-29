@@ -4,7 +4,17 @@ Organization profile and community defaults for [Novolis-Platform](https://githu
 
 The organization README is in [`profile/README.md`](profile/README.md) and appears on the org home page.
 
-Brand assets live in [`brand/`](brand/), with [`brand/logo-brand-transparent.svg`](brand/logo-brand-transparent.svg) as the primary vector logo.
+Brand assets live in [`brand/`](brand/):
+
+- [`brand/logo-brand-transparent.svg`](brand/logo-brand-transparent.svg) — primary full lockup
+- [`brand/logo-icon.svg`](brand/logo-icon.svg) / [`brand/favicon.svg`](brand/favicon.svg) — iconographic mark (no wordmark)
+- [`brand/logo-icon.png`](brand/logo-icon.png) / [`brand/logo-icon.ico`](brand/logo-icon.ico) — NuGet / Windows icons
+
+Sync copies into all `novolis-*` repos:
+
+```powershell
+pwsh -File scripts/Sync-BrandIcons.ps1
+```
 
 ## Org landing status matrices
 

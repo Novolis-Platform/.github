@@ -125,7 +125,14 @@ Novolis aims to feel modern but not trendy, platform-oriented rather than produc
 
 ## Brand
 
-Transparent SVG logo: [`brand/logo-brand-transparent.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-brand-transparent.svg). Regenerator: [`brand/generate-pixel-outlines.cs`](https://github.com/Novolis-Platform/.github/blob/main/brand/generate-pixel-outlines.cs).
+| Asset | Use |
+|-------|-----|
+| [`brand/logo-brand-transparent.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-brand-transparent.svg) | Full lockup (mark + wordmark + tagline) |
+| [`brand/logo-icon.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-icon.svg) / [`favicon.svg`](https://github.com/Novolis-Platform/.github/blob/main/brand/favicon.svg) | Iconographic mark only (packages, apps, favicon) |
+| [`brand/logo-icon.png`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-icon.png) | NuGet `PackageIcon` (`icon.png` in each repo) |
+| [`brand/logo-icon.ico`](https://github.com/Novolis-Platform/.github/blob/main/brand/logo-icon.ico) | Windows `ApplicationIcon` (`icon.ico` in each repo) |
+
+Regenerator: [`brand/generate-pixel-outlines.cs`](https://github.com/Novolis-Platform/.github/blob/main/brand/generate-pixel-outlines.cs). Sync into sibling repos: [`scripts/Sync-BrandIcons.ps1`](https://github.com/Novolis-Platform/.github/blob/main/scripts/Sync-BrandIcons.ps1).
 
 ---
 
