@@ -35,4 +35,4 @@ Requires `gh` authenticated to the org.
 | [novolis-template-dotnet](https://github.com/Novolis-Platform/novolis-template-dotnet) | Canonical .NET package/tool repo template |
 | [novolis-registry](https://github.com/Novolis-Platform/novolis-registry) | Static package and app registry |
 | [novolis-install](https://github.com/Novolis-Platform/novolis-install) | Cross-platform `novolis` CLI installer |
-| [novolis-installer-inno](https://github.com/Novolis-Platform/novolis-installer-inno) | Shared Inno Setup templates |
+| [novolis-apps](https://github.com/Novolis-Platform/novolis-apps) | Desktop apps + Inno installers (`Novolis.Avalonia.Packaging.Inno`) |
