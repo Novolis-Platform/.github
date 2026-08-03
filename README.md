@@ -1,3 +1,35 @@
+<!-- novolis-marketing:start -->
+<p align="center">
+  <a href="https://github.com/Novolis-Platform">
+    <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-brand-transparent.svg" width="360" alt="Novolis"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/banners/novolis-dot-github.svg" width="100%" alt="novolis-dot-github"/>
+</p>
+
+<p align="center">
+  <strong>Org home and brand</strong><br/>
+  Organization profile README, brand assets, and landing status generators.
+</p>
+
+<p align="center">
+  <a href="https://github.com/Novolis-Platform/novolis-dot-github/actions"><img src="https://img.shields.io/github/actions/workflow/status/Novolis-Platform/novolis-dot-github/merge.yml?branch=main&label=merge&logo=github" alt="merge"/></a>
+  <a href="https://github.com/orgs/Novolis-Platform/packages?repo_name=novolis-dot-github"><img src="https://img.shields.io/badge/packages-GitHub%20Packages-0a7ea3?logo=nuget" alt="packages"/></a>
+  <a href="https://github.com/Novolis-Platform"><img src="https://img.shields.io/badge/org-Novolis--Platform-111827" alt="org"/></a>
+</p>
+
+<p align="center">
+  <a href="https://nuget.pkg.github.com/Novolis-Platform/index.json"><code>https://nuget.pkg.github.com/Novolis-Platform/index.json</code></a>
+  ·
+  <a href="https://github.com/Novolis-Platform/.github/blob/main/profile/README.md">Org landing</a>
+  ·
+  <a href="https://github.com/Novolis-Platform/novolis-governance">Governance</a>
+</p>
+
+---
+<!-- novolis-marketing:end -->
 # Novolis-Platform/.github
 
 Organization profile and community defaults for [Novolis-Platform](https://github.com/Novolis-Platform).
@@ -36,3 +68,4 @@ Requires `gh` authenticated to the org.
 | [novolis-registry](https://github.com/Novolis-Platform/novolis-registry) | Static package and app registry |
 | [novolis-install](https://github.com/Novolis-Platform/novolis-install) | Cross-platform `novolis` CLI installer |
 | [novolis-apps](https://github.com/Novolis-Platform/novolis-apps) | Desktop apps + Inno installers (`Novolis.Avalonia.Packaging.Inno`) |
+
