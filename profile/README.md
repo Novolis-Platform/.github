@@ -15,6 +15,7 @@
 
 <p align="center">
   <a href="https://github.com/orgs/Novolis-Platform/packages"><img src="https://img.shields.io/badge/packages-GitHub%20Packages-0a7ea3?logo=nuget" alt="GitHub Packages"/></a>
+  <a href="https://github.com/Novolis-Platform/.github/actions/workflows/pages.yml"><img src="https://github.com/Novolis-Platform/.github/actions/workflows/pages.yml/badge.svg" alt="Portfolio docs"/></a>
   <a href="https://github.com/Novolis-Platform/novolis-raylib"><img src="https://img.shields.io/badge/raylib-6%20bindings-brightgreen" alt="raylib"/></a>
   <a href="https://github.com/Novolis-Platform/novolis-audio"><img src="https://img.shields.io/badge/audio-SFX%20%2B%20voice%20%2B%20live-1f6feb" alt="audio"/></a>
   <a href="https://github.com/Novolis-Platform/novolis-apps"><img src="https://img.shields.io/badge/apps-Avalonia%20studios-111827" alt="apps"/></a>
@@ -44,6 +45,8 @@ dotnet add package Novolis.Messaging.Channels
 ```
 
 Public nuget.org releases ship when a GitHub Release is published (requires org secret `NUGET_API_KEY`). Catalog: [org packages](https://github.com/orgs/Novolis-Platform/packages) · [novolis-registry](https://github.com/Novolis-Platform/novolis-registry) · [install CLI](https://github.com/Novolis-Platform/novolis-install).
+
+Portfolio docs: https://novolis-platform.github.io/.github/
 
 ---
 

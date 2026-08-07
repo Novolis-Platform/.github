@@ -17,10 +17,14 @@
 <p align="center">
   <a href="https://github.com/Novolis-Platform"><img src="https://img.shields.io/badge/org-Novolis--Platform-111827" alt="org"/></a>
   <a href="https://github.com/orgs/Novolis-Platform/packages"><img src="https://img.shields.io/badge/packages-GitHub%20Packages-0a7ea3?logo=nuget" alt="packages"/></a>
+  <a href="https://github.com/Novolis-Platform/.github/actions/workflows/pages.yml"><img src="https://github.com/Novolis-Platform/.github/actions/workflows/pages.yml/badge.svg" alt="Publish portfolio docs"/></a>
+  <a href="https://github.com/Novolis-Platform/.github/actions/workflows/refresh-org-landing.yml"><img src="https://github.com/Novolis-Platform/.github/actions/workflows/refresh-org-landing.yml/badge.svg" alt="Refresh org landing status"/></a>
 </p>
 
 <p align="center">
   <a href="https://nuget.pkg.github.com/Novolis-Platform/index.json"><code>https://nuget.pkg.github.com/Novolis-Platform/index.json</code></a>
+  ·
+  <a href="https://novolis-platform.github.io/.github/">Portfolio docs</a>
   ·
   <a href="https://github.com/Novolis-Platform/.github/blob/main/profile/README.md">Org landing</a>
   ·
@@ -57,6 +61,16 @@ pwsh -File scripts/Update-OrgLandingStatus.ps1
 ```
 
 Requires `gh` authenticated to the org.
+
+## Portfolio docs site
+
+GitHub Pages is published from `.github/workflows/pages.yml` to https://novolis-platform.github.io/.github/.
+
+```powershell
+pwsh -File scripts/Build-PortfolioPages.ps1
+```
+
+The site renders the local markdown docs/plans/brand corpus, ingests `wiki/*.md` when present, and adds live repository, workflow, and package metadata when `gh` is authenticated.
 
 ## Repositories
 
