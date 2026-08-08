@@ -162,9 +162,7 @@ h1 {
   gap: 0.65rem;
 }
 
-.hero-actions a,
-.article-actions a,
-.source-link {
+.hero-actions a {
   min-height: 2.55rem;
   display: inline-flex;
   align-items: center;
@@ -177,9 +175,7 @@ h1 {
   font-weight: 720;
 }
 
-.hero-actions a:hover,
-.article-actions a:hover,
-.source-link:hover {
+.hero-actions a:hover {
   border-color: var(--cyan);
   box-shadow: 0 0 0 3px rgba(71, 215, 255, 0.12);
 }
@@ -404,12 +400,63 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.doc-card h3 a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.repo-card h3 a {
+  color: var(--text);
+}
+
 .repo-card h3 a:hover,
 .doc-card h3 a:hover,
 .package-row a:hover,
 .markdown-body a:hover,
-.footer a:hover {
+.footer a:hover,
+.btn-secondary:hover {
   color: var(--cyan);
+}
+
+.card-actions,
+.article-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  border: 1px solid rgba(71, 215, 255, 0.45);
+  background: rgba(71, 215, 255, 0.16);
+  color: var(--cyan);
+}
+
+.btn-primary:hover {
+  background: rgba(71, 215, 255, 0.28);
+}
+
+.btn-secondary {
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.docs-hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .repo-card p,

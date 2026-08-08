@@ -5,7 +5,7 @@
   const docGrid = document.getElementById('docGrid');
   const docRepoFilter = document.getElementById('docRepoFilter');
   const docKindFilter = document.getElementById('docKindFilter');
-  const filterButtons = Array.from(document.querySelectorAll('[data-kind]'));
+  const filterButtons = Array.from(document.querySelectorAll('.segmented [data-kind]'));
   let activeKind = 'all';
 
   function normalize(value) {

@@ -336,8 +336,8 @@ function New-PageHtml {
       <span>Novolis Docs</span>
     </a>
     <nav>
-      <a href="../index.html#portfolio">Portfolio</a>
       <a href="../index.html#docs">Docs</a>
+      <a href="../index.html#portfolio">Portfolio</a>
       <a href="https://github.com/$Org">GitHub</a>
     </nav>
   </header>
@@ -653,6 +653,12 @@ function Render-PortfolioCard {
     }
 
     $packagesCount = @($Repo.Packages).Count
+    $primaryHref = if ($DocCount -gt 0) {
+        "index.html?repo=$(Html $Repo.Name)#docs"
+    }
+    else {
+        Html $Repo.Url
+    }
     $docsLink = if ($DocCount -gt 0) {
         "<a class=""docs-count"" href=""index.html?repo=$(Html $Repo.Name)#docs"">$DocCount docs</a>"
     }
@@ -670,11 +676,15 @@ function Render-PortfolioCard {
       <span>$packagesCount packages</span>
       $docsLink
     </div>
-    <h3><a href="$(Html $Repo.Url)">$(Html $Repo.Name)</a></h3>
+    <h3><a href="$primaryHref">$(Html $Repo.Name)</a></h3>
     <p>$(Html $Repo.Description)</p>
     <div class="topic-row">$topicHtml</div>
     <div class="badge-row">$($badges -join '')</div>
     <div class="package-row">$packageHtml</div>
+    <div class="card-actions">
+      $(if ($DocCount -gt 0) { "<a class=""btn-primary"" href=""index.html?repo=$(Html $Repo.Name)#docs"">Open docs</a>" } else { '' })
+      <a class="btn-secondary" href="$(Html $Repo.Url)">GitHub</a>
+    </div>
   </div>
 </article>
 "@
@@ -682,15 +692,19 @@ function Render-PortfolioCard {
 
 function Render-DocCard {
     param([object] $Doc)
+    $pageHref = "docs/$(Html $Doc.Slug).html"
     return @"
 <article class="doc-card" data-doc-group="$(Html $Doc.Group)" data-doc-kind="$(Html $Doc.Kind)" data-search="$(Html (($Doc.Title + ' ' + $Doc.Group + ' ' + $Doc.Kind + ' ' + $Doc.RelativePath).ToLowerInvariant()))">
   <div class="doc-card-tags">
     <span>$(Html $Doc.Group)</span>
     <span>$(Html $Doc.Kind)</span>
   </div>
-  <h3><a href="docs/$(Html $Doc.Slug).html">$(Html $Doc.Title)</a></h3>
+  <h3><a href="$pageHref">$(Html $Doc.Title)</a></h3>
   <p>$(Html "$($Doc.Group)/$($Doc.RelativePath)")</p>
-  <a class="source-link" href="$(Html $Doc.SourceUrl)">Source markdown</a>
+  <div class="card-actions">
+    <a class="btn-primary" href="$pageHref">Open docs page</a>
+    <a class="btn-secondary" href="$(Html $Doc.SourceUrl)">GitHub source</a>
+  </div>
 </article>
 "@
 }
@@ -719,9 +733,9 @@ foreach ($doc in $docs) {
   <div class="article-kicker">$(Html $doc.Group) / $(Html $doc.Kind) / $(Html $doc.RelativePath)</div>
   <h1>$(Html $doc.Title)</h1>
   <div class="article-actions">
-    <a href="$(Html $doc.SourceUrl)">Open source markdown</a>
-    <a href="../index.html?repo=$(Html $doc.Group)#docs">More from $(Html $doc.Group)</a>
-    <a href="../index.html#docs">Back to docs index</a>
+    <a class="btn-primary" href="../index.html#docs">Back to docs index</a>
+    <a class="btn-secondary" href="../index.html?repo=$(Html $doc.Group)#docs">More from $(Html $doc.Group)</a>
+    <a class="btn-secondary" href="$(Html $doc.SourceUrl)">GitHub source</a>
   </div>
   <div class="markdown-body">
     $(Convert-MarkdownToHtml $doc.Body)
@@ -774,8 +788,8 @@ $indexBody = @"
       <span>Novolis Docs</span>
     </a>
     <nav>
-      <a href="#portfolio">Portfolio</a>
       <a href="#docs">Docs</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="https://github.com/$Org">GitHub</a>
     </nav>
   </header>
@@ -787,7 +801,7 @@ $indexBody = @"
         <img class="hero-logo" src="assets/brand/logo-brand-transparent.svg" alt="Novolis"/>
         <p class="eyebrow">Org-wide documentation uplink</p>
         <h1>Modern .NET for realtime systems, graphics, games, studios, and simulations.</h1>
-        <p class="hero-copy">A single GitHub Pages console that ingests README, docs/, and package README markdown from every public Novolis repository, plus live portfolio, workflow, and package metadata.</p>
+        <p class="hero-copy">Rendered documentation pages built from README, docs/, and package READMEs across every public Novolis repository — not just links back to GitHub.</p>
         <div class="hero-actions">
           <a href="#docs">Browse docs</a>
           <a href="#portfolio">Explore portfolio</a>
@@ -807,6 +821,35 @@ $indexBody = @"
       <a href="https://github.com/$Org/.github/actions/workflows/refresh-org-landing.yml"><img src="https://github.com/$Org/.github/actions/workflows/refresh-org-landing.yml/badge.svg" alt="Org landing refresh workflow status"></a>
       <a href="https://github.com/orgs/$Org/packages"><img src="https://img.shields.io/badge/packages-GitHub%20Packages-0a7ea3?logo=nuget" alt="GitHub Packages"></a>
       <a href="https://github.com/$Org"><img src="https://img.shields.io/badge/org-$Org-15171d" alt="GitHub organization"></a>
+    </section>
+
+    <section id="docs" class="section docs-section">
+      <div class="section-heading">
+        <p class="eyebrow">Generated HTML from every public repository</p>
+        <h2>Docs</h2>
+      </div>
+      <div class="controls docs-controls">
+        <label class="search-box">
+          <span>Search</span>
+          <input type="search" id="docSearch" placeholder="governance, package README, raylib, nuget"/>
+        </label>
+        <label class="search-box">
+          <span>Repository</span>
+          <select id="docRepoFilter">
+            $repoFilterOptions
+          </select>
+        </label>
+        <label class="search-box">
+          <span>Kind</span>
+          <select id="docKindFilter">
+            $kindFilterOptions
+          </select>
+        </label>
+      </div>
+      <p class="docs-hint">Each card opens a rendered docs page on this site. GitHub source is optional.</p>
+      <div class="doc-grid" id="docGrid">
+        $docCards
+      </div>
     </section>
 
     <section id="portfolio" class="section">
@@ -829,34 +872,6 @@ $indexBody = @"
       </div>
       <div class="repo-grid" id="repoGrid">
         $repoCards
-      </div>
-    </section>
-
-    <section id="docs" class="section docs-section">
-      <div class="section-heading">
-        <p class="eyebrow">Aggregated from every public repository</p>
-        <h2>Docs</h2>
-      </div>
-      <div class="controls docs-controls">
-        <label class="search-box">
-          <span>Search</span>
-          <input type="search" id="docSearch" placeholder="governance, package README, raylib, nuget"/>
-        </label>
-        <label class="search-box">
-          <span>Repository</span>
-          <select id="docRepoFilter">
-            $repoFilterOptions
-          </select>
-        </label>
-        <label class="search-box">
-          <span>Kind</span>
-          <select id="docKindFilter">
-            $kindFilterOptions
-          </select>
-        </label>
-      </div>
-      <div class="doc-grid" id="docGrid">
-        $docCards
       </div>
     </section>
   </main>
