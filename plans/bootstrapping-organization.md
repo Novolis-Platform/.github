@@ -152,7 +152,7 @@ Adapters/providers use suffixes:
 
 ```txt
 Novolis.Storage.SqlServer
-Novolis.Messaging.AzureServiceBus
+Novolis.Messaging.ServiceBus.Client
 Novolis.Transports.Quic
 Novolis.Testing.Xunit
 ```
