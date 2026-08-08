@@ -67,10 +67,19 @@ Requires `gh` authenticated to the org.
 GitHub Pages is published from `.github/workflows/pages.yml` to https://novolis-platform.github.io/.github/.
 
 ```powershell
-pwsh -File scripts/Build-PortfolioPages.ps1
+pwsh -File d:\novolis\.github\scripts\Build-PortfolioPages.ps1
 ```
 
-The site renders the local markdown docs/plans/brand corpus, ingests `wiki/*.md` when present, and adds live repository, workflow, and package metadata when `gh` is authenticated.
+The builder ingests markdown from **every** public org repository:
+
+| Source | Included |
+|--------|----------|
+| Root | `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, `AGENTS.md` |
+| Guides | `docs/**/*.md`, `wiki/**/*.md` |
+| Packages | `src/**/README.md` |
+| Org home | `.github` profile/docs/plans/brand corpus |
+
+Local sibling checkouts under the workspace root are preferred; CI fetches missing trees/content from GitHub. Live repository, workflow, and package metadata are added when `gh` is authenticated. Weekly schedule keeps the corpus fresh.
 
 ## Repositories
 

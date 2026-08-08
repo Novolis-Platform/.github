@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Re-ingest docs from all org repos even when .github itself is quiet.
+    - cron: '17 6 * * 1'
   workflow_dispatch:
 
 permissions:

@@ -4,14 +4,19 @@
   Builds the Novolis portfolio documentation site for GitHub Pages.
 
 .DESCRIPTION
-  Renders repository docs/plans/brand markdown into static HTML and builds a portfolio
-  index from GitHub repository, workflow, and package metadata when gh is available.
-  The script intentionally has no npm/Ruby dependency so GitHub Pages publishing stays
-  small and predictable.
+  Pulls markdown documentation from every public Novolis-Platform repository
+  (root README, docs/, package READMEs under src/, plus .github org corpus),
+  renders static HTML, and builds a portfolio index from GitHub repository,
+  workflow, and package metadata when gh is available.
+
+  Local sibling checkouts under WorkspaceRoot are preferred; otherwise content
+  is fetched from GitHub (tree + raw). No npm/Ruby dependency.
 #>
 param(
     [string] $Org = 'Novolis-Platform',
     [string] $OutputDir = '',
+    [string] $WorkspaceRoot = '',
+    [int] $FetchThrottle = 16,
     [switch] $SkipGitHub
 )
 
@@ -21,6 +26,9 @@ $scriptDir = $PSScriptRoot
 $repoRoot = (Resolve-Path (Join-Path $scriptDir '..')).Path
 if ([string]::IsNullOrWhiteSpace($OutputDir)) {
     $OutputDir = Join-Path $repoRoot '_site'
+}
+if ([string]::IsNullOrWhiteSpace($WorkspaceRoot)) {
+    $WorkspaceRoot = Split-Path -Parent $repoRoot
 }
 
 $outputPath = [System.IO.Path]::GetFullPath($OutputDir)
@@ -37,6 +45,7 @@ New-Item -ItemType Directory -Path (Join-Path $outputPath 'docs') | Out-Null
 
 $generatedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm') + ' UTC'
 $baseUrl = "https://$($Org.ToLowerInvariant()).github.io/.github/"
+$maxDocBytes = 500000
 
 function Html {
     param([AllowNull()][object] $Value)
@@ -79,6 +88,13 @@ function Get-RepoFallback {
             [void]$names.Add(($name -split '[/#?]')[0])
         }
     }
+    if (Test-Path $WorkspaceRoot -PathType Container) {
+        foreach ($dir in Get-ChildItem -Path $WorkspaceRoot -Directory -ErrorAction SilentlyContinue) {
+            if ($dir.Name -eq '.github' -or $dir.Name -like 'novolis-*') {
+                [void]$names.Add($dir.Name)
+            }
+        }
+    }
     [void]$names.Add('.github')
 
     foreach ($name in $names) {
@@ -90,6 +106,7 @@ function Get-RepoFallback {
             primaryLanguage = $null
             repositoryTopics = @()
             pushedAt = ''
+            defaultBranchRef = [pscustomobject]@{ name = 'main' }
         }
     }
 }
@@ -103,7 +120,7 @@ function Get-PortfolioData {
             '--visibility', 'public',
             '--no-archived',
             '--limit', '200',
-            '--json', 'name,description,url,homepageUrl,primaryLanguage,repositoryTopics,pushedAt'
+            '--json', 'name,description,url,homepageUrl,primaryLanguage,repositoryTopics,pushedAt,defaultBranchRef'
         ) | Sort-Object name)
     }
     else {
@@ -157,6 +174,7 @@ function Get-PortfolioData {
         $language = if ($repo.primaryLanguage -and $repo.primaryLanguage.name) { [string]$repo.primaryLanguage.name } else { 'Docs' }
         $packages = if ($packageMap.ContainsKey($name)) { @($packageMap[$name] | Sort-Object name) } else { @() }
         $workflows = if ($workflowMap.ContainsKey($name)) { @($workflowMap[$name]) } else { @() }
+        $branch = if ($repo.defaultBranchRef -and $repo.defaultBranchRef.name) { [string]$repo.defaultBranchRef.name } else { 'main' }
         $kind = if ($name -in @('.github', 'novolis-governance', 'novolis-workflows', 'novolis-registry', 'novolis-template-dotnet', 'novolis-templates', 'novolis-smoketest')) {
             'Platform'
         }
@@ -178,6 +196,7 @@ function Get-PortfolioData {
             Language = $language
             Topics = $topics
             PushedAt = if ($repo.pushedAt) { [string]$repo.pushedAt } else { '' }
+            Branch = $branch
             Workflows = $workflows
             Packages = $packages
             Kind = $kind
@@ -334,42 +353,258 @@ function New-PageHtml {
 "@
 }
 
-function Get-MarkdownDocs {
-    $paths = [System.Collections.Generic.List[string]]::new()
-    foreach ($relative in @('README.md', 'profile/README.md', 'docs', 'plans', 'brand/README.md')) {
-        $full = Join-Path $repoRoot $relative
-        if (Test-Path $full -PathType Leaf) {
-            $paths.Add((Resolve-Path $full).Path)
-        }
-        elseif (Test-Path $full -PathType Container) {
-            foreach ($file in Get-ChildItem -Path $full -Recurse -Filter '*.md') {
-                $paths.Add($file.FullName)
-            }
-        }
+function Test-DocPathIncluded {
+    param(
+        [Parameter(Mandatory)][string] $RelativePath,
+        [Parameter(Mandatory)][string] $RepoName
+    )
+    $p = $RelativePath.Replace('\', '/').TrimStart('/')
+    if ($p -match '(^|/)(bin|obj|node_modules|\.git|\.vs|\.cursor|packages)(/|$)') { return $false }
+    if ($p -match '(^|/)(_site|artifacts|TestResults)(/|$)') { return $false }
+    if ($RepoName -eq 'novolis-experimental' -and $p -match '(^|/)source(/|$)') { return $false }
+
+    if ($RepoName -eq '.github') {
+        return $p -match '^(README\.md|profile/|docs/|plans/|brand/README\.md|wiki/)'
     }
-    $wikiRoot = Join-Path $repoRoot 'wiki'
-    if (Test-Path $wikiRoot -PathType Container) {
-        foreach ($file in Get-ChildItem -Path $wikiRoot -Recurse -Filter '*.md') {
-            $paths.Add($file.FullName)
+
+    if ($p -eq 'README.md') { return $true }
+    if ($p -match '^(CONTRIBUTING|SECURITY|CHANGELOG|AGENTS)\.md$') { return $true }
+    if ($p.StartsWith('docs/') -and $p.EndsWith('.md')) { return $true }
+    if ($p.StartsWith('wiki/') -and $p.EndsWith('.md')) { return $true }
+    if ($p -match '^src/.+/README\.md$') { return $true }
+    return $false
+}
+
+function Get-DocKind {
+    param(
+        [Parameter(Mandatory)][string] $RelativePath,
+        [Parameter(Mandatory)][string] $RepoName
+    )
+    $p = $RelativePath.Replace('\', '/')
+    if ($RepoName -eq '.github') {
+        if ($p.StartsWith('plans/')) { return 'Plans' }
+        if ($p.StartsWith('brand/')) { return 'Brand' }
+        if ($p.StartsWith('profile/')) { return 'Profile' }
+        if ($p.StartsWith('wiki/')) { return 'Wiki' }
+        return 'Org'
+    }
+    if ($p -match '^src/.+/README\.md$') { return 'Package' }
+    if ($p.StartsWith('docs/')) { return 'Docs' }
+    if ($p.StartsWith('wiki/')) { return 'Wiki' }
+    if ($p -eq 'README.md') { return 'README' }
+    return 'Docs'
+}
+
+function Get-LocalRepoPath {
+    param([Parameter(Mandatory)][string] $RepoName)
+    if ($RepoName -eq '.github') { return $repoRoot }
+    $candidate = Join-Path $WorkspaceRoot $RepoName
+    if (-not (Test-Path $candidate -PathType Container)) { return $null }
+    if ((Test-Path (Join-Path $candidate '.git')) -or (Test-Path (Join-Path $candidate 'README.md')) -or (Test-Path (Join-Path $candidate 'docs'))) {
+        return $candidate
+    }
+    return $null
+}
+
+function Get-LocalDocPaths {
+    param(
+        [Parameter(Mandatory)][string] $RepoName,
+        [Parameter(Mandatory)][string] $LocalRoot
+    )
+    $found = [System.Collections.Generic.List[string]]::new()
+    foreach ($file in Get-ChildItem -Path $LocalRoot -Recurse -Filter '*.md' -File -ErrorAction SilentlyContinue) {
+        $relative = [System.IO.Path]::GetRelativePath($LocalRoot, $file.FullName).Replace('\', '/')
+        if (-not (Test-DocPathIncluded -RelativePath $relative -RepoName $RepoName)) { continue }
+        if ($file.Length -gt $maxDocBytes) { continue }
+        $found.Add($relative)
+    }
+    return @($found | Sort-Object -Unique)
+}
+
+function Get-RemoteDocPaths {
+    param(
+        [Parameter(Mandatory)][string] $RepoName,
+        [Parameter(Mandatory)][string] $Branch
+    )
+    try {
+        $tree = Invoke-GhJson @('api', "repos/$Org/$RepoName/git/trees/${Branch}?recursive=1")
+    }
+    catch {
+        try {
+            $tree = Invoke-GhJson @('api', "repos/$Org/$RepoName/git/trees/HEAD?recursive=1")
+        }
+        catch {
+            Write-Warning "Tree listing failed for $RepoName : $_"
+            return @()
         }
     }
 
-    foreach ($path in ($paths | Sort-Object -Unique)) {
-        $content = Get-Content -Raw $path
-        $title = [System.IO.Path]::GetFileNameWithoutExtension($path)
-        $h1 = [regex]::Match($content, '(?m)^#\s+(.+)$')
-        if ($h1.Success) { $title = $h1.Groups[1].Value.Trim() }
-        $relative = [System.IO.Path]::GetRelativePath($repoRoot, $path).Replace('\', '/')
-        $slug = Slugify ($relative -replace '\.md$', '')
-        [pscustomobject]@{
-            Title = $title
-            RelativePath = $relative
-            Slug = $slug
-            SourceUrl = "https://github.com/$Org/.github/blob/main/$relative"
-            Body = $content
-            Group = if ($relative.StartsWith('plans/')) { 'Plans' } elseif ($relative.StartsWith('brand/')) { 'Brand' } elseif ($relative.StartsWith('profile/')) { 'Profile' } elseif ($relative.StartsWith('wiki/')) { 'Wiki' } else { 'Docs' }
+    $paths = foreach ($item in @($tree.tree)) {
+        if ($item.type -ne 'blob') { continue }
+        $path = [string]$item.path
+        if (-not $path.EndsWith('.md')) { continue }
+        if (-not (Test-DocPathIncluded -RelativePath $path -RepoName $RepoName)) { continue }
+        if ($item.size -and [int]$item.size -gt $maxDocBytes) { continue }
+        $path
+    }
+    return @($paths | Sort-Object -Unique)
+}
+
+function Resolve-MarkdownHref {
+    param(
+        [Parameter(Mandatory)][string] $Href,
+        [Parameter(Mandatory)][string] $CurrentRelative,
+        [Parameter(Mandatory)][hashtable] $SlugByKey
+    )
+    if ($Href -match '^(https?:|mailto:|#)') { return $Href }
+    $pathPart = ($Href -split '#', 2)[0]
+    $fragment = if ($Href -match '#(.+)$') { '#' + $Matches[1] } else { '' }
+    if ([string]::IsNullOrWhiteSpace($pathPart)) { return $Href }
+    if ($pathPart -notmatch '\.md($|\?)') { return $Href }
+
+    $baseParts = [System.Collections.Generic.List[string]]::new()
+    $currentParts = @($CurrentRelative.Replace('\', '/') -split '/' | Where-Object { $_ -ne '' })
+    if ($currentParts.Count -gt 1) {
+        foreach ($part in $currentParts[0..($currentParts.Count - 2)]) { $baseParts.Add($part) }
+    }
+    foreach ($part in @($pathPart.Replace('\', '/') -split '/' | Where-Object { $_ -ne '' })) {
+        if ($part -eq '.') { continue }
+        if ($part -eq '..') {
+            if ($baseParts.Count -gt 0) { $baseParts.RemoveAt($baseParts.Count - 1) }
+            continue
+        }
+        $baseParts.Add($part)
+    }
+    $resolved = ($baseParts -join '/')
+    if ($SlugByKey.ContainsKey($resolved)) {
+        return "$($SlugByKey[$resolved]).html$fragment"
+    }
+    if ($SlugByKey.ContainsKey($resolved.ToLowerInvariant())) {
+        return "$($SlugByKey[$resolved.ToLowerInvariant()]).html$fragment"
+    }
+    return $Href
+}
+
+function Rewrite-DocLinks {
+    param(
+        [Parameter(Mandatory)][string] $Markdown,
+        [Parameter(Mandatory)][string] $CurrentRelative,
+        [Parameter(Mandatory)][hashtable] $SlugByKey
+    )
+    $pattern = '\[([^\]]+)\]\(([^)]+)\)'
+    $sb = [System.Text.StringBuilder]::new()
+    $last = 0
+    foreach ($match in [regex]::Matches($Markdown, $pattern)) {
+        [void]$sb.Append($Markdown.Substring($last, $match.Index - $last))
+        $label = $match.Groups[1].Value
+        $href = $match.Groups[2].Value
+        $newHref = Resolve-MarkdownHref -Href $href -CurrentRelative $CurrentRelative -SlugByKey $SlugByKey
+        [void]$sb.Append("[$label]($newHref)")
+        $last = $match.Index + $match.Length
+    }
+    [void]$sb.Append($Markdown.Substring($last))
+    return $sb.ToString()
+}
+
+function Get-MarkdownDocs {
+    param([Parameter(Mandatory)][object[]] $ReposItems)
+
+    $ghReady = Test-GhReady
+    $candidates = [System.Collections.Generic.List[object]]::new()
+
+    foreach ($repo in $ReposItems) {
+        $name = [string]$repo.Name
+        $branch = if ($repo.Branch) { [string]$repo.Branch } else { 'main' }
+        $localRoot = Get-LocalRepoPath -RepoName $name
+        $paths = @()
+        if ($localRoot) {
+            Write-Host "Scanning local docs: $name"
+            $paths = @(Get-LocalDocPaths -RepoName $name -LocalRoot $localRoot)
+        }
+        elseif ($ghReady) {
+            Write-Host "Listing remote docs: $name"
+            $paths = @(Get-RemoteDocPaths -RepoName $name -Branch $branch)
+        }
+        else {
+            continue
+        }
+
+        foreach ($relative in $paths) {
+            $candidates.Add([pscustomobject]@{
+                Repo = $name
+                RelativePath = $relative
+                Branch = $branch
+                LocalRoot = $localRoot
+                Kind = Get-DocKind -RelativePath $relative -RepoName $name
+            })
         }
     }
+
+    Write-Host "Fetching $($candidates.Count) markdown files (throttle=$FetchThrottle)..."
+    $fetched = @(
+        $candidates | ForEach-Object -ThrottleLimit $FetchThrottle -Parallel {
+            $item = $_
+            $org = $using:Org
+            $maxDocBytes = $using:maxDocBytes
+            $content = $null
+            $localRoot = [string]$item.LocalRoot
+            $relative = [string]$item.RelativePath
+            $repo = [string]$item.Repo
+            $branch = [string]$item.Branch
+
+            if (-not [string]::IsNullOrWhiteSpace($localRoot)) {
+                $full = Join-Path $localRoot ($relative.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
+                if (Test-Path -LiteralPath $full -PathType Leaf) {
+                    $content = Get-Content -Raw -LiteralPath $full
+                }
+            }
+            if ($null -eq $content) {
+                $rawUrl = "https://raw.githubusercontent.com/$org/$repo/$branch/$($relative.Replace('\', '/'))"
+                try {
+                    $response = Invoke-WebRequest -Uri $rawUrl -UseBasicParsing -TimeoutSec 60
+                    $content = [string]$response.Content
+                }
+                catch {
+                    $content = $null
+                }
+            }
+            if ($null -eq $content) { return $null }
+            if ([System.Text.Encoding]::UTF8.GetByteCount($content) -gt $maxDocBytes) { return $null }
+
+            $title = [System.IO.Path]::GetFileNameWithoutExtension($relative)
+            $h1 = [regex]::Match($content, '(?m)^#\s+(.+)$')
+            if ($h1.Success) { $title = $h1.Groups[1].Value.Trim() }
+            $slug = (& {
+                $Value = "$repo/$($relative -replace '\.md$', '')".ToLowerInvariant() -replace '[^a-z0-9]+', '-'
+                $Value = $Value.Trim('-')
+                if ([string]::IsNullOrWhiteSpace($Value)) { 'item' } else { $Value }
+            })
+
+            [pscustomobject]@{
+                Repo = $repo
+                Title = $title
+                RelativePath = $relative
+                Slug = $slug
+                SourceUrl = "https://github.com/$org/$repo/blob/$branch/$relative"
+                Body = $content
+                Group = $repo
+                Kind = [string]$item.Kind
+                Branch = $branch
+            }
+        } | Where-Object { $null -ne $_ }
+    )
+
+    foreach ($doc in $fetched) {
+        $map = @{}
+        foreach ($other in $fetched) {
+            if ($other.Repo -ne $doc.Repo) { continue }
+            $map[$other.RelativePath] = $other.Slug
+            $map[$other.RelativePath.ToLowerInvariant()] = $other.Slug
+        }
+        $doc.Body = Rewrite-DocLinks -Markdown $doc.Body -CurrentRelative $doc.RelativePath -SlugByKey $map
+    }
+
+    return @($fetched | Sort-Object Group, Kind, RelativePath)
 }
 
 function Render-Badge {
@@ -381,7 +616,10 @@ function Render-Badge {
 }
 
 function Render-PortfolioCard {
-    param([object] $Repo)
+    param(
+        [object] $Repo,
+        [int] $DocCount = 0
+    )
     $badgeNames = @('pull-request.yml', 'pull_request.yml', 'ci.yml', 'merge.yml', 'release.yml', 'pages.yml')
     $badges = foreach ($candidate in $badgeNames) {
         if ($Repo.Workflows -contains $candidate) { Render-Badge -RepoName $Repo.Name -WorkflowFile $candidate }
@@ -415,6 +653,13 @@ function Render-PortfolioCard {
     }
 
     $packagesCount = @($Repo.Packages).Count
+    $docsLink = if ($DocCount -gt 0) {
+        "<a class=""docs-count"" href=""index.html?repo=$(Html $Repo.Name)#docs"">$DocCount docs</a>"
+    }
+    else {
+        '<span class="quiet">No ingested docs</span>'
+    }
+
     return @"
 <article class="repo-card" data-kind="$(Html $Repo.Kind)" data-search="$(Html (($Repo.Name + ' ' + $Repo.Description + ' ' + ($Repo.Topics -join ' ')).ToLowerInvariant()))">
   $banner
@@ -423,6 +668,7 @@ function Render-PortfolioCard {
       <span>$(Html $Repo.Kind)</span>
       <span>$(Html $Repo.Language)</span>
       <span>$packagesCount packages</span>
+      $docsLink
     </div>
     <h3><a href="$(Html $Repo.Url)">$(Html $Repo.Name)</a></h3>
     <p>$(Html $Repo.Description)</p>
@@ -437,10 +683,13 @@ function Render-PortfolioCard {
 function Render-DocCard {
     param([object] $Doc)
     return @"
-<article class="doc-card" data-doc-group="$(Html $Doc.Group)" data-search="$(Html (($Doc.Title + ' ' + $Doc.RelativePath).ToLowerInvariant()))">
-  <span>$(Html $Doc.Group)</span>
+<article class="doc-card" data-doc-group="$(Html $Doc.Group)" data-doc-kind="$(Html $Doc.Kind)" data-search="$(Html (($Doc.Title + ' ' + $Doc.Group + ' ' + $Doc.Kind + ' ' + $Doc.RelativePath).ToLowerInvariant()))">
+  <div class="doc-card-tags">
+    <span>$(Html $Doc.Group)</span>
+    <span>$(Html $Doc.Kind)</span>
+  </div>
   <h3><a href="docs/$(Html $Doc.Slug).html">$(Html $Doc.Title)</a></h3>
-  <p>$(Html $Doc.RelativePath)</p>
+  <p>$(Html "$($Doc.Group)/$($Doc.RelativePath)")</p>
   <a class="source-link" href="$(Html $Doc.SourceUrl)">Source markdown</a>
 </article>
 "@
@@ -458,15 +707,20 @@ Copy-Item -Path (Join-Path $repoRoot 'site\assets\site.css') -Destination (Join-
 Copy-Item -Path (Join-Path $repoRoot 'site\assets\site.js') -Destination (Join-Path $outputPath 'assets\site.js') -Force
 
 $repos = @(Get-PortfolioData)
-$docs = @(Get-MarkdownDocs)
+$docs = @(Get-MarkdownDocs -ReposItems $repos)
+$docsByRepo = @{}
+foreach ($group in ($docs | Group-Object Group)) {
+    $docsByRepo[$group.Name] = @($group.Group).Count
+}
 
 foreach ($doc in $docs) {
     $article = @"
 <article class="article">
-  <div class="article-kicker">$(Html $doc.Group) / $(Html $doc.RelativePath)</div>
+  <div class="article-kicker">$(Html $doc.Group) / $(Html $doc.Kind) / $(Html $doc.RelativePath)</div>
   <h1>$(Html $doc.Title)</h1>
   <div class="article-actions">
     <a href="$(Html $doc.SourceUrl)">Open source markdown</a>
+    <a href="../index.html?repo=$(Html $doc.Group)#docs">More from $(Html $doc.Group)</a>
     <a href="../index.html#docs">Back to docs index</a>
   </div>
   <div class="markdown-body">
@@ -474,15 +728,33 @@ foreach ($doc in $docs) {
   </div>
 </article>
 "@
-    $html = New-PageHtml -Title $doc.Title -Description "Novolis documentation: $($doc.Title)" -Body $article
+    $html = New-PageHtml -Title $doc.Title -Description "Novolis documentation ($($doc.Group)): $($doc.Title)" -Body $article
     Set-Content -Path (Join-Path $outputPath "docs\$($doc.Slug).html") -Value $html -Encoding utf8NoBOM
 }
 
-$repoCards = ($repos | ForEach-Object { Render-PortfolioCard $_ }) -join "`n"
+$repoCards = ($repos | ForEach-Object {
+    $count = if ($docsByRepo.ContainsKey($_.Name)) { [int]$docsByRepo[$_.Name] } else { 0 }
+    Render-PortfolioCard -Repo $_ -DocCount $count
+}) -join "`n"
 $docCards = ($docs | ForEach-Object { Render-DocCard $_ }) -join "`n"
 $repoCount = $repos.Count
 $docCount = $docs.Count
 $packageCount = (@($repos | ForEach-Object { $_.Packages }) | Where-Object { $null -ne $_ }).Count
+$docRepoCount = @($docsByRepo.Keys).Count
+
+$repoFilterOptions = (
+    @('<option value="all">All repositories</option>') +
+    @($docsByRepo.Keys | Sort-Object | ForEach-Object {
+        "<option value=""$(Html $_)"">$(Html $_) ($($docsByRepo[$_]))</option>"
+    })
+) -join "`n"
+
+$kindFilterOptions = (
+    @('<option value="all">All kinds</option>') +
+    @(($docs | Select-Object -ExpandProperty Kind -Unique | Sort-Object) | ForEach-Object {
+        "<option value=""$(Html $_)"">$(Html $_)</option>"
+    })
+) -join "`n"
 
 $indexBody = @"
 <!doctype html>
@@ -490,7 +762,7 @@ $indexBody = @"
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Novolis portfolio documentation, workflow status, packages, apps, and platform docs."/>
+  <meta name="description" content="Novolis portfolio documentation aggregated from every public repository: policies, package READMEs, library guides, apps, and platform docs."/>
   <title>Novolis Portfolio Docs</title>
   <link rel="icon" href="assets/brand/favicon.svg"/>
   <link rel="stylesheet" href="assets/site.css"/>
@@ -513,12 +785,12 @@ $indexBody = @"
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-content">
         <img class="hero-logo" src="assets/brand/logo-brand-transparent.svg" alt="Novolis"/>
-        <p class="eyebrow">Portfolio documentation uplink</p>
+        <p class="eyebrow">Org-wide documentation uplink</p>
         <h1>Modern .NET for realtime systems, graphics, games, studios, and simulations.</h1>
-        <p class="hero-copy">A single GitHub Pages console for the Novolis library, app, tooling, policy, and package ecosystem. Built from the repository docs corpus and live GitHub portfolio metadata.</p>
+        <p class="hero-copy">A single GitHub Pages console that ingests README, docs/, and package README markdown from every public Novolis repository, plus live portfolio, workflow, and package metadata.</p>
         <div class="hero-actions">
+          <a href="#docs">Browse docs</a>
           <a href="#portfolio">Explore portfolio</a>
-          <a href="#docs">Read docs</a>
           <a href="https://github.com/$Org/.github/actions/workflows/pages.yml"><img src="https://github.com/$Org/.github/actions/workflows/pages.yml/badge.svg" alt="Pages workflow status"></a>
         </div>
       </div>
@@ -526,7 +798,7 @@ $indexBody = @"
         <div><span>$repoCount</span><strong>repositories</strong></div>
         <div><span>$packageCount</span><strong>NuGet packages</strong></div>
         <div><span>$docCount</span><strong>docs pages</strong></div>
-        <div><span>GPR</span><strong>continuous packages</strong></div>
+        <div><span>$docRepoCount</span><strong>repos with docs</strong></div>
       </div>
     </section>
 
@@ -562,13 +834,25 @@ $indexBody = @"
 
     <section id="docs" class="section docs-section">
       <div class="section-heading">
-        <p class="eyebrow">Repository wiki corpus</p>
+        <p class="eyebrow">Aggregated from every public repository</p>
         <h2>Docs</h2>
       </div>
-      <div class="controls">
+      <div class="controls docs-controls">
         <label class="search-box">
           <span>Search</span>
-          <input type="search" id="docSearch" placeholder="versioning, brand, raylib, bootstrap"/>
+          <input type="search" id="docSearch" placeholder="governance, package README, raylib, nuget"/>
+        </label>
+        <label class="search-box">
+          <span>Repository</span>
+          <select id="docRepoFilter">
+            $repoFilterOptions
+          </select>
+        </label>
+        <label class="search-box">
+          <span>Kind</span>
+          <select id="docKindFilter">
+            $kindFilterOptions
+          </select>
         </label>
       </div>
       <div class="doc-grid" id="docGrid">
@@ -593,4 +877,4 @@ $nojekyll = Join-Path $outputPath '.nojekyll'
 Set-Content -Path $nojekyll -Value '' -Encoding utf8NoBOM
 
 Write-Host "Built $outputPath"
-Write-Host "  repos=$repoCount docs=$docCount packages=$packageCount"
+Write-Host "  repos=$repoCount docs=$docCount docRepos=$docRepoCount packages=$packageCount"
