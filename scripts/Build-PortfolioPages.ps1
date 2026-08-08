@@ -728,6 +728,8 @@ foreach ($group in ($docs | Group-Object Group)) {
 }
 
 foreach ($doc in $docs) {
+    # Avoid duplicating the page <h1> when the markdown also starts with # Title.
+    $bodyMarkdown = [regex]::Replace([string]$doc.Body, '(?m)^\s*#\s+.+\r?\n+', '', 1)
     $article = @"
 <article class="article">
   <div class="article-kicker">$(Html $doc.Group) / $(Html $doc.Kind) / $(Html $doc.RelativePath)</div>
@@ -738,7 +740,7 @@ foreach ($doc in $docs) {
     <a class="btn-secondary" href="$(Html $doc.SourceUrl)">GitHub source</a>
   </div>
   <div class="markdown-body">
-    $(Convert-MarkdownToHtml $doc.Body)
+    $(Convert-MarkdownToHtml $bodyMarkdown)
   </div>
 </article>
 "@
