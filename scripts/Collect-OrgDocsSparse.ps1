@@ -60,6 +60,8 @@ $repos | ForEach-Object -ThrottleLimit $Throttle -Parallel {
     $dest = Join-Path $using:outPath $name
     $org = $using:Org
     $token = $using:Token
+    $workBag = $using:work
+    $errorBag = $using:errors
 
     $url = if ([string]::IsNullOrWhiteSpace($token)) {
         "https://github.com/$org/$name.git"
@@ -98,10 +100,10 @@ $repos | ForEach-Object -ThrottleLimit $Throttle -Parallel {
         }
 
         Remove-Item -LiteralPath (Join-Path $dest '.git') -Recurse -Force -ErrorAction SilentlyContinue
-        $using:work.Add("$name ($mdCount md)")
+        [void]$workBag.Add("$name ($mdCount md)")
     }
     catch {
-        $using:errors.Add("${name}: $($_.Exception.Message)")
+        [void]$errorBag.Add("${name}: $($_.Exception.Message)")
         if (Test-Path $dest) {
             Remove-Item -LiteralPath $dest -Recurse -Force -ErrorAction SilentlyContinue
         }
