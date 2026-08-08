@@ -108,6 +108,7 @@ elseif (-not (Test-Path $corpusPath)) {
 $cli = Resolve-NovolisDocsCli -Explicit $DocsCli -Version $ToolVersion
 $assets = Join-Path $repoRoot 'site\assets'
 $brand = Join-Path $repoRoot 'brand'
+$catalog = Join-Path $repoRoot 'site\repo-catalog.json'
 $baseUrl = "https://$($Org.ToLowerInvariant()).github.io/.github/"
 
 # Prefer sibling / workspace Markup source — GPR package Parse is still a stub while markup CI is red.
@@ -153,6 +154,9 @@ $siteArgs = @(
     '--brand', $brand,
     '--base-url', $baseUrl
 )
+if (Test-Path -LiteralPath $catalog) {
+    $siteArgs += @('--catalog', $catalog)
+}
 
 try {
     switch ($cli.Kind) {
