@@ -110,6 +110,39 @@ $assets = Join-Path $repoRoot 'site\assets'
 $brand = Join-Path $repoRoot 'brand'
 $baseUrl = "https://$($Org.ToLowerInvariant()).github.io/.github/"
 
+# Prefer sibling / workspace Markup source — GPR package Parse is still a stub while markup CI is red.
+$markupRoot = $null
+foreach ($candidate in @(
+        (Join-Path $repoRoot 'novolis-markup\src'),
+        (Join-Path (Split-Path $repoRoot -Parent) 'novolis-markup\src')
+    )) {
+    if ((Test-Path (Join-Path $candidate 'Novolis.Markup.Markdown\Novolis.Markup.Markdown.csproj')) -and
+        (Test-Path (Join-Path $candidate 'Novolis.Markup.Markdown.Rendering\Novolis.Markup.Markdown.Rendering.csproj'))) {
+        $markupRoot = (Resolve-Path $candidate).Path
+        break
+    }
+}
+
+$pagesTargets = $null
+if ($cli.Kind -eq 'project' -and $markupRoot) {
+    $toolsRoot = Split-Path (Split-Path (Split-Path $cli.Path -Parent) -Parent) -Parent
+    $pagesTargets = Join-Path $toolsRoot 'Directory.Build.targets'
+    # MSBuild on Linux wants forward slashes in Include paths.
+    $mdProj = ((Join-Path $markupRoot 'Novolis.Markup.Markdown\Novolis.Markup.Markdown.csproj') -replace '\\', '/')
+    $renderProj = ((Join-Path $markupRoot 'Novolis.Markup.Markdown.Rendering\Novolis.Markup.Markdown.Rendering.csproj') -replace '\\', '/')
+    Write-Host "Wiring novolis-docs to Markup source at $markupRoot"
+    @"
+<Project>
+  <ItemGroup Condition="`$(MSBuildProjectName) == 'Novolis.Tools.Docs' or `$(MSBuildProjectName) == 'Novolis.Tools.Docs.Cli'">
+    <PackageReference Remove="Novolis.Markup.Markdown" />
+    <PackageReference Remove="Novolis.Markup.Markdown.Rendering" />
+    <ProjectReference Include="$mdProj" />
+    <ProjectReference Include="$renderProj" />
+  </ItemGroup>
+</Project>
+"@ | Set-Content -Path $pagesTargets -Encoding utf8
+}
+
 Write-Host "Building docs site with novolis-docs ($($cli.Kind))..."
 $siteArgs = @(
     'site',
@@ -121,12 +154,19 @@ $siteArgs = @(
     '--base-url', $baseUrl
 )
 
-switch ($cli.Kind) {
-    'project' {
-        & dotnet run --project $cli.Path -c Release -- @siteArgs
+try {
+    switch ($cli.Kind) {
+        'project' {
+            & dotnet run --project $cli.Path -c Release -- @siteArgs
+        }
+        default {
+            & $cli.Path @siteArgs
+        }
     }
-    default {
-        & $cli.Path @siteArgs
+}
+finally {
+    if ($pagesTargets -and (Test-Path -LiteralPath $pagesTargets)) {
+        Remove-Item -LiteralPath $pagesTargets -Force -ErrorAction SilentlyContinue
     }
 }
 if ($LASTEXITCODE -ne 0) {

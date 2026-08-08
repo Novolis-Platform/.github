@@ -39,6 +39,22 @@ jobs:
             build
           sparse-checkout-cone-mode: true
 
+      # GPR Novolis.Markup.Markdown still ships a stub Parse; build against source until markup merge publishes.
+      - name: Checkout novolis-markup (Markdown HTML renderer)
+        uses: actions/checkout@v7
+        with:
+          repository: Novolis-Platform/novolis-markup
+          path: novolis-markup
+          sparse-checkout: |
+            src/Novolis.Markup.Html
+            src/Novolis.Markup.Markdown
+            src/Novolis.Markup.Markdown.Rendering
+            Directory.Build.props
+            Directory.Packages.props
+            NuGet.config
+            build
+          sparse-checkout-cone-mode: true
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
@@ -51,6 +67,21 @@ jobs:
 
       - name: Authenticate GitHub Packages (novolis-tools NuGet.config)
         working-directory: novolis-tools
+        shell: bash
+        env:
+          GPR_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          dotnet nuget remove source github --configfile NuGet.config >/dev/null 2>&1 || true
+          dotnet nuget add source "https://nuget.pkg.github.com/Novolis-Platform/index.json" \
+            --name github \
+            --username "x-access-token" \
+            --password "$GPR_TOKEN" \
+            --store-password-in-clear-text \
+            --configfile NuGet.config
+
+      - name: Authenticate GitHub Packages (novolis-markup NuGet.config)
+        working-directory: novolis-markup
         shell: bash
         env:
           GPR_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
