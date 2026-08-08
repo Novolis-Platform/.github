@@ -1,0 +1,520 @@
+{
+  ".github": {
+    "tag": "Org home and brand",
+    "blurb": "Organization profile README, brand assets, and landing status generators.",
+    "desc": "Novolis-Platform organization profile, brand assets, and landing status.",
+    "topics": [
+      "novolis",
+      "brand",
+      "documentation"
+    ]
+  },
+  "novolis-agent": {
+    "tag": "Live agent surfaces",
+    "blurb": "Control surfaces for live apps — Core, Surface, and Testing helpers.",
+    "desc": "Live agent control surfaces for running Novolis apps (Core, Surface, Testing).",
+    "topics": [
+      "dotnet",
+      "agents",
+      "novolis"
+    ]
+  },
+  "novolis-analyzers": {
+    "tag": "Roslyn that enforces the platform",
+    "blurb": "Roslyn analyzers for stack boundaries, AutoMapper, and code-length discipline.",
+    "desc": "Roslyn analyzers for Novolis stack boundaries and code quality.",
+    "topics": [
+      "dotnet",
+      "roslyn",
+      "analyzers",
+      "novolis"
+    ]
+  },
+  "novolis-apps": {
+    "tag": "Desktop products on NuGet only",
+    "blurb": "Production Avalonia apps and installers composed entirely from Novolis packages.",
+    "desc": "Desktop apps and installers built on Novolis NuGet packages (Avalonia studios + games).",
+    "topics": [
+      "dotnet",
+      "avalonia",
+      "desktop",
+      "novolis"
+    ]
+  },
+  "novolis-aspire": {
+    "tag": "Aspire hosting extensions",
+    "blurb": "Aspire hosting helpers (e.g. Signoz) for Novolis distributed apps.",
+    "desc": "Aspire hosting extensions for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "aspire",
+      "observability",
+      "novolis"
+    ]
+  },
+  "novolis-astro": {
+    "tag": "Stars, catalogs, assessment",
+    "blurb": "Astronomical catalog, assessment, and related libraries for space sims.",
+    "desc": ".NET astronomy / catalog libraries for Novolis space simulations.",
+    "topics": [
+      "dotnet",
+      "astronomy",
+      "simulation",
+      "novolis"
+    ]
+  },
+  "novolis-audio": {
+    "tag": "SFX, voice, and live music",
+    "blurb": "Cross-platform audio: miniaudio SFX, TTS voice stacks, and live music runtime.",
+    "desc": "Cross-platform .NET audio — miniaudio SFX, TTS/voice, and live music.",
+    "topics": [
+      "dotnet",
+      "audio",
+      "tts",
+      "miniaudio",
+      "novolis"
+    ]
+  },
+  "novolis-avalonia": {
+    "tag": "UI chrome for the platform",
+    "blurb": "Avalonia controls and shells for CAD, gaming, agents, video, and mobile.",
+    "desc": "Avalonia UI libraries for Novolis apps (CAD, gaming, agents, video, mobile).",
+    "topics": [
+      "dotnet",
+      "avalonia",
+      "ui",
+      "novolis"
+    ]
+  },
+  "novolis-cad": {
+    "tag": "CAD interchange without UI",
+    "blurb": "Avalonia-free CAD primitives and interchange (.cadjson / .cadphys).",
+    "desc": "CAD interchange primitives (.cadjson / .cadphys) — Avalonia-free DTOs for Novolis.",
+    "topics": [
+      "dotnet",
+      "cad",
+      "novolis"
+    ]
+  },
+  "novolis-civics": {
+    "tag": "Civic agents and firm bridges",
+    "blurb": "Civics agents, core ledgers, and economy bridges for polity sims.",
+    "desc": "Civics simulation libraries for Novolis — agents, core, and economy bridges.",
+    "topics": [
+      "dotnet",
+      "simulation",
+      "civics",
+      "novolis"
+    ]
+  },
+  "novolis-codegen": {
+    "tag": "Bindings pipelines that scale",
+    "blurb": "Codegen pipeline, reflection, and binding generators used across the platform.",
+    "desc": "Code generation pipelines and binding generators for Novolis native stacks.",
+    "topics": [
+      "dotnet",
+      "codegen",
+      "novolis"
+    ]
+  },
+  "novolis-commands": {
+    "tag": "Interrupt-aware command queues",
+    "blurb": "Parse prompts into command envelopes, queue them, run with cancellation.",
+    "desc": "Command envelopes, queues, and interrupt-aware execution for Novolis.",
+    "topics": [
+      "dotnet",
+      "commands",
+      "novolis"
+    ]
+  },
+  "novolis-documents": {
+    "tag": "One-column pages to Skia PDF",
+    "blurb": "Immutable document blocks, layout, and Skia PDF — not HTML-to-PDF.",
+    "desc": "Paged document model and Skia PDF layout for Novolis (one-column flow).",
+    "topics": [
+      "dotnet",
+      "pdf",
+      "documents",
+      "novolis"
+    ]
+  },
+  "novolis-dogfooding": {
+    "tag": "Integration labs that prove the stack",
+    "blurb": "Dogfood apps and labs that exercise Novolis packages end-to-end.",
+    "desc": "Integration labs and dogfood apps for the Novolis platform.",
+    "topics": [
+      "dotnet",
+      "samples",
+      "novolis"
+    ]
+  },
+  "novolis-economy": {
+    "tag": "Deterministic markets and firms",
+    "blurb": "Headless economic simulation — supply chains, markets, accounting, logistics.",
+    "desc": "Headless deterministic economic simulation libraries for Novolis.",
+    "topics": [
+      "dotnet",
+      "economy",
+      "simulation",
+      "novolis"
+    ]
+  },
+  "novolis-gaming": {
+    "tag": "Game authoring above simulation",
+    "blurb": "Game identity, humanoids, menu flows, packaging — no Avalonia in this layer.",
+    "desc": "Game authoring libraries for Novolis (identity, humanoids, packaging).",
+    "topics": [
+      "dotnet",
+      "gamedev",
+      "novolis"
+    ]
+  },
+  "novolis-geopolitics": {
+    "tag": "Full-world geopolitics engines",
+    "blurb": "Homage geopolitics simulation libraries; GeoPolity hosts live in novolis-apps.",
+    "desc": "Full-world geopolitics simulation libraries for Novolis (homage only).",
+    "topics": [
+      "dotnet",
+      "geopolitics",
+      "simulation",
+      "novolis"
+    ]
+  },
+  "novolis-governance": {
+    "tag": "Policies that keep the org coherent",
+    "blurb": "Contribution model, package rules, layer boundaries, and maintainer docs.",
+    "desc": "Org-wide policies, layer boundaries, NuGet rules, and maintainer docs for Novolis.",
+    "topics": [
+      "dotnet",
+      "governance",
+      "novolis"
+    ]
+  },
+  "novolis-install": {
+    "tag": "One CLI to install the ecosystem",
+    "blurb": "Cross-platform `novolis` installer CLI.",
+    "desc": "Cross-platform novolis CLI installer for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "cli",
+      "installer",
+      "novolis"
+    ]
+  },
+  "novolis-installer-inno": {
+    "tag": "Windows Inno Setup packaging",
+    "blurb": "Inno Setup packaging helpers for Novolis Windows installers.",
+    "desc": "Inno Setup installer packaging for Novolis Windows desktop apps.",
+    "topics": [
+      "dotnet",
+      "installer",
+      "windows",
+      "novolis"
+    ]
+  },
+  "novolis-io": {
+    "tag": "Git, paths, processes, recovery",
+    "blurb": "IO helpers: Git, watching, recovery, processes, and path utilities.",
+    "desc": "IO helpers for Novolis — Git, watching, recovery, processes, paths.",
+    "topics": [
+      "dotnet",
+      "io",
+      "novolis"
+    ]
+  },
+  "novolis-logging": {
+    "tag": "Logging building blocks",
+    "blurb": "Logging helpers shared across Novolis libraries and apps.",
+    "desc": "Logging helpers for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "logging",
+      "novolis"
+    ]
+  },
+  "novolis-machinelearning": {
+    "tag": "AutoML and neural helpers",
+    "blurb": "Machine learning core, AutoML, and neural utilities for Novolis.",
+    "desc": ".NET machine learning helpers (AutoML, neural) for Novolis.",
+    "topics": [
+      "dotnet",
+      "machine-learning",
+      "novolis"
+    ]
+  },
+  "novolis-manuscript": {
+    "tag": "Long-form manuscript tooling",
+    "blurb": "Manuscript authoring helpers that sit beside Markup and Documents.",
+    "desc": "Manuscript authoring libraries for Novolis long-form content.",
+    "topics": [
+      "dotnet",
+      "manuscript",
+      "markup",
+      "novolis"
+    ]
+  },
+  "novolis-mapping": {
+    "tag": "Mapping utilities",
+    "blurb": "Mapping helpers for Novolis applications.",
+    "desc": "Mapping utilities for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "mapping",
+      "novolis"
+    ]
+  },
+  "novolis-markup": {
+    "tag": "Manuscripts, markdown, mermaid",
+    "blurb": "Manuscript, markdown, and Mermaid markup pipelines.",
+    "desc": "Manuscript, markdown, and Mermaid markup libraries for Novolis.",
+    "topics": [
+      "dotnet",
+      "markdown",
+      "markup",
+      "novolis"
+    ]
+  },
+  "novolis-math": {
+    "tag": "Geometry on BCL numerics",
+    "blurb": "Renderer-agnostic math: arrays, geometry, topology — System.Numerics first.",
+    "desc": "Math libraries for Novolis — arrays, geometry, topology on System.Numerics.",
+    "topics": [
+      "dotnet",
+      "math",
+      "geometry",
+      "novolis"
+    ]
+  },
+  "novolis-messaging": {
+    "tag": "Channels and messaging cores",
+    "blurb": "Messaging abstractions and channel-based transports for realtime systems.",
+    "desc": "Messaging and channel libraries for Novolis realtime systems.",
+    "topics": [
+      "dotnet",
+      "messaging",
+      "novolis"
+    ]
+  },
+  "novolis-msbuild": {
+    "tag": "MSBuild props and targets",
+    "blurb": "Shared MSBuild props/targets used across Novolis package repos.",
+    "desc": "Shared MSBuild props and targets for Novolis .NET repositories.",
+    "topics": [
+      "dotnet",
+      "msbuild",
+      "novolis"
+    ]
+  },
+  "novolis-os": {
+    "tag": "Minimal Debian runtime images",
+    "blurb": "Allowlisted Debian rootfs and QEMU appliances for running Novolis apps.",
+    "desc": "Minimal Debian glibc runtime images for Novolis apps (rootfs + QEMU appliance).",
+    "topics": [
+      "dotnet",
+      "linux",
+      "debian",
+      "runtime",
+      "novolis"
+    ]
+  },
+  "novolis-physics": {
+    "tag": "Force-first textbook physics",
+    "blurb": "Motion, gravity, ballistics, cloth, collision, orbits — Math only, no cameras.",
+    "desc": "Force-first textbook physics for .NET — motion, gravity, cloth, orbits.",
+    "topics": [
+      "dotnet",
+      "physics",
+      "simulation",
+      "novolis"
+    ]
+  },
+  "novolis-raylib": {
+    "tag": "Raylib 6 for modern .NET",
+    "blurb": "Multi-package Raylib 6 + raygui bindings, game API, hosting, and testing.",
+    "desc": "Modern .NET bindings for raylib 6 + raygui — game, hosting, native RIDs.",
+    "topics": [
+      "dotnet",
+      "raylib",
+      "gamedev",
+      "novolis"
+    ]
+  },
+  "novolis-registry": {
+    "tag": "Static package & app catalog",
+    "blurb": "Static registry of Novolis packages and apps.",
+    "desc": "Static package and app registry for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "nuget",
+      "registry",
+      "novolis"
+    ]
+  },
+  "novolis-rendering": {
+    "tag": "Compile-time friendly rendering",
+    "blurb": "Rendering abstractions, compile pipeline, and GPU-facing helpers.",
+    "desc": "Rendering libraries for Novolis — abstractions, compile, and GPU helpers.",
+    "topics": [
+      "dotnet",
+      "graphics",
+      "rendering",
+      "novolis"
+    ]
+  },
+  "novolis-scheduling": {
+    "tag": "Scheduling primitives",
+    "blurb": "Scheduling helpers for Novolis runtimes.",
+    "desc": "Scheduling primitives for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "scheduling",
+      "novolis"
+    ]
+  },
+  "novolis-security": {
+    "tag": "Passwords, encryption, breach checks",
+    "blurb": "Password hashing, encryption, and HaveIBeenPwned helpers.",
+    "desc": "Security libraries for Novolis — hashing, encryption, breach checks.",
+    "topics": [
+      "dotnet",
+      "security",
+      "novolis"
+    ]
+  },
+  "novolis-simulation": {
+    "tag": "Worlds, clocks, humanoids",
+    "blurb": "Simulation orchestration above physics — humanoids, kinematics, space combat.",
+    "desc": "Simulation libraries for Novolis — worlds, clocks, humanoids, space combat.",
+    "topics": [
+      "dotnet",
+      "simulation",
+      "gamedev",
+      "novolis"
+    ]
+  },
+  "novolis-smoketest": {
+    "tag": "Template smoke package",
+    "blurb": "Smoke-test package proving the template/publish pipeline.",
+    "desc": "Template smoke-test package for Novolis CI and publishing.",
+    "topics": [
+      "dotnet",
+      "ci",
+      "novolis"
+    ]
+  },
+  "novolis-storage": {
+    "tag": "Workspaces and persistence",
+    "blurb": "Storage abstractions, in-memory/SQLite providers, and workspace IO.",
+    "desc": "Storage and workspace IO libraries for Novolis.",
+    "topics": [
+      "dotnet",
+      "storage",
+      "sqlite",
+      "novolis"
+    ]
+  },
+  "novolis-template-dotnet": {
+    "tag": "Canonical package repo template",
+    "blurb": "Template for new Novolis .NET package repositories.",
+    "desc": "Canonical .NET package and tool repository template for Novolis.",
+    "topics": [
+      "dotnet",
+      "template",
+      "novolis"
+    ]
+  },
+  "novolis-templates": {
+    "tag": "dotnet new templates",
+    "blurb": "dotnet new templates for Novolis apps and libraries.",
+    "desc": "dotnet new templates for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "templates",
+      "novolis"
+    ]
+  },
+  "novolis-testing": {
+    "tag": "Test bases and containers",
+    "blurb": "Logging test helpers, test bases, and Testcontainers integrations.",
+    "desc": "Testing helpers for Novolis — bases, logging, Testcontainers.",
+    "topics": [
+      "dotnet",
+      "testing",
+      "novolis"
+    ]
+  },
+  "novolis-tools": {
+    "tag": "Maintainer CLIs and docs site",
+    "blurb": "Maintainer tools: novolis-docs site builder, SQLite/LiteDB CLIs, and helpers.",
+    "desc": "Maintainer CLIs and docs tooling for the Novolis platform.",
+    "topics": [
+      "dotnet",
+      "cli",
+      "docs",
+      "novolis"
+    ]
+  },
+  "novolis-transports": {
+    "tag": "HTTP, IPC, torrents, and more",
+    "blurb": "Transport libraries: HTTP, local IPC, torrent, and related adapters.",
+    "desc": "Transport libraries for Novolis — HTTP, local IPC, torrent, and more.",
+    "topics": [
+      "dotnet",
+      "networking",
+      "novolis"
+    ]
+  },
+  "novolis-video": {
+    "tag": "RTC mesh and movie edit core",
+    "blurb": "Realtime video RTC contracts/mesh, Windows capture, and storyboard edit core.",
+    "desc": "Realtime video for Novolis — RTC mesh, Windows capture, storyboard edit.",
+    "topics": [
+      "dotnet",
+      "webrtc",
+      "video",
+      "novolis"
+    ]
+  },
+  "novolis-wirefish": {
+    "tag": "Wire inspection tooling",
+    "blurb": "Wire/protocol inspection helpers for Novolis debugging.",
+    "desc": "Wire inspection tooling for the Novolis ecosystem.",
+    "topics": [
+      "dotnet",
+      "networking",
+      "novolis"
+    ]
+  },
+  "novolis-workflows": {
+    "tag": "Reusable GitHub Actions",
+    "blurb": "Reusable CI workflows for build, pack, and release across Novolis repos.",
+    "desc": "Reusable GitHub Actions workflows for Novolis build, pack, and release.",
+    "topics": [
+      "github-actions",
+      "ci",
+      "novolis"
+    ]
+  },
+  "novolis-workspaces": {
+    "tag": "Snapshots and timelines",
+    "blurb": "Workspace, snapshot, and timeline libraries for editor and studio apps.",
+    "desc": "Workspace, snapshot, and timeline libraries for Novolis studio apps.",
+    "topics": [
+      "dotnet",
+      "workspaces",
+      "novolis"
+    ]
+  },
+  "novolis-xsd": {
+    "tag": "XSD and schema tooling",
+    "blurb": "XML schema helpers used by Novolis codegen and interchange formats.",
+    "desc": "XSD / XML schema tooling for Novolis libraries and codegen.",
+    "topics": [
+      "dotnet",
+      "xml",
+      "xsd",
+      "novolis"
+    ]
+  }
+}
+
