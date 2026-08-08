@@ -163,7 +163,7 @@ function Get-PortfolioData {
         elseif ($name -in @('novolis-apps', 'novolis-install', 'novolis-tools')) {
             'Apps and Tools'
         }
-        elseif ($name -in @('novolis-dogfooding', 'novolis-experimental')) {
+        elseif ($name -in @('novolis-dogfooding')) {
             'Labs'
         }
         else {
