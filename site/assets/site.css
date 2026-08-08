@@ -499,12 +499,6 @@ h1 {
   margin-bottom: 0;
 }
 
-.source-link {
-  width: fit-content;
-  margin-top: auto;
-  font-size: 0.88rem;
-}
-
 .article-shell {
   max-width: 76rem;
   margin: 0 auto;
@@ -653,5 +647,148 @@ h1 {
 
   .segmented button {
     flex: 1 1 auto;
+  }
+}
+
+/* Multi-page docs site layout */
+.hero-compact {
+  min-height: auto;
+  padding-bottom: 2.5rem;
+}
+
+.docs-site .docs-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+  gap: 0;
+  max-width: 96rem;
+  margin: 0 auto;
+  min-height: calc(100vh - 8rem);
+}
+
+.docs-nav {
+  position: sticky;
+  top: 3.6rem;
+  align-self: start;
+  max-height: calc(100vh - 3.6rem);
+  overflow: auto;
+  padding: 1.25rem 1rem 2rem;
+  border-right: 1px solid var(--line);
+  background: rgba(10, 12, 18, 0.72);
+}
+
+.docs-nav-repo {
+  margin-bottom: 1rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.docs-nav-repo a {
+  color: var(--cyan);
+}
+
+.docs-nav-section {
+  margin-bottom: 1.25rem;
+}
+
+.docs-nav-section h2 {
+  margin: 0 0 0.45rem;
+  color: var(--amber);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.docs-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docs-nav li {
+  margin: 0.15rem 0;
+}
+
+.docs-nav li a {
+  display: block;
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.docs-nav li a:hover,
+.docs-nav li.active a {
+  background: rgba(71, 215, 255, 0.12);
+  color: var(--cyan);
+}
+
+.docs-nav li.missing span {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  color: rgba(174, 183, 200, 0.45);
+  font-size: 0.88rem;
+  text-decoration: line-through;
+}
+
+.docs-nav li.folder > span {
+  display: block;
+  margin-top: 0.55rem;
+  padding: 0.2rem 0.5rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.docs-nav li.folder ul {
+  margin-left: 0.35rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  padding-left: 0.35rem;
+}
+
+.docs-nav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.docs-main {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.docs-main .article {
+  max-width: 56rem;
+}
+
+.docs-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.docs-pager a {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.docs-pager a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .docs-site .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-nav {
+    position: static;
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 }

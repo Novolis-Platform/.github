@@ -70,16 +70,14 @@ GitHub Pages is published from `.github/workflows/pages.yml` to https://novolis-
 pwsh -File d:\novolis\.github\scripts\Build-PortfolioPages.ps1
 ```
 
-The builder ingests markdown from **every** public org repository:
+Pipeline:
 
-| Source | Included |
-|--------|----------|
-| Root | `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, `AGENTS.md` |
-| Guides | `docs/**/*.md`, `wiki/**/*.md` |
-| Packages | `src/**/README.md` |
-| Org home | `.github` profile/docs/plans/brand corpus |
+1. [`scripts/Collect-OrgDocsSparse.ps1`](scripts/Collect-OrgDocsSparse.ps1) — `git sparse-checkout` of each public repo's `docs/`
+2. `novolis-docs site` (`Novolis.Tools.Docs.Cli`) — multi-page HTML site via Novolis.Markup
 
-Local sibling checkouts under the workspace root are preferred; CI fetches missing trees/content from GitHub. Live repository, workflow, and package metadata are added when `gh` is authenticated. Weekly schedule keeps the corpus fresh.
+Catalog cards expose **Docs** (opens `{repo}/` → `docs/README.md`) and **Source**. Each library site has sidebar navigation generated from the docs folder layout.
+
+Details: [`docs/portfolio-docs.md`](docs/portfolio-docs.md).
 
 ## Repositories
 

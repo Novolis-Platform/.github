@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    # Re-ingest docs from all org repos even when .github itself is quiet.
+    # Re-ingest docs/ from all org repos even when .github itself is quiet.
     - cron: '17 6 * * 1'
   workflow_dispatch:
 
@@ -25,10 +25,50 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Checkout novolis-tools (novolis-docs site)
+        uses: actions/checkout@v7
+        with:
+          repository: Novolis-Platform/novolis-tools
+          path: novolis-tools
+          sparse-checkout: |
+            src/Novolis.Tools.Docs
+            src/Novolis.Tools.Docs.Cli
+            Directory.Build.props
+            Directory.Packages.props
+            NuGet.config
+            build
+          sparse-checkout-cone-mode: true
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Authenticate GitHub Packages
+        uses: Novolis-Platform/novolis-workflows/actions/authenticate-github-packages@main
+        with:
+          token: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+
+      - name: Authenticate GitHub Packages (novolis-tools NuGet.config)
+        working-directory: novolis-tools
+        shell: bash
+        env:
+          GPR_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          dotnet nuget remove source github --configfile NuGet.config >/dev/null 2>&1 || true
+          dotnet nuget add source "https://nuget.pkg.github.com/Novolis-Platform/index.json" \
+            --name github \
+            --username "x-access-token" \
+            --password "$GPR_TOKEN" \
+            --store-password-in-clear-text \
+            --configfile NuGet.config
+
       - name: Build portfolio docs
         env:
           GH_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
-        run: pwsh -File scripts/Build-PortfolioPages.ps1
+          GITHUB_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+        run: pwsh -File scripts/Build-PortfolioPages.ps1 -DocsCli novolis-tools/src/Novolis.Tools.Docs.Cli/Novolis.Tools.Docs.Cli.csproj
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

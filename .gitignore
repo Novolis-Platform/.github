@@ -1,4 +1,6 @@
 /_site/
+/corpus/
+/.tools/
 # MTP / VS test output
 TestResults/
 [Tt]est[Rr]esults/
