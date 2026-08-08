@@ -5,10 +5,6 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/generated/logo-social.png" width="100%" alt="Novolis — modern .NET for realtime systems"/>
-</p>
-
-<p align="center">
   <strong>Modern .NET for realtime systems, graphics, games, and studios.</strong><br/>
   Composable libraries · GitHub Packages continuous builds · Desktop apps that ship
 </p>
