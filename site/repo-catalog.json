@@ -381,6 +381,17 @@
       "novolis"
     ]
   },
+  "novolis-ship": {
+    "tag": "Ship topology and airtight CAD",
+    "blurb": "Avalonia-free ship domain — primitives, topology graphs, and airtight validation for .cadjson.",
+    "desc": "Ship domain libraries for Novolis — primitives, topology, and airtight validation.",
+    "topics": [
+      "dotnet",
+      "cad",
+      "ship",
+      "novolis"
+    ]
+  },
   "novolis-simulation": {
     "tag": "Worlds, clocks, humanoids",
     "blurb": "Simulation orchestration above physics — humanoids, kinematics, space combat.",
