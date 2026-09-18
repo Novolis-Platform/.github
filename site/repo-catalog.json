@@ -138,16 +138,6 @@
       "novolis"
     ]
   },
-  "novolis-dogfooding": {
-    "tag": "Integration labs that prove the stack",
-    "blurb": "Dogfood apps and labs that exercise Novolis packages end-to-end.",
-    "desc": "Integration labs and dogfood apps for the Novolis platform.",
-    "topics": [
-      "dotnet",
-      "samples",
-      "novolis"
-    ]
-  },
   "novolis-economy": {
     "tag": "Deterministic markets and firms",
     "blurb": "Headless economic simulation — supply chains, markets, accounting, logistics.",
@@ -191,9 +181,9 @@
     ]
   },
   "novolis-install": {
-    "tag": "One CLI to install the ecosystem",
-    "blurb": "Cross-platform `novolis` installer CLI.",
-    "desc": "Cross-platform novolis CLI installer for the Novolis ecosystem.",
+    "tag": "Archived installer host",
+    "blurb": "The `novolis` tool host moved to novolis-tools.",
+    "desc": "Archived repository; the Novolis installer tool is now published from novolis-tools.",
     "topics": [
       "dotnet",
       "cli",
@@ -222,13 +212,25 @@
       "novolis"
     ]
   },
+  "novolis-lab": {
+    "tag": "Fast integration labs",
+    "blurb": "Quick experiments, package demos, smokes, and benchmarks for the Novolis platform.",
+    "desc": "Fast Novolis integration labs with a graduate path to tools, utilities, and apps.",
+    "topics": [
+      "dotnet",
+      "samples",
+      "labs",
+      "novolis"
+    ]
+  },
   "novolis-logging": {
-    "tag": "Logging building blocks",
-    "blurb": "Logging helpers shared across Novolis libraries and apps.",
-    "desc": "Logging helpers for the Novolis ecosystem.",
+    "tag": "Logging and diagnostics",
+    "blurb": "Logging and durable diagnostics shared across Novolis libraries and apps.",
+    "desc": "Logging and diagnostic helpers for the Novolis ecosystem.",
     "topics": [
       "dotnet",
       "logging",
+      "diagnostics",
       "novolis"
     ]
   },
@@ -282,6 +284,18 @@
       "dotnet",
       "math",
       "geometry",
+      "novolis"
+    ]
+  },
+  "novolis-maui": {
+    "tag": "MAUI Markdown and Mermaid",
+    "blurb": "MAUI viewers that compose Novolis.Markup — the Avalonia-equivalent island.",
+    "desc": "MAUI UI libraries for Novolis Markdown, Mermaid, and locked-down WebViews.",
+    "topics": [
+      "dotnet",
+      "maui",
+      "markdown",
+      "mermaid",
       "novolis"
     ]
   },
@@ -472,6 +486,17 @@
     "topics": [
       "dotnet",
       "networking",
+      "novolis"
+    ]
+  },
+  "novolis-utilities": {
+    "tag": "Small technical executables",
+    "blurb": "No-installer utilities for files, wires, devices, and focused technical jobs.",
+    "desc": "Small technical executable utilities for the Novolis ecosystem; no installers.",
+    "topics": [
+      "dotnet",
+      "utilities",
+      "tools",
       "novolis"
     ]
   },

@@ -60,7 +60,7 @@ function Find-Workflow {
     return $null
 }
 
-function Encode-ShieldPath {
+function ConvertTo-ShieldPath {
     param([string] $Text)
     # shields.io path encoding: - _ space → -- __ _
     return (($Text -replace '-', '--') -replace '_', '__') -replace ' ', '_'
@@ -89,8 +89,8 @@ function Get-VersionShield {
         [string] $Label = 'GPR'
     )
     if ([string]::IsNullOrWhiteSpace($Version)) { return '—' }
-    $shieldLabel = Encode-ShieldPath $Label
-    $shieldMessage = Encode-ShieldPath $Version
+    $shieldLabel = ConvertTo-ShieldPath $Label
+    $shieldMessage = ConvertTo-ShieldPath $Version
     $url = "https://img.shields.io/badge/${shieldLabel}-${shieldMessage}-brightgreen"
     return "[![$Label $Version]($url)]($Href)"
 }
@@ -394,7 +394,7 @@ if ($packageRepos.Count -eq 0 -and $orphanPackages.Count -eq 0) {
 # --- 2. Other (non-packages, non-releases) ---
 [void]$sb.AppendLine('### Other')
 [void]$sb.AppendLine()
-[void]$sb.AppendLine('Repos without NuGet packages and without a `release.yml` workflow (infra, templates, dogfooding, etc.).')
+[void]$sb.AppendLine('Repos without NuGet packages and without a `release.yml` workflow (infra, templates, labs, etc.).')
 [void]$sb.AppendLine()
 [void]$sb.AppendLine('| Repository | PR | Merge |')
 [void]$sb.AppendLine('|------------|----|-------|')
