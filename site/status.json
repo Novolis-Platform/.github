@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-09-30 19:53 UTC",
+  "generatedAt": "2026-09-30 19:59 UTC",
   "org": "Novolis-Platform",
   "repoCount": 55,
-  "mergeSuccesses": 44,
+  "mergeSuccesses": 43,
   "packageCount": 427,
-  "failedCount": 6,
-  "releasedRepoCount": 9,
+  "failedCount": 7,
+  "releasedRepoCount": 1,
   "failures": [
     {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-09-30 18:44 UTC",
-      "title": "Label status marks so each icon names its state.",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36760705736",
+      "when": "2026-09-30 19:54 UTC",
+      "title": "Render org status as a narrow list instead of wide tables.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36768960636",
       "error": "One or more package pushes failed"
     },
     {
@@ -23,7 +23,7 @@
       "when": "2026-09-30 11:09 UTC",
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-template-dotnet/actions/runs/36706764604",
-      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
+      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-utilities",
@@ -32,7 +32,7 @@
       "when": "2026-09-30 11:09 UTC",
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/36706772855",
-      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
+      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-workspaces",
@@ -41,7 +41,7 @@
       "when": "2026-09-30 11:09 UTC",
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/36706785950",
-      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
+      "error": "Process completed with exit code 2."
     },
     {
       "repo": "novolis-agent",
@@ -60,6 +60,15 @@
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/36706706928",
       "error": "The type or namespace name \u0027Novolis\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-testing",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-09-18 10:24 UTC",
+      "title": "Maintain package versions and dependency alignment",
+      "url": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/35334515597",
+      "error": "Process completed with exit code 1."
     }
   ],
   "releases": [
@@ -69,62 +78,6 @@
       "published": "2026-09-30 18:00 UTC",
       "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.45",
       "channel": "20 release assets"
-    },
-    {
-      "repo": "novolis-security",
-      "tag": "v2026.1.1",
-      "published": "2026-09-30 01:57 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-security/releases/tag/v2026.1.1",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-audio",
-      "tag": "v2026.1.10",
-      "published": "2026-07-28 19:30 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-audio/releases/tag/v2026.1.10",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-math",
-      "tag": "v2026.1.1",
-      "published": "2026-07-28 19:30 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-messaging",
-      "tag": "v2026.1.1",
-      "published": "2026-07-28 19:30 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-messaging/releases/tag/v2026.1.1",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-raylib",
-      "tag": "v2026.1.2",
-      "published": "2026-07-28 19:30 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-raylib/releases/tag/v2026.1.2",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-avalonia",
-      "tag": "0.1",
-      "published": "2026-06-06 21:55 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-gaming",
-      "tag": "2026.1.1.0",
-      "published": "2026-05-25 17:44 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
-      "channel": "GitHub Release"
-    },
-    {
-      "repo": "novolis-markup",
-      "tag": "v0.1.0-preview.1",
-      "published": "2026-05-17 02:11 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
-      "channel": "GitHub Release"
     }
   ],
   "repos": [
@@ -332,7 +285,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-economy/actions/runs/35438810076",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-economy/actions/runs/36706692591",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -345,7 +298,7 @@
       "releasePublished": "2026-05-25 17:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/36706697607",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26413560293",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962"
     },
@@ -475,7 +428,7 @@
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/36706715999",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/30494321006",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980"
     },
@@ -644,7 +597,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/36706751497",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/31358330150",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -721,21 +674,21 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/36706769417",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/35334515597",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-tools",
       "packageCount": 13,
-      "gprVersion": "2026.1.1.55",
+      "gprVersion": "2026.1.1.56",
       "nugetVersion": "",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36760705736",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36768960636",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
