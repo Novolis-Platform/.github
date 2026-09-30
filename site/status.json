@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-30 18:43 UTC",
+  "generatedAt": "2026-09-30 19:53 UTC",
   "org": "Novolis-Platform",
   "repoCount": 55,
-  "mergeSuccesses": 45,
+  "mergeSuccesses": 44,
   "packageCount": 427,
-  "failedCount": 14,
+  "failedCount": 6,
   "releasedRepoCount": 9,
   "failures": [
     {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-09-30 18:26 UTC",
-      "title": "Show org status with marks instead of conclusion words.",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36758572339",
-      "error": "Process completed with exit code 1."
+      "when": "2026-09-30 18:44 UTC",
+      "title": "Label status marks so each icon names its state.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36760705736",
+      "error": "One or more package pushes failed"
     },
     {
       "repo": "novolis-template-dotnet",
@@ -23,7 +23,7 @@
       "when": "2026-09-30 11:09 UTC",
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-template-dotnet/actions/runs/36706764604",
-      "error": "Process completed with exit code 1."
+      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
     },
     {
       "repo": "novolis-utilities",
@@ -32,7 +32,16 @@
       "when": "2026-09-30 11:09 UTC",
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/36706772855",
-      "error": "Process completed with exit code 1."
+      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
+    },
+    {
+      "repo": "novolis-workspaces",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-09-30 11:09 UTC",
+      "title": "Update stale third-party packages to current compatible releases.",
+      "url": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/36706785950",
+      "error": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see:\u2026"
     },
     {
       "repo": "novolis-agent",
@@ -51,87 +60,6 @@
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/36706706928",
       "error": "The type or namespace name \u0027Novolis\u0027 could not be found (are you missing a using directive or an assembly reference?)"
-    },
-    {
-      "repo": "novolis-security",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-09-30 01:57 UTC",
-      "title": "Novolis.Security 2026.1.1",
-      "url": "https://github.com/Novolis-Platform/novolis-security/actions/runs/36657530520",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-os",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-08-09 11:12 UTC",
-      "title": "Release",
-      "url": "https://github.com/Novolis-Platform/novolis-os/actions/runs/31310223534",
-      "error": "Process completed with exit code 32."
-    },
-    {
-      "repo": "novolis-audio",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-07-28 19:30 UTC",
-      "title": "v2026.1.10",
-      "url": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/30392209335",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-math",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-07-28 19:30 UTC",
-      "title": "v2026.1.1",
-      "url": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-messaging",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-07-28 19:30 UTC",
-      "title": "v2026.1.1",
-      "url": "https://github.com/Novolis-Platform/novolis-messaging/actions/runs/30392210930",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-raylib",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-07-28 19:30 UTC",
-      "title": "v2026.1.2",
-      "url": "https://github.com/Novolis-Platform/novolis-raylib/actions/runs/30392207885",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-avalonia",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-06-06 21:55 UTC",
-      "title": "0.1",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-gaming",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-05-25 17:44 UTC",
-      "title": "2026.1.1.0",
-      "url": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962",
-      "error": "Error when evaluating \u0027secrets\u0027. .github/workflows/release.yml (Line: 7, Col: 11): Secret NUGET_API_KEY is required, but not provided while calling."
-    },
-    {
-      "repo": "novolis-markup",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-05-17 02:11 UTC",
-      "title": "0.1.0-preview.1",
-      "url": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980",
-      "error": "Input required and not supplied: user"
     }
   ],
   "releases": [
@@ -313,7 +241,7 @@
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/30882281559",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/36724047218",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -417,7 +345,7 @@
       "releasePublished": "2026-05-25 17:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26413560293",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/36706697607",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962"
     },
@@ -690,7 +618,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-scheduling/actions/runs/36629225006",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-scheduling/actions/runs/36706751691",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -801,13 +729,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 13,
-      "gprVersion": "2026.1.1.53",
+      "gprVersion": "2026.1.1.55",
       "nugetVersion": "",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36758572339",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36760705736",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -910,8 +838,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/30774269349",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/36706785950",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     }
