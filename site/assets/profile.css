@@ -4,20 +4,20 @@
 
 :root {
   color-scheme: dark;
-  --ngp-background: #080D1C;
-  --ngp-surface: #111B31;
-  --ngp-raised: #172440;
-  --ngp-border: #263A60;
-  --ngp-text: #F4F7FF;
-  --ngp-muted: #9AAECD;
+  --ngp-background: #010D18;
+  --ngp-surface: #051730;
+  --ngp-raised: #072041;
+  --ngp-border: #093D6F;
+  --ngp-text: #E6FBFF;
+  --ngp-muted: #2AA5FF;
   --ngp-accent: #2FDFFF;
-  --ngp-accent-fill: #258BFF;
-  --ngp-on-accent-fill: #FFFFFF;
-  --ngp-action: #914BFF;
-  --ngp-on-action: #FFFFFF;
-  --ngp-action-soft: #167C88;
-  --ngp-warning: #F0C56A;
-  --ngp-danger: #FF8D8D;
+  --ngp-accent-fill: #237CFF;
+  --ngp-on-accent-fill: #EFFDFF;
+  --ngp-action: #8F37FF;
+  --ngp-on-action: #EFFDFF;
+  --ngp-action-soft: #0BA8FF;
+  --ngp-warning: #35D8FF;
+  --ngp-danger: #B246FF;
   --ngp-font: Segoe UI, Candara, Calibri, sans-serif;
   --ngp-font-mono: Cascadia Mono, Consolas, Courier New, monospace;
   --ngp-eyebrow-size: 10px;
@@ -53,19 +53,19 @@
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --ngp-background: #F5F7FC;
-    --ngp-surface: #FFFFFF;
-    --ngp-raised: #EEF3FF;
-    --ngp-border: #D7E0F0;
-    --ngp-text: #17213A;
-    --ngp-muted: #5B6B86;
+    --ngp-background: #F4FDFF;
+    --ngp-surface: #FBFEFF;
+    --ngp-raised: #EEF8FF;
+    --ngp-border: #D0E9FF;
+    --ngp-text: #0E346C;
+    --ngp-muted: #0677D9;
     --ngp-accent: #2FDFFF;
-    --ngp-accent-fill: #258BFF;
-    --ngp-on-accent-fill: #FFFFFF;
-    --ngp-action: #914BFF;
-    --ngp-on-action: #FFFFFF;
-    --ngp-action-soft: #167C88;
-    --ngp-warning: #8A5A12;
-    --ngp-danger: #C43545;
+    --ngp-accent-fill: #237CFF;
+    --ngp-on-accent-fill: #EFFDFF;
+    --ngp-action: #8F37FF;
+    --ngp-on-action: #EFFDFF;
+    --ngp-action-soft: #0BA8FF;
+    --ngp-warning: #0677D9;
+    --ngp-danger: #6138D9;
   }
 }

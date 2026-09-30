@@ -33,23 +33,24 @@ compose at the edges; products install from packages and ship deliberately.
 
 ## The graphical profile
 
-The shared product chrome is authored once from Merglyph’s shipped visual
-language and projected into the Avalonia and MAUI libraries. It keeps every
-product recognizable without repainting domain content such as maps, drawings,
-documents, video, or game-world entities.
+The shared product chrome is authored once from the mark in
+`brand/logo-icon.svg` and projected into the Avalonia and MAUI libraries. Every
+role is a stop from that cyan–blue–purple gradient or a shade of those hues.
+It keeps every product recognizable without repainting domain content such as
+maps, drawings, documents, video, or game-world entities.
 
 | Role | Dark | Light | Use |
 |------|------|-------|-----|
-| Ink navy | `#080D1C` | `#F5F7FC` | Quiet page canvas |
-| Surface | `#111B31` | `#FFFFFF` | Cards, fields, resting navigation |
-| Raised | `#172440` | `#EEF3FF` | Selected and empty states |
-| Stroke | `#263A60` | `#D7E0F0` | Structural boundaries |
+| Canvas | `#010D18` | `#F4FDFF` | Quiet page canvas |
+| Surface | `#051730` | `#FBFEFF` | Cards, fields, resting navigation |
+| Raised | `#072041` | `#EEF8FF` | Selected and empty states |
+| Stroke | `#093D6F` | `#D0E9FF` | Structural boundaries |
 | Cyan | `#2FDFFF` | `#2FDFFF` | Identity, focus, eyebrows |
-| Blue | `#258BFF` | `#258BFF` | Navigate and open |
-| Violet | `#914BFF` | `#914BFF` | The one commit action |
-| Teal | `#167C88` | `#167C88` | Informational status |
-| Warning | `#F0C56A` | `#8A5A12` | Validation and degraded state |
-| Danger | `#FF8D8D` | `#C43545` | Failure and destructive state |
+| Blue | `#237CFF` | `#237CFF` | Navigate and open |
+| Violet | `#8F37FF` | `#8F37FF` | The one commit action |
+| Sky | `#0BA8FF` | `#0BA8FF` | Informational status |
+| Warning | `#35D8FF` | `#0677D9` | Validation and degraded state |
+| Danger | `#B246FF` | `#6138D9` | Failure and destructive state |
 
 The geometry is equally deliberate: Segoe UI, a 28px page title, 18px cards,
 42px touch controls, one scroll owner, and one high-signal action per view.
