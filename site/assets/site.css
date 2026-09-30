@@ -367,6 +367,29 @@ h1 {
   font-weight: 760;
 }
 
+.repo-meta .status-chip,
+.repo-meta a.mark-fail,
+.repo-meta a.mark-cancel,
+.repo-meta a.mark-ok,
+.repo-meta a.mark-ship {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.repo-meta .status-chip span,
+.repo-meta .mark-fail span,
+.repo-meta .mark-cancel span,
+.repo-meta .mark-ok span,
+.repo-meta .mark-ship span,
+.repo-meta .mark-package span,
+.repo-meta .mark-nuget span,
+.repo-meta .mark-merge span {
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
 .repo-meta a.docs-count {
   color: var(--cyan);
   border-color: var(--cyan);
@@ -573,6 +596,59 @@ h1 {
 
 .status-table a {
   color: var(--cyan);
+}
+
+.status-mark {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: -3px;
+}
+
+.status-band h2 .status-mark {
+  width: 22px;
+  height: 22px;
+}
+
+.topbar nav a .status-mark {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.mark-fail { color: var(--danger); }
+.mark-ok { color: var(--cyan); }
+.mark-cancel { color: var(--warning); }
+.mark-ship,
+.mark-nuget { color: var(--blue); }
+.mark-package { color: var(--cyan); }
+.mark-merge { color: var(--teal); }
+
+.status-table a.mark-fail,
+.status-table .mark-fail { color: var(--danger); }
+.status-table a.mark-ok,
+.status-table .mark-ok { color: var(--cyan); }
+.status-table a.mark-cancel,
+.status-table .mark-cancel { color: var(--warning); }
+.status-table a.mark-ship,
+.status-table .mark-ship { color: var(--blue); }
+
+.status-chip,
+.status-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .status-table a.status-fail,
