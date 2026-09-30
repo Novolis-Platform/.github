@@ -34,7 +34,7 @@
   },
   "novolis-analyzers": {
     "tag": "Roslyn that enforces the platform",
-    "blurb": "Roslyn analyzers for stack boundaries, AutoMapper, and code-length discipline.",
+    "blurb": "Roslyn analyzers for stack boundaries and code-length discipline.",
     "desc": "Roslyn analyzers for Novolis stack boundaries and code quality.",
     "topics": [
       "dotnet",
