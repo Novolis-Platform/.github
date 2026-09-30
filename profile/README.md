@@ -123,7 +123,7 @@ dotnet add package Novolis.Audio
 dotnet add package Novolis.Messaging.Channels
 ```
 
-Authenticate once with [configure-gpr-user-nuget.ps1](https://github.com/Novolis-Platform/novolis-governance/blob/main/scripts/configure-gpr-user-nuget.ps1). A GitHub Release promotes packages to nuget.org. Product installers ship from [novolis-apps](https://github.com/Novolis-Platform/novolis-apps).
+Authenticate once with [configure-gpr-user-nuget.ps1](https://github.com/Novolis-Platform/novolis-governance/blob/main/scripts/configure-gpr-user-nuget.ps1). Library merges publish the same pack to [nuget.org](https://www.nuget.org/profiles/Novolis). Product installers ship from [novolis-apps](https://github.com/Novolis-Platform/novolis-apps).
 
 ## Start here
 
@@ -143,8 +143,8 @@ Authenticate once with [configure-gpr-user-nuget.ps1](https://github.com/Novolis
 | Stage | When | Result |
 |-------|------|--------|
 | Build | Pull request | Restore, build, test. Nothing is published. |
-| Package | Push to `main` | `2026.1.*` lands on [GitHub Packages](https://github.com/orgs/Novolis-Platform/packages). |
-| Release | GitHub Release | Packages promote to [nuget.org](https://www.nuget.org/). Apps publish installers and bundles. |
+| Package | Push to `main` | Libraries land on [GitHub Packages](https://github.com/orgs/Novolis-Platform/packages) and [nuget.org](https://www.nuget.org/profiles/Novolis). |
+| Release | GitHub Release | Tools and analyzers publish to both feeds. Apps publish installers and bundles. |
 
 Versions are four-part numbers (`2026.1.1.351`). [Versioning](https://github.com/Novolis-Platform/.github/blob/main/docs/nuget-versioning.md) · [release policy](https://github.com/Novolis-Platform/novolis-governance/blob/main/docs/release-policy.md).
 
