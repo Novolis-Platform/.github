@@ -2,8 +2,8 @@ name: Refresh org landing status
 
 on:
   schedule:
-    # Mondays 06:15 UTC
-    - cron: '15 6 * * 1'
+    # Daily 06:15 UTC — release failures and published releases.
+    - cron: '15 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,38 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+
+      - name: Checkout novolis-tools (novolis-docs org-readme)
+        uses: actions/checkout@v7
+        with:
+          repository: Novolis-Platform/novolis-tools
+          path: novolis-tools
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Authenticate GitHub Packages
+        uses: Novolis-Platform/novolis-workflows/actions/authenticate-github-packages@main
+        with:
+          token: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+
+      - name: Authenticate GitHub Packages (novolis-tools NuGet.config)
+        working-directory: novolis-tools
+        shell: bash
+        env:
+          GPR_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          dotnet nuget remove source github --configfile NuGet.config >/dev/null 2>&1 || true
+          dotnet nuget add source "https://nuget.pkg.github.com/Novolis-Platform/index.json" \
+            --name github \
+            --username "x-access-token" \
+            --password "$GPR_TOKEN" \
+            --store-password-in-clear-text \
+            --configfile NuGet.config
 
       - name: Regenerate status matrix
         env:
@@ -26,19 +57,14 @@ jobs:
           GH_TOKEN: ${{ secrets.NOVOLIS_GPR_TOKEN != '' && secrets.NOVOLIS_GPR_TOKEN || github.token }}
         run: pwsh -File scripts/Update-OrgLandingStatus.ps1
 
-      - name: Open PR if changed
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Commit status when it changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if git diff --quiet -- profile/README.md; then
+          git add profile/README.md site/status.json
+          if git diff --cached --quiet; then
             echo 'No landing-page changes.'
             exit 0
           fi
-          branch="chore/org-landing-refresh-$(date -u +%Y%m%d)"
-          git checkout -b "$branch"
-          git add profile/README.md
-          git commit -m "chore: refresh org landing CI and package matrix"
-          git push -u origin "$branch"
-          gh pr create --title "chore: refresh org landing status matrix" --body "Weekly regeneration of CI badges and package versions on the org profile README." --base main || true
+          git commit -m "Refresh org landing release status."
+          git push origin HEAD:main

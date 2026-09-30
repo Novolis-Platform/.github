@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    # Re-ingest docs/ from all org repos even when .github itself is quiet.
-    - cron: '17 6 * * 1'
+    # Re-ingest docs/ and release status even when .github itself is quiet.
+    - cron: '17 6 * * *'
   workflow_dispatch:
 
 permissions:

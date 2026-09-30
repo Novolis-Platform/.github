@@ -109,7 +109,22 @@ $cli = Resolve-NovolisDocsCli -Explicit $DocsCli -Version $ToolVersion
 $assets = Join-Path $repoRoot 'site\assets'
 $brand = Join-Path $repoRoot 'brand'
 $catalog = Join-Path $repoRoot 'site\repo-catalog.json'
+$statusJson = Join-Path $repoRoot 'site\status.json'
+$readme = Join-Path $repoRoot 'profile\README.md'
 $baseUrl = "https://$($Org.ToLowerInvariant()).github.io/.github/"
+
+Write-Host "Collecting release status..."
+switch ($cli.Kind) {
+    'project' {
+        & dotnet run --project $cli.Path -c Release --no-launch-profile -- org-readme --org $Org --readme $readme --status-json $statusJson
+    }
+    default {
+        & $cli.Path org-readme --org $Org --readme $readme --status-json $statusJson
+    }
+}
+if ($LASTEXITCODE -ne 0) {
+    throw 'novolis-docs org-readme failed'
+}
 
 # Prefer sibling / workspace Markup source — GPR package Parse is still a stub while markup CI is red.
 $markupRoot = $null
@@ -156,6 +171,9 @@ $siteArgs = @(
 )
 if (Test-Path -LiteralPath $catalog) {
     $siteArgs += @('--catalog', $catalog)
+}
+if (Test-Path -LiteralPath $statusJson) {
+    $siteArgs += @('--status', $statusJson)
 }
 
 try {

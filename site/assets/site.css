@@ -130,10 +130,10 @@ p {
 }
 
 h1 {
-  max-width: 58rem;
+  max-width: 40rem;
   margin-bottom: 1.2rem;
-  font-size: clamp(2.6rem, 6vw, 5.6rem);
-  line-height: 0.96;
+  font-size: var(--ngp-page-title-size);
+  line-height: 1.25;
   letter-spacing: 0;
 }
 
@@ -204,8 +204,9 @@ h1 {
 .telemetry-panel span {
   display: block;
   color: var(--cyan);
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
-  font-weight: 850;
+  font-family: var(--ngp-font-mono);
+  font-size: var(--ngp-page-title-size);
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -237,7 +238,7 @@ h1 {
 
 .section-heading h2 {
   margin-bottom: 0;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: var(--ngp-section-title-size);
   letter-spacing: 0;
 }
 
@@ -536,7 +537,58 @@ h1 {
 }
 
 .article h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: var(--ngp-page-title-size);
+  line-height: 1.25;
+}
+
+.status-band {
+  padding-top: 0;
+}
+
+.status-scroll {
+  overflow-x: auto;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.status-table th,
+.status-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-size: var(--ngp-meta-size);
+}
+
+.status-table th {
+  color: var(--muted);
+  font-size: var(--ngp-badge-size);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-table a {
+  color: var(--cyan);
+}
+
+.status-table a.status-fail,
+.repo-meta span.status-fail {
+  color: var(--danger);
+}
+
+.status-mono {
+  font-family: var(--ngp-font-mono);
+  font-size: var(--ngp-debug-size);
+}
+
+.status-stamp {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: var(--ngp-caption-size);
 }
 
 .article-actions {
@@ -667,6 +719,10 @@ h1 {
 .hero-compact {
   min-height: auto;
   padding-bottom: 2.5rem;
+}
+
+.hero-compact .telemetry-panel div {
+  min-height: 0;
 }
 
 .docs-site .docs-layout {

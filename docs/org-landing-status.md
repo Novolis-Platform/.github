@@ -20,12 +20,11 @@ Do **not** hand-edit content between:
 ## What the script does
 
 1. Lists public non-archived org repos and their `.github/workflows/*`
-2. Emits **live** GitHub Actions badges (`…/actions/workflows/<file>/badge.svg`) for PR / Merge / Release — these update without regenerating the README
-3. Snapshots latest GPR (+ nuget.org when present) package versions and a merge-success count for the summary line
-4. Emits **three mutually exclusive tables**: Packages · Releases (no packages) · Other
-5. Replaces the marked block in `profile/README.md`
+2. Records the latest completed `merge.yml` and `release.yml` run, including the first failing check annotation
+3. Records the latest GitHub Release per repository, plus the highest GPR and nuget.org versions
+4. Writes that snapshot to `site/status.json` and into `profile/README.md` as failed runs, shipped releases, and the inventory
 
-Weekly CI: `.github/workflows/refresh-org-landing.yml` (opens a PR when the matrix changes — mainly for new repos/packages and version bumps).
+Daily CI: `.github/workflows/refresh-org-landing.yml` pushes `main` when the snapshot changes. The portfolio site rebuild (`pages.yml`) renders the same JSON.
 
 Cursor agents: see workspace skill `novolis-org-landing`.
 

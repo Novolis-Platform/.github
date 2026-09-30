@@ -13,8 +13,21 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $scriptDir = $PSScriptRoot
-$workspaceRoot = (Resolve-Path (Join-Path $scriptDir '..\..')).Path
-$cliProject = Join-Path $workspaceRoot 'novolis-tools\src\Novolis.Tools.Docs.Cli\Novolis.Tools.Docs.Cli.csproj'
+$repoRoot = (Resolve-Path (Join-Path $scriptDir '..')).Path
+$forestCli = Join-Path (Split-Path $repoRoot -Parent) 'novolis-tools\src\Novolis.Tools.Docs.Cli\Novolis.Tools.Docs.Cli.csproj'
+$inRepoCli = Join-Path $repoRoot 'novolis-tools\src\Novolis.Tools.Docs.Cli\Novolis.Tools.Docs.Cli.csproj'
+if (Test-Path -LiteralPath $forestCli) {
+    $cliProject = $forestCli
+}
+elseif (Test-Path -LiteralPath $inRepoCli) {
+    $cliProject = $inRepoCli
+}
+else {
+    throw "novolis-docs project not found at $forestCli or $inRepoCli"
+}
+
+$readmePath = if ($ProfileReadme) { (Resolve-Path $ProfileReadme).Path } else { Join-Path $scriptDir '..\profile\README.md' }
+$statusJson = Join-Path $scriptDir '..\site\status.json'
 
 $argsList = @(
     'run'
@@ -29,11 +42,11 @@ $argsList = @(
     "$ThrottleLimit"
     '--max-packages'
     "$MaxPackagesPerRepo"
+    '--readme'
+    $readmePath
+    '--status-json'
+    $statusJson
 )
-
-if ($ProfileReadme) {
-    $argsList += @('--readme', (Resolve-Path $ProfileReadme).Path)
-}
 
 & dotnet @argsList
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
