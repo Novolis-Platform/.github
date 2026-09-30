@@ -1,17 +1,32 @@
 :root {
   color-scheme: dark;
-  --bg: #07080b;
-  --panel: #10131a;
-  --panel-2: #151921;
-  --line: rgba(255, 255, 255, 0.12);
-  --text: #f5f7fb;
-  --muted: #aeb7c8;
-  --cyan: #47d7ff;
-  --green: #5df5a4;
-  --amber: #ffc857;
-  --magenta: #f26df9;
-  --red: #ff6978;
-  --shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+  --bg: #080d1c;
+  --panel: #111b31;
+  --panel-2: #172440;
+  --line: #263a60;
+  --text: #f4f7ff;
+  --muted: #9aaecd;
+  --cyan: #2fdfff;
+  --blue: #258bff;
+  --violet: #914bff;
+  --teal: #167c88;
+  --warning: #f0c56a;
+  --danger: #ff8d8d;
+  --shadow: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f5f7fc;
+    --panel: #ffffff;
+    --panel-2: #eef3ff;
+    --line: #d7e0f0;
+    --text: #17213a;
+    --muted: #5b6b86;
+    --warning: #8a5a12;
+    --danger: #c43545;
+  }
 }
 
 * {
@@ -25,10 +40,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 12% 6%, rgba(71, 215, 255, 0.16), transparent 28rem),
-    radial-gradient(circle at 86% 18%, rgba(255, 200, 87, 0.13), transparent 26rem),
-    linear-gradient(180deg, #07080b 0%, #0d0f14 46%, #07080b 100%);
+  background: var(--bg);
   color: var(--text);
   font-family: "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.55;
@@ -53,8 +65,7 @@ img {
   gap: 1rem;
   padding: 0.85rem clamp(1rem, 4vw, 3rem);
   border-bottom: 1px solid var(--line);
-  background: rgba(7, 8, 11, 0.82);
-  backdrop-filter: blur(18px);
+  background: var(--panel);
 }
 
 .brand,
@@ -97,12 +108,7 @@ img {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.45;
-  background-image:
-    linear-gradient(rgba(71, 215, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(71, 215, 255, 0.10) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
+  opacity: 0;
 }
 
 .hero-content,
@@ -122,7 +128,7 @@ img {
 
 .eyebrow {
   margin: 0 0 0.8rem;
-  color: var(--green);
+  color: var(--cyan);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -172,17 +178,17 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(71, 215, 255, 0.36);
-  border-radius: 6px;
+  border: 1px solid var(--blue);
+  border-radius: 22px;
   padding: 0.58rem 0.9rem;
-  background: rgba(71, 215, 255, 0.08);
-  color: var(--text);
+  background: var(--blue);
+  color: #ffffff;
   font-weight: 720;
 }
 
 .hero-actions a:hover {
   border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(71, 215, 255, 0.12);
+  color: #ffffff;
 }
 
 .hero-actions img,
@@ -203,14 +209,14 @@ h1 {
   min-height: 8rem;
   padding: 1rem;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: linear-gradient(145deg, rgba(21, 25, 33, 0.94), rgba(8, 10, 14, 0.82));
+  border-radius: 18px;
+  background: var(--panel);
   box-shadow: var(--shadow);
 }
 
 .telemetry-panel span {
   display: block;
-  color: var(--amber);
+  color: var(--cyan);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 850;
   line-height: 1;
@@ -227,7 +233,7 @@ h1 {
 .status-strip {
   padding: 1rem clamp(1rem, 5vw, 5rem);
   border-bottom: 1px solid var(--line);
-  background: rgba(16, 19, 26, 0.78);
+  background: var(--panel);
 }
 
 .section {
@@ -272,14 +278,14 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0.75rem 0.85rem;
-  background: rgba(5, 6, 9, 0.72);
+  background: var(--panel);
   color: var(--text);
   font: inherit;
   text-transform: none;
 }
 
 .search-box input:focus {
-  outline: 2px solid rgba(71, 215, 255, 0.55);
+  outline: 1px solid var(--cyan);
   outline-offset: 2px;
 }
 
@@ -290,13 +296,13 @@ h1 {
   padding: 0.3rem;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(5, 6, 9, 0.52);
+  background: var(--panel);
 }
 
 .segmented button {
   min-height: 2.25rem;
   border: 0;
-  border-radius: 5px;
+  border-radius: 14px;
   padding: 0.45rem 0.75rem;
   background: transparent;
   color: var(--muted);
@@ -306,8 +312,9 @@ h1 {
 }
 
 .segmented button.active {
-  background: var(--cyan);
-  color: #061017;
+  background: var(--panel-2);
+  color: var(--cyan);
+  outline: 1px solid var(--cyan);
 }
 
 .repo-grid,
@@ -320,9 +327,9 @@ h1 {
 .repo-card,
 .doc-card {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 18px;
   overflow: hidden;
-  background: rgba(16, 19, 26, 0.86);
+  background: var(--panel);
   box-shadow: var(--shadow);
 }
 
@@ -336,7 +343,7 @@ h1 {
   width: 100%;
   aspect-ratio: 7 / 2;
   object-fit: cover;
-  background: #0d1117;
+  background: var(--panel-2);
   border-bottom: 1px solid var(--line);
 }
 
@@ -364,8 +371,8 @@ h1 {
 .repo-meta a.docs-count,
 .topic-row span,
 .doc-card-tags span {
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 999px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
   padding: 0.18rem 0.48rem;
   color: var(--muted);
   font-size: 0.74rem;
@@ -374,7 +381,7 @@ h1 {
 
 .repo-meta a.docs-count {
   color: var(--cyan);
-  border-color: rgba(71, 215, 255, 0.35);
+  border-color: var(--cyan);
 }
 
 .doc-card-tags {
@@ -392,7 +399,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0.7rem 0.8rem;
-  background: rgba(7, 8, 11, 0.72);
+  background: var(--panel);
   color: var(--text);
   font: inherit;
 }
@@ -457,13 +464,14 @@ h1 {
 }
 
 .btn-primary {
-  border: 1px solid rgba(71, 215, 255, 0.45);
-  background: rgba(71, 215, 255, 0.16);
-  color: var(--cyan);
+  border: 1px solid var(--blue);
+  border-radius: 22px;
+  background: var(--blue);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background: rgba(71, 215, 255, 0.28);
+  border-color: var(--cyan);
 }
 
 .btn-secondary {
@@ -488,10 +496,10 @@ h1 {
 }
 
 .package-row a {
-  border: 1px solid rgba(93, 245, 164, 0.25);
-  border-radius: 5px;
+  border: 1px solid var(--teal);
+  border-radius: 14px;
   padding: 0.24rem 0.45rem;
-  color: var(--green);
+  color: var(--teal);
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
   font-size: 0.76rem;
   overflow-wrap: anywhere;
@@ -503,7 +511,7 @@ h1 {
 }
 
 .docs-section {
-  background: linear-gradient(180deg, rgba(21, 25, 33, 0.38), transparent);
+  background: var(--panel-2);
 }
 
 .doc-card {
@@ -525,15 +533,15 @@ h1 {
 
 .article {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(16, 19, 26, 0.9);
+  border-radius: 18px;
+  background: var(--panel);
   box-shadow: var(--shadow);
   padding: clamp(1.2rem, 4vw, 3rem);
 }
 
 .article-kicker {
   margin-bottom: 0.65rem;
-  color: var(--green);
+  color: var(--cyan);
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -549,7 +557,7 @@ h1 {
 }
 
 .markdown-body {
-  color: #e7ebf4;
+  color: var(--text);
 }
 
 .markdown-body h1,
@@ -561,7 +569,7 @@ h1 {
 }
 
 .markdown-body a {
-  color: var(--green);
+  color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
@@ -572,18 +580,18 @@ h1 {
 }
 
 .markdown-body code {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   padding: 0.08rem 0.25rem;
-  background: rgba(0, 0, 0, 0.34);
+  background: var(--panel-2);
 }
 
 .markdown-body pre {
   overflow: auto;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 18px;
   padding: 1rem;
-  background: #050609;
+  background: var(--bg);
 }
 
 .markdown-body pre code {
@@ -608,13 +616,13 @@ h1 {
 }
 
 .markdown-body th {
-  color: var(--amber);
-  background: rgba(255, 200, 87, 0.08);
+  color: var(--cyan);
+  background: var(--panel-2);
 }
 
 .markdown-body blockquote {
   margin: 1rem 0;
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--violet);
   padding-left: 1rem;
   color: var(--muted);
 }
@@ -691,7 +699,7 @@ h1 {
   overflow: auto;
   padding: 1.25rem 1rem 2rem;
   border-right: 1px solid var(--line);
-  background: rgba(10, 12, 18, 0.72);
+  background: var(--panel);
 }
 
 .docs-nav-repo {
@@ -710,7 +718,7 @@ h1 {
 
 .docs-nav-section h2 {
   margin: 0 0 0.45rem;
-  color: var(--amber);
+  color: var(--cyan);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -736,7 +744,7 @@ h1 {
 
 .docs-nav li a:hover,
 .docs-nav li.active a {
-  background: rgba(71, 215, 255, 0.12);
+  background: var(--panel-2);
   color: var(--cyan);
 }
 
