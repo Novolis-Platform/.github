@@ -14,7 +14,14 @@ Published at https://novolis-platform.github.io/.github/ from [`.github/workflow
 ## Pipeline
 
 1. **Sparse collect** — [`scripts/Collect-OrgDocsSparse.ps1`](../scripts/Collect-OrgDocsSparse.ps1) clones every public org repo with `git clone --filter=blob:none --sparse` and materializes only `docs/`.
-2. **Generate site** — `novolis-docs site` (`Novolis.Tools.Docs.Cli`) renders HTML via **Novolis.Markup**.
+2. **Generate site** — `novolis-docs site` (`Novolis.Tools.Docs.Cli`) renders HTML via **Novolis.Markup**. Tokens come from generated `site/assets/profile.css` (exported from the graphical profile). Repo cards use `brand/banners/*.svg`. Catalog copy comes from generated `site/repo-catalog.json`.
+
+Do not hand-edit `profile.css`, `repo-catalog.json`, or banner SVGs. Regenerate:
+
+```powershell
+pwsh -File d:\novolis\novolis-governance\scripts\Export-GraphicalProfile.ps1
+pwsh -File d:\novolis\novolis-governance\scripts\Upgrade-RepoMarketingReadmes.ps1 -SkipReadmes
+```
 
 ```powershell
 pwsh -File d:\novolis\.github\scripts\Build-PortfolioPages.ps1

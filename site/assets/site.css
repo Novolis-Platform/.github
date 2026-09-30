@@ -1,32 +1,19 @@
-:root {
-  color-scheme: dark;
-  --bg: #080d1c;
-  --panel: #111b31;
-  --panel-2: #172440;
-  --line: #263a60;
-  --text: #f4f7ff;
-  --muted: #9aaecd;
-  --cyan: #2fdfff;
-  --blue: #258bff;
-  --violet: #914bff;
-  --teal: #167c88;
-  --warning: #f0c56a;
-  --danger: #ff8d8d;
-  --shadow: none;
-}
+@import url("profile.css");
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-    --bg: #f5f7fc;
-    --panel: #ffffff;
-    --panel-2: #eef3ff;
-    --line: #d7e0f0;
-    --text: #17213a;
-    --muted: #5b6b86;
-    --warning: #8a5a12;
-    --danger: #c43545;
-  }
+:root {
+  --bg: var(--ngp-background);
+  --panel: var(--ngp-surface);
+  --panel-2: var(--ngp-raised);
+  --line: var(--ngp-border);
+  --text: var(--ngp-text);
+  --muted: var(--ngp-muted);
+  --cyan: var(--ngp-accent);
+  --blue: var(--ngp-accent-fill);
+  --violet: var(--ngp-action);
+  --teal: var(--ngp-action-soft);
+  --warning: var(--ngp-warning);
+  --danger: var(--ngp-danger);
+  --shadow: none;
 }
 
 * {
@@ -42,7 +29,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font-family: "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--ngp-font);
   line-height: 1.55;
 }
 
@@ -500,7 +487,7 @@ h1 {
   border-radius: 14px;
   padding: 0.24rem 0.45rem;
   color: var(--teal);
-  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-family: var(--ngp-font-mono);
   font-size: 0.76rem;
   overflow-wrap: anywhere;
 }
@@ -576,7 +563,7 @@ h1 {
 
 .markdown-body code,
 .markdown-body pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-family: var(--ngp-font-mono);
 }
 
 .markdown-body code {

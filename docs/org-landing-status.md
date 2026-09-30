@@ -28,3 +28,11 @@ Do **not** hand-edit content between:
 Weekly CI: `.github/workflows/refresh-org-landing.yml` (opens a PR when the matrix changes — mainly for new repos/packages and version bumps).
 
 Cursor agents: see workspace skill `novolis-org-landing`.
+
+Profile tokens, repo banners, and `site/repo-catalog.json` are generated — do not hand-edit them:
+
+```powershell
+pwsh -File d:\novolis\novolis-governance\scripts\Export-GraphicalProfile.ps1
+pwsh -File d:\novolis\novolis-governance\scripts\Upgrade-RepoMarketingReadmes.ps1 -SkipReadmes
+pwsh -File d:\novolis\novolis-governance\scripts\verify-graphical-profile.ps1
+```
