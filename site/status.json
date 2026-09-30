@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-09-30 18:25 UTC",
+  "generatedAt": "2026-09-30 18:43 UTC",
   "org": "Novolis-Platform",
   "repoCount": 55,
-  "mergeSuccesses": 44,
+  "mergeSuccesses": 45,
   "packageCount": 427,
-  "failedCount": 15,
+  "failedCount": 14,
   "releasedRepoCount": 9,
   "failures": [
     {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-09-30 18:13 UTC",
-      "title": "Publish failed runs and shipped releases as an org status snapshot.",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36756980114",
+      "when": "2026-09-30 18:26 UTC",
+      "title": "Show org status with marks instead of conclusion words.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36758572339",
       "error": "Process completed with exit code 1."
     },
     {
@@ -33,15 +33,6 @@
       "title": "Update stale third-party packages to current compatible releases.",
       "url": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/36706772855",
       "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-workspaces",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-09-30 11:09 UTC",
-      "title": "Update stale third-party packages to current compatible releases.",
-      "url": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/36706785950",
-      "error": "Process completed with exit code 2."
     },
     {
       "repo": "novolis-agent",
@@ -322,7 +313,7 @@
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/36724047218",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/30882281559",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -413,7 +404,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-economy/actions/runs/36706692591",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-economy/actions/runs/35438810076",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -426,7 +417,7 @@
       "releasePublished": "2026-05-25 17:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/31258567855",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26413560293",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962"
     },
@@ -699,7 +690,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-scheduling/actions/runs/36706751691",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-scheduling/actions/runs/36629225006",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -810,13 +801,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 13,
-      "gprVersion": "2026.1.1.52",
+      "gprVersion": "2026.1.1.53",
       "nugetVersion": "",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36756980114",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36758572339",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -919,8 +910,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/36706785950",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/30774269349",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     }
