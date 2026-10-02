@@ -29,6 +29,26 @@ else {
 $readmePath = if ($ProfileReadme) { (Resolve-Path $ProfileReadme).Path } else { Join-Path $scriptDir '..\profile\README.md' }
 $statusJson = Join-Path $scriptDir '..\site\status.json'
 
+$markupSrc = Join-Path $repoRoot 'novolis-markup\src'
+$markdownProj = Join-Path $markupSrc 'Novolis.Markup.Markdown\Novolis.Markup.Markdown.csproj'
+$renderingProj = Join-Path $markupSrc 'Novolis.Markup.Markdown.Rendering\Novolis.Markup.Markdown.Rendering.csproj'
+if ($cliProject.StartsWith($repoRoot) -and (Test-Path -LiteralPath $markdownProj) -and (Test-Path -LiteralPath $renderingProj)) {
+    $toolsRoot = (Resolve-Path (Join-Path (Split-Path $cliProject -Parent) '..\..\..')).Path
+    $markdownInclude = ($markdownProj -replace '\\', '/')
+    $renderingInclude = ($renderingProj -replace '\\', '/')
+    Write-Host "Wiring novolis-docs to Markup source at $markupSrc"
+    @"
+<Project>
+  <ItemGroup Condition="`$(MSBuildProjectName) == 'Novolis.Tools.Docs' or `$(MSBuildProjectName) == 'Novolis.Tools.Docs.Cli'">
+    <PackageReference Remove="Novolis.Markup.Markdown" />
+    <PackageReference Remove="Novolis.Markup.Markdown.Rendering" />
+    <ProjectReference Include="$markdownInclude" />
+    <ProjectReference Include="$renderingInclude" />
+  </ItemGroup>
+</Project>
+"@ | Set-Content -Path (Join-Path $toolsRoot 'Directory.Build.targets') -Encoding utf8
+}
+
 $argsList = @(
     'run'
     '--project'
