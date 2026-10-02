@@ -1,143 +1,170 @@
 {
-  "generatedAt": "2026-10-02 05:30 UTC",
+  "generatedAt": "2026-10-02 20:31 UTC",
   "org": "Novolis-Platform",
   "repoCount": 55,
-  "mergeSuccesses": 48,
-  "packageCount": 429,
-  "failedCount": 2,
+  "mergeSuccesses": 45,
+  "packageCount": 430,
+  "failedCount": 5,
   "releasedRepoCount": 1,
   "failures": [
     {
-      "repo": "novolis-agent",
+      "repo": "novolis-avalonia",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-02 05:01 UTC",
-      "title": "Stop agent host tests from waiting forever on a line or a listener.",
-      "url": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/36967067519",
-      "error": "Process completed with exit code 2."
+      "when": "2026-10-02 20:27 UTC",
+      "title": "Add Avalonia chrome for paging through a local NDJSON file.",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37060724944",
+      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-apps",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-02 04:56 UTC",
-      "title": "Ship Merglyph Windows and markdown copy/preview.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/36966705707",
-      "error": "Build failed for src/Merglyph/Merglyph/Merglyph.csproj"
+      "when": "2026-10-02 20:26 UTC",
+      "title": "Qualify Path so the Windows drop handler does not bind the wrong type.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37060584081",
+      "error": "AppsManifest.Unit failed"
+    },
+    {
+      "repo": "novolis-maui",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-02 20:25 UTC",
+      "title": "Mark the slice view parent hook as an override.",
+      "url": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/37060533249",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-io",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-02 20:24 UTC",
+      "title": "Benchmark seek and refresh on large NDJSON files.",
+      "url": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37060342583",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-logging",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-02 20:21 UTC",
+      "title": "Append diagnostic journal lines through the shared NDJSON writer.",
+      "url": "https://github.com/Novolis-Platform/novolis-logging/actions/runs/37060092130",
+      "error": "Process completed with exit code 1."
     }
   ],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.46",
-      "published": "2026-10-02 05:17 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.46",
+      "tag": "v2026.1.0.48",
+      "published": "2026-10-02 06:58 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.48",
       "channel": "21 release assets",
       "assets": [
         {
-          "name": "BooksMobile-2026.1.0.46-android.apk",
-          "size": 54205431,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/BooksMobile-2026.1.0.46-android.apk"
+          "name": "BooksMobile-2026.1.0.48-android.apk",
+          "size": 54340798,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/BooksMobile-2026.1.0.48-android.apk"
         },
         {
-          "name": "BooksMobileSetup-2026.1.0.46-win-x64.exe",
-          "size": 70557035,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/BooksMobileSetup-2026.1.0.46-win-x64.exe"
+          "name": "BooksMobileSetup-2026.1.0.48-win-x64.exe",
+          "size": 70556306,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/BooksMobileSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "BooksWriterStudioSetup-2026.1.0.46-win-x64.exe",
-          "size": 57336633,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/BooksWriterStudioSetup-2026.1.0.46-win-x64.exe"
+          "name": "BooksWriterStudioSetup-2026.1.0.48-win-x64.exe",
+          "size": 57330999,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/BooksWriterStudioSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "CadStudio3DSetup-2026.1.0.46-win-x64.exe",
-          "size": 58390448,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/CadStudio3DSetup-2026.1.0.46-win-x64.exe"
+          "name": "CadStudio3DSetup-2026.1.0.48-win-x64.exe",
+          "size": 58387284,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/CadStudio3DSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "DraftStudioSetup-2026.1.0.46-win-x64.exe",
-          "size": 54661008,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/DraftStudioSetup-2026.1.0.46-win-x64.exe"
+          "name": "DraftStudioSetup-2026.1.0.48-win-x64.exe",
+          "size": 54669874,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/DraftStudioSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "LiveStudioSetup-2026.1.0.46-win-x64.exe",
-          "size": 107679200,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/LiveStudioSetup-2026.1.0.46-win-x64.exe"
+          "name": "LiveStudioSetup-2026.1.0.48-win-x64.exe",
+          "size": 107665486,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/LiveStudioSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "Merglyph-2026.1.0.46-android.apk",
-          "size": 43595407,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/Merglyph-2026.1.0.46-android.apk"
+          "name": "Merglyph-2026.1.0.48-android.apk",
+          "size": 43710294,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/Merglyph-2026.1.0.48-android.apk"
         },
         {
-          "name": "MerglyphSetup-2026.1.0.46-win-x64.exe",
-          "size": 86286597,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/MerglyphSetup-2026.1.0.46-win-x64.exe"
+          "name": "MerglyphSetup-2026.1.0.48-win-x64.exe",
+          "size": 86323271,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/MerglyphSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "NovolisPdfReader-2026.1.0.46-android.apk",
-          "size": 39729021,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/NovolisPdfReader-2026.1.0.46-android.apk"
+          "name": "NovolisPdfReader-2026.1.0.48-android.apk",
+          "size": 39835716,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/NovolisPdfReader-2026.1.0.48-android.apk"
         },
         {
-          "name": "NovolisPdfReaderSetup-2026.1.0.46-win-x64.exe",
-          "size": 81427845,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/NovolisPdfReaderSetup-2026.1.0.46-win-x64.exe"
+          "name": "NovolisPdfReaderSetup-2026.1.0.48-win-x64.exe",
+          "size": 81415345,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/NovolisPdfReaderSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "PresenceLedger-2026.1.0.46-android.apk",
-          "size": 32141977,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/PresenceLedger-2026.1.0.46-android.apk"
+          "name": "PresenceLedger-2026.1.0.48-android.apk",
+          "size": 32256943,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/PresenceLedger-2026.1.0.48-android.apk"
         },
         {
-          "name": "PresenceLedgerSetup-2026.1.0.46-win-x64.exe",
-          "size": 56327892,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/PresenceLedgerSetup-2026.1.0.46-win-x64.exe"
+          "name": "PresenceLedgerSetup-2026.1.0.48-win-x64.exe",
+          "size": 56334586,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/PresenceLedgerSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "Reach-2026.1.0.46-android.apk",
-          "size": 32947301,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/Reach-2026.1.0.46-android.apk"
+          "name": "Reach-2026.1.0.48-android.apk",
+          "size": 33033516,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/Reach-2026.1.0.48-android.apk"
         },
         {
-          "name": "Reach-2026.1.0.46-linux-x64.tar.gz",
-          "size": 45771546,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/Reach-2026.1.0.46-linux-x64.tar.gz"
+          "name": "Reach-2026.1.0.48-linux-x64.tar.gz",
+          "size": 45772021,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/Reach-2026.1.0.48-linux-x64.tar.gz"
         },
         {
-          "name": "ReachSetup-2026.1.0.46-win-x64.exe",
-          "size": 74525655,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/ReachSetup-2026.1.0.46-win-x64.exe"
+          "name": "ReachSetup-2026.1.0.48-win-x64.exe",
+          "size": 74533680,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/ReachSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "ReadAloud-2026.1.0.46-android.apk",
-          "size": 47681186,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/ReadAloud-2026.1.0.46-android.apk"
+          "name": "ReadAloud-2026.1.0.48-android.apk",
+          "size": 47804265,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/ReadAloud-2026.1.0.48-android.apk"
         },
         {
-          "name": "ReadAloudSetup-2026.1.0.46-win-x64.exe",
-          "size": 68696195,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/ReadAloudSetup-2026.1.0.46-win-x64.exe"
+          "name": "ReadAloudSetup-2026.1.0.48-win-x64.exe",
+          "size": 68707324,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/ReadAloudSetup-2026.1.0.48-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
           "size": 2117,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/SHA256SUMS.txt"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/SHA256SUMS.txt"
         },
         {
-          "name": "ShipDesignerSetup-2026.1.0.46-win-x64.exe",
-          "size": 54770638,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/ShipDesignerSetup-2026.1.0.46-win-x64.exe"
+          "name": "ShipDesignerSetup-2026.1.0.48-win-x64.exe",
+          "size": 54777341,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/ShipDesignerSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "SinsOfACapitalismTycoonSetup-2026.1.0.46-win-x64.exe",
-          "size": 53763484,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/SinsOfACapitalismTycoonSetup-2026.1.0.46-win-x64.exe"
+          "name": "SinsOfACapitalismTycoonSetup-2026.1.0.48-win-x64.exe",
+          "size": 53759385,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/SinsOfACapitalismTycoonSetup-2026.1.0.48-win-x64.exe"
         },
         {
-          "name": "SketchStudioSetup-2026.1.0.46-win-x64.exe",
-          "size": 53414290,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.46/SketchStudioSetup-2026.1.0.46-win-x64.exe"
+          "name": "SketchStudioSetup-2026.1.0.48-win-x64.exe",
+          "size": 53410876,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.48/SketchStudioSetup-2026.1.0.48-win-x64.exe"
         }
       ]
     }
@@ -172,13 +199,13 @@
     {
       "name": "novolis-agent",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.24",
-      "nugetVersion": "",
+      "gprVersion": "2026.1.1.31",
+      "nugetVersion": "2026.1.1.31",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/36967067519",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/37057610066",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -200,13 +227,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.46",
-      "releasePublished": "2026-10-02 05:17 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.46",
+      "releaseTag": "v2026.1.0.48",
+      "releasePublished": "2026-10-02 06:58 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.48",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/36966705707",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37060584081",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/36967896284"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/36975763029"
     },
     {
       "name": "novolis-aspire",
@@ -243,20 +270,20 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-audio/releases/tag/v2026.1.10",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/36943000731",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/30755285102",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/30392209335"
     },
     {
       "name": "novolis-avalonia",
       "packageCount": 40,
-      "gprVersion": "2026.1.6.194",
-      "nugetVersion": "2026.1.6.194",
+      "gprVersion": "2026.1.6.196",
+      "nugetVersion": "2026.1.6.196",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/36801456976",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37060724944",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -308,7 +335,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-codegen/actions/runs/36801413205",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-codegen/actions/runs/35512805530",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -360,7 +387,7 @@
       "releasePublished": "2026-05-25 17:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/36801433001",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/36698237878",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962"
     },
@@ -393,7 +420,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.68",
+      "gprVersion": "2026.1.1.70",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -405,14 +432,14 @@
     },
     {
       "name": "novolis-io",
-      "packageCount": 11,
-      "gprVersion": "2026.1.1.35",
-      "nugetVersion": "2026.1.1.35",
+      "packageCount": 12,
+      "gprVersion": "2026.1.1.36",
+      "nugetVersion": "2026.1.1.36",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/36801442692",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37060342583",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -437,8 +464,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-logging/actions/runs/36801446306",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-logging/actions/runs/37060092130",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -458,7 +485,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.68",
+      "gprVersion": "2026.1.1.70",
       "nugetVersion": "2026.1.1.37",
       "releaseTag": "",
       "releasePublished": "",
@@ -484,39 +511,39 @@
     {
       "name": "novolis-markup",
       "packageCount": 10,
-      "gprVersion": "2026.1.1.57",
-      "nugetVersion": "2026.1.1.57",
+      "gprVersion": "2026.1.1.61",
+      "nugetVersion": "2026.1.1.61",
       "releaseTag": "v0.1.0-preview.1",
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/36966656289",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/37054339459",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980"
     },
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.46",
-      "nugetVersion": "2026.1.1.46",
+      "gprVersion": "2026.1.1.47",
+      "nugetVersion": "2026.1.1.47",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/36801473701",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37060088324",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
     {
       "name": "novolis-maui",
       "packageCount": 7,
-      "gprVersion": "2026.1.1.33",
-      "nugetVersion": "2026.1.1.33",
+      "gprVersion": "2026.1.1.36",
+      "nugetVersion": "2026.1.1.36",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/36966678645",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/37060533249",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -672,7 +699,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/36801531688",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/31267851279",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -724,7 +751,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-templates/actions/runs/36942723117",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-templates/actions/runs/31267868838",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -744,13 +771,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 15,
-      "gprVersion": "2026.1.1.68",
+      "gprVersion": "2026.1.1.70",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943582010",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/37058938300",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },

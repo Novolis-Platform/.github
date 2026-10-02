@@ -104,6 +104,9 @@ jobs:
         run: pwsh -File scripts/Update-OrgLandingStatus.ps1
 
       - name: Commit status when it changed
+        env:
+          # GITHUB_TOKEN cannot bypass Protect main. An org-admin token can.
+          PUSH_TOKEN: ${{ secrets.NOVOLIS_LANDING_TOKEN != '' && secrets.NOVOLIS_LANDING_TOKEN || github.token }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -113,4 +116,4 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh org landing release status."
-          git push origin HEAD:main
+          git push "https://x-access-token:${PUSH_TOKEN}@github.com/Novolis-Platform/.github.git" HEAD:main
