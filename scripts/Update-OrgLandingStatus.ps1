@@ -33,7 +33,7 @@ $markupSrc = Join-Path $repoRoot 'novolis-markup\src'
 $markdownProj = Join-Path $markupSrc 'Novolis.Markup.Markdown\Novolis.Markup.Markdown.csproj'
 $renderingProj = Join-Path $markupSrc 'Novolis.Markup.Markdown.Rendering\Novolis.Markup.Markdown.Rendering.csproj'
 if ($cliProject.StartsWith($repoRoot) -and (Test-Path -LiteralPath $markdownProj) -and (Test-Path -LiteralPath $renderingProj)) {
-    $toolsRoot = (Resolve-Path (Join-Path (Split-Path $cliProject -Parent) '..\..\..')).Path
+    $toolsRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $cliProject))
     $markdownInclude = ($markdownProj -replace '\\', '/')
     $renderingInclude = ($renderingProj -replace '\\', '/')
     Write-Host "Wiring novolis-docs to Markup source at $markupSrc"
