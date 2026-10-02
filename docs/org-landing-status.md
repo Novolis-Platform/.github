@@ -21,8 +21,8 @@ Do **not** hand-edit content between:
 
 1. Lists public non-archived org repos and their `.github/workflows/*`
 2. Records the latest completed `merge.yml` and `release.yml` run that was not cancelled only because a newer run superseded it. Libraries publish packages from merge, so Failed lists that merge when it failed or was cancelled. Apps publish APKs and installers from release, so a failed app release is listed too. Shipped lists an app GitHub Release only when it published assets. A library tag with no installers is not a ship.
-3. Records the latest GitHub Release per repository, plus the highest GPR and nuget.org versions
-4. Writes that snapshot to `site/status.json` and into `profile/README.md` as failed runs, shipped releases, and the inventory
+3. Records the latest GitHub Release per repository, the downloadable assets on shipped app releases, plus the highest GPR and nuget.org versions
+4. Writes that snapshot to `site/status.json` and into `profile/README.md` as failed runs, shipped releases, latest app downloads, and the inventory
 
 Daily CI: `.github/workflows/refresh-org-landing.yml` pushes `main` when the snapshot changes. The portfolio site rebuild (`pages.yml`) renders the same JSON.
 

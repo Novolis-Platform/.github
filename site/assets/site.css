@@ -360,6 +360,7 @@ h1 {
 
 .repo-meta span,
 .repo-meta a.docs-count,
+.repo-meta a.status-chip,
 .topic-row span,
 .doc-card-tags span {
   border: 1px solid var(--line);
@@ -393,9 +394,14 @@ h1 {
   color: inherit;
 }
 
-.repo-meta a.docs-count {
+.repo-meta a.docs-count,
+.repo-meta a.status-chip:hover {
   color: var(--cyan);
   border-color: var(--cyan);
+}
+
+.repo-meta a.status-chip {
+  text-decoration: none;
 }
 
 .doc-card-tags {
@@ -681,10 +687,22 @@ h1 {
   font-size: var(--ngp-debug-size);
 }
 
-.status-stamp {
+.status-stamp,
+.download-source,
+.download-checksums {
   margin: 0.8rem 0 0;
   color: var(--muted);
   font-size: var(--ngp-caption-size);
+}
+
+.download-source a,
+.download-checksums a,
+.download-table a {
+  font-weight: 700;
+}
+
+.download-table {
+  margin-top: 0.6rem;
 }
 
 .article-actions {
