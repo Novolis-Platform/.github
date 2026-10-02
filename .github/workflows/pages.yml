@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      # Status refresh commits. The docs home reads site/status.json when it opens.
+      - profile/README.md
+      - site/status.json
   schedule:
     # Re-ingest docs/ and release status even when .github itself is quiet.
     - cron: '17 6 * * *'

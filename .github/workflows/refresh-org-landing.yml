@@ -2,9 +2,17 @@ name: Refresh org landing status
 
 on:
   schedule:
-    # Hourly — the docs home also rechecks listed failures in the browser.
-    - cron: '15 * * * *'
+    # Daily backup. Merge and release workflows also dispatch landing-status.
+    - cron: '15 6 * * *'
   workflow_dispatch:
+    inputs:
+      source:
+        description: Repository that asked for a refresh
+        required: false
+        type: string
+        default: ''
+  repository_dispatch:
+    types: [landing-status]
 
 permissions:
   contents: write
@@ -26,8 +34,16 @@ jobs:
           repository: Novolis-Platform/novolis-tools
           path: novolis-tools
 
+      - name: Note who asked
+        shell: bash
+        env:
+          DISPATCH_REPO: ${{ github.event.client_payload.repository }}
+          DISPATCH_RUN: ${{ github.event.client_payload.html_url }}
+          INPUT_SOURCE: ${{ inputs.source }}
+        run: echo "Refresh requested by ${DISPATCH_REPO:-${INPUT_SOURCE:-$GITHUB_EVENT_NAME}} ${DISPATCH_RUN:-}"
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: Novolis-Platform/novolis-workflows/actions/setup-dotnet@main
         with:
           dotnet-version: '10.0.x'
 
