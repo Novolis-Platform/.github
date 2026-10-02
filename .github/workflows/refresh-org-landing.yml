@@ -2,8 +2,8 @@ name: Refresh org landing status
 
 on:
   schedule:
-    # Daily 06:15 UTC — release failures and published releases.
-    - cron: '15 6 * * *'
+    # Hourly — the docs home also rechecks listed failures in the browser.
+    - cron: '15 * * * *'
   workflow_dispatch:
 
 permissions:
