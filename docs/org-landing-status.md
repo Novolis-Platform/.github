@@ -24,7 +24,7 @@ Do **not** hand-edit content between:
 3. Records the latest GitHub Release per repository, the downloadable assets on shipped app releases, plus the highest GPR and nuget.org versions
 4. Writes that snapshot to `site/status.json` and into `profile/README.md` as failed runs, shipped releases, latest app downloads, and the inventory
 
-Merge and release workflows call `dispatch-org-landing`, which sends `repository_dispatch` `landing-status` to this repo. That needs organization secret `NOVOLIS_LANDING_TOKEN` (Actions: write on `Novolis-Platform/.github`), or `NOVOLIS_GPR_TOKEN` with the same access, available to the repositories that run those workflows. `refresh-org-landing.yml` then rewrites `site/status.json`. A commit that only changes that file does not rebuild the docs site. The docs home reads `site/status.json` from `main` when the page opens. The daily schedule is the backup when no workflow asked.
+Merge and release workflows call `dispatch-org-landing`, which sends `repository_dispatch` `landing-status` to this repo. That needs organization secret `NOVOLIS_LANDING_TOKEN` (Actions: write on `Novolis-Platform/.github`), or `NOVOLIS_GPR_TOKEN` with the same access, available to the repositories that run those workflows. `refresh-org-landing.yml` then rewrites `site/status.json`. A commit that only changes that file does not rebuild the docs site. When the docs home opens, `site/assets/site.js` loads `site/status.json` from `main` and then replaces the failed list and the merge and release marks with the current check suites from the GitHub GraphQL API. The daily schedule is the backup when no workflow asked.
 
 Cursor agents: see workspace skill `novolis-org-landing`.
 
