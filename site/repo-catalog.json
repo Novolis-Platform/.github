@@ -387,14 +387,25 @@
       "novolis"
     ]
   },
+  "novolis-reach": {
+    "tag": "Remote interactive desktop",
+    "blurb": "Protocol, transport, headless client, and Windows host libraries for Reach.",
+    "desc": "Headless Reach libraries — protocol, transport, client session, and Windows host.",
+    "topics": [
+      "dotnet",
+      "remote-desktop",
+      "novolis"
+    ]
+  },
   "novolis-registry": {
-    "tag": "Static package & app catalog",
-    "blurb": "Static registry of Novolis packages and apps.",
-    "desc": "Static package and app registry for the Novolis ecosystem.",
+    "tag": "Registry contracts and providers",
+    "blurb": "Provider-neutral catalog primitives, services, and GitHub integration.",
+    "desc": "Registry contracts and provider adapters for Novolis package and application catalogs.",
     "topics": [
       "dotnet",
       "nuget",
       "registry",
+      "github",
       "novolis"
     ]
   },
