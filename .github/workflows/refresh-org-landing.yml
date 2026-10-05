@@ -22,7 +22,7 @@ permissions:
 
 concurrency:
   group: refresh-org-landing
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh:
