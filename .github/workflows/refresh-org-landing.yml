@@ -1,6 +1,8 @@
 name: Refresh org landing status
 
 on:
+  push:
+    branches: [landing-refresh]
   schedule:
     # Daily backup. Merge and release workflows also dispatch landing-status.
     - cron: '15 6 * * *'
@@ -27,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Checkout novolis-tools (novolis-docs org-readme)
         uses: actions/checkout@v7
@@ -105,9 +109,10 @@ jobs:
 
       - name: Commit status when it changed
         env:
-          # GITHUB_TOKEN cannot bypass Protect main. An org-admin token can.
+          # Write deploy key (NOVOLIS_LANDING_TOKEN) bypasses Protect main. GITHUB_TOKEN cannot.
           PUSH_TOKEN: ${{ secrets.NOVOLIS_LANDING_TOKEN != '' && secrets.NOVOLIS_LANDING_TOKEN || github.token }}
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add profile/README.md site/status.json
@@ -116,4 +121,15 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh org landing release status."
-          git push "https://x-access-token:${PUSH_TOKEN}@github.com/Novolis-Platform/.github.git" HEAD:main
+          if printf '%s' "$PUSH_TOKEN" | grep -q 'BEGIN .*PRIVATE KEY'; then
+            key="$RUNNER_TEMP/novolis-landing-push"
+            printf '%s' "$PUSH_TOKEN" | tr -d '\r' > "$key"
+            printf '\n' >> "$key"
+            chmod 600 "$key"
+            export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+            git remote set-url origin git@github.com:Novolis-Platform/.github.git
+            git push origin HEAD:main
+            rm -f "$key"
+          else
+            git push "https://x-access-token:${PUSH_TOKEN}@github.com/Novolis-Platform/.github.git" HEAD:main
+          fi
