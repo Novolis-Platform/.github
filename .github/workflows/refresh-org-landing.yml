@@ -36,12 +36,16 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: Novolis-Platform/novolis-tools
+          # Pin the branch so checkout does not call the repos API for the default branch.
+          ref: main
           path: novolis-tools
 
       - name: Checkout novolis-markup (Markdown HTML renderer)
         uses: actions/checkout@v7
         with:
           repository: Novolis-Platform/novolis-markup
+          # Pin the branch so checkout does not call the repos API for the default branch.
+          ref: main
           path: novolis-markup
           sparse-checkout: |
             src/Novolis.Markup.Html
