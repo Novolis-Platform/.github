@@ -1,20 +1,29 @@
 {
-  "generatedAt": "2026-10-05 19:08 UTC",
+  "generatedAt": "2026-10-05 19:16 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 52,
   "packageCount": 447,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
     {
-      "repo": "novolis-lab",
+      "repo": "novolis-avalonia",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-05 16:19 UTC",
-      "title": "Add FrankMoat as a loaded-style top-down range lab.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37339883958",
-      "error": ""
+      "when": "2026-10-05 19:08 UTC",
+      "title": "Compose TwoD and 3D OpenGL through Novolis.Silk.Runtime instead of Si\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
+      "error": "\u0027TwoDScene\u0027 does not contain a definition for \u0027Tessellate\u0027 and no accessible extension method \u0027Tessellate\u0027 accepting a first argument of type \u0027TwoDScene\u0027 could be found (are you mi\u2026"
+    },
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "cancelled",
+      "when": "2026-10-05 19:08 UTC",
+      "title": "Compose GLFW labs through Novolis.Silk tessellate and blit.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361283462",
+      "error": "The name \u0027TwoDPngLoader\u0027 does not exist in the current context"
     }
   ],
   "releases": [
@@ -221,13 +230,13 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.37",
+      "gprVersion": "2026.1.1.38",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-analyzers/releases/tag/v2026.1.1.2",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/37339885311",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/37361237401",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/36942752103"
     },
@@ -240,7 +249,7 @@
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37339376260",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37361305489",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
@@ -291,8 +300,8 @@
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37226957302",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -389,7 +398,7 @@
     },
     {
       "name": "novolis-economy",
-      "packageCount": 14,
+      "packageCount": 13,
       "gprVersion": "2026.1.0.54",
       "nugetVersion": "2026.1.0.54",
       "releaseTag": "",
@@ -473,8 +482,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37339883958",
+      "mergeConclusion": "cancelled",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361283462",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -663,13 +672,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 17,
-      "gprVersion": "2026.1.1.73",
-      "nugetVersion": "2026.1.1.73",
+      "gprVersion": "2026.1.1.75",
+      "nugetVersion": "2026.1.1.74",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37339920761",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37361240108",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -715,13 +724,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.1",
-      "nugetVersion": "2026.1.1.1",
+      "gprVersion": "2026.1.1.2",
+      "nugetVersion": "2026.1.1.2",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "",
-      "mergeUrl": "",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37361209115",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -922,8 +931,8 @@
     },
     {
       "name": "novolis-workspaces",
-      "packageCount": 20,
-      "gprVersion": "2026.1.2.40",
+      "packageCount": 21,
+      "gprVersion": "2026.1.2.41",
       "nugetVersion": "2026.1.2.40",
       "releaseTag": "",
       "releasePublished": "",
