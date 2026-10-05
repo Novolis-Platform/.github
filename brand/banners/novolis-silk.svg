@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Novolis silk">
+  <rect width="1200" height="320" fill="#010D18"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#2FDFFF"/>
+  <text x="56" y="118" fill="#2FDFFF" font-family="Segoe UI, Candara, Calibri, sans-serif" font-size="28" font-weight="bold" letter-spacing="2.2">NOVOLIS</text>
+  <text x="56" y="188" fill="#E6FBFF" font-family="Segoe UI, Candara, Calibri, sans-serif" font-size="64" font-weight="700">silk</text>
+  <text x="56" y="248" fill="#2AA5FF" font-family="Segoe UI, Candara, Calibri, sans-serif" font-size="26">Silk.NET GLFW and OpenGL island</text>
+  <rect x="56" y="280" width="180" height="4" rx="2" fill="#237CFF"/>
+</svg>
