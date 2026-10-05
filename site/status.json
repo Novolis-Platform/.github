@@ -1,12 +1,39 @@
 {
-  "generatedAt": "2026-10-05 19:19 UTC",
+  "generatedAt": "2026-10-05 20:32 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 52,
+  "mergeSuccesses": 50,
   "packageCount": 447,
-  "failedCount": 2,
+  "failedCount": 4,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-05 19:46 UTC",
+      "title": "Bake appearance recipes in Frank Moat and dump Silk captures.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37365540784",
+      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
+    },
+    {
+      "repo": "novolis-rendering",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-05 19:46 UTC",
+      "title": "Add declarative appearance stacks and world-UV textured polygons.",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
+      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
+    },
+    {
+      "repo": "novolis-silk",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-05 19:46 UTC",
+      "title": "Allow Silk hosts to close after capture and dump frames as PPM.",
+      "url": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37365543654",
+      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
+    },
     {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
@@ -15,15 +42,6 @@
       "title": "Compose TwoD and 3D OpenGL through Novolis.Silk.Runtime instead of Si\u2026",
       "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
       "error": "\u0027TwoDScene\u0027 does not contain a definition for \u0027Tessellate\u0027 and no accessible extension method \u0027Tessellate\u0027 accepting a first argument of type \u0027TwoDScene\u0027 could be found (are you mi\u2026"
-    },
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "cancelled",
-      "when": "2026-10-05 19:08 UTC",
-      "title": "Compose GLFW labs through Novolis.Silk tessellate and blit.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361283462",
-      "error": "The name \u0027TwoDPngLoader\u0027 does not exist in the current context"
     }
   ],
   "releases": [
@@ -217,7 +235,7 @@
     {
       "name": "novolis-agent",
       "packageCount": 3,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8D13:9C7B2:1DC5423:64EDAE2:6AC3F859 and timestamp 2026-10-05 19:19:53 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.33",
       "nugetVersion": "2026.1.1.33",
       "releaseTag": "",
       "releasePublished": "",
@@ -230,7 +248,7 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 6,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8D05:3C2327:1E2E112:65BE02F:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.38",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
@@ -256,7 +274,7 @@
     {
       "name": "novolis-aspire",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CBA:39A96C:1DB0BD6:63FE596:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.27",
       "nugetVersion": "2026.1.1.27",
       "releaseTag": "",
       "releasePublished": "",
@@ -379,7 +397,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-commands/actions/runs/37207723609",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-commands/actions/runs/31267792040",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -451,7 +469,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.78",
+      "gprVersion": "2026.1.1.79",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -482,8 +500,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "cancelled",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361283462",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37365540784",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -516,7 +534,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.78",
+      "gprVersion": "2026.1.1.79",
       "nugetVersion": "2026.1.1.42",
       "releaseTag": "",
       "releasePublished": "",
@@ -529,7 +547,7 @@
     {
       "name": "novolis-mapping",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CAD:3C2327:1E2E32B:65BE7FA:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.9",
       "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
@@ -673,19 +691,19 @@
       "name": "novolis-rendering",
       "packageCount": 17,
       "gprVersion": "2026.1.1.75",
-      "nugetVersion": "2026.1.1.74",
+      "nugetVersion": "2026.1.1.75",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37361897899",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-scheduling",
       "packageCount": 2,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CFB:7348E:1EAF9FC:67E2F31:6AC3F857 and timestamp 2026-10-05 19:19:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.9",
       "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
@@ -724,13 +742,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.2",
+      "gprVersion": "2026.1.1.3",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37361209115",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37365543654",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -789,7 +807,7 @@
     {
       "name": "novolis-templates",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8C92:7348E:1EB179C:67E9340:6AC3F85B and timestamp 2026-10-05 19:19:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.31",
       "nugetVersion": "2026.1.1.31",
       "releaseTag": "",
       "releasePublished": "",
@@ -828,13 +846,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 17,
-      "gprVersion": "2026.1.1.78",
+      "gprVersion": "2026.1.1.79",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/37218928388",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/37362907439",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
@@ -933,7 +951,7 @@
       "name": "novolis-workspaces",
       "packageCount": 20,
       "gprVersion": "2026.1.2.41",
-      "nugetVersion": "2026.1.2.40",
+      "nugetVersion": "2026.1.2.41",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
