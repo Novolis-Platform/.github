@@ -441,6 +441,18 @@
       "novolis"
     ]
   },
+  "novolis-silk": {
+    "tag": "Closed Silk.NET island",
+    "blurb": "GLFW, OpenGL, input, planar quad batch, blit, and Shaderc. Does not reference Rendering.",
+    "desc": "Novolis Silk — the only repo that may reference Silk.NET. Apps and Avalonia compose with Rendering through Math.",
+    "topics": [
+      "dotnet",
+      "opengl",
+      "glfw",
+      "gamedev",
+      "novolis"
+    ]
+  },
   "novolis-simulation": {
     "tag": "Worlds, clocks, humanoids",
     "blurb": "Simulation orchestration above physics — humanoids, kinematics, space combat.",
