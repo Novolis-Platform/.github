@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05 19:16 UTC",
+  "generatedAt": "2026-10-05 19:19 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 52,
@@ -217,7 +217,7 @@
     {
       "name": "novolis-agent",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.33",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8D13:9C7B2:1DC5423:64EDAE2:6AC3F859 and timestamp 2026-10-05 19:19:53 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.33",
       "releaseTag": "",
       "releasePublished": "",
@@ -230,7 +230,7 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.38",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8D05:3C2327:1E2E112:65BE02F:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
@@ -256,7 +256,7 @@
     {
       "name": "novolis-aspire",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.27",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CBA:39A96C:1DB0BD6:63FE596:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.27",
       "releaseTag": "",
       "releasePublished": "",
@@ -398,7 +398,7 @@
     },
     {
       "name": "novolis-economy",
-      "packageCount": 13,
+      "packageCount": 14,
       "gprVersion": "2026.1.0.54",
       "nugetVersion": "2026.1.0.54",
       "releaseTag": "",
@@ -529,7 +529,7 @@
     {
       "name": "novolis-mapping",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.9",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CAD:3C2327:1E2E32B:65BE7FA:6AC3F858 and timestamp 2026-10-05 19:19:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
@@ -678,14 +678,14 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37361240108",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37361897899",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-scheduling",
       "packageCount": 2,
-      "gprVersion": "2026.1.1.9",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8CFB:7348E:1EAF9FC:67E2F31:6AC3F857 and timestamp 2026-10-05 19:19:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
@@ -789,7 +789,7 @@
     {
       "name": "novolis-templates",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.31",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 8C92:7348E:1EB179C:67E9340:6AC3F85B and timestamp 2026-10-05 19:19:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.31",
       "releaseTag": "",
       "releasePublished": "",
@@ -931,14 +931,14 @@
     },
     {
       "name": "novolis-workspaces",
-      "packageCount": 21,
+      "packageCount": 20,
       "gprVersion": "2026.1.2.41",
       "nugetVersion": "2026.1.2.40",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/37213182904",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workspaces/actions/runs/37361902941",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     }
