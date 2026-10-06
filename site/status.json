@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-06 13:16 UTC",
+  "generatedAt": "2026-10-06 17:05 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 54,
-  "packageCount": 448,
+  "packageCount": 471,
   "failedCount": 0,
   "releasedRepoCount": 1,
   "failures": [],
@@ -262,7 +262,7 @@
     },
     {
       "name": "novolis-audio",
-      "packageCount": 44,
+      "packageCount": 45,
       "gprVersion": "2026.1.10.97",
       "nugetVersion": "2026.1.10.97",
       "releaseTag": "v2026.1.10",
@@ -275,7 +275,7 @@
     },
     {
       "name": "novolis-avalonia",
-      "packageCount": 36,
+      "packageCount": 42,
       "gprVersion": "2026.1.6.230",
       "nugetVersion": "2026.1.6.230",
       "releaseTag": "0.1",
@@ -308,15 +308,15 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/36942387488",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/37207120705",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-chat",
-      "packageCount": 0,
-      "gprVersion": "",
-      "nugetVersion": "",
+      "packageCount": 4,
+      "gprVersion": "2026.1.2.13",
+      "nugetVersion": "2026.1.2.13",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -340,7 +340,7 @@
     },
     {
       "name": "novolis-codegen",
-      "packageCount": 6,
+      "packageCount": 8,
       "gprVersion": "2026.1.2.50",
       "nugetVersion": "2026.1.2.50",
       "releaseTag": "",
@@ -353,7 +353,7 @@
     },
     {
       "name": "novolis-commands",
-      "packageCount": 5,
+      "packageCount": 6,
       "gprVersion": "2026.1.1.39",
       "nugetVersion": "2026.1.1.39",
       "releaseTag": "",
@@ -451,7 +451,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37079251549",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37231653534",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -503,7 +503,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/31340410706",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/37207757190",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -522,7 +522,7 @@
     },
     {
       "name": "novolis-markup",
-      "packageCount": 9,
+      "packageCount": 10,
       "gprVersion": "2026.1.1.63",
       "nugetVersion": "2026.1.1.63",
       "releaseTag": "v0.1.0-preview.1",
@@ -542,7 +542,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37358898011",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37084082103",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
@@ -613,7 +613,7 @@
     },
     {
       "name": "novolis-physics",
-      "packageCount": 11,
+      "packageCount": 12,
       "gprVersion": "2026.1.1.49",
       "nugetVersion": "2026.1.1.49",
       "releaseTag": "",
@@ -659,7 +659,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/30773342599",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -724,7 +724,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/30764667409",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/37207218538",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -737,7 +737,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-smoketest/actions/runs/37207221469",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-smoketest/actions/runs/30494345766",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -789,7 +789,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/36801550874",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/37270076020",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },

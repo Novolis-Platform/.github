@@ -44,7 +44,8 @@
     try {
       const response = await fetch(
         'https://img.shields.io/github/actions/workflow/status/'
-        + encodeURIComponent(org) + '/' + encodeURIComponent(repo) + '/merge.yml.json');
+        + encodeURIComponent(org) + '/' + encodeURIComponent(repo)
+        + '/merge.yml.json?branch=main');
       if (response.ok) {
         const body = await response.json();
         message = body && body.message ? body.message : '';
