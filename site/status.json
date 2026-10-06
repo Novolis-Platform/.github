@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06 04:50 UTC",
+  "generatedAt": "2026-10-06 13:16 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 54,
@@ -277,7 +277,7 @@
       "name": "novolis-avalonia",
       "packageCount": 36,
       "gprVersion": "2026.1.6.230",
-      "nugetVersion": "2026.1.6.229",
+      "nugetVersion": "2026.1.6.230",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
@@ -308,7 +308,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/37207120705",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/36942387488",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -451,7 +451,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37231653534",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/37079251549",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -464,7 +464,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361896426",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37416098398",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -503,7 +503,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/37207757190",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/31340410706",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -654,12 +654,12 @@
       "name": "novolis-rendering",
       "packageCount": 18,
       "gprVersion": "2026.1.1.76",
-      "nugetVersion": "2026.1.1.75",
+      "nugetVersion": "2026.1.1.76",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/30773342599",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -724,7 +724,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/37207218538",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/30764667409",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -789,7 +789,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/37270076020",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/36801550874",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
