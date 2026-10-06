@@ -69,15 +69,38 @@
       return null;
     }
     if (message !== 'failing' && message !== 'cancelled') return null;
-    if (meta) meta.appendChild(statusChip(href, 'fail', message === 'cancelled' ? 'Merge cancelled' : 'Merge failed'));
+
+    // Shields keeps a failing badge after main has already passed. Confirm the newest run.
+    const run = await latestMainRun(org, repo);
+    if (!run || run.conclusion === 'success') {
+      if (meta) meta.appendChild(statusChip(href, 'ok', 'Merge passed'));
+      return null;
+    }
+    if (run.conclusion !== 'failure' && run.conclusion !== 'cancelled') return null;
+    const cancelled = run.conclusion === 'cancelled';
+    if (meta) meta.appendChild(statusChip(run.html_url || href, 'fail', cancelled ? 'Merge cancelled' : 'Merge failed'));
     return {
       repo: repo,
       workflow: 'merge.yml',
-      conclusion: message === 'cancelled' ? 'cancelled' : 'failure',
+      conclusion: run.conclusion,
       when: 'latest',
-      url: href,
-      error: 'Latest merge workflow is ' + message + '.'
+      url: run.html_url || href,
+      error: 'Latest merge workflow is ' + run.conclusion + '.'
     };
+  }
+
+  async function latestMainRun(org, repo) {
+    try {
+      const response = await fetch(
+        'https://api.github.com/repos/' + encodeURIComponent(org) + '/' + encodeURIComponent(repo)
+        + '/actions/workflows/merge.yml/runs?branch=main&per_page=1');
+      if (!response.ok) return null;
+      const body = await response.json();
+      const run = body && body.workflow_runs && body.workflow_runs[0];
+      return run || null;
+    } catch {
+      return null;
+    }
   }
 
   function statusChip(href, kind, label) {
