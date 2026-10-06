@@ -1,49 +1,12 @@
 {
-  "generatedAt": "2026-10-05 20:32 UTC",
+  "generatedAt": "2026-10-06 04:47 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 50,
-  "packageCount": 447,
-  "failedCount": 4,
+  "mergeSuccesses": 54,
+  "packageCount": 448,
+  "failedCount": 0,
   "releasedRepoCount": 1,
-  "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-05 19:46 UTC",
-      "title": "Bake appearance recipes in Frank Moat and dump Silk captures.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37365540784",
-      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
-    },
-    {
-      "repo": "novolis-rendering",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-05 19:46 UTC",
-      "title": "Add declarative appearance stacks and world-UV textured polygons.",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
-      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
-    },
-    {
-      "repo": "novolis-silk",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-05 19:46 UTC",
-      "title": "Allow Silk hosts to close after capture and dump frames as PPM.",
-      "url": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37365543654",
-      "error": "The job was not acquired by Runner of type hosted even after multiple attempts"
-    },
-    {
-      "repo": "novolis-avalonia",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-05 19:08 UTC",
-      "title": "Compose TwoD and 3D OpenGL through Novolis.Silk.Runtime instead of Si\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
-      "error": "\u0027TwoDScene\u0027 does not contain a definition for \u0027Tessellate\u0027 and no accessible extension method \u0027Tessellate\u0027 accepting a first argument of type \u0027TwoDScene\u0027 could be found (are you mi\u2026"
-    }
-  ],
+  "failures": [],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -318,8 +281,8 @@
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37226957302",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -397,7 +360,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-commands/actions/runs/31267792040",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-commands/actions/runs/37207723609",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -500,8 +463,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37365540784",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37361896426",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -689,14 +652,14 @@
     },
     {
       "name": "novolis-rendering",
-      "packageCount": 17,
-      "gprVersion": "2026.1.1.75",
+      "packageCount": 18,
+      "gprVersion": "2026.1.1.76",
       "nugetVersion": "2026.1.1.75",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37361897899",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -747,7 +710,7 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
+      "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/37365543654",
       "releaseConclusion": "",
       "releaseRunUrl": ""
