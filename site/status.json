@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06 17:11 UTC",
+  "generatedAt": "2026-10-07 13:16 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 54,
@@ -256,7 +256,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-astro/actions/runs/37084082579",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-astro/actions/runs/37207097186",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -464,7 +464,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37416098398",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37578033157",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -503,7 +503,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/36801455247",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/37207757190",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -542,7 +542,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37358898011",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37207172168",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
