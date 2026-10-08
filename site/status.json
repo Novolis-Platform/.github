@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07 13:16 UTC",
+  "generatedAt": "2026-10-08 13:23 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 54,
@@ -542,7 +542,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37207172168",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37358898011",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
