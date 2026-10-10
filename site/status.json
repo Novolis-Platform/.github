@@ -1,12 +1,67 @@
 {
-  "generatedAt": "2026-10-10 12:26 UTC",
+  "generatedAt": "2026-10-10 13:21 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 54,
+  "mergeSuccesses": 48,
   "packageCount": 448,
-  "failedCount": 0,
+  "failedCount": 6,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-3d",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Rename the ThreeD packages to Modeling so scene and import ids match \u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-3d/actions/runs/38055264896",
+      "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-avalonia",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Rename the ThreeD host library to Modeling and the TwoD viewport chro\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38055252744",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-cad",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Bridge CAD scenes through Modeling instead of the retired ThreeD pack\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/38055254692",
+      "error": "The type or namespace name \u0027SceneDocument\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-gaming",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Add Game.Scenes so hosts compose planar play without owning heightfie\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/38055256671",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-rendering",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Rename the TwoD package to Planar and add wall and sprite composition\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/38055267144",
+      "error": "The type or namespace name \u0027PlanarPrism\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-simulation",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Drop view cameras and named bone weights that now live in Math and Re\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/38055271345",
+      "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -190,8 +245,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-3d/actions/runs/37207078877",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-3d/actions/runs/38055264896",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -211,13 +266,13 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.38",
+      "gprVersion": "2026.1.1.39",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-analyzers/releases/tag/v2026.1.1.2",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/37361237401",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/38055249043",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/36942752103"
     },
@@ -281,8 +336,8 @@
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/37361261440",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38055252744",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -307,8 +362,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/37207120705",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/38055254692",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -398,8 +453,8 @@
       "releaseTag": "2026.1.1.0",
       "releasePublished": "2026-05-25 17:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-gaming/releases/tag/2026.1.1.0",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/37207144982",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/38055256671",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/26412918962"
     },
@@ -536,13 +591,13 @@
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.57",
+      "gprVersion": "2026.1.1.58",
       "nugetVersion": "2026.1.1.57",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/37358898011",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/38055262930",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
@@ -658,8 +713,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/37365543843",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/38055267144",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -723,8 +778,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/37207218538",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/38055271345",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
