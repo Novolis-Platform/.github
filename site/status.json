@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10 13:21 UTC",
+  "generatedAt": "2026-10-10 13:24 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 48,
@@ -285,7 +285,7 @@
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37361305489",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38055251203",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
@@ -592,7 +592,7 @@
       "name": "novolis-math",
       "packageCount": 4,
       "gprVersion": "2026.1.1.58",
-      "nugetVersion": "2026.1.1.57",
+      "nugetVersion": "2026.1.1.58",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
