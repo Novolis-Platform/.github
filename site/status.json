@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-10 13:34 UTC",
+  "generatedAt": "2026-10-10 13:37 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 47,
-  "packageCount": 471,
+  "packageCount": 448,
   "failedCount": 7,
   "releasedRepoCount": 1,
   "failures": [
@@ -313,7 +313,7 @@
     },
     {
       "name": "novolis-audio",
-      "packageCount": 45,
+      "packageCount": 44,
       "gprVersion": "2026.1.10.97",
       "nugetVersion": "2026.1.10.97",
       "releaseTag": "v2026.1.10",
@@ -326,7 +326,7 @@
     },
     {
       "name": "novolis-avalonia",
-      "packageCount": 42,
+      "packageCount": 36,
       "gprVersion": "2026.1.6.230",
       "nugetVersion": "2026.1.6.230",
       "releaseTag": "0.1",
@@ -365,9 +365,9 @@
     },
     {
       "name": "novolis-chat",
-      "packageCount": 4,
-      "gprVersion": "2026.1.2.13",
-      "nugetVersion": "2026.1.2.13",
+      "packageCount": 0,
+      "gprVersion": "",
+      "nugetVersion": "",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -391,7 +391,7 @@
     },
     {
       "name": "novolis-codegen",
-      "packageCount": 8,
+      "packageCount": 6,
       "gprVersion": "2026.1.2.50",
       "nugetVersion": "2026.1.2.50",
       "releaseTag": "",
@@ -404,7 +404,7 @@
     },
     {
       "name": "novolis-commands",
-      "packageCount": 6,
+      "packageCount": 5,
       "gprVersion": "2026.1.1.39",
       "nugetVersion": "2026.1.1.39",
       "releaseTag": "",
@@ -483,7 +483,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.81",
+      "gprVersion": "2026.1.1.82",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -548,7 +548,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.81",
+      "gprVersion": "2026.1.1.82",
       "nugetVersion": "2026.1.1.42",
       "releaseTag": "",
       "releasePublished": "",
@@ -573,7 +573,7 @@
     },
     {
       "name": "novolis-markup",
-      "packageCount": 10,
+      "packageCount": 9,
       "gprVersion": "2026.1.1.63",
       "nugetVersion": "2026.1.1.63",
       "releaseTag": "v0.1.0-preview.1",
@@ -677,7 +677,7 @@
     },
     {
       "name": "novolis-physics",
-      "packageCount": 12,
+      "packageCount": 11,
       "gprVersion": "2026.1.1.49",
       "nugetVersion": "2026.1.1.49",
       "releaseTag": "",
@@ -873,13 +873,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 17,
-      "gprVersion": "2026.1.1.81",
+      "gprVersion": "2026.1.1.82",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/37500948900",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/38056101931",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
