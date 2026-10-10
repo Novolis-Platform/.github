@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-10-10 13:24 UTC",
+  "generatedAt": "2026-10-10 13:34 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 48,
-  "packageCount": 448,
-  "failedCount": 6,
+  "mergeSuccesses": 47,
+  "packageCount": 471,
+  "failedCount": 7,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-3d",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-10 13:19 UTC",
-      "title": "Rename the ThreeD packages to Modeling so scene and import ids match \u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-3d/actions/runs/38055264896",
-      "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
-    },
     {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
@@ -42,6 +33,24 @@
       "title": "Add Game.Scenes so hosts compose planar play without owning heightfie\u2026",
       "url": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/38055256671",
       "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Sort labs into per-repo categories so each host sits under the librar\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38055260958",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-modeling",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-10 13:19 UTC",
+      "title": "Rename the ThreeD packages to Modeling so scene and import ids match \u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38055264896",
+      "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     },
     {
       "repo": "novolis-rendering",
@@ -238,19 +247,6 @@
       "releaseRunUrl": ""
     },
     {
-      "name": "novolis-3d",
-      "packageCount": 2,
-      "gprVersion": "2026.1.1.12",
-      "nugetVersion": "2026.1.1.12",
-      "releaseTag": "",
-      "releasePublished": "",
-      "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-3d/actions/runs/38055264896",
-      "releaseConclusion": "",
-      "releaseRunUrl": ""
-    },
-    {
       "name": "novolis-agent",
       "packageCount": 3,
       "gprVersion": "2026.1.1.33",
@@ -317,7 +313,7 @@
     },
     {
       "name": "novolis-audio",
-      "packageCount": 44,
+      "packageCount": 45,
       "gprVersion": "2026.1.10.97",
       "nugetVersion": "2026.1.10.97",
       "releaseTag": "v2026.1.10",
@@ -330,7 +326,7 @@
     },
     {
       "name": "novolis-avalonia",
-      "packageCount": 36,
+      "packageCount": 42,
       "gprVersion": "2026.1.6.230",
       "nugetVersion": "2026.1.6.230",
       "releaseTag": "0.1",
@@ -369,9 +365,9 @@
     },
     {
       "name": "novolis-chat",
-      "packageCount": 0,
-      "gprVersion": "",
-      "nugetVersion": "",
+      "packageCount": 4,
+      "gprVersion": "2026.1.2.13",
+      "nugetVersion": "2026.1.2.13",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -395,7 +391,7 @@
     },
     {
       "name": "novolis-codegen",
-      "packageCount": 6,
+      "packageCount": 8,
       "gprVersion": "2026.1.2.50",
       "nugetVersion": "2026.1.2.50",
       "releaseTag": "",
@@ -408,7 +404,7 @@
     },
     {
       "name": "novolis-commands",
-      "packageCount": 5,
+      "packageCount": 6,
       "gprVersion": "2026.1.1.39",
       "nugetVersion": "2026.1.1.39",
       "releaseTag": "",
@@ -518,8 +514,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/37578033157",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38055260958",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -577,7 +573,7 @@
     },
     {
       "name": "novolis-markup",
-      "packageCount": 9,
+      "packageCount": 10,
       "gprVersion": "2026.1.1.63",
       "nugetVersion": "2026.1.1.63",
       "releaseTag": "v0.1.0-preview.1",
@@ -628,6 +624,19 @@
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-messaging/actions/runs/30392210930"
     },
     {
+      "name": "novolis-modeling",
+      "packageCount": 2,
+      "gprVersion": "2026.1.1.12",
+      "nugetVersion": "2026.1.1.12",
+      "releaseTag": "",
+      "releasePublished": "",
+      "releaseUrl": "",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38055264896",
+      "releaseConclusion": "",
+      "releaseRunUrl": ""
+    },
+    {
       "name": "novolis-msbuild",
       "packageCount": 1,
       "gprVersion": "2026.1.1.14",
@@ -668,7 +677,7 @@
     },
     {
       "name": "novolis-physics",
-      "packageCount": 11,
+      "packageCount": 12,
       "gprVersion": "2026.1.1.49",
       "nugetVersion": "2026.1.1.49",
       "releaseTag": "",
