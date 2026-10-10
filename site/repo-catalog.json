@@ -10,18 +10,6 @@
       "documentation"
     ]
   },
-  "novolis-3d": {
-    "tag": "Renderer-neutral ThreeD domain",
-    "blurb": "Scene documents and Assimp asset import over Novolis.Math.Geometry.",
-    "desc": "Renderer-neutral ThreeD scene and asset packages for Novolis.",
-    "topics": [
-      "dotnet",
-      "3d",
-      "geometry",
-      "assets",
-      "novolis"
-    ]
-  },
   "novolis-agent": {
     "tag": "Live agent surfaces",
     "blurb": "Control surfaces for live apps — Core, Surface, and Testing helpers.",
@@ -330,6 +318,17 @@
     "topics": [
       "dotnet",
       "messaging",
+      "novolis"
+    ]
+  },
+  "novolis-modeling": {
+    "tag": "Renderer-neutral modeling domain",
+    "blurb": "Scene documents and Assimp asset import over Novolis.Math.Geometry.",
+    "desc": "Renderer-neutral modeling scene and asset packages for Novolis.",
+    "topics": [
+      "dotnet",
+      "geometry",
+      "assets",
       "novolis"
     ]
   },
