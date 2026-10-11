@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11 21:58 UTC",
+  "generatedAt": "2026-10-11 22:02 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
   "mergeSuccesses": 46,
@@ -501,7 +501,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.83",
+      "gprVersion": "2026.1.1.84",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -566,7 +566,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.83",
+      "gprVersion": "2026.1.1.84",
       "nugetVersion": "2026.1.1.43",
       "releaseTag": "",
       "releasePublished": "",
@@ -891,13 +891,13 @@
     {
       "name": "novolis-tools",
       "packageCount": 18,
-      "gprVersion": "2026.1.1.83",
+      "gprVersion": "2026.1.1.84",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/38178034216",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/38178526071",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
