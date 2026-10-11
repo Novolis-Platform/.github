@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11 21:28 UTC",
+  "generatedAt": "2026-10-11 21:30 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
   "mergeSuccesses": 44,
@@ -11,10 +11,10 @@
       "repo": "novolis-visual",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-11 21:26 UTC",
-      "title": "Implement graphics pipeline and AssetStudio packages",
-      "url": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176379029",
-      "error": "Missing build/version.json"
+      "when": "2026-10-11 21:28 UTC",
+      "title": "Merge",
+      "url": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176479157",
+      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-avalonia",
@@ -967,7 +967,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176379029",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176479157",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
