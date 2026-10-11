@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-10-11 20:54 UTC",
+  "generatedAt": "2026-10-11 21:00 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 43,
+  "mergeSuccesses": 44,
   "packageCount": 455,
-  "failedCount": 11,
+  "failedCount": 10,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 20:52 UTC",
-      "title": "Register Asset Studio in apps manifest",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38173997502",
-      "error": "AppsManifest.Unit failed"
-    },
     {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
@@ -316,8 +307,8 @@
       "releaseTag": "v2026.1.0.62",
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38173997502",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38174409893",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
