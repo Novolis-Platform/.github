@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-11 02:17 UTC",
+  "generatedAt": "2026-10-11 02:19 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 43,
-  "packageCount": 452,
-  "failedCount": 11,
+  "mergeSuccesses": 44,
+  "packageCount": 455,
+  "failedCount": 10,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,15 +15,6 @@
       "title": "Complete eD2k and Kad transport protocols",
       "url": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/38104482517",
       "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-workflow-engine",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 02:14 UTC",
-      "title": "Add workflow graph layout and exporters",
-      "url": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38104482300",
-      "error": "Use of unassigned local variable \u0027pinnedPosition\u0027"
     },
     {
       "repo": "novolis-manuscript",
@@ -455,7 +446,7 @@
       "name": "novolis-documents",
       "packageCount": 3,
       "gprVersion": "2026.1.1.44",
-      "nugetVersion": "2026.1.1.43",
+      "nugetVersion": "2026.1.1.44",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -611,7 +602,7 @@
       "name": "novolis-markup",
       "packageCount": 9,
       "gprVersion": "2026.1.1.68",
-      "nugetVersion": "2026.1.1.66",
+      "nugetVersion": "2026.1.1.68",
       "releaseTag": "v0.1.0-preview.1",
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
@@ -986,14 +977,14 @@
     },
     {
       "name": "novolis-workflow-engine",
-      "packageCount": 10,
-      "gprVersion": "2026.1.1.19",
+      "packageCount": 13,
+      "gprVersion": "2026.1.1.21",
       "nugetVersion": "2026.1.1.19",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38104482300",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38104631564",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
