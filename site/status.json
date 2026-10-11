@@ -1,20 +1,38 @@
 {
-  "generatedAt": "2026-10-11 01:38 UTC",
+  "generatedAt": "2026-10-11 01:48 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 44,
-  "packageCount": 448,
-  "failedCount": 10,
+  "mergeSuccesses": 43,
+  "packageCount": 452,
+  "failedCount": 11,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-transports",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:45 UTC",
+      "title": "Test the eD2k protocol round trip.",
+      "url": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/38102902946",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-markup",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-11 01:31 UTC",
-      "title": "Map Markdown blocks into semantic sections and retain the legacy body.",
-      "url": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102116779",
-      "error": "\u0027Document\u0027: static types cannot be used as return types"
+      "when": "2026-10-11 01:43 UTC",
+      "title": "Check Markdown PDF export against the semantic document mapper.",
+      "url": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102795534",
+      "error": "\u0027Section\u0027 is an ambiguous reference between \u0027Novolis.Documents.Section\u0027 and \u0027Novolis.Markup.Mermaid.Section\u0027"
+    },
+    {
+      "repo": "novolis-manuscript",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:38 UTC",
+      "title": "Follow the semantic document mapper from manuscript PDF export.",
+      "url": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/38102513430",
+      "error": "The name \u0027MarkdownDocumentMapper\u0027 does not exist in the current context"
     },
     {
       "repo": "novolis-apps",
@@ -59,15 +77,6 @@
       "when": "2026-10-10 13:19 UTC",
       "title": "Add Game.Scenes so hosts compose planar play without owning heightfie\u2026",
       "url": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/38055256671",
-      "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-10 13:19 UTC",
-      "title": "Sort labs into per-repo categories so each host sits under the librar\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38055260958",
       "error": "Process completed with exit code 1."
     },
     {
@@ -445,13 +454,13 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.34",
-      "nugetVersion": "2026.1.1.31",
+      "gprVersion": "2026.1.1.43",
+      "nugetVersion": "2026.1.1.34",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102362710",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102900308",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -541,8 +550,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38055260958",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38102515328",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -580,8 +589,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/38102056908",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/38102513430",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -601,13 +610,13 @@
     {
       "name": "novolis-markup",
       "packageCount": 9,
-      "gprVersion": "2026.1.1.63",
-      "nugetVersion": "2026.1.1.63",
+      "gprVersion": "2026.1.1.66",
+      "nugetVersion": "2026.1.1.66",
       "releaseTag": "v0.1.0-preview.1",
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102116779",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102795534",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980"
     },
@@ -918,8 +927,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/37223729999",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/38102902946",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -977,14 +986,14 @@
     },
     {
       "name": "novolis-workflow-engine",
-      "packageCount": 6,
-      "gprVersion": "2026.1.1.14",
-      "nugetVersion": "2026.1.1.13",
+      "packageCount": 10,
+      "gprVersion": "2026.1.1.19",
+      "nugetVersion": "2026.1.1.19",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38102364400",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38102638133",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
