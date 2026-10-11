@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11 12:44 UTC",
+  "generatedAt": "2026-10-11 20:50 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
   "mergeSuccesses": 43,
@@ -7,6 +7,24 @@
   "failedCount": 11,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 20:47 UTC",
+      "title": "Add Asset Studio product host",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38173650981",
+      "error": "verify-apps-manifest.ps1 failed"
+    },
+    {
+      "repo": "novolis-avalonia",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 20:47 UTC",
+      "title": "Add Asset Studio Avalonia surfaces",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38173650120",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
@@ -35,30 +53,12 @@
       "error": "The name \u0027MarkdownDocumentMapper\u0027 does not exist in the current context"
     },
     {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 01:30 UTC",
-      "title": "Sync Reach clipboards through the session host and keep the product s\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38102072152",
-      "error": "verify-apps-manifest.ps1 failed"
-    },
-    {
       "repo": "novolis-testing",
       "workflow": "merge.yml",
       "conclusion": "failure",
       "when": "2026-10-11 01:30 UTC",
       "title": "Share one evidence timeline between Playwright and Appium.",
       "url": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/38102067159",
-      "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-avalonia",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-10 13:19 UTC",
-      "title": "Rename the ThreeD host library to Modeling and the TwoD viewport chro\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38055252744",
       "error": "Process completed with exit code 1."
     },
     {
@@ -317,7 +317,7 @@
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38102072152",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38173650981",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
@@ -369,7 +369,7 @@
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38055252744",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/38173650120",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
