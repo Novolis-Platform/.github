@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-10-11 01:33 UTC",
+  "generatedAt": "2026-10-11 01:38 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 43,
+  "mergeSuccesses": 44,
   "packageCount": 448,
-  "failedCount": 11,
+  "failedCount": 10,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-documents",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 01:31 UTC",
-      "title": "Keep a legacy body projection while semantic sections drive layout.",
-      "url": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102114820",
-      "error": "The type arguments for method \u0027Enumerable.Select\u003CTSource, TResult\u003E(IEnumerable\u003CTSource\u003E, Func\u003CTSource, int, TResult\u003E)\u0027 cannot be inferred from the usage. Try specifying the type ar\u2026"
-    },
     {
       "repo": "novolis-markup",
       "workflow": "merge.yml",
@@ -454,13 +445,13 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.31",
+      "gprVersion": "2026.1.1.34",
       "nugetVersion": "2026.1.1.31",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102114820",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102362710",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -585,7 +576,7 @@
       "name": "novolis-manuscript",
       "packageCount": 11,
       "gprVersion": "2026.1.1.82",
-      "nugetVersion": "2026.1.1.42",
+      "nugetVersion": "2026.1.1.43",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -987,13 +978,13 @@
     {
       "name": "novolis-workflow-engine",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.13",
-      "nugetVersion": "2026.1.1.12",
+      "gprVersion": "2026.1.1.14",
+      "nugetVersion": "2026.1.1.13",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38102119309",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38102364400",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
