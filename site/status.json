@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-10-11 21:55 UTC",
+  "generatedAt": "2026-10-11 21:58 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
-  "mergeSuccesses": 45,
+  "mergeSuccesses": 46,
   "packageCount": 468,
-  "failedCount": 10,
+  "failedCount": 9,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 21:50 UTC",
-      "title": "Add AssetStudio product host",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38178033931",
-      "error": "verify-apps-manifest.ps1 failed"
-    },
     {
       "repo": "novolis-modeling",
       "workflow": "merge.yml",
@@ -307,8 +298,8 @@
       "releaseTag": "v2026.1.0.62",
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38178033931",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38178362459",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
