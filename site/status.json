@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-10-11 21:30 UTC",
+  "generatedAt": "2026-10-11 21:34 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
-  "mergeSuccesses": 44,
-  "packageCount": 455,
-  "failedCount": 11,
+  "mergeSuccesses": 45,
+  "packageCount": 457,
+  "failedCount": 10,
   "releasedRepoCount": 1,
   "failures": [
     {
       "repo": "novolis-visual",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-11 21:28 UTC",
+      "when": "2026-10-11 21:31 UTC",
       "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176479157",
-      "error": "Process completed with exit code 1."
+      "url": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176748708",
+      "error": "The type or namespace name \u0027MeshReadinessState\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     },
     {
       "repo": "novolis-avalonia",
@@ -87,15 +87,6 @@
       "title": "Rename the ThreeD packages to Modeling so scene and import ids match \u2026",
       "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38055264896",
       "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
-    },
-    {
-      "repo": "novolis-rendering",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-10 13:19 UTC",
-      "title": "Rename the TwoD package to Planar and add wall and sprite composition\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/38055267144",
-      "error": "The type or namespace name \u0027PlanarPrism\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     },
     {
       "repo": "novolis-simulation",
@@ -752,14 +743,14 @@
     },
     {
       "name": "novolis-rendering",
-      "packageCount": 18,
-      "gprVersion": "2026.1.1.76",
+      "packageCount": 20,
+      "gprVersion": "2026.1.1.78",
       "nugetVersion": "2026.1.1.76",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/38055267144",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/38176567919",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -967,7 +958,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176479157",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176748708",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
