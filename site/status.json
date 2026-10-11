@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-10-11 21:34 UTC",
+  "generatedAt": "2026-10-11 21:35 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
   "mergeSuccesses": 45,
-  "packageCount": 457,
+  "packageCount": 458,
   "failedCount": 10,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-modeling",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 21:33 UTC",
+      "title": "Complete modeling mesh contracts",
+      "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38176870177",
+      "error": "One or more package pushes failed"
+    },
     {
       "repo": "novolis-visual",
       "workflow": "merge.yml",
@@ -78,15 +87,6 @@
       "title": "Add Game.Scenes so hosts compose planar play without owning heightfie\u2026",
       "url": "https://github.com/Novolis-Platform/novolis-gaming/actions/runs/38055256671",
       "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-modeling",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-10 13:19 UTC",
-      "title": "Rename the ThreeD packages to Modeling so scene and import ids match \u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38055264896",
-      "error": "The type or namespace name \u0027NamedBoneWeight\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     },
     {
       "repo": "novolis-simulation",
@@ -510,7 +510,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.82",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E876:8CE46:54A57AB:117A18B2:6ACC0137 and timestamp 2026-10-11 21:35:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -575,7 +575,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.82",
+      "gprVersion": "2026.1.1.43",
       "nugetVersion": "2026.1.1.43",
       "releaseTag": "",
       "releasePublished": "",
@@ -652,21 +652,21 @@
     },
     {
       "name": "novolis-modeling",
-      "packageCount": 2,
+      "packageCount": 3,
       "gprVersion": "2026.1.1.12",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38055264896",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38176870177",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-msbuild",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.14",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E8A9:12BF4E:52BD948:1106B41F:6ACC0132 and timestamp 2026-10-11 21:35:46 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.14",
       "releaseTag": "",
       "releasePublished": "",
@@ -745,7 +745,7 @@
       "name": "novolis-rendering",
       "packageCount": 20,
       "gprVersion": "2026.1.1.78",
-      "nugetVersion": "2026.1.1.76",
+      "nugetVersion": "2026.1.1.78",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -822,7 +822,7 @@
     {
       "name": "novolis-smoketest",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.24",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E846:2E73C3:576B09B:11FCD448:6ACC0136 and timestamp 2026-10-11 21:35:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.24",
       "releaseTag": "",
       "releasePublished": "",
@@ -991,7 +991,7 @@
     {
       "name": "novolis-workflow-engine",
       "packageCount": 13,
-      "gprVersion": "2026.1.1.21",
+      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E848:24B338:54DD79A:1179F7F0:6ACC0136 and timestamp 2026-10-11 21:35:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
       "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
