@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-10-11 02:19 UTC",
+  "generatedAt": "2026-10-11 12:44 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 44,
+  "mergeSuccesses": 43,
   "packageCount": 455,
-  "failedCount": 10,
+  "failedCount": 11,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 02:14 UTC",
+      "title": "Add semantic document and transport labs",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38104493162",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-transports",
       "workflow": "merge.yml",
@@ -541,8 +550,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38102515328",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/38104493162",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -979,7 +988,7 @@
       "name": "novolis-workflow-engine",
       "packageCount": 13,
       "gprVersion": "2026.1.1.21",
-      "nugetVersion": "2026.1.1.19",
+      "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
