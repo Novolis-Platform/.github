@@ -1,12 +1,48 @@
 {
-  "generatedAt": "2026-10-10 13:37 UTC",
+  "generatedAt": "2026-10-11 01:33 UTC",
   "org": "Novolis-Platform",
   "repoCount": 58,
-  "mergeSuccesses": 47,
+  "mergeSuccesses": 43,
   "packageCount": 448,
-  "failedCount": 7,
+  "failedCount": 11,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-documents",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:31 UTC",
+      "title": "Keep a legacy body projection while semantic sections drive layout.",
+      "url": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102114820",
+      "error": "The type arguments for method \u0027Enumerable.Select\u003CTSource, TResult\u003E(IEnumerable\u003CTSource\u003E, Func\u003CTSource, int, TResult\u003E)\u0027 cannot be inferred from the usage. Try specifying the type ar\u2026"
+    },
+    {
+      "repo": "novolis-markup",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:31 UTC",
+      "title": "Map Markdown blocks into semantic sections and retain the legacy body.",
+      "url": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102116779",
+      "error": "\u0027Document\u0027: static types cannot be used as return types"
+    },
+    {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:30 UTC",
+      "title": "Sync Reach clipboards through the session host and keep the product s\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38102072152",
+      "error": "verify-apps-manifest.ps1 failed"
+    },
+    {
+      "repo": "novolis-testing",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 01:30 UTC",
+      "title": "Share one evidence timeline between Playwright and Appium.",
+      "url": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/38102067159",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
@@ -280,8 +316,8 @@
       "releaseTag": "v2026.1.0.62",
       "releasePublished": "2026-10-05 18:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.62",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38055251203",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/38102072152",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/37357965404"
     },
@@ -423,8 +459,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/37207749356",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-documents/actions/runs/38102114820",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -554,7 +590,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/37207757190",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/38102056908",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -579,8 +615,8 @@
       "releaseTag": "v0.1.0-preview.1",
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/37207760975",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/38102116779",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980"
     },
@@ -852,8 +888,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/37270076020",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-testing/actions/runs/38102067159",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -951,13 +987,13 @@
     {
       "name": "novolis-workflow-engine",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.12",
+      "gprVersion": "2026.1.1.13",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/37207265132",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-workflow-engine/actions/runs/38102119309",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
