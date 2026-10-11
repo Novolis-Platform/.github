@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-11 21:35 UTC",
+  "generatedAt": "2026-10-11 21:49 UTC",
   "org": "Novolis-Platform",
   "repoCount": 59,
-  "mergeSuccesses": 45,
-  "packageCount": 458,
-  "failedCount": 10,
+  "mergeSuccesses": 46,
+  "packageCount": 467,
+  "failedCount": 9,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -14,16 +14,7 @@
       "when": "2026-10-11 21:33 UTC",
       "title": "Complete modeling mesh contracts",
       "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/38176870177",
-      "error": "One or more package pushes failed"
-    },
-    {
-      "repo": "novolis-visual",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-11 21:31 UTC",
-      "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176748708",
-      "error": "The type or namespace name \u0027MeshReadinessState\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+      "error": "Token exchange failed (HTTP 401) at https://www.nuget.org/api/v2/token. Make sure you are using the username of the policy creator, not the policy owner: No matching trust policy o\u2026"
     },
     {
       "repo": "novolis-avalonia",
@@ -379,7 +370,7 @@
     },
     {
       "name": "novolis-cad",
-      "packageCount": 6,
+      "packageCount": 5,
       "gprVersion": "2026.1.0.37",
       "nugetVersion": "2026.1.0.37",
       "releaseTag": "",
@@ -510,7 +501,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E876:8CE46:54A57AB:117A18B2:6ACC0137 and timestamp 2026-10-11 21:35:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.82",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -575,7 +566,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.43",
+      "gprVersion": "2026.1.1.82",
       "nugetVersion": "2026.1.1.43",
       "releaseTag": "",
       "releasePublished": "",
@@ -652,8 +643,8 @@
     },
     {
       "name": "novolis-modeling",
-      "packageCount": 3,
-      "gprVersion": "2026.1.1.12",
+      "packageCount": 4,
+      "gprVersion": "2026.1.1.14",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
@@ -666,7 +657,7 @@
     {
       "name": "novolis-msbuild",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E8A9:12BF4E:52BD948:1106B41F:6ACC0132 and timestamp 2026-10-11 21:35:46 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.14",
       "nugetVersion": "2026.1.1.14",
       "releaseTag": "",
       "releasePublished": "",
@@ -822,7 +813,7 @@
     {
       "name": "novolis-smoketest",
       "packageCount": 1,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E846:2E73C3:576B09B:11FCD448:6ACC0136 and timestamp 2026-10-11 21:35:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.24",
       "nugetVersion": "2026.1.1.24",
       "releaseTag": "",
       "releasePublished": "",
@@ -951,14 +942,14 @@
     },
     {
       "name": "novolis-visual",
-      "packageCount": 0,
-      "gprVersion": "",
+      "packageCount": 9,
+      "gprVersion": "2026.1.1.4",
       "nugetVersion": "",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38176748708",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-visual/actions/runs/38177708581",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -991,7 +982,7 @@
     {
       "name": "novolis-workflow-engine",
       "packageCount": 13,
-      "gprVersion": "{\n\t\u0022message\u0022: \u0022API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E848:24B338:54DD79A:1179F7F0:6ACC0136 and timestamp 2026-10-11 21:35:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https:\\/\\/docs.github.com\\/en\\/site-policy\\/github-terms\\/github-terms-of-service)\u0022,\n\t\u0022documentation_url\u0022: \u0022https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api#rate-limiting\u0022,\n\t\u0022status\u0022: \u0022403\u0022\n}",
+      "gprVersion": "2026.1.1.21",
       "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
