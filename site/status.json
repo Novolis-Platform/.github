@@ -1,71 +1,44 @@
 {
-  "generatedAt": "2026-10-18 23:09 UTC",
+  "generatedAt": "2026-10-18 23:38 UTC",
   "org": "Novolis-Platform",
   "repoCount": 64,
-  "mergeSuccesses": 56,
+  "mergeSuccesses": 60,
   "packageCount": 541,
-  "failedCount": 4,
+  "failedCount": 0,
   "releasedRepoCount": 1,
-  "failures": [
-    {
-      "repo": "novolis-avalonia",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-18 22:41 UTC",
-      "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/39173339855",
-      "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-logging",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-18 22:41 UTC",
-      "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-logging/actions/runs/39173338961",
-      "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-maui",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-18 22:41 UTC",
-      "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/39173339234",
-      "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-tools",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-18 22:41 UTC",
-      "title": "Merge",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39173339672",
-      "error": "One or more package pushes failed"
-    }
-  ],
+  "failures": [],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.74",
-      "published": "2026-10-18 23:06 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.74",
-      "channel": "3 release assets",
+      "tag": "v2026.1.0.76",
+      "published": "2026-10-18 23:32 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.76",
+      "channel": "5 release assets",
       "assets": [
         {
-          "name": "Novolis.Update.json",
-          "size": 1251,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.74/Novolis.Update.json"
+          "name": "Novolis.Sudoku-2026.1.0.76-win-x64.zip",
+          "size": 76582019,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Novolis.Sudoku-2026.1.0.76-win-x64.zip"
         },
         {
-          "name": "NovolisQuietVideo-2026.1.0.74-android.apk",
-          "size": 7430129,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.74/NovolisQuietVideo-2026.1.0.74-android.apk"
+          "name": "Novolis.Update.json",
+          "size": 2390,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Novolis.Update.json"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 194,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.74/SHA256SUMS.txt"
+          "size": 390,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/SHA256SUMS.txt"
+        },
+        {
+          "name": "Sudoku-2026.1.0.76-android.apk",
+          "size": 27712173,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Sudoku-2026.1.0.76-android.apk"
+        },
+        {
+          "name": "SudokuSetup-2026.1.0.76-win-x64.exe",
+          "size": 52633428,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/SudokuSetup-2026.1.0.76-win-x64.exe"
         }
       ]
     }
@@ -115,13 +88,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.74",
-      "releasePublished": "2026-10-18 23:06 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.74",
+      "releaseTag": "v2026.1.0.76",
+      "releasePublished": "2026-10-18 23:32 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.76",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39174913503",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39176703801",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39174933367"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39176731824"
     },
     {
       "name": "novolis-aspire",
@@ -166,11 +139,11 @@
       "name": "novolis-avalonia",
       "packageCount": 45,
       "gprVersion": "2026.1.6.247",
-      "nugetVersion": "2026.1.6.244",
+      "nugetVersion": "2026.1.6.247",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "failure",
+      "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/39173339855",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
@@ -360,7 +333,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.97",
+      "gprVersion": "2026.1.1.98",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -413,11 +386,11 @@
       "name": "novolis-logging",
       "packageCount": 8,
       "gprVersion": "2026.1.6.34",
-      "nugetVersion": "2026.1.6.30",
+      "nugetVersion": "2026.1.6.34",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
+      "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-logging/actions/runs/39173338961",
       "releaseConclusion": "",
       "releaseRunUrl": ""
@@ -438,7 +411,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.97",
+      "gprVersion": "2026.1.1.98",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -491,11 +464,11 @@
       "name": "novolis-maui",
       "packageCount": 12,
       "gprVersion": "2026.1.1.69",
-      "nugetVersion": "2026.1.1.66",
+      "nugetVersion": "2026.1.1.69",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
+      "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/39173339234",
       "releaseConclusion": "",
       "releaseRunUrl": ""
@@ -775,14 +748,14 @@
     },
     {
       "name": "novolis-tools",
-      "packageCount": 22,
-      "gprVersion": "2026.1.1.97",
+      "packageCount": 24,
+      "gprVersion": "2026.1.1.98",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39173339672",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39176405570",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
@@ -827,7 +800,7 @@
     },
     {
       "name": "novolis-visual",
-      "packageCount": 12,
+      "packageCount": 10,
       "gprVersion": "2026.1.1.7",
       "nugetVersion": "",
       "releaseTag": "",
