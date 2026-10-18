@@ -55,6 +55,7 @@ jobs:
           path: novolis-markup
           sparse-checkout: |
             src/Novolis.Markup.Html
+            src/Novolis.Markup.Svg
             src/Novolis.Markup.Markdown
             src/Novolis.Markup.Markdown.Rendering
             Directory.Build.props
