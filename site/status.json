@@ -1,34 +1,53 @@
 {
-  "generatedAt": "2026-10-19 22:48 UTC",
+  "generatedAt": "2026-10-19 23:28 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 61,
+  "mergeSuccesses": 60,
   "packageCount": 542,
-  "failedCount": 0,
+  "failedCount": 2,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 23:22 UTC",
+      "title": "Allow selective multi-app releases",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341180137",
+      "error": "The type or namespace name \u0027AvaloniaMainActivity\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-apps",
+      "workflow": "release.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 23:22 UTC",
+      "title": "Release",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341211199",
+      "error": "One or more jobs failed. Open the failed job; its name is the app and channel."
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.83",
-      "published": "2026-10-19 22:24 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.83",
+      "tag": "v2026.1.0.84",
+      "published": "2026-10-19 22:50 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.84",
       "channel": "3 release assets",
       "assets": [
         {
           "name": "Novolis.Update.json",
           "size": 1251,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.83/Novolis.Update.json"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.84/Novolis.Update.json"
         },
         {
-          "name": "NovolisQuietVideo-2026.1.0.83-android.apk",
-          "size": 7930867,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.83/NovolisQuietVideo-2026.1.0.83-android.apk"
+          "name": "NovolisQuietVideo-2026.1.0.84-android.apk",
+          "size": 8148528,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.84/NovolisQuietVideo-2026.1.0.84-android.apk"
         },
         {
           "name": "SHA256SUMS.txt",
           "size": 194,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.83/SHA256SUMS.txt"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.84/SHA256SUMS.txt"
         }
       ]
     }
@@ -78,13 +97,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.83",
-      "releasePublished": "2026-10-19 22:24 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.83",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39337124790",
-      "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39334509026"
+      "releaseTag": "v2026.1.0.84",
+      "releasePublished": "2026-10-19 22:50 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.84",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341180137",
+      "releaseConclusion": "failure",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341211199"
     },
     {
       "name": "novolis-aspire",
@@ -766,7 +785,7 @@
       "name": "novolis-transports",
       "packageCount": 21,
       "gprVersion": "2026.1.11.82",
-      "nugetVersion": "2026.1.11.81",
+      "nugetVersion": "2026.1.11.82",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
