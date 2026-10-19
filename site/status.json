@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-10-19 13:05 UTC",
+  "generatedAt": "2026-10-19 19:15 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 58,
   "packageCount": 541,
-  "failedCount": 3,
+  "failedCount": 4,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-apps",
+      "workflow": "release.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 19:09 UTC",
+      "title": "Release",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39308578633",
+      "error": "Signing secrets for NMULE_ANDROID are not set"
+    },
     {
       "repo": "novolis-mobile-experience",
       "workflow": "merge.yml",
@@ -126,8 +135,8 @@
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.79",
       "mergeConclusion": "failure",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39187859618",
-      "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186797685"
+      "releaseConclusion": "failure",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39308578633"
     },
     {
       "name": "novolis-aspire",
