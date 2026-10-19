@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19 02:27 UTC",
+  "generatedAt": "2026-10-19 13:05 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 58,
@@ -380,7 +380,7 @@
       "name": "novolis-io",
       "packageCount": 16,
       "gprVersion": "2026.1.1.69",
-      "nugetVersion": "2026.1.1.68",
+      "nugetVersion": "2026.1.1.69",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
