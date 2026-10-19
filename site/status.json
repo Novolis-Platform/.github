@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18 23:55 UTC",
+  "generatedAt": "2026-10-19 00:08 UTC",
   "org": "Novolis-Platform",
   "repoCount": 64,
   "mergeSuccesses": 60,
@@ -10,35 +10,40 @@
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.76",
-      "published": "2026-10-18 23:32 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.76",
-      "channel": "5 release assets",
+      "tag": "v2026.1.0.77",
+      "published": "2026-10-19 00:06 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.77",
+      "channel": "6 release assets",
       "assets": [
         {
-          "name": "Novolis.Sudoku-2026.1.0.76-win-x64.zip",
-          "size": 76582019,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Novolis.Sudoku-2026.1.0.76-win-x64.zip"
+          "name": "Novolis.Reach.Client.Windows-2026.1.0.77-win-x64.zip",
+          "size": 112409801,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Novolis.Reach.Client.Windows-2026.1.0.77-win-x64.zip"
         },
         {
           "name": "Novolis.Update.json",
-          "size": 2390,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Novolis.Update.json"
+          "size": 2973,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Novolis.Update.json"
+        },
+        {
+          "name": "Reach-2026.1.0.77-android.apk",
+          "size": 32713668,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Reach-2026.1.0.77-android.apk"
+        },
+        {
+          "name": "Reach-2026.1.0.77-linux-x64.tar.gz",
+          "size": 46414600,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Reach-2026.1.0.77-linux-x64.tar.gz"
+        },
+        {
+          "name": "ReachSetup-2026.1.0.77-win-x64.exe",
+          "size": 74827629,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/ReachSetup-2026.1.0.77-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 390,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/SHA256SUMS.txt"
-        },
-        {
-          "name": "Sudoku-2026.1.0.76-android.apk",
-          "size": 27712173,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/Sudoku-2026.1.0.76-android.apk"
-        },
-        {
-          "name": "SudokuSetup-2026.1.0.76-win-x64.exe",
-          "size": 52633428,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.76/SudokuSetup-2026.1.0.76-win-x64.exe"
+          "size": 503,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/SHA256SUMS.txt"
         }
       ]
     }
@@ -88,13 +93,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.76",
-      "releasePublished": "2026-10-18 23:32 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.76",
+      "releaseTag": "v2026.1.0.77",
+      "releasePublished": "2026-10-19 00:06 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.77",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178044634",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178908988",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39176731824"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178968571"
     },
     {
       "name": "novolis-aspire",
