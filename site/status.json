@@ -1,12 +1,22 @@
 {
-  "generatedAt": "2026-10-19 00:08 UTC",
+  "generatedAt": "2026-10-19 00:17 UTC",
   "org": "Novolis-Platform",
-  "repoCount": 64,
+  "repoCount": 65,
   "mergeSuccesses": 60,
   "packageCount": 541,
-  "failedCount": 0,
+  "failedCount": 1,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-mobile-experience",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 00:15 UTC",
+      "title": "Add audited Android cleanup provisioning",
+      "url": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39179936358",
+      "error": "verify-apps-manifest.ps1 failed"
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -490,6 +500,19 @@
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-messaging/actions/runs/39172808043",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-messaging/actions/runs/30392210930"
+    },
+    {
+      "name": "novolis-mobile-experience",
+      "packageCount": 0,
+      "gprVersion": "",
+      "nugetVersion": "",
+      "releaseTag": "",
+      "releasePublished": "",
+      "releaseUrl": "",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39179936358",
+      "releaseConclusion": "",
+      "releaseRunUrl": ""
     },
     {
       "name": "novolis-modeling",
