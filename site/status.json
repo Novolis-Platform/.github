@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19 00:21 UTC",
+  "generatedAt": "2026-10-19 01:46 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 59,
@@ -8,6 +8,15 @@
   "releasedRepoCount": 1,
   "failures": [
     {
+      "repo": "novolis-mobile-experience",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 00:42 UTC",
+      "title": "Add minimal Android provisioning",
+      "url": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39181995431",
+      "error": "verify-apps-manifest.ps1 failed"
+    },
+    {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
       "conclusion": "failure",
@@ -15,54 +24,30 @@
       "title": "Add Android inventory command",
       "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39180049020",
       "error": "A static local function cannot contain a reference to \u0027this\u0027 or \u0027base\u0027."
-    },
-    {
-      "repo": "novolis-mobile-experience",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-19 00:15 UTC",
-      "title": "Add audited Android cleanup provisioning",
-      "url": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39179936358",
-      "error": "verify-apps-manifest.ps1 failed"
     }
   ],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.77",
-      "published": "2026-10-19 00:06 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.77",
-      "channel": "6 release assets",
+      "tag": "v2026.1.0.78",
+      "published": "2026-10-19 01:44 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.78",
+      "channel": "3 release assets",
       "assets": [
         {
-          "name": "Novolis.Reach.Client.Windows-2026.1.0.77-win-x64.zip",
-          "size": 112409801,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Novolis.Reach.Client.Windows-2026.1.0.77-win-x64.zip"
-        },
-        {
           "name": "Novolis.Update.json",
-          "size": 2973,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Novolis.Update.json"
+          "size": 1251,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/Novolis.Update.json"
         },
         {
-          "name": "Reach-2026.1.0.77-android.apk",
-          "size": 32713668,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Reach-2026.1.0.77-android.apk"
-        },
-        {
-          "name": "Reach-2026.1.0.77-linux-x64.tar.gz",
-          "size": 46414600,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/Reach-2026.1.0.77-linux-x64.tar.gz"
-        },
-        {
-          "name": "ReachSetup-2026.1.0.77-win-x64.exe",
-          "size": 74827629,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/ReachSetup-2026.1.0.77-win-x64.exe"
+          "name": "NovolisQuietVideo-2026.1.0.78-android.apk",
+          "size": 7626737,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/NovolisQuietVideo-2026.1.0.78-android.apk"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 503,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.77/SHA256SUMS.txt"
+          "size": 194,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/SHA256SUMS.txt"
         }
       ]
     }
@@ -112,13 +97,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.77",
-      "releasePublished": "2026-10-19 00:06 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.77",
+      "releaseTag": "v2026.1.0.78",
+      "releasePublished": "2026-10-19 01:44 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.78",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39179705104",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39180909102",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178968571"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186624586"
     },
     {
       "name": "novolis-aspire",
@@ -371,7 +356,7 @@
       "name": "novolis-io",
       "packageCount": 16,
       "gprVersion": "2026.1.1.67",
-      "nugetVersion": "2026.1.1.66",
+      "nugetVersion": "2026.1.1.67",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -519,7 +504,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39179936358",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39181995431",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -799,13 +784,13 @@
     {
       "name": "novolis-transports",
       "packageCount": 21,
-      "gprVersion": "2026.1.11.79",
-      "nugetVersion": "2026.1.11.79",
+      "gprVersion": "2026.1.11.80",
+      "nugetVersion": "2026.1.11.80",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39172905770",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39180910626",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
