@@ -1,40 +1,12 @@
 {
-  "generatedAt": "2026-10-19 19:24 UTC",
+  "generatedAt": "2026-10-19 19:40 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 58,
+  "mergeSuccesses": 61,
   "packageCount": 541,
-  "failedCount": 3,
+  "failedCount": 0,
   "releasedRepoCount": 1,
-  "failures": [
-    {
-      "repo": "novolis-mobile-experience",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-19 02:19 UTC",
-      "title": "Expand Android release maintenance and launcher catalog",
-      "url": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39189402444",
-      "error": "verify-apps-manifest.ps1 failed"
-    },
-    {
-      "repo": "novolis-tools",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-19 02:19 UTC",
-      "title": "Extend Android inventory and inspection tools",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39189402558",
-      "error": "\u0027AndroidDeviceInventory\u0027 does not contain a definition for \u0027Network\u0027 and no accessible extension method \u0027Network\u0027 accepting a first argument of type \u0027AndroidDeviceInventory\u0027 could \u2026"
-    },
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-19 01:59 UTC",
-      "title": "Complete nMule result metadata and multipart downloads",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39187859618",
-      "error": "Build failed for src/nMule/nMule.Linux.slnx"
-    }
-  ],
+  "failures": [],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -279,8 +251,8 @@
       "releaseTag": "v2026.1.0.81",
       "releasePublished": "2026-10-19 19:22 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.81",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39187859618",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186594024",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39309625788"
     },
@@ -521,7 +493,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.98",
+      "gprVersion": "2026.1.1.101",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -599,7 +571,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.98",
+      "gprVersion": "2026.1.1.101",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -682,8 +654,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39189402444",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39311925183",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -950,12 +922,12 @@
     {
       "name": "novolis-tools",
       "packageCount": 24,
-      "gprVersion": "2026.1.1.98",
+      "gprVersion": "2026.1.1.101",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "failure",
+      "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39189402558",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
