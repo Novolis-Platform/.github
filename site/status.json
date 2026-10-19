@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-19 23:36 UTC",
+  "generatedAt": "2026-10-19 23:40 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 61,
   "packageCount": 542,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,15 +15,6 @@
       "title": "Release",
       "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39342019375",
       "error": "The type or namespace name \u0027Android\u0027 could not be found in the global namespace (are you missing an assembly reference?)"
-    },
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-19 23:22 UTC",
-      "title": "Allow selective multi-app releases",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341180137",
-      "error": "The type or namespace name \u0027AvaloniaMainActivity\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     }
   ],
   "releases": [
@@ -100,8 +91,8 @@
       "releaseTag": "v2026.1.0.84",
       "releasePublished": "2026-10-19 22:50 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.84",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39341180137",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39342562694",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39342019375"
     },
