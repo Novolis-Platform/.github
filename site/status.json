@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19 01:48 UTC",
+  "generatedAt": "2026-10-19 01:51 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 59,
@@ -29,25 +29,40 @@
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.78",
-      "published": "2026-10-19 01:44 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.78",
-      "channel": "3 release assets",
+      "tag": "v2026.1.0.79",
+      "published": "2026-10-19 01:49 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.79",
+      "channel": "6 release assets",
       "assets": [
         {
-          "name": "Novolis.Update.json",
-          "size": 1251,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/Novolis.Update.json"
+          "name": "Novolis.Reach.Client.Windows-2026.1.0.79-win-x64.zip",
+          "size": 112411301,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/Novolis.Reach.Client.Windows-2026.1.0.79-win-x64.zip"
         },
         {
-          "name": "NovolisQuietVideo-2026.1.0.78-android.apk",
-          "size": 7626737,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/NovolisQuietVideo-2026.1.0.78-android.apk"
+          "name": "Novolis.Update.json",
+          "size": 2973,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/Novolis.Update.json"
+        },
+        {
+          "name": "Reach-2026.1.0.79-android.apk",
+          "size": 32758724,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/Reach-2026.1.0.79-android.apk"
+        },
+        {
+          "name": "Reach-2026.1.0.79-linux-x64.tar.gz",
+          "size": 46416398,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/Reach-2026.1.0.79-linux-x64.tar.gz"
+        },
+        {
+          "name": "ReachSetup-2026.1.0.79-win-x64.exe",
+          "size": 74839761,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/ReachSetup-2026.1.0.79-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 194,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.78/SHA256SUMS.txt"
+          "size": 503,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.79/SHA256SUMS.txt"
         }
       ]
     }
@@ -97,13 +112,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.78",
-      "releasePublished": "2026-10-19 01:44 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.78",
+      "releaseTag": "v2026.1.0.79",
+      "releasePublished": "2026-10-19 01:49 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.79",
       "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186594024",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186624586"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186797685"
     },
     {
       "name": "novolis-aspire",
