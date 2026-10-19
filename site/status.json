@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19 01:46 UTC",
+  "generatedAt": "2026-10-19 01:48 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 59,
@@ -101,7 +101,7 @@
       "releasePublished": "2026-10-19 01:44 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.78",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39180909102",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186594024",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39186624586"
     },
