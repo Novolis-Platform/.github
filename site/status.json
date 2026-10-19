@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19 22:46 UTC",
+  "generatedAt": "2026-10-19 22:48 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -82,7 +82,7 @@
       "releasePublished": "2026-10-19 22:24 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.83",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39334485351",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39337124790",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39334509026"
     },
@@ -765,13 +765,13 @@
     {
       "name": "novolis-transports",
       "packageCount": 21,
-      "gprVersion": "2026.1.11.81",
+      "gprVersion": "2026.1.11.82",
       "nugetVersion": "2026.1.11.81",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39187859328",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39337117512",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -792,7 +792,7 @@
       "name": "novolis-video",
       "packageCount": 7,
       "gprVersion": "2026.1.0.30",
-      "nugetVersion": "2026.1.0.29",
+      "nugetVersion": "2026.1.0.30",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
