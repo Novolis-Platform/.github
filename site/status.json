@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-10-19 00:17 UTC",
+  "generatedAt": "2026-10-19 00:19 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 59,
   "packageCount": 541,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-tools",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-19 00:16 UTC",
+      "title": "Add Android inventory command",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39180049020",
+      "error": "A static local function cannot contain a reference to \u0027this\u0027 or \u0027base\u0027."
+    },
     {
       "repo": "novolis-mobile-experience",
       "workflow": "merge.yml",
@@ -107,7 +116,7 @@
       "releasePublished": "2026-10-19 00:06 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.77",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178908988",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39179705104",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39178968571"
     },
@@ -361,7 +370,7 @@
     {
       "name": "novolis-io",
       "packageCount": 16,
-      "gprVersion": "2026.1.1.66",
+      "gprVersion": "2026.1.1.67",
       "nugetVersion": "2026.1.1.66",
       "releaseTag": "",
       "releasePublished": "",
@@ -782,8 +791,8 @@
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39176405570",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39180049020",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
