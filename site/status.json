@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20 00:35 UTC",
+  "generatedAt": "2026-10-20 00:39 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -20,35 +20,35 @@
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.90",
-      "published": "2026-10-20 00:19 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.90",
+      "tag": "v2026.1.0.91",
+      "published": "2026-10-20 00:37 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
       "channel": "5 release assets",
       "assets": [
         {
-          "name": "nMule-2026.1.0.90-android.apk",
-          "size": 29619016,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.90/nMule-2026.1.0.90-android.apk"
+          "name": "nMule-2026.1.0.91-android.apk",
+          "size": 29623112,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/nMule-2026.1.0.91-android.apk"
         },
         {
-          "name": "nMuleSetup-2026.1.0.90-win-x64.exe",
-          "size": 64043667,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.90/nMuleSetup-2026.1.0.90-win-x64.exe"
+          "name": "nMuleSetup-2026.1.0.91-win-x64.exe",
+          "size": 64031723,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/nMuleSetup-2026.1.0.91-win-x64.exe"
         },
         {
-          "name": "Novolis.nMule-2026.1.0.90-win-x64.zip",
-          "size": 93962126,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.90/Novolis.nMule-2026.1.0.90-win-x64.zip"
+          "name": "Novolis.nMule-2026.1.0.91-win-x64.zip",
+          "size": 93962461,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/Novolis.nMule-2026.1.0.91-win-x64.zip"
         },
         {
           "name": "Novolis.Update.json",
           "size": 2373,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.90/Novolis.Update.json"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/Novolis.Update.json"
         },
         {
           "name": "SHA256SUMS.txt",
           "size": 387,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.90/SHA256SUMS.txt"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/SHA256SUMS.txt"
         }
       ]
     }
@@ -98,13 +98,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.90",
-      "releasePublished": "2026-10-20 00:19 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.90",
+      "releaseTag": "v2026.1.0.91",
+      "releasePublished": "2026-10-20 00:37 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
       "mergeConclusion": "failure",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348323309",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39346542602"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348339919"
     },
     {
       "name": "novolis-aspire",
