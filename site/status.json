@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-21 19:33 UTC",
+  "generatedAt": "2026-10-21 19:35 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
   "packageCount": 544,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,6 +15,15 @@
       "title": "Add Windows target for Novolis Torrent",
       "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662277536",
       "error": "AppsManifest.Unit failed"
+    },
+    {
+      "repo": "novolis-apps",
+      "workflow": "release.yml",
+      "conclusion": "failure",
+      "when": "2026-10-21 19:30 UTC",
+      "title": "Release",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662292761",
+      "error": "Installer publish failed"
     }
   ],
   "releases": [
@@ -103,8 +112,8 @@
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
       "mergeConclusion": "failure",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662277536",
-      "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348339919"
+      "releaseConclusion": "failure",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662292761"
     },
     {
       "name": "novolis-aspire",
