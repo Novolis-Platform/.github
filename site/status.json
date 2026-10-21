@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-21 19:37 UTC",
+  "generatedAt": "2026-10-21 19:41 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
   "packageCount": 544,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,49 +15,40 @@
       "title": "Enable Windows installer generation for torrent app",
       "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662965981",
       "error": "AppsManifest.Unit failed"
-    },
-    {
-      "repo": "novolis-apps",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-10-21 19:30 UTC",
-      "title": "Release",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662292761",
-      "error": "Installer publish failed"
     }
   ],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.91",
-      "published": "2026-10-20 00:37 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
+      "tag": "v2026.1.0.93",
+      "published": "2026-10-21 19:39 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.93",
       "channel": "5 release assets",
       "assets": [
         {
-          "name": "nMule-2026.1.0.91-android.apk",
-          "size": 29623112,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/nMule-2026.1.0.91-android.apk"
-        },
-        {
-          "name": "nMuleSetup-2026.1.0.91-win-x64.exe",
-          "size": 64031723,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/nMuleSetup-2026.1.0.91-win-x64.exe"
-        },
-        {
-          "name": "Novolis.nMule-2026.1.0.91-win-x64.zip",
-          "size": 93962461,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/Novolis.nMule-2026.1.0.91-win-x64.zip"
+          "name": "Novolis.Torrent-2026.1.0.93-win-x64.zip",
+          "size": 94119844,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/Novolis.Torrent-2026.1.0.93-win-x64.zip"
         },
         {
           "name": "Novolis.Update.json",
-          "size": 2373,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/Novolis.Update.json"
+          "size": 2426,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/Novolis.Update.json"
+        },
+        {
+          "name": "NovolisTorrent-2026.1.0.93-android.apk",
+          "size": 30759147,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/NovolisTorrent-2026.1.0.93-android.apk"
+        },
+        {
+          "name": "NovolisTorrentSetup-2026.1.0.93-win-x64.exe",
+          "size": 64174798,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/NovolisTorrentSetup-2026.1.0.93-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 387,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.91/SHA256SUMS.txt"
+          "size": 407,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/SHA256SUMS.txt"
         }
       ]
     }
@@ -107,13 +98,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.91",
-      "releasePublished": "2026-10-20 00:37 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
+      "releaseTag": "v2026.1.0.93",
+      "releasePublished": "2026-10-21 19:39 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.93",
       "mergeConclusion": "failure",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662965981",
-      "releaseConclusion": "failure",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662292761"
+      "releaseConclusion": "success",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662983323"
     },
     {
       "name": "novolis-aspire",
