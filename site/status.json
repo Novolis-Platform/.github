@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21 11:43 UTC",
+  "generatedAt": "2026-10-21 19:33 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -11,9 +11,9 @@
       "repo": "novolis-apps",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-20 00:33 UTC",
-      "title": "Make nMule download action visible",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348323309",
+      "when": "2026-10-21 19:30 UTC",
+      "title": "Add Windows target for Novolis Torrent",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662277536",
       "error": "AppsManifest.Unit failed"
     }
   ],
@@ -102,7 +102,7 @@
       "releasePublished": "2026-10-20 00:37 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.91",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348323309",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662277536",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39348339919"
     },
