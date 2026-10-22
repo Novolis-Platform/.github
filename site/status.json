@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21 19:41 UTC",
+  "generatedAt": "2026-10-22 11:46 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -11,44 +11,44 @@
       "repo": "novolis-apps",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-21 19:35 UTC",
-      "title": "Enable Windows installer generation for torrent app",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662965981",
+      "when": "2026-10-21 20:14 UTC",
+      "title": "Implement Sketch Studio mobile parity UX",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39668648350",
       "error": "AppsManifest.Unit failed"
     }
   ],
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.93",
-      "published": "2026-10-21 19:39 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.93",
+      "tag": "v2026.1.0.95",
+      "published": "2026-10-21 20:16 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.95",
       "channel": "5 release assets",
       "assets": [
         {
-          "name": "Novolis.Torrent-2026.1.0.93-win-x64.zip",
-          "size": 94119844,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/Novolis.Torrent-2026.1.0.93-win-x64.zip"
+          "name": "Novolis.Torrent-2026.1.0.95-win-x64.zip",
+          "size": 94127340,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/Novolis.Torrent-2026.1.0.95-win-x64.zip"
         },
         {
           "name": "Novolis.Update.json",
           "size": 2426,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/Novolis.Update.json"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/Novolis.Update.json"
         },
         {
-          "name": "NovolisTorrent-2026.1.0.93-android.apk",
-          "size": 30759147,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/NovolisTorrent-2026.1.0.93-android.apk"
+          "name": "NovolisTorrent-2026.1.0.95-android.apk",
+          "size": 30796011,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/NovolisTorrent-2026.1.0.95-android.apk"
         },
         {
-          "name": "NovolisTorrentSetup-2026.1.0.93-win-x64.exe",
-          "size": 64174798,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/NovolisTorrentSetup-2026.1.0.93-win-x64.exe"
+          "name": "NovolisTorrentSetup-2026.1.0.95-win-x64.exe",
+          "size": 64191582,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/NovolisTorrentSetup-2026.1.0.95-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
           "size": 407,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.93/SHA256SUMS.txt"
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/SHA256SUMS.txt"
         }
       ]
     }
@@ -98,13 +98,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.93",
-      "releasePublished": "2026-10-21 19:39 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.93",
+      "releaseTag": "v2026.1.0.95",
+      "releasePublished": "2026-10-21 20:16 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.95",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662965981",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39668648350",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39662983323"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39668294183"
     },
     {
       "name": "novolis-aspire",
@@ -148,13 +148,13 @@
     {
       "name": "novolis-avalonia",
       "packageCount": 45,
-      "gprVersion": "2026.1.6.248",
-      "nugetVersion": "2026.1.6.248",
+      "gprVersion": "2026.1.6.249",
+      "nugetVersion": "2026.1.6.249",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/39332702930",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/39668629975",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -785,13 +785,13 @@
     {
       "name": "novolis-transports",
       "packageCount": 23,
-      "gprVersion": "2026.1.11.84",
-      "nugetVersion": "2026.1.11.84",
+      "gprVersion": "2026.1.11.85",
+      "nugetVersion": "2026.1.11.85",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39345806522",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-transports/actions/runs/39667774101",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
