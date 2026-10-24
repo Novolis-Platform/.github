@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24 23:03 UTC",
+  "generatedAt": "2026-10-24 23:38 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -11,9 +11,9 @@
       "repo": "novolis-apps",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-24 23:00 UTC",
-      "title": "Release every app artifact",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40140929675",
+      "when": "2026-10-24 23:37 UTC",
+      "title": "Adapt Captain to the typed agent profile.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143468806",
       "error": "AppsManifest.Unit failed"
     }
   ],
@@ -70,13 +70,13 @@
     {
       "name": "novolis-agent",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.37",
+      "gprVersion": "2026.1.1.38",
       "nugetVersion": "2026.1.1.37",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/39172681359",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/40143390901",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -102,7 +102,7 @@
       "releasePublished": "2026-10-24 22:25 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40140929675",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143468806",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
     },
