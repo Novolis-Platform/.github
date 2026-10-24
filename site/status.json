@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-24 23:38 UTC",
+  "generatedAt": "2026-10-24 23:40 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 59,
   "packageCount": 544,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,6 +15,15 @@
       "title": "Adapt Captain to the typed agent profile.",
       "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143468806",
       "error": "AppsManifest.Unit failed"
+    },
+    {
+      "repo": "novolis-tools",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-24 23:37 UTC",
+      "title": "Add the development, debug, and test agent profile.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143465749",
+      "error": "Process completed with exit code 1."
     }
   ],
   "releases": [
@@ -777,8 +786,8 @@
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/39189402558",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143465749",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
