@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-10-24 23:42 UTC",
+  "generatedAt": "2026-10-24 23:43 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
+  "mergeSuccesses": 60,
   "packageCount": 544,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-24 23:37 UTC",
-      "title": "Adapt Captain to the typed agent profile.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143468806",
-      "error": "AppsManifest.Unit failed"
-    },
     {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
@@ -110,8 +101,8 @@
       "releaseTag": "v2026.1.0.96",
       "releasePublished": "2026-10-24 22:25 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143468806",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143722701",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
     },
@@ -183,7 +174,7 @@
     {
       "name": "novolis-cad",
       "packageCount": 5,
-      "gprVersion": "2026.1.0.42",
+      "gprVersion": "",
       "nugetVersion": "2026.1.0.42",
       "releaseTag": "",
       "releasePublished": "",
@@ -248,7 +239,7 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.47",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -313,7 +304,7 @@
     {
       "name": "novolis-http",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.6",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -352,7 +343,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.101",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -521,7 +512,7 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.18",
+      "gprVersion": "2026.1.1.12",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
