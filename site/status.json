@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24 23:40 UTC",
+  "generatedAt": "2026-10-24 23:42 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 59,
@@ -80,7 +80,7 @@
       "name": "novolis-agent",
       "packageCount": 3,
       "gprVersion": "2026.1.1.38",
-      "nugetVersion": "2026.1.1.37",
+      "nugetVersion": "2026.1.1.38",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
