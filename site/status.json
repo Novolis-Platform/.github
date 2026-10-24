@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24 10:53 UTC",
+  "generatedAt": "2026-10-24 22:28 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -20,35 +20,35 @@
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.95",
-      "published": "2026-10-21 20:16 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.95",
+      "tag": "v2026.1.0.96",
+      "published": "2026-10-24 22:25 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "channel": "5 release assets",
       "assets": [
         {
-          "name": "Novolis.Torrent-2026.1.0.95-win-x64.zip",
-          "size": 94127340,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/Novolis.Torrent-2026.1.0.95-win-x64.zip"
-        },
-        {
           "name": "Novolis.Update.json",
-          "size": 2426,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/Novolis.Update.json"
-        },
-        {
-          "name": "NovolisTorrent-2026.1.0.95-android.apk",
-          "size": 30796011,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/NovolisTorrent-2026.1.0.95-android.apk"
-        },
-        {
-          "name": "NovolisTorrentSetup-2026.1.0.95-win-x64.exe",
-          "size": 64191582,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/NovolisTorrentSetup-2026.1.0.95-win-x64.exe"
+          "size": 2420,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/Novolis.Update.json"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 407,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.95/SHA256SUMS.txt"
+          "size": 400,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SHA256SUMS.txt"
+        },
+        {
+          "name": "SketchStudio-2026.1.0.96-android.apk",
+          "size": 33290825,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudio-2026.1.0.96-android.apk"
+        },
+        {
+          "name": "SketchStudio-2026.1.0.96-win-x64.zip",
+          "size": 77531506,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudio-2026.1.0.96-win-x64.zip"
+        },
+        {
+          "name": "SketchStudioSetup-2026.1.0.96-win-x64.exe",
+          "size": 53448069,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudioSetup-2026.1.0.96-win-x64.exe"
         }
       ]
     }
@@ -98,13 +98,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.95",
-      "releasePublished": "2026-10-21 20:16 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.95",
+      "releaseTag": "v2026.1.0.96",
+      "releasePublished": "2026-10-24 22:25 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "mergeConclusion": "failure",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39668648350",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/39668294183"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
     },
     {
       "name": "novolis-aspire",
