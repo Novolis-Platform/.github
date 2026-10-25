@@ -1,22 +1,12 @@
 {
-  "generatedAt": "2026-10-24 23:43 UTC",
+  "generatedAt": "2026-10-25 00:38 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
-  "packageCount": 544,
-  "failedCount": 1,
+  "mergeSuccesses": 61,
+  "packageCount": 546,
+  "failedCount": 0,
   "releasedRepoCount": 1,
-  "failures": [
-    {
-      "repo": "novolis-tools",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-10-24 23:37 UTC",
-      "title": "Add the development, debug, and test agent profile.",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143465749",
-      "error": "Process completed with exit code 1."
-    }
-  ],
+  "failures": [],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -174,7 +164,7 @@
     {
       "name": "novolis-cad",
       "packageCount": 5,
-      "gprVersion": "",
+      "gprVersion": "2026.1.0.42",
       "nugetVersion": "2026.1.0.42",
       "releaseTag": "",
       "releasePublished": "",
@@ -239,7 +229,7 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.47",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -304,7 +294,7 @@
     {
       "name": "novolis-http",
       "packageCount": 4,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.6",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -343,7 +333,7 @@
     {
       "name": "novolis-install",
       "packageCount": 1,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.103",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "",
       "releasePublished": "",
@@ -421,7 +411,7 @@
     {
       "name": "novolis-manuscript",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.101",
+      "gprVersion": "2026.1.1.103",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -512,7 +502,7 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.12",
+      "gprVersion": "2026.1.1.18",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
@@ -551,13 +541,13 @@
     {
       "name": "novolis-pdf",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.20",
+      "gprVersion": "2026.1.1.21",
       "nugetVersion": "2026.1.1.20",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/39172822251",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/40147310966",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -771,14 +761,14 @@
     },
     {
       "name": "novolis-tools",
-      "packageCount": 24,
-      "gprVersion": "2026.1.1.101",
+      "packageCount": 26,
+      "gprVersion": "2026.1.1.103",
       "nugetVersion": "2026.1.1.4",
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143465749",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143834764",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
