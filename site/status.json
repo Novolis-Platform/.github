@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25 00:41 UTC",
+  "generatedAt": "2026-10-25 00:45 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -92,7 +92,7 @@
       "releasePublished": "2026-10-24 22:25 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40143722701",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40147585975",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
     },
@@ -464,7 +464,7 @@
       "name": "novolis-maui",
       "packageCount": 12,
       "gprVersion": "2026.1.1.70",
-      "nugetVersion": "2026.1.1.69",
+      "nugetVersion": "2026.1.1.70",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -542,7 +542,7 @@
       "name": "novolis-pdf",
       "packageCount": 8,
       "gprVersion": "2026.1.1.21",
-      "nugetVersion": "2026.1.1.20",
+      "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
