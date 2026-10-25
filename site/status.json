@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25 00:38 UTC",
+  "generatedAt": "2026-10-25 00:41 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -463,13 +463,13 @@
     {
       "name": "novolis-maui",
       "packageCount": 12,
-      "gprVersion": "2026.1.1.69",
+      "gprVersion": "2026.1.1.70",
       "nugetVersion": "2026.1.1.69",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/39173339234",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/40147440482",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
