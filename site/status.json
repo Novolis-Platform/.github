@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25 00:45 UTC",
+  "generatedAt": "2026-10-25 01:01 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -151,7 +151,7 @@
     {
       "name": "novolis-blazor",
       "packageCount": 2,
-      "gprVersion": "2026.1.1.7",
+      "gprVersion": "2026.1.1.8",
       "nugetVersion": "2026.1.1.7",
       "releaseTag": "",
       "releasePublished": "",
@@ -365,7 +365,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/39167836682",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40148762051",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -437,13 +437,13 @@
     {
       "name": "novolis-markup",
       "packageCount": 11,
-      "gprVersion": "2026.1.1.72",
+      "gprVersion": "2026.1.1.73",
       "nugetVersion": "2026.1.1.72",
       "releaseTag": "v0.1.0-preview.1",
       "releasePublished": "2026-05-17 02:11 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-markup/releases/tag/v0.1.0-preview.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/39172793497",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/40148761455",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-markup/actions/runs/25978808980"
     },
