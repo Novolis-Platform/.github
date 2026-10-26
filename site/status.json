@@ -1,12 +1,22 @@
 {
-  "generatedAt": "2026-10-25 12:59 UTC",
+  "generatedAt": "2026-10-26 06:46 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 61,
+  "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 0,
+  "failedCount": 1,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-26 06:43 UTC",
+      "title": "CalypsoCad CAL-MFG-001: hull DXF nests, structure/outfit fab manifest\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40281462618",
+      "error": "The type or namespace name \u0027FabAssemblyInstance\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -152,7 +162,7 @@
       "name": "novolis-blazor",
       "packageCount": 3,
       "gprVersion": "2026.1.1.9",
-      "nugetVersion": "2026.1.1.8",
+      "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -364,8 +374,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40148870902",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40281462618",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -645,13 +655,13 @@
     {
       "name": "novolis-ship",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.27",
+      "gprVersion": "2026.1.1.28",
       "nugetVersion": "2026.1.1.27",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/39172856133",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/40281460486",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
