@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26 06:46 UTC",
+  "generatedAt": "2026-10-26 12:54 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -656,7 +656,7 @@
       "name": "novolis-ship",
       "packageCount": 6,
       "gprVersion": "2026.1.1.28",
-      "nugetVersion": "2026.1.1.27",
+      "nugetVersion": "2026.1.1.28",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
