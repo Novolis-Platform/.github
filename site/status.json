@@ -1,29 +1,20 @@
 {
-  "generatedAt": "2026-10-27 23:53 UTC",
+  "generatedAt": "2026-10-27 23:59 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-apps",
-      "workflow": "release.yml",
-      "conclusion": "failure",
-      "when": "2026-10-27 23:47 UTC",
-      "title": "Release",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40604561524",
-      "error": "One or more jobs failed. Open the failed job; its name is the app and channel."
-    },
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-10-26 06:43 UTC",
-      "title": "CalypsoCad CAL-MFG-001: hull DXF nests, structure/outfit fab manifest\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40281462618",
-      "error": "The type or namespace name \u0027FabAssemblyInstance\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+      "when": "2026-10-27 23:56 UTC",
+      "title": "Ship CAL-MFG-002: profile frame webs, fab v2, and visual gates.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40605539922",
+      "error": "\u0027ShipWalk\u0027 does not contain a definition for \u0027CountReachableOpenInteriorHatches\u0027"
     }
   ],
   "releases": [
@@ -112,8 +103,8 @@
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40147585975",
-      "releaseConclusion": "failure",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40604561524"
+      "releaseConclusion": "success",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
     },
     {
       "name": "novolis-aspire",
@@ -171,7 +162,7 @@
       "name": "novolis-blazor",
       "packageCount": 3,
       "gprVersion": "2026.1.1.10",
-      "nugetVersion": "2026.1.1.9",
+      "nugetVersion": "2026.1.1.10",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -384,7 +375,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40281462618",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/40605539922",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -664,13 +655,13 @@
     {
       "name": "novolis-ship",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.28",
+      "gprVersion": "2026.1.1.29",
       "nugetVersion": "2026.1.1.28",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/40281460486",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/40605543766",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
