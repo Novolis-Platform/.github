@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-10-27 23:50 UTC",
+  "generatedAt": "2026-10-27 23:51 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-apps",
+      "workflow": "release.yml",
+      "conclusion": "failure",
+      "when": "2026-10-27 23:47 UTC",
+      "title": "Release",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40604561524",
+      "error": "One or more jobs failed. Open the failed job; its name is the app and channel."
+    },
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
@@ -103,8 +112,8 @@
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
       "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40147585975",
-      "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
+      "releaseConclusion": "failure",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40604561524"
     },
     {
       "name": "novolis-aspire",
@@ -161,7 +170,7 @@
     {
       "name": "novolis-blazor",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.9",
+      "gprVersion": "2026.1.1.10",
       "nugetVersion": "2026.1.1.9",
       "releaseTag": "",
       "releasePublished": "",
