@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27 23:51 UTC",
+  "generatedAt": "2026-10-27 23:53 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -176,7 +176,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-blazor/actions/runs/40195343387",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-blazor/actions/runs/40604822740",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
