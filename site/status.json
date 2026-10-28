@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27 23:59 UTC",
+  "generatedAt": "2026-10-28 12:46 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -20,35 +20,285 @@
   "releases": [
     {
       "repo": "novolis-apps",
-      "tag": "v2026.1.0.96",
-      "published": "2026-10-24 22:25 UTC",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
-      "channel": "5 release assets",
+      "tag": "v2026.1.0.98",
+      "published": "2026-10-28 00:10 UTC",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
+      "channel": "55 release assets",
       "assets": [
         {
+          "name": "AssetStudio-2026.1.0.98-win-x64.zip",
+          "size": 76674519,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/AssetStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "AssetStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 52626220,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/AssetStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "BooksMobile-2026.1.0.98-android.apk",
+          "size": 56315216,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/BooksMobile-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "BooksWriterStudio-2026.1.0.98-win-x64.zip",
+          "size": 90072437,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/BooksWriterStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "BooksWriterStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 60615396,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/BooksWriterStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "CadStudio-2026.1.0.98-win-x64.zip",
+          "size": 85126364,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/CadStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "CadStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 57267193,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/CadStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "FrankMoat-2026.1.0.98-android.apk",
+          "size": 41891247,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/FrankMoat-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "FrankMoat.Desktop-2026.1.0.98-win-x64.zip",
+          "size": 78615438,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/FrankMoat.Desktop-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "FrankMoatSetup-2026.1.0.98-win-x64.exe",
+          "size": 53868661,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/FrankMoatSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "HttpStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 52532869,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/HttpStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "LiveStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 108117529,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/LiveStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "Merglyph-2026.1.0.98-android.apk",
+          "size": 45734480,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Merglyph-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "Merglyph-2026.1.0.98-win-x64.zip",
+          "size": 133749256,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Merglyph-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "MerglyphSetup-2026.1.0.98-win-x64.exe",
+          "size": 89300423,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/MerglyphSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "nMule-2026.1.0.98-android.apk",
+          "size": 29623112,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/nMule-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "nMuleSetup-2026.1.0.98-win-x64.exe",
+          "size": 64021334,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/nMuleSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "Novolis.Audio.Live.Studio-2026.1.0.98-win-x64.zip",
+          "size": 157898731,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.Audio.Live.Studio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.HttpStudio-2026.1.0.98-win-x64.zip",
+          "size": 76131489,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.HttpStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.nMule-2026.1.0.98-win-x64.zip",
+          "size": 93962817,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.nMule-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.QueryStudio-2026.1.0.98-win-x64.zip",
+          "size": 78999751,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.QueryStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.Reach.Client.Windows-2026.1.0.98-win-x64.zip",
+          "size": 112420336,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.Reach.Client.Windows-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.RoboSharpStudio-2026.1.0.98-win-x64.zip",
+          "size": 75419902,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.RoboSharpStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.Sudoku-2026.1.0.98-win-x64.zip",
+          "size": 76582345,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.Sudoku-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "Novolis.Torrent-2026.1.0.98-win-x64.zip",
+          "size": 94127672,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.Torrent-2026.1.0.98-win-x64.zip"
+        },
+        {
           "name": "Novolis.Update.json",
-          "size": 2420,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/Novolis.Update.json"
+          "size": 28937,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Novolis.Update.json"
+        },
+        {
+          "name": "NovolisMaps-2026.1.0.98-android.apk",
+          "size": 34218003,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisMaps-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "NovolisMaps-2026.1.0.98-win-x64.zip",
+          "size": 83495002,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisMaps-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "NovolisMapsSetup-2026.1.0.98-win-x64.exe",
+          "size": 56351890,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisMapsSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "NovolisNdjsonViewer-2026.1.0.98-android.apk",
+          "size": 29184895,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisNdjsonViewer-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "NovolisPdfReader-2026.1.0.98-android.apk",
+          "size": 41152090,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisPdfReader-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "NovolisPdfReader-2026.1.0.98-win-x64.zip",
+          "size": 124662357,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisPdfReader-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "NovolisPdfReaderSetup-2026.1.0.98-win-x64.exe",
+          "size": 83399222,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisPdfReaderSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "NovolisQuietVideo-2026.1.0.98-android.apk",
+          "size": 8148528,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisQuietVideo-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "NovolisTorrent-2026.1.0.98-android.apk",
+          "size": 30796011,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisTorrent-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "NovolisTorrentSetup-2026.1.0.98-win-x64.exe",
+          "size": 64166216,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/NovolisTorrentSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "PresenceLedger-2026.1.0.98-android.apk",
+          "size": 35193903,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/PresenceLedger-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "PresenceLedger-2026.1.0.98-win-x64.zip",
+          "size": 83865376,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/PresenceLedger-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "PresenceLedgerSetup-2026.1.0.98-win-x64.exe",
+          "size": 56465186,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/PresenceLedgerSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "QueryStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 54479358,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/QueryStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "Reach-2026.1.0.98-android.apk",
+          "size": 32771012,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Reach-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "Reach-2026.1.0.98-linux-x64.tar.gz",
+          "size": 46444192,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Reach-2026.1.0.98-linux-x64.tar.gz"
+        },
+        {
+          "name": "ReachSetup-2026.1.0.98-win-x64.exe",
+          "size": 74840786,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/ReachSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "ReadAloud-2026.1.0.98-android.apk",
+          "size": 48374618,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/ReadAloud-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "ReadAloud-2026.1.0.98-win-x64.zip",
+          "size": 103119966,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/ReadAloud-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "ReadAloudSetup-2026.1.0.98-win-x64.exe",
+          "size": 69041213,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/ReadAloudSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "RoboSharpStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 52180342,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/RoboSharpStudioSetup-2026.1.0.98-win-x64.exe"
         },
         {
           "name": "SHA256SUMS.txt",
-          "size": 400,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SHA256SUMS.txt"
+          "size": 5687,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SHA256SUMS.txt"
         },
         {
-          "name": "SketchStudio-2026.1.0.96-android.apk",
-          "size": 33290825,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudio-2026.1.0.96-android.apk"
+          "name": "SinsOfACapitalismTycoon-2026.1.0.98-win-x64.zip",
+          "size": 79288363,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SinsOfACapitalismTycoon-2026.1.0.98-win-x64.zip"
         },
         {
-          "name": "SketchStudio-2026.1.0.96-win-x64.zip",
-          "size": 77531506,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudio-2026.1.0.96-win-x64.zip"
+          "name": "SinsOfACapitalismTycoonSetup-2026.1.0.98-win-x64.exe",
+          "size": 54045423,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SinsOfACapitalismTycoonSetup-2026.1.0.98-win-x64.exe"
         },
         {
-          "name": "SketchStudioSetup-2026.1.0.96-win-x64.exe",
-          "size": 53448069,
-          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.96/SketchStudioSetup-2026.1.0.96-win-x64.exe"
+          "name": "SketchStudio-2026.1.0.98-android.apk",
+          "size": 33299017,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SketchStudio-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "SketchStudio-2026.1.0.98-win-x64.zip",
+          "size": 77531820,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SketchStudio-2026.1.0.98-win-x64.zip"
+        },
+        {
+          "name": "SketchStudioSetup-2026.1.0.98-win-x64.exe",
+          "size": 53436071,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SketchStudioSetup-2026.1.0.98-win-x64.exe"
+        },
+        {
+          "name": "Sudoku-2026.1.0.98-android.apk",
+          "size": 27712173,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/Sudoku-2026.1.0.98-android.apk"
+        },
+        {
+          "name": "SudokuSetup-2026.1.0.98-win-x64.exe",
+          "size": 52619305,
+          "url": "https://github.com/Novolis-Platform/novolis-apps/releases/download/v2026.1.0.98/SudokuSetup-2026.1.0.98-win-x64.exe"
         }
       ]
     }
@@ -98,13 +348,13 @@
       "packageCount": 0,
       "gprVersion": "",
       "nugetVersion": "",
-      "releaseTag": "v2026.1.0.96",
-      "releasePublished": "2026-10-24 22:25 UTC",
-      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.96",
+      "releaseTag": "v2026.1.0.98",
+      "releasePublished": "2026-10-28 00:10 UTC",
+      "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40147585975",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606307054",
       "releaseConclusion": "success",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40138299756"
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
     {
       "name": "novolis-aspire",
@@ -656,7 +906,7 @@
       "name": "novolis-ship",
       "packageCount": 6,
       "gprVersion": "2026.1.1.29",
-      "nugetVersion": "2026.1.1.28",
+      "nugetVersion": "2026.1.1.29",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
