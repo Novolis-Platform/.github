@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06 19:36 UTC",
+  "generatedAt": "2026-11-06 19:37 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -342,7 +342,7 @@
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42271099775",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42280404494",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
@@ -714,7 +714,7 @@
       "name": "novolis-maui",
       "packageCount": 12,
       "gprVersion": "2026.1.1.71",
-      "nugetVersion": "2026.1.1.70",
+      "nugetVersion": "2026.1.1.71",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -766,7 +766,7 @@
       "name": "novolis-msbuild",
       "packageCount": 5,
       "gprVersion": "2026.1.1.22",
-      "nugetVersion": "2026.1.1.21",
+      "nugetVersion": "2026.1.1.22",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
