@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06 20:37 UTC",
+  "generatedAt": "2026-11-06 21:05 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -615,7 +615,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42289541454",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42293465662",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -791,13 +791,13 @@
     {
       "name": "novolis-pdf",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.24",
-      "nugetVersion": "2026.1.1.23",
+      "gprVersion": "2026.1.1.25",
+      "nugetVersion": "2026.1.1.24",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/42289521310",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/42293444089",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
