@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06 21:42 UTC",
+  "generatedAt": "2026-11-06 23:27 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -615,7 +615,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42298590777",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42311732564",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -700,13 +700,13 @@
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.62",
+      "gprVersion": "2026.1.1.63",
       "nugetVersion": "2026.1.1.62",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42297409496",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42311701741",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
@@ -908,13 +908,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.10",
-      "nugetVersion": "2026.1.1.8",
+      "gprVersion": "2026.1.1.11",
+      "nugetVersion": "2026.1.1.10",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42298579165",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42311706016",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
