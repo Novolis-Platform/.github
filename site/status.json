@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06 19:34 UTC",
+  "generatedAt": "2026-11-06 19:36 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -745,7 +745,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/39345806034",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-mobile-experience/actions/runs/42280381339",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
