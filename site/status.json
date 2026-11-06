@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06 18:30 UTC",
+  "generatedAt": "2026-11-06 18:31 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 60,
@@ -326,7 +326,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/40143390901",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-agent/actions/runs/42271071623",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -352,7 +352,7 @@
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606307054",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42271099775",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
@@ -781,7 +781,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-msbuild/actions/runs/39173893266",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-msbuild/actions/runs/42271040623",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -820,14 +820,14 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-physics/actions/runs/39173339591",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-physics/actions/runs/42271015910",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-raylib",
       "packageCount": 15,
-      "gprVersion": "2026.1.2.117",
+      "gprVersion": "2026.1.2.118",
       "nugetVersion": "2026.1.2.117",
       "releaseTag": "v2026.1.2",
       "releasePublished": "2026-07-28 19:30 UTC",
@@ -905,13 +905,13 @@
     {
       "name": "novolis-ship",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.29",
+      "gprVersion": "2026.1.1.30",
       "nugetVersion": "2026.1.1.29",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/40605543766",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/42271086568",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -937,7 +937,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/39172868053",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-simulation/actions/runs/42270990482",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -1054,7 +1054,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/39344382630",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/42271005972",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-utilities/actions/runs/39344393795"
     },
