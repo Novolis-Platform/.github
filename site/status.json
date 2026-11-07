@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07 16:07 UTC",
+  "generatedAt": "2026-11-07 16:28 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 61,
@@ -615,7 +615,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42389454534",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42391231624",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -908,13 +908,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.16",
-      "nugetVersion": "2026.1.1.15",
+      "gprVersion": "2026.1.1.17",
+      "nugetVersion": "2026.1.1.16",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42389442779",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42391225001",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
