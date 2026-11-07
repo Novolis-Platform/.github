@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-11-07 23:45 UTC",
+  "generatedAt": "2026-11-07 23:47 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 58,
+  "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 3,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-cad",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-07 23:42 UTC",
-      "title": "Add mesh export utilities and artillery simulator effects",
-      "url": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426425369",
-      "error": "The type or namespace name \u0027CadNamedMesh\u0027 could not be found (are you missing a using directive or an assembly reference?)"
-    },
     {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
@@ -24,15 +15,6 @@
       "title": "Add mesh export utilities and artillery simulator effects",
       "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42426394124",
       "error": "The name \u0027WavefrontObjWriter\u0027 does not exist in the current context"
-    },
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-07 23:41 UTC",
-      "title": "Add mesh export utilities and artillery simulator effects",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42426421436",
-      "error": "\u0027MusicScore\u0027 does not contain a definition for \u0027CreateFrontlineRemnant\u0027"
     }
   ],
   "releases": [
@@ -409,7 +391,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-audio/releases/tag/v2026.1.10",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/39172706947",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/42426405054",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/30392209335"
     },
@@ -447,8 +429,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426425369",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426551819",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -642,8 +624,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42426421436",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42426556580",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -734,7 +716,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42426413038",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42426543376",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
