@@ -1,22 +1,12 @@
 {
-  "generatedAt": "2026-11-07 11:38 UTC",
+  "generatedAt": "2026-11-07 11:55 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 61,
   "packageCount": 547,
-  "failedCount": 1,
+  "failedCount": 0,
   "releasedRepoCount": 1,
-  "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-07 11:35 UTC",
-      "title": "Optimize simulator rendering and add primary road routing",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42368842752",
-      "error": "The type or namespace name \u0027WorldLineGpuMesh\u0027 could not be found (are you missing a using directive or an assembly reference?)"
-    }
-  ],
+  "failures": [],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -424,13 +414,13 @@
     {
       "name": "novolis-cad",
       "packageCount": 5,
-      "gprVersion": "2026.1.0.42",
+      "gprVersion": "2026.1.0.43",
       "nugetVersion": "2026.1.0.42",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/39172720495",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42370061595",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -624,8 +614,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42368842752",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42370066694",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -905,26 +895,26 @@
     {
       "name": "novolis-ship",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.30",
+      "gprVersion": "2026.1.1.31",
       "nugetVersion": "2026.1.1.30",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/42271086568",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-ship/actions/runs/42370055700",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.13",
-      "nugetVersion": "2026.1.1.11",
+      "gprVersion": "2026.1.1.14",
+      "nugetVersion": "2026.1.1.13",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42368833504",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42370052656",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
