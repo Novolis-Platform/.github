@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-07 23:44 UTC",
+  "generatedAt": "2026-11-07 23:45 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 58,
   "packageCount": 547,
-  "failedCount": 1,
+  "failedCount": 3,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -15,6 +15,24 @@
       "title": "Add mesh export utilities and artillery simulator effects",
       "url": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426425369",
       "error": "The type or namespace name \u0027CadNamedMesh\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-avalonia",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-07 23:41 UTC",
+      "title": "Add mesh export utilities and artillery simulator effects",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42426394124",
+      "error": "The name \u0027WavefrontObjWriter\u0027 does not exist in the current context"
+    },
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-07 23:41 UTC",
+      "title": "Add mesh export utilities and artillery simulator effects",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42426421436",
+      "error": "\u0027MusicScore\u0027 does not contain a definition for \u0027CreateFrontlineRemnant\u0027"
     }
   ],
   "releases": [
@@ -385,7 +403,7 @@
     {
       "name": "novolis-audio",
       "packageCount": 45,
-      "gprVersion": "2026.1.10.101",
+      "gprVersion": "2026.1.10.102",
       "nugetVersion": "2026.1.10.101",
       "releaseTag": "v2026.1.10",
       "releasePublished": "2026-07-28 19:30 UTC",
@@ -403,8 +421,8 @@
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/40148888358",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42426394124",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -424,7 +442,7 @@
     {
       "name": "novolis-cad",
       "packageCount": 5,
-      "gprVersion": "2026.1.0.44",
+      "gprVersion": "2026.1.0.46",
       "nugetVersion": "2026.1.0.44",
       "releaseTag": "",
       "releasePublished": "",
@@ -624,8 +642,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42424338494",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42426421436",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -710,7 +728,7 @@
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.66",
+      "gprVersion": "2026.1.1.67",
       "nugetVersion": "2026.1.1.65",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
@@ -762,13 +780,13 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.19",
+      "gprVersion": "2026.1.1.20",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/42426398037",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/42426553737",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
