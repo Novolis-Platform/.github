@@ -1,12 +1,40 @@
 {
-  "generatedAt": "2026-11-07 16:28 UTC",
+  "generatedAt": "2026-11-07 16:39 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 61,
+  "mergeSuccesses": 58,
   "packageCount": 547,
-  "failedCount": 0,
+  "failedCount": 3,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-07 16:37 UTC",
+      "title": "Add Calypso structural bay pipeline and verification scripts",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42392242547",
+      "error": "Use of unassigned local variable \u0027orientEl\u0027"
+    },
+    {
+      "repo": "novolis-silk",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-07 16:37 UTC",
+      "title": "Add Calypso structural bay pipeline and verification scripts",
+      "url": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42392238825",
+      "error": "Cannot use ref local \u0027p\u0027 inside an anonymous method, lambda expression, or query expression"
+    },
+    {
+      "repo": "novolis-tools",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-10-11 22:09 UTC",
+      "title": "Add NetworkPath command",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/38179259587",
+      "error": "Process completed with exit code 1."
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -614,8 +642,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42391231624",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42392242547",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -909,12 +937,12 @@
       "name": "novolis-silk",
       "packageCount": 5,
       "gprVersion": "2026.1.1.17",
-      "nugetVersion": "2026.1.1.16",
+      "nugetVersion": "2026.1.1.17",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42391225001",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42392238825",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -1017,8 +1045,8 @@
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143834764",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/38179259587",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
