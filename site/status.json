@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-11-07 00:09 UTC",
+  "generatedAt": "2026-11-07 11:17 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
+  "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-07 00:05 UTC",
-      "title": "Migrate Calypso CAD rendering to Silk world batches",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42316095199",
-      "error": "The name \u0027KristiansandKommunekartBuildings\u0027 does not exist in the current context"
-    },
     {
       "repo": "novolis-silk",
       "workflow": "merge.yml",
@@ -633,8 +624,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42316095199",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42367395419",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -719,13 +710,13 @@
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.64",
-      "nugetVersion": "2026.1.1.63",
+      "gprVersion": "2026.1.1.65",
+      "nugetVersion": "2026.1.1.64",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42316081761",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42367384646",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
