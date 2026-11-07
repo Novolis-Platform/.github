@@ -1,12 +1,22 @@
 {
-  "generatedAt": "2026-11-07 23:17 UTC",
+  "generatedAt": "2026-11-07 23:44 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 61,
+  "mergeSuccesses": 60,
   "packageCount": 547,
-  "failedCount": 0,
+  "failedCount": 1,
   "releasedRepoCount": 1,
-  "failures": [],
+  "failures": [
+    {
+      "repo": "novolis-cad",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-07 23:42 UTC",
+      "title": "Add mesh export utilities and artillery simulator effects",
+      "url": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426425369",
+      "error": "The type or namespace name \u0027CadNamedMesh\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    }
+  ],
   "releases": [
     {
       "repo": "novolis-apps",
@@ -419,8 +429,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42402298018",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426425369",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -700,13 +710,13 @@
     {
       "name": "novolis-math",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.65",
+      "gprVersion": "2026.1.1.66",
       "nugetVersion": "2026.1.1.65",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-math/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42367384646",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/42426413038",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-math/actions/runs/30392215192"
     },
@@ -752,13 +762,13 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.18",
+      "gprVersion": "2026.1.1.19",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/39173339989",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/42426398037",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -908,13 +918,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.21",
-      "nugetVersion": "2026.1.1.20",
+      "gprVersion": "2026.1.1.22",
+      "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42424324718",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42426408389",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
