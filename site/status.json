@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-08 19:56 UTC",
+  "generatedAt": "2026-11-08 20:04 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 58,
+  "mergeSuccesses": 59,
   "packageCount": 551,
-  "failedCount": 3,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
     {
@@ -24,15 +24,6 @@
       "title": "Add Calypso CAD render mesh asset",
       "url": "https://github.com/Novolis-Platform/novolis-modeling/actions/runs/42427725903",
       "error": "Process completed with exit code 2."
-    },
-    {
-      "repo": "novolis-avalonia",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-07 23:41 UTC",
-      "title": "Add mesh export utilities and artillery simulator effects",
-      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42426394124",
-      "error": "The name \u0027WavefrontObjWriter\u0027 does not exist in the current context"
     }
   ],
   "releases": [
@@ -417,12 +408,12 @@
       "name": "novolis-avalonia",
       "packageCount": 45,
       "gprVersion": "2026.1.6.252",
-      "nugetVersion": "2026.1.6.250",
+      "nugetVersion": "2026.1.6.252",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42426394124",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42517095127",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -443,7 +434,7 @@
       "name": "novolis-cad",
       "packageCount": 9,
       "gprVersion": "2026.1.0.47",
-      "nugetVersion": "2026.1.0.46",
+      "nugetVersion": "2026.1.0.47",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -871,13 +862,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.86",
+      "gprVersion": "2026.1.1.87",
       "nugetVersion": "2026.1.1.86",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/39172843078",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42517969320",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
