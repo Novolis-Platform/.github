@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-11-08 13:17 UTC",
+  "generatedAt": "2026-11-08 19:54 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
-  "packageCount": 547,
-  "failedCount": 2,
+  "mergeSuccesses": 58,
+  "packageCount": 551,
+  "failedCount": 3,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-08 19:51 UTC",
+      "title": "Thin CalypsoCad host on CadSessionService with generic CAD adapters.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42517098199",
+      "error": "\u0027CadDocumentSession\u0027 does not contain a definition for \u0027BindHierarchy\u0027 and no accessible extension method \u0027BindHierarchy\u0027 accepting a first argument of type \u0027CadDocumentSession\u0027 co\u2026"
+    },
     {
       "repo": "novolis-modeling",
       "workflow": "merge.yml",
@@ -432,14 +441,14 @@
     },
     {
       "name": "novolis-cad",
-      "packageCount": 5,
-      "gprVersion": "2026.1.0.46",
+      "packageCount": 9,
+      "gprVersion": "2026.1.0.47",
       "nugetVersion": "2026.1.0.46",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42426551819",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42517091824",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -633,8 +642,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42477978838",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42517098199",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
