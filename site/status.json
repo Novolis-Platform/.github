@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-11-08 20:04 UTC",
+  "generatedAt": "2026-11-09 16:09 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
+  "mergeSuccesses": 60,
   "packageCount": 551,
-  "failedCount": 2,
+  "failedCount": 1,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-08 19:51 UTC",
-      "title": "Thin CalypsoCad host on CadSessionService with generic CAD adapters.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42517098199",
-      "error": "\u0027CadDocumentSession\u0027 does not contain a definition for \u0027BindHierarchy\u0027 and no accessible extension method \u0027BindHierarchy\u0027 accepting a first argument of type \u0027CadDocumentSession\u0027 co\u2026"
-    },
     {
       "repo": "novolis-modeling",
       "workflow": "merge.yml",
@@ -433,13 +424,13 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.47",
-      "nugetVersion": "2026.1.0.47",
+      "gprVersion": "2026.1.0.48",
+      "nugetVersion": "2026.1.0.48",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42517091824",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42519378589",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -633,8 +624,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42517098199",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42519406898",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -862,13 +853,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.87",
-      "nugetVersion": "2026.1.1.86",
+      "gprVersion": "2026.1.1.89",
+      "nugetVersion": "2026.1.1.89",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42517969320",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42519095416",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
