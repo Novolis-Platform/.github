@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-11-09 18:52 UTC",
+  "generatedAt": "2026-11-09 19:01 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 60,
+  "mergeSuccesses": 59,
   "packageCount": 551,
-  "failedCount": 1,
+  "failedCount": 2,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 18:57 UTC",
+      "title": "Throttle Silk path-trace hosts: dirty blit, soft reset, orbit preview\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42678785170",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-modeling",
       "workflow": "merge.yml",
@@ -385,7 +394,7 @@
     {
       "name": "novolis-audio",
       "packageCount": 45,
-      "gprVersion": "2026.1.10.102",
+      "gprVersion": "2026.1.10.103",
       "nugetVersion": "2026.1.10.102",
       "releaseTag": "v2026.1.10",
       "releasePublished": "2026-07-28 19:30 UTC",
@@ -624,8 +633,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42677468748",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42678785170",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -853,13 +862,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.89",
+      "gprVersion": "2026.1.1.90",
       "nugetVersion": "2026.1.1.89",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42519095416",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42678778969",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -919,7 +928,7 @@
       "name": "novolis-silk",
       "packageCount": 5,
       "gprVersion": "2026.1.1.25",
-      "nugetVersion": "2026.1.1.24",
+      "nugetVersion": "2026.1.1.25",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
