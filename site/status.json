@@ -1,28 +1,19 @@
 {
-  "generatedAt": "2026-11-09 20:31 UTC",
+  "generatedAt": "2026-11-09 20:33 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 55,
+  "mergeSuccesses": 56,
   "packageCount": 552,
-  "failedCount": 6,
+  "failedCount": 5,
   "releasedRepoCount": 1,
   "failures": [
     {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 20:21 UTC",
-      "title": "Make catalog chrome captures opt-in only.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42692182595",
-      "error": "Tests failed for tests/Merglyph.Core.Tests/Merglyph.Core.Tests.csproj"
-    },
-    {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 20:18 UTC",
-      "title": "Prefer LibraryReference for Novolis.Raylib so forest restores skip Gi\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42691747498",
+      "conclusion": "cancelled",
+      "when": "2026-11-09 20:28 UTC",
+      "title": "Speed SilkTraceStudio restores: disable audit/SourceLink and pin Proj\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693264166",
       "error": "Process completed with exit code 1."
     },
     {
@@ -396,8 +387,8 @@
       "releaseTag": "v2026.1.0.98",
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42692182595",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42693463459",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
@@ -469,7 +460,7 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.49",
+      "gprVersion": "2026.1.0.50",
       "nugetVersion": "2026.1.0.49",
       "releaseTag": "",
       "releasePublished": "",
@@ -669,8 +660,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42691747498",
+      "mergeConclusion": "cancelled",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693264166",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
