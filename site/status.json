@@ -1,19 +1,46 @@
 {
-  "generatedAt": "2026-11-09 20:35 UTC",
+  "generatedAt": "2026-11-09 21:25 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 56,
+  "mergeSuccesses": 54,
   "packageCount": 552,
-  "failedCount": 5,
+  "failedCount": 7,
   "releasedRepoCount": 1,
   "failures": [
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-09 20:32 UTC",
-      "title": "Document MSBuild node-reuse restore contention and disable node reuse\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693992210",
+      "when": "2026-11-09 21:08 UTC",
+      "title": "Make SilkTrace orbit feel continuous under ILGPU.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42699690359",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-tools",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:46 UTC",
+      "title": "Add novolis-code-quality tool for Platform.slnx readability reports.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42696071997",
+      "error": "The name \u0027ReadabilityComplexityMeter\u0027 does not exist in the current context"
+    },
+    {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:37 UTC",
+      "title": "Sharpen Sudoku UX captures and keep the phone board compact.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42694700991",
+      "error": "Build failed for src/BooksWriterStudio/BooksWriterStudio.Linux.slnx"
+    },
+    {
+      "repo": "novolis-security",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:34 UTC",
+      "title": "Add Novolis.Security.Authentication.Entra for interactive Microsoft s\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42694331668",
       "error": "Process completed with exit code 1."
     },
     {
@@ -24,15 +51,6 @@
       "title": "Fix speech provider selection state after Azure setup intent.",
       "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42690837299",
       "error": "\u0027VoiceSettings\u0027 does not contain a definition for \u0027ToEdgeTtsOptions\u0027 and no accessible extension method \u0027ToEdgeTtsOptions\u0027 accepting a first argument of type \u0027VoiceSettings\u0027 could \u2026"
-    },
-    {
-      "repo": "novolis-tools",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 19:38 UTC",
-      "title": "Default manuscript audio CLI to Edge Read Aloud.",
-      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42685218771",
-      "error": "The type or namespace name \u0027EdgeTtsSynthesizer\u0027 could not be found (are you missing a using directive or an assembly reference?)"
     },
     {
       "repo": "novolis-manuscript",
@@ -369,13 +387,13 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 7,
-      "gprVersion": "2026.1.1.46",
+      "gprVersion": "2026.1.1.49",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-analyzers/releases/tag/v2026.1.1.2",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/42687762296",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/42700967611",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/36942752103"
     },
@@ -387,8 +405,8 @@
       "releaseTag": "v2026.1.0.98",
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42693463459",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42694700991",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
@@ -447,26 +465,26 @@
     {
       "name": "novolis-blazor",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.10",
-      "nugetVersion": "2026.1.1.10",
+      "gprVersion": "2026.1.1.11",
+      "nugetVersion": "2026.1.1.11",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-blazor/actions/runs/40604822740",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-blazor/actions/runs/42694374918",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.50",
-      "nugetVersion": "2026.1.0.49",
+      "gprVersion": "2026.1.0.53",
+      "nugetVersion": "2026.1.0.52",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42693891910",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42696196520",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -661,7 +679,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693992210",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42699690359",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -889,13 +907,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.95",
-      "nugetVersion": "2026.1.1.95",
+      "gprVersion": "2026.1.1.97",
+      "nugetVersion": "2026.1.1.96",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42690558933",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42699683192",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -933,8 +951,8 @@
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-09-30 01:57 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-security/releases/tag/v2026.1.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/40148924667",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42694331668",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/36657530520"
     },
@@ -954,13 +972,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.25",
+      "gprVersion": "2026.1.1.26",
       "nugetVersion": "2026.1.1.25",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42677518757",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42701956089",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -1064,7 +1082,7 @@
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42685218771",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42696071997",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
