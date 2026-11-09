@@ -1,20 +1,56 @@
 {
-  "generatedAt": "2026-11-09 19:36 UTC",
+  "generatedAt": "2026-11-09 20:26 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 58,
-  "packageCount": 551,
-  "failedCount": 2,
+  "mergeSuccesses": 55,
+  "packageCount": 552,
+  "failedCount": 6,
   "releasedRepoCount": 1,
   "failures": [
     {
       "repo": "novolis-apps",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-09 19:19 UTC",
-      "title": "Improve ReadAloud chrome, status tones, and Azure error copy.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42682171605",
-      "error": "Tests failed for tests/ReadAloud.Unit/ReadAloud.Unit.csproj"
+      "when": "2026-11-09 20:21 UTC",
+      "title": "Make catalog chrome captures opt-in only.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42692182595",
+      "error": "Tests failed for tests/Merglyph.Core.Tests/Merglyph.Core.Tests.csproj"
+    },
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:18 UTC",
+      "title": "Prefer LibraryReference for Novolis.Raylib so forest restores skip Gi\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42691747498",
+      "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-avalonia",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:13 UTC",
+      "title": "Fix speech provider selection state after Azure setup intent.",
+      "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42690837299",
+      "error": "\u0027VoiceSettings\u0027 does not contain a definition for \u0027ToEdgeTtsOptions\u0027 and no accessible extension method \u0027ToEdgeTtsOptions\u0027 accepting a first argument of type \u0027VoiceSettings\u0027 could \u2026"
+    },
+    {
+      "repo": "novolis-tools",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 19:38 UTC",
+      "title": "Default manuscript audio CLI to Edge Read Aloud.",
+      "url": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42685218771",
+      "error": "The type or namespace name \u0027EdgeTtsSynthesizer\u0027 could not be found (are you missing a using directive or an assembly reference?)"
+    },
+    {
+      "repo": "novolis-manuscript",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 19:37 UTC",
+      "title": "Restore EdgeTts synthesizer for manuscript audiobook export.",
+      "url": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/42685168790",
+      "error": "Process completed with exit code 2."
     },
     {
       "repo": "novolis-modeling",
@@ -341,14 +377,14 @@
     },
     {
       "name": "novolis-analyzers",
-      "packageCount": 6,
-      "gprVersion": "",
+      "packageCount": 7,
+      "gprVersion": "2026.1.1.46",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-analyzers/releases/tag/v2026.1.1.2",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/40148879643",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/42687762296",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-analyzers/actions/runs/36942752103"
     },
@@ -361,14 +397,14 @@
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42682171605",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42692182595",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
     {
       "name": "novolis-aspire",
       "packageCount": 1,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.30",
       "nugetVersion": "2026.1.1.30",
       "releaseTag": "",
       "releasePublished": "",
@@ -412,8 +448,8 @@
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42681109618",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42690837299",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -433,8 +469,8 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "",
-      "nugetVersion": "2026.1.0.48",
+      "gprVersion": "2026.1.0.49",
+      "nugetVersion": "2026.1.0.49",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -446,7 +482,7 @@
     {
       "name": "novolis-chat",
       "packageCount": 4,
-      "gprVersion": "",
+      "gprVersion": "2026.1.2.16",
       "nugetVersion": "2026.1.2.16",
       "releaseTag": "",
       "releasePublished": "",
@@ -459,7 +495,7 @@
     {
       "name": "novolis-civics",
       "packageCount": 4,
-      "gprVersion": "",
+      "gprVersion": "2026.1.0.25",
       "nugetVersion": "2026.1.0.25",
       "releaseTag": "",
       "releasePublished": "",
@@ -472,7 +508,7 @@
     {
       "name": "novolis-codegen",
       "packageCount": 8,
-      "gprVersion": "",
+      "gprVersion": "2026.1.2.53",
       "nugetVersion": "2026.1.2.53",
       "releaseTag": "",
       "releasePublished": "",
@@ -498,7 +534,7 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.47",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -576,7 +612,7 @@
     {
       "name": "novolis-inference",
       "packageCount": 7,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.6",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -589,7 +625,7 @@
     {
       "name": "novolis-inspection",
       "packageCount": 5,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.6",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -633,8 +669,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42683606128",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42691747498",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -654,7 +690,7 @@
     {
       "name": "novolis-logging",
       "packageCount": 8,
-      "gprVersion": "",
+      "gprVersion": "2026.1.6.34",
       "nugetVersion": "2026.1.6.34",
       "releaseTag": "",
       "releasePublished": "",
@@ -667,13 +703,13 @@
     {
       "name": "novolis-machinelearning",
       "packageCount": 8,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.46",
       "nugetVersion": "2026.1.1.46",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "",
-      "mergeUrl": "",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-machinelearning/actions/runs/39172779061",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -685,15 +721,15 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/39172783865",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-manuscript/actions/runs/42685168790",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-mapping",
       "packageCount": 1,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.12",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
@@ -771,7 +807,7 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.12",
+      "gprVersion": "2026.1.1.20",
       "nugetVersion": "2026.1.1.20",
       "releaseTag": "",
       "releasePublished": "",
@@ -784,7 +820,7 @@
     {
       "name": "novolis-msbuild",
       "packageCount": 5,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.22",
       "nugetVersion": "2026.1.1.22",
       "releaseTag": "",
       "releasePublished": "",
@@ -823,7 +859,7 @@
     {
       "name": "novolis-physics",
       "packageCount": 12,
-      "gprVersion": "2026.1.1.18",
+      "gprVersion": "2026.1.1.55",
       "nugetVersion": "2026.1.1.55",
       "releaseTag": "",
       "releasePublished": "",
@@ -862,20 +898,20 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.92",
-      "nugetVersion": "2026.1.1.92",
+      "gprVersion": "2026.1.1.95",
+      "nugetVersion": "2026.1.1.95",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42683599906",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42690558933",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-scheduling",
       "packageCount": 2,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.12",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
@@ -888,7 +924,7 @@
     {
       "name": "novolis-scripting",
       "packageCount": 3,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.6",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -901,15 +937,15 @@
     {
       "name": "novolis-security",
       "packageCount": 22,
-      "gprVersion": "2026.1.1.31",
+      "gprVersion": "2026.1.1.56",
       "nugetVersion": "2026.1.1.56",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-09-30 01:57 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-security/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/40148924667",
-      "releaseConclusion": "",
-      "releaseRunUrl": ""
+      "releaseConclusion": "failure",
+      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/36657530520"
     },
     {
       "name": "novolis-ship",
@@ -953,7 +989,7 @@
     {
       "name": "novolis-smoketest",
       "packageCount": 1,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.27",
       "nugetVersion": "2026.1.1.27",
       "releaseTag": "",
       "releasePublished": "",
@@ -1018,7 +1054,7 @@
     {
       "name": "novolis-time",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.10",
+      "gprVersion": "2026.1.1.18",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
@@ -1036,8 +1072,8 @@
       "releaseTag": "v2026.1.1.4",
       "releasePublished": "2026-10-01 23:58 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-tools/releases/tag/v2026.1.1.4",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/40143834764",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/42685218771",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-tools/actions/runs/36943583775"
     },
@@ -1096,7 +1132,7 @@
     {
       "name": "novolis-windows",
       "packageCount": 6,
-      "gprVersion": "",
+      "gprVersion": "2026.1.1.21",
       "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
