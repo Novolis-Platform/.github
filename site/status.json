@@ -1,12 +1,21 @@
 {
-  "generatedAt": "2026-11-09 21:31 UTC",
+  "generatedAt": "2026-11-09 21:40 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 55,
+  "mergeSuccesses": 54,
   "packageCount": 552,
-  "failedCount": 6,
+  "failedCount": 7,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 21:37 UTC",
+      "title": "Stop 1-spp strobe from idle drag and sticky orbit eventing.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42704327785",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-tools",
       "workflow": "merge.yml",
@@ -470,7 +479,7 @@
       "name": "novolis-cad",
       "packageCount": 9,
       "gprVersion": "2026.1.0.53",
-      "nugetVersion": "2026.1.0.52",
+      "nugetVersion": "2026.1.0.53",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -669,8 +678,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42702174081",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42704327785",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -898,13 +907,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.97",
+      "gprVersion": "2026.1.1.98",
       "nugetVersion": "2026.1.1.97",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42701962803",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42704320436",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -963,13 +972,13 @@
     {
       "name": "novolis-silk",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.26",
+      "gprVersion": "2026.1.1.27",
       "nugetVersion": "2026.1.1.26",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42701956089",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-silk/actions/runs/42704317185",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
