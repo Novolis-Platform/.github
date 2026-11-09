@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09 19:20 UTC",
+  "generatedAt": "2026-11-09 19:23 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 58,
@@ -8,6 +8,15 @@
   "releasedRepoCount": 1,
   "failures": [
     {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 19:19 UTC",
+      "title": "Improve ReadAloud chrome, status tones, and Azure error copy.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42682171605",
+      "error": "Tests failed for tests/ReadAloud.Unit/ReadAloud.Unit.csproj"
+    },
+    {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
@@ -15,15 +24,6 @@
       "title": "Raise Silk orbit preview to 6 spp for less noisy camera motion.",
       "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42681868030",
       "error": "Process completed with exit code 1."
-    },
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 19:12 UTC",
-      "title": "Fix shared mobile UX overflow and ship Presence/Merglyph polish.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42681117638",
-      "error": "Tests failed for tests/Merglyph.Core.Tests/Merglyph.Core.Tests.csproj"
     },
     {
       "repo": "novolis-modeling",
@@ -370,7 +370,7 @@
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42681117638",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42682171605",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
