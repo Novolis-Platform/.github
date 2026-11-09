@@ -1,20 +1,29 @@
 {
-  "generatedAt": "2026-11-09 19:03 UTC",
+  "generatedAt": "2026-11-09 19:20 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
+  "mergeSuccesses": 58,
   "packageCount": 551,
-  "failedCount": 2,
+  "failedCount": 3,
   "releasedRepoCount": 1,
   "failures": [
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-09 18:57 UTC",
-      "title": "Throttle Silk path-trace hosts: dirty blit, soft reset, orbit preview\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42678785170",
+      "when": "2026-11-09 19:17 UTC",
+      "title": "Raise Silk orbit preview to 6 spp for less noisy camera motion.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42681868030",
       "error": "Process completed with exit code 1."
+    },
+    {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-09 19:12 UTC",
+      "title": "Fix shared mobile UX overflow and ship Presence/Merglyph polish.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42681117638",
+      "error": "Tests failed for tests/Merglyph.Core.Tests/Merglyph.Core.Tests.csproj"
     },
     {
       "repo": "novolis-modeling",
@@ -360,8 +369,8 @@
       "releaseTag": "v2026.1.0.98",
       "releasePublished": "2026-10-28 00:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.98",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42280404494",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42681117638",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/40606320480"
     },
@@ -395,7 +404,7 @@
       "name": "novolis-audio",
       "packageCount": 45,
       "gprVersion": "2026.1.10.103",
-      "nugetVersion": "2026.1.10.102",
+      "nugetVersion": "2026.1.10.103",
       "releaseTag": "v2026.1.10",
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-audio/releases/tag/v2026.1.10",
@@ -407,13 +416,13 @@
     {
       "name": "novolis-avalonia",
       "packageCount": 45,
-      "gprVersion": "2026.1.6.252",
+      "gprVersion": "2026.1.6.253",
       "nugetVersion": "2026.1.6.252",
       "releaseTag": "0.1",
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42517095127",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42681109618",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -634,7 +643,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42678785170",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42681868030",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -732,13 +741,13 @@
     {
       "name": "novolis-maui",
       "packageCount": 12,
-      "gprVersion": "2026.1.1.71",
+      "gprVersion": "2026.1.1.72",
       "nugetVersion": "2026.1.1.71",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/42280411814",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-maui/actions/runs/42681101232",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -862,13 +871,13 @@
     {
       "name": "novolis-rendering",
       "packageCount": 20,
-      "gprVersion": "2026.1.1.90",
+      "gprVersion": "2026.1.1.91",
       "nugetVersion": "2026.1.1.90",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42678778969",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42681861417",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
