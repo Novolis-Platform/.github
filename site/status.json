@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09 20:33 UTC",
+  "generatedAt": "2026-11-09 20:35 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 56,
@@ -10,10 +10,10 @@
     {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
-      "conclusion": "cancelled",
-      "when": "2026-11-09 20:28 UTC",
-      "title": "Speed SilkTraceStudio restores: disable audit/SourceLink and pin Proj\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693264166",
+      "conclusion": "failure",
+      "when": "2026-11-09 20:32 UTC",
+      "title": "Document MSBuild node-reuse restore contention and disable node reuse\u2026",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693992210",
       "error": "Process completed with exit code 1."
     },
     {
@@ -466,7 +466,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42684550109",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42693891910",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -660,8 +660,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "cancelled",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693264166",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42693992210",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
