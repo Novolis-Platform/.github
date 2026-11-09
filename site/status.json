@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-09 19:31 UTC",
+  "generatedAt": "2026-11-09 19:36 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 59,
+  "mergeSuccesses": 58,
   "packageCount": 551,
   "failedCount": 2,
   "releasedRepoCount": 1,
@@ -342,7 +342,7 @@
     {
       "name": "novolis-analyzers",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.44",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.2",
       "releaseTag": "v2026.1.1.2",
       "releasePublished": "2026-10-01 23:48 UTC",
@@ -368,7 +368,7 @@
     {
       "name": "novolis-aspire",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.30",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.30",
       "releaseTag": "",
       "releasePublished": "",
@@ -433,20 +433,20 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.48",
+      "gprVersion": "",
       "nugetVersion": "2026.1.0.48",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42519378589",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42684550109",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
     {
       "name": "novolis-chat",
       "packageCount": 4,
-      "gprVersion": "2026.1.2.16",
+      "gprVersion": "",
       "nugetVersion": "2026.1.2.16",
       "releaseTag": "",
       "releasePublished": "",
@@ -459,7 +459,7 @@
     {
       "name": "novolis-civics",
       "packageCount": 4,
-      "gprVersion": "2026.1.0.25",
+      "gprVersion": "",
       "nugetVersion": "2026.1.0.25",
       "releaseTag": "",
       "releasePublished": "",
@@ -472,7 +472,7 @@
     {
       "name": "novolis-codegen",
       "packageCount": 8,
-      "gprVersion": "2026.1.2.53",
+      "gprVersion": "",
       "nugetVersion": "2026.1.2.53",
       "releaseTag": "",
       "releasePublished": "",
@@ -498,7 +498,7 @@
     {
       "name": "novolis-documents",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.47",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.47",
       "releaseTag": "",
       "releasePublished": "",
@@ -576,7 +576,7 @@
     {
       "name": "novolis-inference",
       "packageCount": 7,
-      "gprVersion": "2026.1.1.6",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -589,7 +589,7 @@
     {
       "name": "novolis-inspection",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.6",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -654,7 +654,7 @@
     {
       "name": "novolis-logging",
       "packageCount": 8,
-      "gprVersion": "2026.1.6.34",
+      "gprVersion": "",
       "nugetVersion": "2026.1.6.34",
       "releaseTag": "",
       "releasePublished": "",
@@ -667,13 +667,13 @@
     {
       "name": "novolis-machinelearning",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.46",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.46",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-machinelearning/actions/runs/39172779061",
+      "mergeConclusion": "",
+      "mergeUrl": "",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -693,7 +693,7 @@
     {
       "name": "novolis-mapping",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.12",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
@@ -771,7 +771,7 @@
     {
       "name": "novolis-modeling",
       "packageCount": 4,
-      "gprVersion": "2026.1.1.20",
+      "gprVersion": "2026.1.1.12",
       "nugetVersion": "2026.1.1.20",
       "releaseTag": "",
       "releasePublished": "",
@@ -784,7 +784,7 @@
     {
       "name": "novolis-msbuild",
       "packageCount": 5,
-      "gprVersion": "2026.1.1.22",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.22",
       "releaseTag": "",
       "releasePublished": "",
@@ -823,7 +823,7 @@
     {
       "name": "novolis-physics",
       "packageCount": 12,
-      "gprVersion": "2026.1.1.55",
+      "gprVersion": "2026.1.1.18",
       "nugetVersion": "2026.1.1.55",
       "releaseTag": "",
       "releasePublished": "",
@@ -863,7 +863,7 @@
       "name": "novolis-rendering",
       "packageCount": 20,
       "gprVersion": "2026.1.1.92",
-      "nugetVersion": "2026.1.1.91",
+      "nugetVersion": "2026.1.1.92",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
@@ -875,7 +875,7 @@
     {
       "name": "novolis-scheduling",
       "packageCount": 2,
-      "gprVersion": "2026.1.1.12",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.12",
       "releaseTag": "",
       "releasePublished": "",
@@ -888,7 +888,7 @@
     {
       "name": "novolis-scripting",
       "packageCount": 3,
-      "gprVersion": "2026.1.1.6",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.6",
       "releaseTag": "",
       "releasePublished": "",
@@ -901,15 +901,15 @@
     {
       "name": "novolis-security",
       "packageCount": 22,
-      "gprVersion": "2026.1.1.56",
+      "gprVersion": "2026.1.1.31",
       "nugetVersion": "2026.1.1.56",
       "releaseTag": "v2026.1.1",
       "releasePublished": "2026-09-30 01:57 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-security/releases/tag/v2026.1.1",
       "mergeConclusion": "success",
       "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/40148924667",
-      "releaseConclusion": "failure",
-      "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/36657530520"
+      "releaseConclusion": "",
+      "releaseRunUrl": ""
     },
     {
       "name": "novolis-ship",
@@ -953,7 +953,7 @@
     {
       "name": "novolis-smoketest",
       "packageCount": 1,
-      "gprVersion": "2026.1.1.27",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.27",
       "releaseTag": "",
       "releasePublished": "",
@@ -1018,7 +1018,7 @@
     {
       "name": "novolis-time",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.18",
+      "gprVersion": "2026.1.1.10",
       "nugetVersion": "2026.1.1.18",
       "releaseTag": "",
       "releasePublished": "",
@@ -1096,7 +1096,7 @@
     {
       "name": "novolis-windows",
       "packageCount": 6,
-      "gprVersion": "2026.1.1.21",
+      "gprVersion": "",
       "nugetVersion": "2026.1.1.21",
       "releaseTag": "",
       "releasePublished": "",
