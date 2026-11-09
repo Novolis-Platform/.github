@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09 19:01 UTC",
+  "generatedAt": "2026-11-09 19:03 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 59,
@@ -400,7 +400,7 @@
       "releasePublished": "2026-07-28 19:30 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-audio/releases/tag/v2026.1.10",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/42426405054",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/42678633586",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-audio/actions/runs/30392209335"
     },
@@ -863,7 +863,7 @@
       "name": "novolis-rendering",
       "packageCount": 20,
       "gprVersion": "2026.1.1.90",
-      "nugetVersion": "2026.1.1.89",
+      "nugetVersion": "2026.1.1.90",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
