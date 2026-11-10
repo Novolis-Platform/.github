@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-11-10 17:14 UTC",
+  "generatedAt": "2026-11-10 17:16 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 56,
+  "mergeSuccesses": 57,
   "packageCount": 552,
-  "failedCount": 5,
+  "failedCount": 4,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-10 17:09 UTC",
-      "title": "Apply mild denoise on SilkTraceStudio headless PNGs under 192 spp.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42862061288",
-      "error": "Process completed with exit code 1."
-    },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
@@ -388,7 +379,7 @@
       "releasePublished": "2026-11-10 06:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.102",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42861787893",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42862457792",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42765968116"
     },
@@ -466,7 +457,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42861275200",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42862649442",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -660,8 +651,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42862061288",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42862653771",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
