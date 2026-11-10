@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 14:49 UTC",
+  "generatedAt": "2026-11-10 16:16 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 56,
@@ -11,18 +11,18 @@
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 06:02 UTC",
-      "title": "Raise still accumulate to 64 spp and refresh diorama after NEE fix.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765853227",
+      "when": "2026-11-10 16:14 UTC",
+      "title": "Show blitHz and spp/s in SilkTraceStudio title, not fake host FPS.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42852457472",
       "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 06:02 UTC",
-      "title": "Fix emissive NEE shadow self-hits and raise bounce/sample budgets.",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765849920",
+      "when": "2026-11-10 16:14 UTC",
+      "title": "Report blitHz instead of uncapped host spin as path-trace FPS.",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42852454774",
       "error": "Process completed with exit code 2."
     },
     {
@@ -661,7 +661,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765853227",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42852457472",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -895,7 +895,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765849920",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42852454774",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
