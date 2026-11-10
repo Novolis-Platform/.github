@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 05:09 UTC",
+  "generatedAt": "2026-11-10 05:10 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 55,
@@ -8,6 +8,15 @@
   "releasedRepoCount": 1,
   "failures": [
     {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-10 05:06 UTC",
+      "title": "Give SilkTrace orbit more samples and uncapped FPS.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42760053281",
+      "error": "Process completed with exit code 1."
+    },
+    {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
       "conclusion": "failure",
@@ -15,15 +24,6 @@
       "title": "Raise moving preview bounce depth to 3 for cleaner drag frames.",
       "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42760049140",
       "error": "Argument 2: cannot convert from \u0027method group\u0027 to \u0027System.Action\u003CILGPU.Index1D, int, int, int, Novolis.Rendering.Backends.Igpu.IlgpuCameraParams, ILGPU.ArrayView\u003CNovolis.Rendering.\u2026"
-    },
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 21:50 UTC",
-      "title": "Drop SilkTrace moving trace to 320x180 for DMA-bound orbit.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42706214610",
-      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-tools",
@@ -670,7 +670,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42706214610",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42760053281",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
