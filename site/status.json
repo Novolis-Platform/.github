@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 05:10 UTC",
+  "generatedAt": "2026-11-10 05:18 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 55,
@@ -8,21 +8,30 @@
   "releasedRepoCount": 1,
   "failures": [
     {
+      "repo": "novolis-security",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-10 05:16 UTC",
+      "title": "Add Enrollment invite tokens and Subjects login packages.",
+      "url": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42761068029",
+      "error": "Process completed with exit code 1."
+    },
+    {
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 05:06 UTC",
-      "title": "Give SilkTrace orbit more samples and uncapped FPS.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42760053281",
+      "when": "2026-11-10 05:15 UTC",
+      "title": "Drive orbit with latest-pose previews, not accumulate buckets.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42761031552",
       "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 05:06 UTC",
-      "title": "Raise moving preview bounce depth to 3 for cleaner drag frames.",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42760049140",
+      "when": "2026-11-10 05:15 UTC",
+      "title": "Cancel accumulate when a moving pose arrives.",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42761027099",
       "error": "Argument 2: cannot convert from \u0027method group\u0027 to \u0027System.Action\u003CILGPU.Index1D, int, int, int, Novolis.Rendering.Backends.Igpu.IlgpuCameraParams, ILGPU.ArrayView\u003CNovolis.Rendering.\u2026"
     },
     {
@@ -42,15 +51,6 @@
       "title": "Sharpen Sudoku UX captures and keep the phone board compact.",
       "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42694700991",
       "error": "Build failed for src/BooksWriterStudio/BooksWriterStudio.Linux.slnx"
-    },
-    {
-      "repo": "novolis-security",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-09 20:34 UTC",
-      "title": "Add Novolis.Security.Authentication.Entra for interactive Microsoft s\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42694331668",
-      "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-modeling",
@@ -670,7 +670,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42760053281",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42761031552",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -846,13 +846,13 @@
     {
       "name": "novolis-pdf",
       "packageCount": 8,
-      "gprVersion": "2026.1.1.25",
+      "gprVersion": "2026.1.1.26",
       "nugetVersion": "2026.1.1.25",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/42293444089",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-pdf/actions/runs/42761013642",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -904,7 +904,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42760049140",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42761027099",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -943,7 +943,7 @@
       "releasePublished": "2026-09-30 01:57 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-security/releases/tag/v2026.1.1",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42694331668",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/42761068029",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-security/actions/runs/36657530520"
     },
@@ -964,7 +964,7 @@
       "name": "novolis-silk",
       "packageCount": 5,
       "gprVersion": "2026.1.1.29",
-      "nugetVersion": "2026.1.1.28",
+      "nugetVersion": "2026.1.1.29",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
