@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 21:13 UTC",
+  "generatedAt": "2026-11-10 21:15 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 55,
@@ -8,6 +8,15 @@
   "releasedRepoCount": 1,
   "failures": [
     {
+      "repo": "novolis-apps",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-10 21:09 UTC",
+      "title": "Fix Read Aloud Azure cascade freeze and Merglyph Android open/save.",
+      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42902312859",
+      "error": "Tests failed for tests/ReadAloud.Unit/ReadAloud.Unit.csproj"
+    },
+    {
       "repo": "novolis-avalonia",
       "workflow": "merge.yml",
       "conclusion": "failure",
@@ -15,15 +24,6 @@
       "title": "Keep Azure Speech setup pickers selectable during ARM lookups.",
       "url": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42902317745",
       "error": "\u0027MaterialPresets\u0027 does not contain a definition for \u0027Showcase\u0027"
-    },
-    {
-      "repo": "novolis-apps",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-10 18:01 UTC",
-      "title": "Keep Read Aloud Azure sign-in UI updates on the UI thread.",
-      "url": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42870835140",
-      "error": "Tests failed for tests/ReadAloud.Unit/ReadAloud.Unit.csproj"
     },
     {
       "repo": "novolis-rendering",
@@ -397,7 +397,7 @@
       "releasePublished": "2026-11-10 06:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.102",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42870835140",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42902312859",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42765968116"
     },
