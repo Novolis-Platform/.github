@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 06:03 UTC",
+  "generatedAt": "2026-11-10 06:05 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 56,
@@ -11,18 +11,18 @@
       "repo": "novolis-lab",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 05:54 UTC",
-      "title": "Accumulate 48 spp per still batch and refresh Materials diorama still.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765040650",
+      "when": "2026-11-10 06:02 UTC",
+      "title": "Raise still accumulate to 64 spp and refresh diorama after NEE fix.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765853227",
       "error": "Process completed with exit code 1."
     },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 05:54 UTC",
-      "title": "Make MaterialPresets.Showcase the path-trace capability catalog and f\u2026",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765037068",
+      "when": "2026-11-10 06:02 UTC",
+      "title": "Fix emissive NEE shadow self-hits and raise bounce/sample budgets.",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765849920",
       "error": "Process completed with exit code 2."
     },
     {
@@ -440,7 +440,7 @@
       "releasePublished": "2026-06-06 21:55 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-avalonia/releases/tag/0.1",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42765150691",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/42765579683",
       "releaseConclusion": "failure",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-avalonia/actions/runs/27074945506"
     },
@@ -466,7 +466,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42702168044",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42765770229",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -661,7 +661,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765040650",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42765853227",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -895,7 +895,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765037068",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42765849920",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
