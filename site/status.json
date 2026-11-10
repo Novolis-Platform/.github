@@ -1,21 +1,12 @@
 {
-  "generatedAt": "2026-11-10 16:21 UTC",
+  "generatedAt": "2026-11-10 16:34 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 56,
+  "mergeSuccesses": 57,
   "packageCount": 552,
-  "failedCount": 5,
+  "failedCount": 4,
   "releasedRepoCount": 1,
   "failures": [
-    {
-      "repo": "novolis-lab",
-      "workflow": "merge.yml",
-      "conclusion": "failure",
-      "when": "2026-11-10 16:14 UTC",
-      "title": "Show blitHz and spp/s in SilkTraceStudio title, not fake host FPS.",
-      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42852457472",
-      "error": "Process completed with exit code 1."
-    },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
@@ -460,13 +451,13 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.55",
-      "nugetVersion": "2026.1.0.54",
+      "gprVersion": "2026.1.0.56",
+      "nugetVersion": "2026.1.0.55",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42853166329",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42855385343",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -660,8 +651,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42852457472",
+      "mergeConclusion": "success",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42855447057",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
