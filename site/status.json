@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 17:17 UTC",
+  "generatedAt": "2026-11-10 17:36 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 57,
@@ -379,7 +379,7 @@
       "releasePublished": "2026-11-10 06:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.102",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42862457792",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42865929748",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42765968116"
     },
@@ -452,7 +452,7 @@
       "name": "novolis-cad",
       "packageCount": 9,
       "gprVersion": "2026.1.0.59",
-      "nugetVersion": "2026.1.0.58",
+      "nugetVersion": "2026.1.0.59",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
