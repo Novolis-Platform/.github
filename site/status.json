@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10 17:12 UTC",
+  "generatedAt": "2026-11-10 17:14 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
   "mergeSuccesses": 56,
@@ -460,8 +460,8 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.58",
-      "nugetVersion": "2026.1.0.57",
+      "gprVersion": "2026.1.0.59",
+      "nugetVersion": "2026.1.0.58",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
