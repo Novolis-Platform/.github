@@ -1,19 +1,28 @@
 {
-  "generatedAt": "2026-11-10 16:34 UTC",
+  "generatedAt": "2026-11-10 17:12 UTC",
   "org": "Novolis-Platform",
   "repoCount": 65,
-  "mergeSuccesses": 57,
+  "mergeSuccesses": 56,
   "packageCount": 552,
-  "failedCount": 4,
+  "failedCount": 5,
   "releasedRepoCount": 1,
   "failures": [
+    {
+      "repo": "novolis-lab",
+      "workflow": "merge.yml",
+      "conclusion": "failure",
+      "when": "2026-11-10 17:09 UTC",
+      "title": "Apply mild denoise on SilkTraceStudio headless PNGs under 192 spp.",
+      "url": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42862061288",
+      "error": "Process completed with exit code 1."
+    },
     {
       "repo": "novolis-rendering",
       "workflow": "merge.yml",
       "conclusion": "failure",
-      "when": "2026-11-10 16:14 UTC",
-      "title": "Report blitHz instead of uncapped host spin as path-trace FPS.",
-      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42852454774",
+      "when": "2026-11-10 17:09 UTC",
+      "title": "Reduce interactive path-trace grain with better NEE and mild denoise.",
+      "url": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42862059435",
       "error": "Process completed with exit code 2."
     },
     {
@@ -379,7 +388,7 @@
       "releasePublished": "2026-11-10 06:10 UTC",
       "releaseUrl": "https://github.com/Novolis-Platform/novolis-apps/releases/tag/v2026.1.0.102",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42765840098",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42861787893",
       "releaseConclusion": "success",
       "releaseRunUrl": "https://github.com/Novolis-Platform/novolis-apps/actions/runs/42765968116"
     },
@@ -451,13 +460,13 @@
     {
       "name": "novolis-cad",
       "packageCount": 9,
-      "gprVersion": "2026.1.0.56",
-      "nugetVersion": "2026.1.0.55",
+      "gprVersion": "2026.1.0.58",
+      "nugetVersion": "2026.1.0.57",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42855385343",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-cad/actions/runs/42861275200",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -633,13 +642,13 @@
     {
       "name": "novolis-io",
       "packageCount": 16,
-      "gprVersion": "2026.1.1.70",
+      "gprVersion": "2026.1.1.71",
       "nugetVersion": "2026.1.1.70",
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/40148905336",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-io/actions/runs/42861783518",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -651,8 +660,8 @@
       "releaseTag": "",
       "releasePublished": "",
       "releaseUrl": "",
-      "mergeConclusion": "success",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42855447057",
+      "mergeConclusion": "failure",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-lab/actions/runs/42862061288",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
@@ -886,7 +895,7 @@
       "releasePublished": "",
       "releaseUrl": "",
       "mergeConclusion": "failure",
-      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42852454774",
+      "mergeUrl": "https://github.com/Novolis-Platform/novolis-rendering/actions/runs/42862059435",
       "releaseConclusion": "",
       "releaseRunUrl": ""
     },
